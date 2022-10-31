@@ -47,7 +47,7 @@ LANGJSON = {};
 function changeLanguage(lang) {
 	$.ajax({
 		type: "get",
-		url: "/lang/" + lang + ".json",
+		url: "/solarmonitor.github.io/lang/" + lang + ".json",
 		async: false,
 		success: function(data, status) {
 			LANGJSON = data.string
