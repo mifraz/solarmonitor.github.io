@@ -417,8 +417,9 @@
 	]
 	var jsStr = ""
 	for(var i = 0; i < jsArr.length; i++) {
-		jsStr += "<script type='text/javascript' src='https://www.shinemonitor.com/&quot;&#32;+&#32;jsArr[i]&#32;+&#32;&quot;?&quot;&#32;+&#32;VERSION&#32;+&#32;&quot;'><\/script>"
+		jsStr += "<script type='text/javascript' src='https://www.shinemonitor.com/" + jsArr[i] + "?" + VERSION + "'><\/script>"
 	}
+	console.log(jsStr);
 	//document.write()缺陷，文档流关闭后，再加载脚本会使页面空白，动态加载的js也会阻止页面渲染，因为不建议在此放过多js
 	document.open()
 	document.write(jsStr);
