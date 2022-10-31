@@ -406,7 +406,7 @@ function roleFwrd(dat) {
 	var hostname = window.document.location.hostname
 	//if((hostname=="epc.shinemonitor.com")||(hostname=="jbh.shinemonitor.com") ||(hostname=="moso.shinemonitor.com")||(hostname=="aiduopv.shinemonitor.com")||(hostname=="sofar.shinemonitor.com")||(hostname=="litto.shinemonitor.com")||(hostname=="wjyg.shinemonitor.com")){
 	if (dat.role == 0 || dat.role == 5 || dat.role == 3)
-		window.location.href = "/main.html";
+		window.location.href = "/solarmonitor.github.io/main.html";
 	else if (dat.role == 1 || dat.role == 2)
 		window.location.href = "/managesystemnew/index.html"; // window.location.href	= "/vendor/main.html";		
 	//	else if (dat.role == 2)
@@ -3053,12 +3053,12 @@ function http_async_request_openWindow(action, name, pid) {
 				var index = storage_get().accounts.length - 1
 				if (pid == "" || pid == undefined) {
 					if (dat.role === 0 || dat.role === 5 || dat.role === 3) {
-						newOpenWindow("/main.html?" + (new Date().getTime()) + "&index=" + index);
+						newOpenWindow("/solarmonitor.github.io/main.html?" + (new Date().getTime()) + "&index=" + index);
 					} else if (dat.role == 1 || dat.role == 2) {
 						newOpenWindow("/managesystemnew/index.html?" + (new Date().getTime()) + "&index=" + index);
 					}
 				} else {
-					newOpenWindow("/main.html?forwardplantid=" + pid + "&index=" + index);
+					newOpenWindow("/solarmonitor.github.io/main.html?forwardplantid=" + pid + "&index=" + index);
 				}
 			} else {
 				alert(getErrorCodeDesc2(GET_ERR_DESC,"err"+err));

@@ -444,7 +444,7 @@ function roleFwrd(dat, index) {
 	var hostname = window.document.location.hostname
 
 	if(dat.role === 0 || dat.role === 5 || dat.role === 3)
-		window.location.href = "/main.html?" + (new Date().getTime()) + "&index=" + index;
+		window.location.href = "/solarmonitor.github.io/main.html?" + (new Date().getTime()) + "&index=" + index;
 	else if(dat.role == 1 || dat.role == 2)
 		window.location.href = "/managesystemnew/index.html?" + (new Date().getTime()) + "&index=" + index;
 	else if(dat.role == 15)
