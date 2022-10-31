@@ -83,7 +83,7 @@
 								<div>
 									<div>
 											<i class="shineicon icon-jinkuai"></i>
-										<!--<img id="profit" class="stats-img" src="/assets/images/menu/profit.png" alt="收益">-->
+										<!--<img id="profit" class="stats-img" src="./assets/images/menu/profit.png" alt="收益">-->
 									</div>
 									<span lang="plants_gain">收益
 									</span>
@@ -241,9 +241,9 @@
 	$(document).ready(function()
 	{
 		if(storage_i18n_get_id()==3){
-			$("#profit").attr("src","/assets/images/menu/R$.png")
+			$("#profit").attr("src","./assets/images/menu/R$.png")
 		}else{
-			$("#profit").attr("src","/assets/images/menu/profit.png")
+			$("#profit").attr("src","./assets/images/menu/profit.png")
 		}
 		checkUserCurLang();
 		loadStatistics();
@@ -266,7 +266,7 @@
 	function plantStatusLoading()
 	{	
 		for(var i = 0; i < 8; i++) {
-			$("<img src='/assets/vendor/showLoading/images/482.gif' style='width:30px;'/>").appendTo($("#stats" + (i < 10 ? "0" + i : i)))
+			$("<img src='./assets/vendor/showLoading/images/482.gif' style='width:30px;'/>").appendTo($("#stats" + (i < 10 ? "0" + i : i)))
 		}
 	}
 	//loading动画停止
@@ -394,31 +394,31 @@
 		var typeImg, typeDesc;
 		if(type == "col")
 		{
-			typeImg = "/assets/images/bigCollector.png";
+			typeImg = "./assets/images/bigCollector.png";
 			typeDesc = getMultiLangError("dev_col");
 		}else if(type == DEVICE_TYPE_INVERTER)
 		{	
-			typeImg = "/assets/images/bigInverter.png";
+			typeImg = "./assets/images/bigInverter.png";
 			typeDesc = getMultiLangError("dev_inv");
 		}else if(type == DEVICE_TYPE_ENV_MONITOR)
 		{
-			typeImg = "/assets/images/bigMonitor.png";
+			typeImg = "./assets/images/bigMonitor.png";
 			typeDesc = getMultiLangError("dev_env");
 		}else if(type == DEVICE_TYPE_SUPPLY_METER)
 		{
-			typeImg = "/assets/images/bigMeter.png";
+			typeImg = "./assets/images/bigMeter.png";
 			typeDesc = getMultiLangError("dev_meter");
 		}else if(type == DEVICE_TYPE_COMBINER_BOX)
 		{
-			typeImg = "/assets/images/bigBox.png";
+			typeImg = "./assets/images/bigBox.png";
 			typeDesc = getMultiLangError("dev_box");
 		}else if(type == DEVICE_TYPE_BATTERY)
 		{
-			typeImg = "/assets/images/bigBattery.png";
+			typeImg = "./assets/images/bigBattery.png";
 			typeDesc = getMultiLangError("dev_battery");
 		}else if(type == DEVICE_TYPE_CHARGER)
 		{
-			typeImg = "/assets/images/bigCharger.png";
+			typeImg = "./assets/images/bigCharger.png";
 			typeDesc = getMultiLangError("dev_charger");
 		}else if(type == DEVICE_TYPE_CONTROLLER)
 		{
@@ -427,7 +427,7 @@
 					}else{	
 						typeDesc = getMultiLangError("dev_controller");
 					}
-			typeImg = "/assets/images/bigController.png";
+			typeImg = "./assets/images/bigController.png";
 			
 		}else if(type == DEVICE_TYPE_ANTI_ISLANDING)
 		{
@@ -458,27 +458,27 @@
 		if(status == 0)
 		{
 			//在线
-			imgUrl = "/assets/images/menu/green.png";
+			imgUrl = "./assets/images/menu/green.png";
 			statusDesc = getMultiLangError("status_normal");
 		}else if(status == 1)
 		{
 			//离线
-			imgUrl = "/assets/images/menu/gray.png";
+			imgUrl = "./assets/images/menu/gray.png";
 			statusDesc = getMultiLangError("status_offline");
 		}else if(status == 2)
 		{
 			//故障
-			imgUrl = "/assets/images/menu/red.png";
+			imgUrl = "./assets/images/menu/red.png";
 			statusDesc = getMultiLangError("stauts_fault");
 		}else if(status == 3)
 		{
 			//待机
-			imgUrl = "/assets/images/menu/blue.png";
+			imgUrl = "./assets/images/menu/blue.png";
 			statusDesc = getMultiLangError("status_standby");
 		}else if(status == 4)
 		{
 			//告警
-			imgUrl = "/assets/images/menu/orange.png";
+			imgUrl = "./assets/images/menu/orange.png";
 			statusDesc = getMultiLangError("status_warn");
 		}
 		var html = "<div class='basic_box_bottom'>" + "<img src='" + imgUrl + "' class='basic_box_image'>" + "<span class='basic_box_ct'>" + 

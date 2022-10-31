@@ -204,7 +204,7 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-		        		<span aria-hidden="true">�
+		        		<span aria-hidden="true">�
 		        		</span>
 		        </button>
 				<h4 class="modal-title" lang="horizont_alanalyse">横向分析</h4>
@@ -252,7 +252,7 @@
 	var chart
 	require.config({
 		paths: {
-			g2: '/js/g2.min'
+			g2: './js/g2.min'
 		}
 	});
 	require(['g2'],
@@ -605,7 +605,7 @@
 				}
 			],
 			"language": {
-				"url": "/assets/vendor/jquery-datatables/media/js/language" + storage_i18n_get_id() + ".json"
+				"url": "./assets/vendor/jquery-datatables/media/js/language" + storage_i18n_get_id() + ".json"
 			},
 			initComplete: function() {
 				ANA_CHOOSE_FIELD = "output_power";
@@ -667,7 +667,7 @@
 				}
 			],
 			"language": {
-				"url": "/assets/vendor/jquery-datatables/media/js/language" + storage_i18n_get_id() + ".json"
+				"url": "./assets/vendor/jquery-datatables/media/js/language" + storage_i18n_get_id() + ".json"
 			},
 			initComplete: function() {
 				ANA_CHOOSE_FIELD = "output_power";
