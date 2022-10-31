@@ -1,0 +1,456 @@
+
+<!-- saved from url=(0045)https://www.shinemonitor.com/plant/plant.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="./plant_files/weather.css">
+
+<!-- ===============================================================================天气====================================== -->
+<!--<div class="PerWeather">
+	<div class="weather">
+		<div class="location">
+			<b></b>
+			<a href="javascript:void(0);" class="qiehuan"></a>
+			<ul class="changeLocation">
+				<li><input type="text" class="country" value="中国" onFocus="if(value=='中国'){value=''}" onBlur="if(value==''){value='中国'}"
+					/></li>
+				<li><input type="text" class="prov" value="广东省" onFocus="if(value=='广东省'){value=''}" onBlur="if(value==''){value='广东省'}"
+					/></li>
+				<li><input type="text" class="city" value="广州" onFocus="if(value=='广州'){value=''}" onBlur="if(value==''){value='广州'}" /></li>
+				<li class="goback"><span class="Sure">确定</span><span class="cancle">取消</span></li>
+			</ul>
+		</div>
+		<ul class="wul"></ul>
+	</div>
+</div>-->
+<!-- ===============================================================================天气end====================================== -->
+
+
+</head><body><div class="row plantContainer">
+	<div class="col-md-12">
+		<div class="tabs">
+			<ul class="nav nav-tabs" id="plantTab">
+				<li class="active">
+					<a href="https://www.shinemonitor.com/plant/plant.html#plantBasic" data-toggle="tab" onclick="go2BasicTab()" lang="plant_basic">
+						<!--电站概况-->
+					</a>
+				</li>
+				<li>
+					<a href="https://www.shinemonitor.com/plant/plant.html#plantPower" data-toggle="tab" onclick="go2PowerTab()" lang="plant_power">
+						<!--发电情况-->
+					</a>
+				</li>
+				<li>
+					<a href="https://www.shinemonitor.com/plant/plant.html#plantDevice" data-toggle="tab" onclick="go2DeviceTab()" lang="plant_device">
+						<!--设备管理-->
+					</a>
+				</li>
+				<li>
+					<a href="https://www.shinemonitor.com/plant/plant.html#plantAlarm" data-toggle="tab" onclick="go2AlarmTab()" lang="plant_alarm">
+						<!--告警事件-->
+					</a>
+				</li>
+				<!-- <li>
+					<a href="#plantmodification" data-toggle="tab" onclick="go2modification()" lang="Electricitycorrection"> -->
+						<!--偏移量修改-->
+					<!-- </a>
+				</li> -->
+				<li>
+					<a href="https://www.shinemonitor.com/plant/plant.html#plantInfo" data-toggle="tab" onclick="go2InfoTab()" lang="plant_info">
+						<!--电站信息-->
+					</a>
+				</li>
+				<li id="plantAnalyseBox">
+					<a href="https://www.shinemonitor.com/plant/plant.html#plantAnalyse" data-toggle="tab" onclick="go2AnalyseTab()" lang="plant_ana">
+					<!--电站分析-->
+					</a>
+				</li>
+
+				<li id="plantVideoTag">
+					<a href="https://www.shinemonitor.com/plant/plant.html#plantVideo" data-toggle="tab" onclick="go2VideoTab()" lang="video_total">
+						<!--视频监控-->
+					</a>
+				</li>
+				<li id="plantGroupTag">
+					<a href="https://www.shinemonitor.com/plant/plant.html#plantGroup" data-toggle="tab" onclick="go2GroupTab()" lang="Group_total">
+						<!--组串分析-->
+					</a>
+				</li>
+
+				<li style="display:none">
+					<a href="https://www.shinemonitor.com/plant/plant.html#plantVideoInter" data-toggle="tab" onclick="go2VideoInter()" lang="video_total">
+						<!--视频监控布局-->
+					</a>
+				</li>
+				<li style="display:none">
+					<a href="https://www.shinemonitor.com/plant/plant.html#pvcurve" data-toggle="tab" onclick="go2Pvcurve()" lang="">方阵分析</a>
+				</li>
+				<li id="operationTag">
+					<a href="https://www.shinemonitor.com/plant/plant.html#operation" data-toggle="tab" onclick="go2Operation()">
+						电站运维
+					</a>
+				</li>
+				<li id="energyEfficiencyTag" style="display: none;">
+					<a href="https://www.shinemonitor.com/plant/plant.html#energyEfficiency" data-toggle="tab" lang="Energy_efficiency_data" onclick="go2energyEfficiency()">
+						能效数据
+					</a>
+				</li>
+			</ul>
+			<div class="tab-content plantBg">
+				<!--电站概况 -->
+				<div id="plantBasic" class="tab-pane active">
+					
+				</div>
+
+				<!--发电情况-->
+				<div id="plantPower" class="tab-pane">
+
+				</div>
+
+				<!-- 设备管理 -->
+				<div id="plantDevice" class="tab-pane">
+
+				</div>
+
+				<!-- 告警事件 -->
+				<div id="plantAlarm" class="tab-pane">
+
+				</div>
+
+				<!-- 电站信息 -->
+				<div id="plantInfo" class="tab-pane">
+					<!--电站信息-->
+					
+				</div>
+				<!-- 偏移量 -->
+				<div id="plantmodification" class="tab-pane">
+					<!--电站信息-->
+					
+				</div>
+				<!-- 电站分析 -->
+				<div id="plantAnalyse" class="tab-pane">
+
+				</div>
+
+				<!-- 视频监控 -->
+				<div id="plantVideo" class="tab-pane">
+
+				</div>
+				<!--组窜分析-->
+				<div id="plantGroup" class="tab-pane">
+					
+				</div>
+				<!-- 视频监控测试 -->
+				<div id="plantVideoInter" class="tab-pane">
+
+				</div>
+				<!-- 方阵分析 -->
+				<div id="pvcurve" class="tab-pane">
+
+				</div>
+				<!--电站运维-->
+				<div id="operation" class="tab-pane">
+					
+				</div>
+				<!--能效数据-->
+				<div id="energyEfficiency" class="tab-pane">
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<script type="text/javascript">	
+		HAIKANG = false
+		MAIN_SELECTED_DEVICE_SN_IV = null
+		MAIN_SELECTED_DEVICE_SN_IV_GO2ANALYSE = null
+		$(document).ready(function()
+		{
+			if(window.document.location.hostname == "ess.shinemonitor.com"){
+				$("#plantAnalyseBox,#operationTag").hide()
+			}
+			// ksolare：PR和CR在该域名下全部展示(去&& storage_get_current_usr().usr == 'IOCL Tendor')
+			if(window.document.location.hostname == "ksolare.shinemonitor.com"){
+				// $("#energyEfficiencyTag").show();
+				$("#energyEfficiencyTag").css("display","inline-block");
+			}
+			
+//			history.pushState({}, "", "main.html")  重置url
+			http_async_request_public(encodeURI("&action=queryPlantCamera&plantid="+MAIN_CHOOSE_PLANT_ID),function(err,dat){
+				if(err==0){
+					if(dat.camera.length>0){
+						for(var i=0;i<dat.camera.length;i++){
+							if(dat.camera[i].type == 0)
+							HAIKANG = true;
+						}
+						$("#plantVideoTag").removeClass("hidden");
+					
+					}else if(dat==undefined){
+						$("#plantVideoTag").addClass("hidden");
+						console.log("错误码："+err)
+					}else{
+						$("#plantVideoTag").addClass("hidden");
+						console.log("无摄像头")
+					}
+				}else{
+					$("#plantVideoTag").addClass("hidden");
+					console.log("查询摄像头信息："+err)
+				}
+				
+			})
+			checkUserCurLang();
+			loadHtml("plantBasic", "/plant/plantBasic.html");
+//			获取天气
+//			setTimeout(function () {
+//  			GetPlantWeather();
+// 			 }, 200);
+			if(storage_i18n_get_id()!=0){
+				$("#operationTag").hide()
+			}
+			// changeCity();
+			// 如果是用vplantxxx登录,则视频监控可见,否则不可见
+			if(testChoiceOfVideo())
+			{
+				
+				$("#plantGroupTag").removeClass("hidden");				
+			}	
+			else
+			{
+				
+				$("#plantGroupTag").addClass("hidden");
+			}				
+		});
+
+		function go2BasicTab()
+		{
+			loadHtml("plantBasic", "/plant/plantBasic.html");	
+		}
+		
+		function go2PowerTab()
+		{
+			loadHtml("plantPower", "/plant/plantPower.html");
+		}
+
+		function go2DeviceTab()
+		{
+			loadHtml("plantDevice", "/plant/plantDevice.html");
+			
+		}
+
+		function go2InfoTab()
+		{
+			loadHtml("plantInfo", "/plant/plantInfo.html");
+		}
+		// function go2modification(){
+		// 	loadHtml("plantmodification", "/plant/plantmodification.html");
+		// }
+		function go2AlarmTab()
+		{
+			loadHtml("plantAlarm", "/plant/plantAlarm.html");
+		}
+
+		function go2AnalyseTab()
+		{
+			loadHtml("plantAnalyse", "/plant/plantAnalyse.html");
+		}
+
+		function go2VideoTab()
+		{
+//			var str = "<iframe frameborder='0' scrolling='no' src=" + "/plant/plantVideo.html" + "?pid=" + MAIN_CHOOSE_PLANT_ID  + " style='width: 100%; height: 100%;' id='videoIframe' '><param name='wmode' value='transparent'> </iframe>";
+//			$("#plantVideo").html(str);	
+			loadHtml("plantVideo", "/plant/plantVideo.html");	
+		
+		}
+		function go2GroupTab()
+		{
+			loadHtml("plantGroup", "/plant/group.html");	
+		}
+		//检测用户名是否为vplant
+		function testChoiceOfVideo()
+		{
+			var account = storage_get_current_usr();
+			console.log(account.usr.trimStr())
+			return ((account.usr.trimStr() == "si-neng")||(account.usr.trimStr() == "sinengwx")) ? 1 : 0;
+		}
+
+		function go2VideoInter()
+		{
+			loadHtml("plantVideoInter", "/plant/plantVideoInter.html");
+		}
+
+		// 方阵分析Part
+		function go2Pvcurve(){
+			loadHtml("pvcurve","/plant/pvcurve.html");
+		}
+		//电站运维
+		function go2Operation(){
+			loadHtml("operation","/plant/plantOperation.html");
+		}
+		//能效数据
+		function go2energyEfficiency(){
+			console.log('能效数据')
+			loadHtml("energyEfficiency","/plant/energyEfficiency.html");
+			// loadHtml("plantPower", "/plant/plantPower.html");
+		}
+
+	
+
+	//=======================================================================切换电站的天气
+	function GetPlantWeather(){
+		return;
+		http_normal_oper("&action=getWeatherByPlant&id="+MAIN_CHOOSE_PLANT_ID,function(err,dat){
+			if(err == WS_ERR_NONE){
+				$(".location b").html(dat.city)
+				$(".qiehuan").html("[切换]")
+				var data = dat.forecasts
+				$(".wul").html("")
+				var ullist = ""
+				$(data).each(function(i, obj) {
+					ullist += "<li><em class='changePhotos'> " + (obj.code) + "</em><div class='detail ml5'><p><span>" + (obj.textCn) + "</span><span> " + (obj.low) + "</span><span> " + "℃" + "</span><span>"+"~"+"</span><span>"+(obj.high)+"</span><span>"+"℃"+"</span></p><p><span>"+GetDate(obj.date)+"</span><span class='ml5'>"+(obj.date)+"</span></p></div></li>"
+				})
+				$(".wul").append(ullist)
+				diffPhotos()
+			}else{
+
+			}
+		},function(){
+			console.log("error")
+		})
+
+	}
+
+
+//========================================================================渲染日期
+	function GetDate(i){
+		var date = new Date()
+		var year = date.getFullYear()
+		var month = date.getMonth() +1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1
+		var days = date.getDate() < 10 ? '0'+date.getDate() : date.getDate()
+		var days2 = date.getDate()+1 < 10 ? '0'+(date.getDate()+1) : (date.getDate()+1)
+		var days3 = date.getDate()+2 < 10 ? '0'+(date.getDate()+2) : (date.getDate()+2)
+		var curtime = year+"/"+month+"/"+days
+		var curtime2 = year+"/"+month+"/"+days2
+		var curtime3 = year+"/"+month+"/"+days3
+		if(curtime == i){
+			return "今天";
+		}
+		else if(curtime2 == i){
+			return "明天";
+		}
+		else {
+			return "后天";
+		}
+	}
+
+
+
+//========================================================================定位不准确时点击切换城市
+	function changeCity(){
+		$(".qiehuan").click(function(event) {
+			$(".changeLocation").slideDown()
+		})
+		$(".goback").on('click', '.cancle', function(event) {
+			event.preventDefault();
+			$(".changeLocation").slideUp()
+				
+		})
+		var cityhtml =  $(".location b").html()
+		if(cityhtml == ""){
+			$(".qiehuan").html("")
+		}else{
+			$(".qiehuan").html("[切换]")
+			}
+		$(".Sure").click(function(event) {
+			var input1 = $(".country").val()	
+			var input2 = $(".prov").val()	
+			var input3 = $(".city").val()
+			// debugger
+			var area = encodeURI("&area="+ input1 + "|" + input2 + "|" + input3)
+			http_normal_oper("&action=editPlant&id="+MAIN_CHOOSE_PLANT_ID + area,function(err,dat){
+				if(err == WS_ERR_NONE){
+					console.log("获取地址修改成功")
+					GetPlantWeather()
+					$(".changeLocation").slideUp()
+				}else{
+					$(".changeLocation").slideUp()
+					alert("获取地址修改失败")
+					console.log("获取地址修改失败")
+				}
+			},function(){
+				$(".changeLocation").slideUp()
+				alert("获取地址修改失败")
+				console.log("获取地址失败了")
+			})
+		})
+	}
+
+
+
+//========================================================================根据天气情况渲染不同的天气照片
+function diffPhotos() {
+	 var codeHtml1 = $(".changePhotos").eq(0).html()
+	 var codeHtml2 = $(".changePhotos").eq(1).html()
+	 var codeHtml3 = $(".changePhotos").eq(2).html()
+
+	 if(codeHtml1 == 31 || codeHtml1 == 33 || codeHtml1 == 30 || codeHtml1 == 36 || codeHtml1 == 44){
+	 	$(".changePhotos").eq(0).css({"background":"url(/assets/images/tianqi/bcloudy.png) center center no-repeat","background-size":"100%"})
+	}else if(codeHtml1 == 0 || codeHtml1 == 1 || codeHtml1 == 3 || codeHtml1 == 2 || codeHtml1 == 15 || codeHtml1 == 23 || codeHtml1 == 24 ||  codeHtml1 == 25){
+	 	$(".changePhotos").eq(0).css({"background":"url(/assets/images/tianqi/windy.png) center center no-repeat","background-size":"100%"})
+	}else if(codeHtml1 == 28 || codeHtml1 == 26 || codeHtml1 == 27 || codeHtml1 == 29 || codeHtml1 == 34){
+	 	$(".changePhotos").eq(0).css({"background":"url(/assets/images/tianqi/fair.png) center center no-repeat","background-size":"100%"})
+	}else if(codeHtml1 == 19 || codeHtml1 == 20 || codeHtml1 == 21 || codeHtml1 == 22){
+	 	$(".changePhotos").eq(0).css({"background":"url(/assets/images/tianqi/foggy.png) center center no-repeat","background-size":"100%"})
+	}else if(codeHtml1 == 13 || codeHtml1 == 14 || codeHtml1 == 16 || codeHtml1 == 41 || codeHtml1 == 42 || codeHtml1 == 43 || codeHtml1 == 46){
+	 	$(".changePhotos").eq(0).css({"background":"url(/assets/images/tianqi/cloudy.png) center center no-repeat","background-size":"100%"})
+	}else if(codeHtml1 == 5 || codeHtml1 == 6 || codeHtml1 == 7 || codeHtml1 == 10 || codeHtml1 == 17 || codeHtml1 == 18 || codeHtml1 == 35){
+	 	$(".changePhotos").eq(0).css({"background":"url(/assets/images/tianqi/snow.png) center center no-repeat","background-size":"100%"})
+	}else if(codeHtml1 == 4 || codeHtml1 == 8 || codeHtml1 == 9 || codeHtml1 == 11 || codeHtml1 == 12 ||  codeHtml1 == 37 || codeHtml1 == 38 || codeHtml1 == 39 || codeHtml1 == 40 || codeHtml1 == 45 ||  codeHtml1 == 47){
+	 	$(".changePhotos").eq(0).css({"background":"url(/assets/images/tianqi/drizzle.png) center center no-repeat","background-size":"100%"})
+	}else if( codeHtml1 == 32){
+	 	$(".changePhotos").eq(0).css({"background":"url(/assets/images/tianqi/sunny.png) center center no-repeat","background-size":"100%"})
+	}
+
+
+
+
+	if(codeHtml2 == 31 || codeHtml2 == 33 || codeHtml2 == 30 || codeHtml2 == 36 || codeHtml2 == 44){
+        $(".changePhotos").eq(1).css({"background":"url(/assets/images/tianqi/bcloudy.png) center center no-repeat","background-size":"100%"})
+    }else if(codeHtml2 == 0 || codeHtml2 == 1 || codeHtml2 == 3 || codeHtml2 == 2 || codeHtml2 == 15 || codeHtml2 == 23 || codeHtml2 == 24 ||  codeHtml2 == 25){
+        $(".changePhotos").eq(1).css({"background":"url(/assets/images/tianqi/windy.png) center center no-repeat","background-size":"100%"})
+    }else if(codeHtml2 == 28 || codeHtml2 == 26 || codeHtml2 == 27 || codeHtml2 == 29 || codeHtml2 == 34){
+        $(".changePhotos").eq(1).css({"background":"url(/assets/images/tianqi/fair.png) center center no-repeat","background-size":"100%"})
+    }else if(codeHtml2 == 19 || codeHtml2 == 20 || codeHtml2 == 21 || codeHtml2 == 22){
+        $(".changePhotos").eq(1).css({"background":"url(/assets/images/tianqi/foggy.png) center center no-repeat","background-size":"100%"})
+    }else if(codeHtml2 == 13 || codeHtml2 == 14 || codeHtml2 == 16 || codeHtml2 == 41 || codeHtml2 == 42 || codeHtml2 == 43 || codeHtml2 == 46){
+        $(".changePhotos").eq(1).css({"background":"url(/assets/images/tianqi/cloudy.png) center center no-repeat","background-size":"100%"})
+    }else if(codeHtml2 == 5 || codeHtml2 == 6 || codeHtml2 == 7 || codeHtml2 == 10 || codeHtml2 == 17 || codeHtml2 == 18 || codeHtml2 == 35){
+        $(".changePhotos").eq(1).css({"background":"url(/assets/images/tianqi/snow.png) center center no-repeat","background-size":"100%"})
+    }else if(codeHtml2 == 4 || codeHtml2 == 8 || codeHtml2 == 9 || codeHtml2 == 11 || codeHtml2 == 12 ||  codeHtml2 == 37 || codeHtml2 == 38 || codeHtml2 == 39 || codeHtml2 == 40 || codeHtml2 == 45 ||  codeHtml2 == 47){
+        $(".changePhotos").eq(1).css({"background":"url(/assets/images/tianqi/drizzle.png) center center no-repeat","background-size":"100%"})
+    }else if( codeHtml2 == 32){
+	 	$(".changePhotos").eq(1).css({"background":"url(/assets/images/tianqi/sunny.png) center center no-repeat","background-size":"100%"})
+	}
+
+
+
+ 	if(codeHtml3 == 31 || codeHtml3 == 33 || codeHtml3 == 30 || codeHtml3 == 36 || codeHtml3 == 44){
+        $(".changePhotos").eq(2).css({"background":"url(/assets/images/tianqi/bcloudy.png) center center no-repeat","background-size":"100%"})
+    }else if(codeHtml3 == 0 || codeHtml3 == 1 || codeHtml3 == 3 || codeHtml3 == 2 || codeHtml3 == 15 || codeHtml3 == 23 || codeHtml3 == 24 ||  codeHtml3 == 25){
+        $(".changePhotos").eq(2).css({"background":"url(/assets/images/tianqi/windy.png) center center no-repeat","background-size":"100%"})
+    }else if(codeHtml3 == 28 || codeHtml3 == 26 || codeHtml3 == 27 || codeHtml3 == 29 || codeHtml3 == 34){
+        $(".changePhotos").eq(2).css({"background":"url(/assets/images/tianqi/fair.png) center center no-repeat","background-size":"100%"})
+    }else if(codeHtml3 == 19 || codeHtml3 == 20 || codeHtml3 == 21 || codeHtml3 == 22){
+        $(".changePhotos").eq(2).css({"background":"url(/assets/images/tianqi/foggy.png) center center no-repeat","background-size":"100%"})
+    }else if(codeHtml3 == 13 || codeHtml3 == 14 || codeHtml3 == 16 || codeHtml3 == 41 || codeHtml3 == 42 || codeHtml3 == 43 || codeHtml3 == 46){
+        $(".changePhotos").eq(2).css({"background":"url(/assets/images/tianqi/cloudy.png) center center no-repeat","background-size":"100%"})
+    }else if(codeHtml3 == 5 || codeHtml3 == 6 || codeHtml3 == 7 || codeHtml3 == 10 || codeHtml3 == 17 || codeHtml3 == 18 || codeHtml3 == 35){
+        $(".changePhotos").eq(2).css({"background":"url(/assets/images/tianqi/snow.png) center center no-repeat","background-size":"100%"})
+    }else if(codeHtml3 == 4 || codeHtml3 == 8 || codeHtml3 == 9 || codeHtml3 == 11 || codeHtml3 == 12 ||  codeHtml3 == 37 || codeHtml3 == 38 || codeHtml3 == 39 || codeHtml3 == 40 || codeHtml3 == 45 ||  codeHtml3 == 47){
+        $(".changePhotos").eq(2).css({"background":"url(/assets/images/tianqi/drizzle.png) center center no-repeat","background-size":"100%"})
+    }else if( codeHtml3 == 32){
+	 	$(".changePhotos").eq(2).css({"background":"url(/assets/images/tianqi/sunny.png) center center no-repeat","background-size":"100%"})
+	}
+
+
+}
+	</script></body></html>

@@ -1885,7 +1885,7 @@ function getPlantId(id) {
 
 			MAIN_CHOOSE_PLANT_NAME = dat.name;
 			$("#checkedPlant").text(MAIN_CHOOSE_PLANT_NAME);
-			$("#mainArea").load("/plant/plant.html", null);
+			$("#mainArea").load("/solarmonitor.github.io/plant/plant.html", null);
 
 		}
 	}, function () {
@@ -1901,7 +1901,7 @@ function groupApplyBrowse(plantId) {
 			MAIN_CHOOSE_PLANT_ID = plantId;
 			MAIN_CHOOSE_PLANT_NAME = dat.name;
 			$("#checkedPlant").text(MAIN_CHOOSE_PLANT_NAME);
-			$("#mainArea").load("/plant/plant.html", null);
+			$("#mainArea").load("/solarmonitor.github.io/plant/plant.html", null);
 
 		}
 	}, function () {
@@ -2873,12 +2873,12 @@ function refreshMainPlantList() {
 // 点击电站总览
 function go2Main() {
 	$("#checkedPlant").text(getMultiLangError("plants_overview"));
-	loadHtml("mainArea", "/plant/plantlist.html");
+	loadHtml("mainArea", "/solarmonitor.github.io/plant/plantlist.html");
 }
 // 点击增加电站
 function main2AddPlant() {
 	$("#checkedPlant").text(getMultiLangError("add_plant"));
-	loadHtml("mainArea", "/plant/addPlant.html")
+	loadHtml("mainArea", "/solarmonitor.github.io/plant/addPlant.html")
 	//	$("#mainArea").load("/plant/addPlant.html", null);
 }
 

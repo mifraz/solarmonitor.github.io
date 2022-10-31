@@ -1,0 +1,1232 @@
+
+<!-- saved from url=(0049)https://www.shinemonitor.com/plant/plantlist.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- <link rel="stylesheet" type="text/css" href="/css/reg.css"> -->
+<style type="text/css">
+	/*临时样式*/
+	/*电站列表头部*/
+	/*所有的ul都display:none;给电站状态设置个箭头向下的背景图，边框颜色f2f2f2，点机ul,toggle;
+	 
+	 * 
+	 * */
+
+	#page {
+		text-align: center;
+		font-size: 14px;
+		margin-bottom: 10px;
+		margin-top: 20px;
+	}
+
+	#page a {
+		text-decoration: none;
+		margin: 0 6px;
+		border-radius: 8px;
+		width: 36px;
+		height: 36px;
+		border: 1px solid #dce0e0;
+		text-align: center;
+		line-height: 36px;
+		cursor: pointer;
+		display: inline-block;
+	}
+
+	#page input {
+		font-size: 14px;
+		width: 66px;
+		height: 36px;
+		outline: medium;
+		border: 1px solid #dce0e0;
+		text-align: center;
+		border-radius: 8px;
+	}
+
+	.current {
+		background-color: #2aacf7;
+	}
+
+	.plantListTop {
+		margin-top: -20px;
+		border-bottom: 1px solid #EEE;
+		min-height: 50px;
+	}
+
+	.p_t_Box {
+		line-height: 36px;
+		margin-top: 8px;
+		margin-left: 10px;
+	}
+
+	.selestInp {
+		padding-left: 10px;
+		width: 176px;
+		background: #fff url(/assets/images/down.png) center right no-repeat;
+		background-size: 20px 20px;
+		border-radius: 6px;
+		border: 1px solid #f2f2f2;
+		line-height: 36px;
+		height: 36px;
+		overflow: hidden;
+		word-break: normal;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+
+	.newAddplantBox {
+		line-height: 34px;
+		margin-top: 8px;
+		margin-left: 10px;
+		padding-right: 18px;
+		height: 32px;
+		background: #47a447 url(/assets/images/u437.png) center left 14px no-repeat;
+		background-size: 22px;
+		color: #fff;
+		padding-left: 54px;
+		border-radius: 10px;
+		font-weight: bold;
+	}
+
+	.searchPlantBox {
+		/*letter-spacing: 4px;*/
+		padding: 0px 20px;
+		line-height: 34px;
+		background: #47a447;
+		color: #fff;
+		border-radius: 10px;
+		font-weight: bold;
+		text-align: center;
+	}
+
+	.searchPlantBox:hover {
+		cursor: pointer;
+		background-color: #51b451;
+	}
+
+	#plantNameInp {
+		text-indent: 10px;
+		border-radius: 6px;
+		border: 1px solid #d9d9d9;
+		height: 34px;
+
+	}
+
+	#PN {
+		text-indent: 10px;
+		border-radius: 6px;
+		border: 1px solid #d9d9d9;
+		height: 34px;
+	}
+
+	.newAddplantBox:hover {
+		cursor: pointer;
+		background-color: #51b451;
+	}
+
+	.selestList {
+		position: absolute;
+		width: 180px;
+		z-index: 1100;
+		padding-left: 0px;
+		background: #fff;
+	}
+
+	.selestList li {
+		padding-left: 10px;
+	}
+
+	.selestList li:hover {
+		cursor: pointer;
+		background: #F2F2F2;
+	}
+</style>
+</head><body><div>
+	<section role="main" class="content-body">
+		<div class="row">
+			<div class="main-page-top main-page-left">
+				<!--电站总览和发电量总览-->
+				<div class="col-md-12 col-lg-6 ">
+					<div class="tabs">
+						<ul class="nav nav-tabs nav-tab-left">
+							<li class="active">
+								<a href="https://www.shinemonitor.com/plant/plantlist.html#plantsSummary" data-toggle="tab" id="plantSum" class="nav-tab-a" lang="plants_overview">
+									<!--电站总览-->
+								</a>
+							</li>
+							<li>
+								<a href="https://www.shinemonitor.com/plant/plantlist.html#powerSummary" data-toggle="tab" id="PowerSum" onclick="change2PowerSum()" class="nav-tab-a" lang="energy_overview">
+									<!--发电量总览-->
+								</a>
+							</li>
+						</ul>
+						<div class="tab-content">
+							<div id="plantsSummary" class="tab-pane active main-tab-bg">
+								<div class="stats-summary " id="alldata">
+									<div class="stats-middle-main main-stats-padding">
+										<section class="stats-panel stats-bg-red">
+											<dl class="stats-main">
+												<dt class="stats-top">
+													<div>
+														<i class="fa fa-area-chart"></i>
+													</div>
+													<div>
+														<span lang="plants_today_energy">
+															<!--今日发电量-->
+														</span>
+													</div>
+												</dt>
+												<dd class="stats-content" id="statisticDD00">
+													<strong class="amount" id="statistic00"></strong>
+												</dd>
+											</dl>
+										</section>
+										<section class="stats-panel stats-bg-red">
+											<dl class="stats-main">
+												<dt class="stats-top">
+													<div>
+														<div>
+															<i class="fa fa-bar-chart"></i>
+														</div>
+														<span lang="plants_month_energy">
+															<!--当月发电量-->
+														</span>
+													</div>
+												</dt>
+												<dd class="stats-content" id="statisticDD01">
+													<strong class="amount" id="statistic01"></strong>
+												</dd>
+											</dl>
+										</section>
+
+										<section class="stats-panel stats-bg-red">
+											<dl class="stats-main">
+												<dt class="stats-top">
+													<div>
+														<div>
+															<i class="fa fa-line-chart"></i>
+														</div>
+														<span lang="plants_year_energy">
+															<!--当年发电量-->
+														</span>
+													</div>
+												</dt>
+												<dd class="stats-content" id="statisticDD02">
+													<strong class="amount" id="statistic02"></strong>
+												</dd>
+											</dl>
+										</section>
+
+										<section class="stats-panel stats-bg-red">
+											<dl class="stats-main">
+												<dt class="stats-top">
+													<div>
+														<div>
+															<img class="stats-img" src="./plantlist_files/power_total.png" alt="累计发电量">
+														</div>
+														<span lang="plants_grandtotal_energy">
+															<!--累计发电量-->
+														</span>
+													</div>
+												</dt>
+												<dd class="stats-content" id="statisticDD03">
+													<strong class="amount" id="statistic03"></strong>
+												</dd>
+											</dl>
+										</section>
+
+										<section class="stats-panel stats-bg-green">
+											<dl class="stats-main">
+												<dt class="stats-top">
+													<div>
+														<div>
+															<i class="shineicon icon-jinkuai"></i>
+
+															<!--<img  id="profit" class="stats-img" src="/assets/images/menu/profit.png" alt="收益">-->
+														</div>
+														<span lang="plants_gain">
+															<!--收益-->
+														</span>
+													</div>
+												</dt>
+												<dd class="stats-content" id="statisticDD04">
+													<strong class="amount" id="statistic04"></strong>
+												</dd>
+											</dl>
+										</section>
+
+										<section class="stats-panel stats-bg-green">
+											<dl class="stats-main">
+												<dt class="stats-top">
+													<div>
+														<div>
+															<img class="stats-img" src="./plantlist_files/coal.png" alt="节省标准煤">
+														</div>
+														<span lang="plants_coal">
+															<!--节省标准煤-->
+														</span>
+													</div>
+												</dt>
+												<dd class="stats-content" id="statisticDD05">
+													<strong class="amount" id="statistic05"></strong>
+												</dd>
+											</dl>
+										</section>
+
+										<section class="stats-panel stats-bg-green">
+											<dl class="stats-main">
+												<dt class="stats-top">
+													<div>
+														<div>
+															<img class="stats-img" src="./plantlist_files/co2.png" alt="CO₂减排">
+														</div>
+														<span lang="c02_cut">
+															<!--CO₂减排-->
+														</span>
+													</div>
+												</dt>
+												<dd class="stats-content" id="statisticDD06">
+													<strong class="amount" id="statistic06"></strong>
+												</dd>
+											</dl>
+										</section>
+
+										<section class="stats-panel stats-bg-green">
+											<dl class="stats-main">
+												<dt class="stats-top">
+													<div>
+														<div>
+															<img class="stats-img" src="./plantlist_files/so2.png" alt="SO₂减排">
+														</div>
+														<span lang="s02_cut">
+															<!--SO₂减排-->
+														</span>
+													</div>
+												</dt>
+												<dd class="stats-content" id="statisticDD07">
+													<strong class="amount" id="statistic07"></strong>
+												</dd>
+											</dl>
+										</section>
+
+										<section class="stats-panel stats-bg-green" id="battery_soc">
+											<dl class="stats-main">
+												<dt class="stats-top">
+													<div>
+														<div>
+															<img class="stats-img" src="./plantlist_files/residualElectric.png" height="18px" alt="剩余电量">
+														</div>
+														<span lang="residual_electric">
+															<!--剩余电量-->
+														</span>
+													</div>
+												</dt>
+												<dd class="stats-content" id="statisticDD08">
+													<strong class="amount" id="statistic08"></strong>
+												</dd>
+											</dl>
+										</section>
+									</div>
+								</div>
+							</div>
+							<!-- 发电量总览内容 -->
+							<div id="powerSummary" class="tab-pane main-tab-bg">
+
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!--百度地图和谷歌地图板块-->
+				<!--高德地图-->
+				<div class="col-md-12 col-lg-6" id="gaodemapBox">
+					<div class="tabs">
+						<ul class="nav nav-tabs nav-tab-left" id="mapTitle">
+							<li class="active">
+								<a href="https://www.shinemonitor.com/plant/plantlist.html#gaodemap" data-toggle="tab" id="gaodemapTab" lang="gaoede_map">
+									电站地图(高德)</a>
+							</li>
+						</ul>
+						<div class="tab-content">
+							<div id="gaodemap" class="active  tab-pane main-tab-bg map-container">
+							</div>
+							<!--<div class="button-group" style="z-index: 1000;">
+								<input id="en" type="button" class="button" value="英文(English)" lang="english" />
+								<input id="zh_en" type="button" class="button" value="中英(English and Chinese)" lang="English_and_Chinese" />
+								<input id="zh_cn" type="button" class="button" value="中文(Chinese)" lang="Chinese" />
+							</div>-->
+							<img src="./plantlist_files/go_full_screen.png" id="mapFullScreen">
+						</div>
+					</div>
+				</div>
+				<!--谷歌地图(已替换成maptalks地图)-->
+				<div class="col-md-12 col-lg-6" id="googlemapBox">
+					<div class="tabs">
+						<ul class="nav nav-tabs nav-tab-left" id="mapTitle">
+							<li class="active">
+								<a href="https://www.shinemonitor.com/plant/plantlist.html#googlemap" data-toggle="tab" style="padding: 8px 15px;" id="googleMapTab" lang="maptalks_map">
+									<!-- 电站地图(谷歌) -->
+								</a>
+							</li>
+						</ul>
+						<div class="tab-content">
+							<div id="googlemap" class="active  tab-pane main-tab-bg map-container ">
+
+							</div>
+
+							<img src="./plantlist_files/go_full_screen.png" id="mapFullScreen" class="mapFullScreenGooglemap" style="display: none;">
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!--电站列表板块-->
+		<div class="row main-page-left">
+			<div class="col-md-12 ">
+				<div class="tabs">
+					<ul class="nav nav-tabs nav-tab-left">
+						<li class="active hover">
+							<a href="https://www.shinemonitor.com/plant/plantlist.html#qyList" data-toggle="tab" id="plantList" class="nav-tab-change" lang="plants_list">
+								电站列表</a>
+						</li>
+						<li class="hover gprsBox" style="display: none;">
+							<a href="https://www.shinemonitor.com/plant/plantlist.html#qyList" data-toggle="tab" onclick="go2System2()" class="nav-tab-change" style="padding: 8px;" lang="gprs_flow">
+								GPRS充值</a>
+						</li>
+					</ul>
+					<div class="tab-content">
+						<div id="qyList" class="tab-pane active main-tab-bg">
+							<div class="col-md-12 plantListTop clear">
+								<div class="left p_t_Box">
+									<div class="left">
+										<span lang="status">
+
+										</span> :
+									</div>
+									<div class="left selestBox">
+										<div class="statusSelestInp selestInp" parameter="" lang="all">
+											<!--所有-->
+										</div>
+										<ul class="selestList" style="display: none;position: absolute;width: 176px;z-index: 10;">
+											<li parameter="" lang="all">所有</li>
+											<li parameter="0" lang="status_normal">在线</li>
+											<li parameter="1" lang="status_offline">离线</li>
+											<li parameter="4" lang="status_warn">故障</li>
+											<li parameter="7" lang="stauts_attention">提醒</li>
+										</ul>
+									</div>
+								</div>
+								<div class="left p_t_Box">
+									<div class="timeSelestInp selestInp" parameter="descInstall">
+										<span lang="descInstall"></span>
+										<!--建站时间倒序--><span>↑</span>
+									</div>
+									<ul class="selestList" style="display: none;">
+										<li parameter="ascPlantName"><span lang="ascPlantName"></span>
+											<!--电站名称顺序-->
+										</li>
+										<li parameter="descPlantName"><span lang="descPlantName"></span>
+											<!--电站名称倒序-->
+										</li>
+										<li parameter="ascInstall"><span lang="ascInstall"></span> <span>↓</span>
+											<!--建站时间顺序-->
+										</li>
+										<li parameter="descInstall"><span lang="descInstall"></span>
+											<!--建站时间倒序--><span>↑</span> </li>
+										<li parameter="ascFullHours"><span lang="ascFullHuors"></span>
+											<span>↓</span>
+											<!--满发小时数顺序-->
+										</li>
+										<li parameter="descFullHours"><span lang="descFullHuors"></span>
+											<!--满发小时数倒序--><span>↑</span> </li>
+									</ul>
+								</div>
+								<div class="left p_t_Box">
+									<div class="left">
+										<span lang="plant_name">
+
+										</span> :
+									</div>
+									<input type="text" name="" id="plantNameInp" value="">
+								</div>
+								<!-- PN号搜索-->
+								<div class="left p_t_Box">
+									<div class="left">
+										<span lang="collector_no">
+
+										</span> :
+									</div>
+									<input type="text" name="" id="PN" value="">
+								</div>
+
+								<div class="right newAddplantBox p_t_Box" onclick="go2AddPlant()">
+									<div class="newAddplant" lang="add_plant">
+										<!--新建电站-->
+									</div>
+								</div>
+								<div class="right p_t_Box" id="searchPlant">
+									<div class="searchPlantBox" lang="video_search">
+										<!--新建电站-->
+									</div>
+								</div>
+								<div class="right p_t_Box" id="Scanning">
+									<div class="searchPlantBox" lang="Scanning_illegal_plant" onclick="scanning(1)">
+										<!--违规扫描-->
+									</div>
+								</div>
+
+							</div>
+							<div class="clear qyListBox">
+							</div>
+							<div id="page">
+
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</div>
+<!-- 调用顺序() -->
+<script type="text/javascript" defer="defer">
+	//谷歌地图
+	//	$(document).ready(function(){
+	//		
+	//	})
+
+	//		var mapStatus = 0; //1-地图全屏,0-地图正常
+	//		var showMap; //当前选中的map对象
+	//		var dWidth; //地图变大前宽度
+	//		var num;
+	//添加google地图数据
+
+	//谷歌地图数据
+
+	function InitGoogleMap(dat) {
+		var map = new maptalks.Map("googlemap", {
+			center: [parseFloat(dat[0].address.lon), parseFloat(dat[0].address.lat)],
+			centerCross: false,
+			zoom: 6,
+			minZoom: 2,
+			maxZoom: 18, //缩放级别控件
+			dragPitch: false,
+			zoomControl: false,
+			scaleControl: false,
+			baseLayer: new maptalks.TileLayer("base", {
+				subdomains: ["a", "b", "c", "d"],
+				// attribution: '© <a href="http://osm.org">OpenStreetMap</a> contributors, © <a href="https://carto.com/">CARTO</a>',
+				//底图服务器地址，如下为瓦片地址
+				urlTemplate: storage_i18n_get_id() == 0?"https://tile.openstreetmap.org/{z}/{x}/{y}.png":"https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png"
+				// urlTemplate: "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png" //tileSystem 控制瓦片的x,y以及行列，后两个是origin原点位置（很重要）
+			}),
+			layers: [new maptalks.VectorLayer("v")],
+			// attribution: false,
+			attribution: {
+				//左下角info
+				content: "©eybond"
+			}
+		});
+		var layer = new maptalks.VectorLayer('vector').addTo(map);
+		var infoContent = []
+		var status
+		var markers = [];
+		for (var i = 0; i < dat.length; i++) {
+			var marker = new maptalks.Marker([dat[i].address.lon, dat[i].address.lat], {
+				'symbol': {
+					'markerFile': '/assets/images/mark_bs.png',
+              'markerWidth': 25,
+              'markerHeight': 35,
+            //   'markerDy': -20
+				}
+			}).addTo(layer);
+			markers.push(marker);
+		}
+		for (var i = 0; i < markers.length; i++) {
+			(function () {
+				if (dat[i].status == undefined) {
+					status = ""
+				} else if (dat[i].status == 0) {
+					status = getMultiLangError("plant_normal")
+				} else if (dat[i].status == 1) {
+					status = getMultiLangError("status_offline")
+				} else if (dat[i].status == 4) {
+					status = getMultiLangError("plant_abnormal")
+				} else if (dat[i].status == 7) {
+					status = getMultiLangError("plant_attention")
+				} else {
+					status = dat.status;
+				}
+				var index = i;
+				//鼠标接触marker
+				infoContent[index] = "<div style='line-height:1.6em;font-size:12px;'><b>" + getMultiLangError(
+						"plant_name") + ": </b>" +
+					(dat[index].name == undefined ? '' : dat[index].name) +
+					"</br><b>" + getMultiLangError("plant_status") + ":</b>" + status + "</br><b>" +
+					getMultiLangError("plant_current_power") + ":</b>" + (dat[index].outputPower == undefined ? '' :
+						dat[index].outputPower) + "</br><b>" +
+					getMultiLangError("today_energy") + ":</b>" +
+					(dat[index].energy == undefined ? '' : dat[index].energy) + "</br><b>" +
+					getMultiLangError("plant_totoal_address") + ":</b>" +
+					(dat[index].address.country == undefined ? '' : dat[index].address.country) +
+					(dat[index].address.province == undefined ? '' : dat[index].address.province) +
+					(dat[index].address.city == undefined ? '' : dat[index].address.city) +
+					(dat[index].address.county == undefined ? '' : dat[index].address.county) +
+					(dat[index].address.town == undefined ? '' : dat[index].address.town) +
+					(dat[index].address.village == undefined ? '' : dat[index].address.village) +
+					(dat[index].address.address == undefined ? '' : dat[index].address.address) +
+					"</div>"
+				// markers[index].setInfoWindow({
+				// 	content: infoContent[index],
+				// 	autoOpenOn: "mouseenter", 
+				// 	autoCloseOn: "mouseout"
+				// });
+				// markers[index].openInfoWindow();
+				markers[index].on('click', function () {
+					getPlantId("qyList_" + dat[index].pid);
+				}).on('mouseenter', function (e) {
+					e.target.setInfoWindow({
+						content: infoContent[index],
+						// autoOpenOn: "mouseenter",
+						// autoCloseOn: "mouseout"
+					});
+					e.target.openInfoWindow();
+				})
+			})();
+		}
+		markers[0].setInfoWindow({
+					content: infoContent[0],
+					dx: 0,
+					dy: 10
+					// autoOpenOn: "mouseenter", 
+					// autoCloseOn: "mouseout"
+				});
+		markers[0].openInfoWindow();
+		
+		// var infoContent = []
+		// for(var i = 0; i < markers.length; i++) {
+
+		// 	(function() {
+		// 		if(dat[i].status == undefined) {
+		// 			status = ""
+		// 		} else if(dat[i].status == 0) {
+		// 			status = getMultiLangError("plant_normal")
+		// 		} else if(dat[i].status == 1) {
+		// 			status = getMultiLangError("status_offline")
+		// 		} else if(dat[i].status == 4) {
+		// 			status = getMultiLangError("plant_abnormal")
+		// 		} else if(dat[i].status == 7) {
+		// 			status = getMultiLangError("plant_attention")
+		// 		} else {
+		// 			status = dat.status;
+		// 		}
+		// 		var index = i;
+		// 		//鼠标接触marker
+		// 		infoContent[index] = "<div style='line-height:2em;font-size:12px;'><b>" + getMultiLangError("plant_name") + ": </b>" +
+		// 			(dat[index].name == undefined ? '' : dat[index].name) +
+		// 			"</br><b>" + getMultiLangError("plant_status") + ":</b>" + status + "</br><b>" +
+		// 			getMultiLangError("plant_current_power") + ":</b>" + (dat[index].outputPower == undefined ? '' : dat[index].outputPower) + "</br><b>" +
+		// 			getMultiLangError("today_energy") + ":</b>" +
+		// 			(dat[index].energy == undefined ? '' : dat[index].energy) + "</br><b>" +
+		// 			getMultiLangError("plant_totoal_address") + ":</b>" +
+		// 			(dat[index].address.country == undefined ? '' : dat[index].address.country) +
+		// 			(dat[index].address.province == undefined ? '' : dat[index].address.province) +
+		// 			(dat[index].address.city == undefined ? '' : dat[index].address.city) +
+		// 			(dat[index].address.county == undefined ? '' : dat[index].address.county) +
+		// 			(dat[index].address.town == undefined ? '' : dat[index].address.town) +
+		// 			(dat[index].address.village == undefined ? '' : dat[index].address.village) +
+		// 			(dat[index].address.address == undefined ? '' : dat[index].address.address) +
+		// 			"</div>"
+		// 		google.maps.event.addListener(markers[i], "mouseover", function() {
+		// 			googleinfoWindow.close();
+		// 			googleinfoWindow = new google.maps.InfoWindow({
+		// 				content: infoContent[index]
+		// 			});
+		// 			googleinfoWindow.open(googlemap, markers[index]);
+		// 		});
+		// 		//鼠标离开marker
+		// 		google.maps.event.addListener(markers[i], 'mouseout', function() {
+		// 			googleinfoWindow.close(googlemap, markers[index]);
+		// 		});
+		// 		google.maps.event.addListener(markers[i], 'click', function() {
+		// 			getPlantId("qyList_" + dat[index].pid);
+		// 		});
+		// 	})();
+
+		// }
+		// googleinfoWindow = new google.maps.InfoWindow({
+		// 	content: infoContent[0]
+		// });
+		// googleinfoWindow.open(googlemap, markers[0]);
+	}
+</script>
+<script type="text/javascript">
+	//高德地图	
+	if (typeof (AMap) != "object") {
+		console.log("获取高德地图失败")
+	} else {
+		var clickListener, gaodemap = new AMap.Map('gaodemap', {
+			zoom: 5,
+			center: [107.195847, 34.222456],
+		});
+		gaodemap.plugin(["AMap.MapType"],
+			function () {
+				//地图类型切换  
+				type = new AMap.MapType({
+					defaultType: 1,
+					showRoad: true
+				}); //初始状态使用2D地图  
+				gaodemap.addControl(type);
+			});
+
+		function IntiGaodeMap(dat) {
+			gaodemap.setZoomAndCenter(5, [dat[0].address.lon, dat[0].address.lat]);
+			var infoWindow = new AMap.InfoWindow({
+				offset: new AMap.Pixel(0, -20)
+			});
+			var markers = new Array();
+			var positions = new Array();
+
+			var marker;
+
+			for (var i = 0, marker; i < dat.length; i++) {
+
+				(function () {
+					if (dat[i].status == undefined) {
+						status = ""
+					} else if (dat[i].status == 0) {
+						status = getMultiLangError("plant_normal")
+					} else if (dat[i].status == 1) {
+						status = getMultiLangError("status_offline")
+					} else if (dat[i].status == 4) {
+						status = getMultiLangError("plant_abnormal")
+					} else if (dat[i].status == 7) {
+						status = getMultiLangError("plant_attention")
+					} else {
+						status = dat.status;
+					}
+
+					positions[0] = dat[i].address.lon;
+					positions[1] = dat[i].address.lat;
+
+					marker = new AMap.Marker({
+						position: positions,
+						map: gaodemap
+					})
+					//				gaodemap.setZoomAndCenter(6, [dat[0].address.lon, dat[0].address.lat]);
+					markers.push(marker);
+					var index = i;
+
+					//						console.log(statusArr.length)
+
+					//		        var firstMark =  new AMap.Marker({
+					//		            position: [dat[0].address.lon, dat[0].address.lat],
+					//		            map: gaodemap
+					//		        });
+
+					markers[index].content = "<div style='line-height:2em;font-size:12px;'><b>" + getMultiLangError(
+							"plant_name") + ": </b>" +
+						(dat[index].name == undefined ? '' : dat[index].name) +
+						"</br><b>" + getMultiLangError("plant_status") + ":</b>" + status + "</br><b>" +
+						getMultiLangError("plant_current_power") + ":</b>" + (dat[index].outputPower == undefined ?
+							'' : dat[index].outputPower) + "</br><b>" +
+						getMultiLangError("today_energy") + ":</b>" +
+						(dat[index].energy == undefined ? '' : dat[index].energy) + "</br><b>" +
+						getMultiLangError("plant_totoal_address") + ":</b>" +
+						(dat[index].address.country == undefined ? '' : dat[index].address.country) +
+						(dat[index].address.province == undefined ? '' : dat[index].address.province) +
+						(dat[index].address.city == undefined ? '' : dat[index].address.city) +
+						(dat[index].address.county == undefined ? '' : dat[index].address.county) +
+						(dat[index].address.town == undefined ? '' : dat[index].address.town) +
+						(dat[index].address.village == undefined ? '' : dat[index].address.village) +
+						(dat[index].address.address == undefined ? '' : dat[index].address.address) +
+						"</div>";
+					markers[index].on('mouseover', function (e) {
+
+						infoWindow.setContent(e.target.content);
+						infoWindow.open(gaodemap, e.target.getPosition());
+					});
+					marker.emit('click', {
+						target: marker
+					});
+
+					markers[index].on('click', function (e) {
+
+						console.log(dat[index].pid)
+						getPlantId("qyList_" + dat[index].pid);
+					})
+
+				})();
+			}
+			infoWindow.open(gaodemap, markers[0].getPosition());
+			infoWindow.setContent(markers[0].content);
+			//			function markerClick(e) {
+			//				infoWindow.setContent(e.target.content);
+			//				infoWindow.open(gaodemap, e.target.getPosition());
+			//			}
+
+		}
+	}
+</script>
+<script src="./plantlist_files/exif-js.js"></script>
+<script src="./plantlist_files/jquery.rotate.min.js"></script>
+<script type="text/javascript">
+	var mapStatus = 0; //1-地图全屏,0-地图正常
+	var showMap; //当前选中的map对象
+	var dWidth; //地图变大前宽度
+	var num;
+	var maxPagesize = '';
+	var pids = "";
+	var userId;
+	var hostname = window.document.location.hostname;
+	var ksolare = "ksolare.shinemonitor.com";
+	$(document).ready(function () {
+		//巴西葡萄牙语改收益图标为临时方案，日后此类需求多必需用个代表收益的通用符号代替，而不是各个国家的钱币符号,改两个文件一个是plantlist一个是plantBasic
+		if (storage_i18n_get_id() == 3) {
+			$("#profit").attr("src", "/assets/images/menu/R$.png")
+		} else {
+			$("#profit").attr("src", "/assets/images/menu/profit.png")
+		}
+		// if (storage_i18n_get_id() == 0) {
+		// 	//			$("#gaodemapBox,.gprsBox").show();
+		// 	$("#googlemapBox").hide()
+		// 	showMap = $("#gaodemap")
+		// 	var dWidth = showMap.css("width");
+		// 	$("#mapFullScreen").click(function () {
+		// 		//窗口宽,高度
+		// 		var sWidth = document.body.scrollWidth; //当前宽度
+		// 		var sHeight = document.body.scrollHeight; //当前浏览器可视高度
+		// 		//原div宽度,高度固定不变
+		// 		if (mapStatus == 0) {
+		// 			showMap.css({
+		// 				position: "fixed",
+		// 				"z-index": "9",
+		// 				top: "0px",
+		// 				left: "0px",
+		// 				bottom: "0px",
+		// 				right: "0px",
+		// 				width: sWidth,
+		// 				height: sHeight
+		// 			});
+		// 			$('.amap-maptypecontrol').css('top', '80px')
+		// 			mapStatus = 1;
+		// 		} else {
+		// 			exitFullScreen(dWidth);
+		// 		}
+		// 	});
+
+		// } else {
+			$("#gaodemapBox,#Scanning").hide();
+			$("#googlemapBox").show()
+			showMap = $("#googlemap")
+			var dWidth = showMap.css("width");
+			$(".mapFullScreenGooglemap").click(function () {
+				//窗口宽,高度
+				var sWidth = document.body.scrollWidth; //当前宽度
+				var sHeight = document.body.scrollHeight; //当前浏览器可视高度
+				//原div宽度,高度固定不变
+				if (mapStatus == 0) {
+					showMap.css({
+						position: "fixed",
+						"z-index": "9",
+						top: "0px",
+						left: "0px",
+						bottom: "0px",
+						right: "0px",
+						width: sWidth,
+						height: sHeight
+					});
+					mapStatus = 1;
+				} else {
+					exitFullScreen(dWidth);
+				}
+			});
+		// }
+
+		$(".selestInp").click(function () {
+			$(this).next().toggle()
+		})
+
+		$(".selestList li").click(function () {
+			$(this).parent().prev().text($(this).text())
+			$(this).parent().prev().attr({
+				"parameter": $(this).attr("parameter"),
+				"title": $(this).text()
+			})
+			$(this).parent().hide()
+			//			orderBy,plantName,status,page,pagesize,cur
+			var orderBy = $(".timeSelestInp").attr("parameter")
+			var status = $(".statusSelestInp").attr("parameter")
+			var name = $("#plantNameInp").val()
+
+			getQyData(orderBy, name, status, 0, plantListPagesize())
+		})
+		$("#searchPlant").click(function () {
+			var orderBy = $(".timeSelestInp").attr("parameter")
+			var status = $(".statusSelestInp").attr("parameter")
+			var name = $("#plantNameInp").val()
+			var pn = $("#PN").val()
+			console.log(pn)
+			getQyData(orderBy, name, status, 0, plantListPagesize(), pn)
+		})
+		getInfo();//获取个人信息
+		checkUserCurLang();
+		mainStatusLoading()
+		getQyData("descInstall", "", "", 0, plantListPagesize())
+		getPlantMapData("ascInstall", "", "", 0, 50, "")
+		loadDataNoPlant()
+		$("#battery_soc").hide();
+		$("#checkedPlant").text(getMultiLangError("plants_overview"));
+	})
+
+		//个人信息获取,根据用户id判断参数CF，PR
+	function getInfo() {
+		http_async_request_public("&action=queryAccountInfo", function (err, dat) {
+			if (err == 0) {
+				userId = dat.uid
+			}
+		})
+	}
+	// 判断是否显示剩余电量
+	function ifShowElectric() {
+		var dataHeight = $(".stats-middle-main").height()
+		if (dataHeight < 250) {
+			$(".main-stats-padding").css('padding-top', '50px');
+			$(".stats-panel").css('margin-bottom', '30px');
+		}
+	}
+
+	//点击ESC键,退出地图全屏
+	$(document).keyup(function (event) {
+		switch (event.keyCode) {
+			case 27:
+				exitFullScreen('');
+				break;
+			case 96:
+				exitFullScreen('')
+				break;
+		}
+	});
+
+	//退出全屏,回复之前的宽高
+	function exitFullScreen(dWidth) {
+		showMap.css({
+			position: "relative",
+			width: dWidth,
+			height: "357px",
+			top: "",
+			left: "",
+			bottom: "",
+			right: "",
+		});
+		mapStatus = 0;
+	}
+
+	var mapload = 1;
+
+	//tab切换发电量总览
+	function change2PowerSum() {
+		loadHtml("powerSummary", "/plant/plantsPowerSummary.html");
+	};
+
+	//	
+	//电站总览加载中
+	function mainStatusLoading() {
+		for (var i = 0; i < 8; i++) {
+			$("<img src='/assets/vendor/showLoading/images/482.gif' style='width:30px;'/>").appendTo($("#statistic" + (i <
+				10 ? "0" + i : i)))
+		}
+
+	}
+	//电站总览加载完成停止转圈
+	function mainStatusHideLoad() {
+		for (var i = 0; i < 8; i++) {
+			// $("#statisticDD" + (i < 10 ? "0" + i : i)).text("");
+			$("#statistic" + (i < 10 ? "0" + i : i)).children("img").remove();
+		}
+	}
+
+	// // 单独为电池添加加载圈圈
+	// function onlyForBattery(num) {
+	// 	if (num != -1) {
+	// 		$("#statisticDD08").showLoading();
+	// 	} else {
+	// 		$("#statisticDD08").hideLoading();
+	// 	}
+	// 	$("#statisticDD08").hideLoading();
+	// }
+	var plantArr = []
+	//----------------------------------------------------------------------------------------------------
+	//获取地图点标记电站数据
+	function getPlantMapData(orderBy, plantName, status, page, pagesize, cur) {
+
+		http_async_request_public("&action=webQueryPlants&plantName=" +
+			plantName + "&orderBy=" + orderBy + (status == "" ? "" : "&status=" + status) + "&page=" + page +
+			"&pagesize=" + pagesize,
+			function (err, dat) {
+				if (err == 0) {
+					var totalPage = dat.total % 50 == 0 ? dat.total / 50 : Math.ceil(dat.total / 50) - 1
+					if (page < totalPage) {
+						++page
+						plantArr = plantArr.concat(dat.plant);
+						getPlantMapData(orderBy, plantName, status, page, pagesize, cur)
+					} else {
+						plantArr = plantArr.concat(dat.plant);
+						InitGoogleMap(plantArr)
+						// if (storage_i18n_get_id() == 0) {
+						// 	if (typeof (AMap) == "object") {
+						// 		IntiGaodeMap(plantArr)
+						// 	}
+						// } else {
+						// 	// if(typeof(google) == "object") {
+						// 	InitGoogleMap(plantArr)
+						// 	// }
+						// }
+					}
+				} else {
+					console.log("地图电站数据获取失败：" + err)
+				}
+			},
+			function () {
+				console.log("地图电站数据获取失败")
+			})
+	}
+	//--------------------------------------------------------------------------------------------
+	//电站列表数据获取
+	function getQyData(orderBy, plantName, status, page, pagesize, cur) {
+		var pn = $("#PN").val()
+		$(".qyListBox").html("")
+		$(".qyListBox").append("<img src='/assets/vendor/showLoading/images/482.gif' style='width:30px;'/>")
+		http_async_request_public("&action=webQueryPlants&plantName=" +
+			encodeURIComponent(plantName) + "&orderBy=" + orderBy + (status == "" ? "" : "&status=" + status) +
+			"&page=" + page + "&pagesize=" + pagesize + "&pn=" + pn,
+			function (err, dat) {
+
+				$(".qyListBox").html("")
+				if (err == 0) {
+					makeQyList(dat)
+					var totalPage = (dat.total % pagesize == 0 ? dat.total / pagesize : Math.ceil(dat.total /
+						pagesize));
+					$('#page').paging({
+						pageNo: page + 1,
+						totalPage: totalPage,
+						callback: function (cur) {
+							getQyData(orderBy, plantName, status, cur - 1, pagesize, cur)
+						}
+					});
+				} else if (err == 260) {
+					var totalPage = 0;
+					$('#page').paging({
+						pageNo: page + 1,
+						totalPage: totalPage,
+						callback: function (cur) {
+							getQyData(orderBy, plantName, status, cur - 1, pagesize, cur)
+						}
+					});
+					$(".qyListBox").append("<div>" + getMultiLangError("no_record") + "</div>")
+				} else {
+					$(".qyListBox").append("<div>" + getErrorCodeDesc2(GET_ERR_DESC, "err" + err) + "</div>")
+				}
+				$('.liMarquee').liMarquee({
+					circular: true,
+					drag: false
+				})
+			},
+			function () {
+				$(".qyListBox").html("")
+				$(".qyListBox").append("<div>" + getMultiLangError("alarm_query_failed") + getErrorCodeDesc(15, 0) +
+					"</div>")
+				console.log("列表电站数据获取失败")
+			})
+	}
+
+	function scanning(flush) {
+		$("body").showLoading();
+		if (pids != "") {
+
+			http_async_request_public(encodeURI("&action=queryPlantsOpsIllegal&pids=" + pids +
+				"&date=2018-01-04 09:55:00&flush=" + flush), function (err, dat) {
+				$("body").hideLoading();
+				if (err == 0) {
+					for (var i = 0, len = dat.length; i < len; i++) {
+						if (dat[i].isIllegal) {
+
+							$("#qyList_" + dat[i].pid).css("border", "2px solid red")
+							$("#qyList_" + dat[i].pid + " .qy_lbbottom").css("height", "90px")
+						} else {
+							$("#qyList_" + dat[i].pid).css("border", "1px solid #d2d2d2")
+							$("#qyList_" + dat[i].pid + " .qy_lbbottom").css("height", "94px")
+						}
+					}
+				} else {
+
+				}
+			}, function () {
+				$("body").hideLoading();
+			})
+		}
+	}
+
+	//电站列表动态生成方法  	 
+	function makeQyList(dat) {
+		var status;
+		var fullHours;
+		var color;
+		var powerEfficiency;
+		var cfValue;
+		pids = "";
+		for (var i = 0, len = dat.plant.length; i < len; i++) {
+			(function (i) {
+				if (dat.plant[i].picSmall != undefined) {
+					var iec = dat.plant[i].pid;
+					var Orientation = 1;
+					var imageObj = new Image();
+					imageObj.setAttribute('crossOrigin', 'anonymous');
+					imageObj.src = dat.plant[i].picSmall;
+					imageObj.onload = function () {
+						varOrientation = 1;
+						EXIF.getData(imageObj, function () {
+							Orientation = EXIF.getTag(this, "Orientation");
+							if (Orientation && Orientation != 1) {
+								switch (Orientation) {
+									// 判定图片翻转值
+									case 6:
+										$("#qyList_" + iec + " img").addClass("Addingname")
+										$("#qyList_" + iec + " dt").addClass("Addingname1")
+										$("#qyList_" + iec + " img").css("transform",
+											"rotate(+90deg) translate(8px, -47px)")
+										$("#qyList_" + iec + " img").css("margin-top", "-52px")
+										break;
+
+								}
+							}
+						});
+					}
+				}
+
+			})(i)
+			if(dat.plant[i].powerEfficiency == '-'){
+				powerEfficiency = dat.plant[i].powerEfficiency
+			}else if(dat.plant[i].powerEfficiency == undefined){
+				powerEfficiency = '-'
+			}else {
+				powerEfficiency = (parseFloat(dat.plant[i].powerEfficiency)*100).toFixed(1)
+			}
+			if(dat.plant[i].cfValue == '-'){
+				cfValue = dat.plant[i].cfValue
+			}else if(dat.plant[i].cfValue == undefined){
+				cfValue = '-'
+			}else {
+				cfValue = (parseFloat(dat.plant[i].cfValue)*100).toFixed(1)
+			}
+
+			if (dat.plant[i].fullHours == '-') {
+				fullHours = dat.plant[i].fullHours
+			} else {
+				fullHours = parseFloat(dat.plant[i].fullHours).toFixed(1)
+			}
+			status = dat.plant[i].status;
+			switch (status) {
+				case 0:
+					color = " class='btn btn-default btn-sm right green'" + "" + "'><span class='qy_state'>" +
+						getMultiLangError("plant_normal");
+					break;
+				case 1:
+					color = " class='btn btn-default btn-sm right gray'" + "" + "'><span class='qy_state'>" +
+						getMultiLangError("status_offline");
+					break;
+				case 4:
+					color = " class='btn btn-default btn-sm right red'" + "" + "'><span class='qy_state'>" +
+						getMultiLangError("plant_abnormal");
+					break;
+				case 7:
+					color = " class='btn btn-default btn-sm right yellow'" + "" + "'><span class='qy_state'>" +
+						getMultiLangError("plant_attention");
+					break;
+				default:
+					color = " class='btn btn-default btn-sm right gray'" + "" + "'><span class='qy_state'>" +
+						getMultiLangError("plant_no_device");
+
+			}
+			let params = ""
+			// ksolare：PR和CR在该域名下全部展示(去userId == 102793&&)
+			if(hostname == ksolare){
+				params ="<br><span>"+"PR" +
+				"</span><span class='right'>" + powerEfficiency + "%</span><br><span>" + "CF" +
+				"</span><span class='right'>" + cfValue + "%</span>"
+			}else{
+				params = ""
+			}
+			$(".qyListBox").append("<dl onclick='getPlantId(this.id)' class='qy_liebaobox left' id=" + "qyList_" + dat
+				.plant[i].pid + "><dt><a href='javascript:void(0)''>" +
+				"<img src=" + (dat.plant[i].picSmall == undefined ? "/assets/images/pic_broken.png" : dat.plant[i]
+					.picSmall.indexOf("undefined") == -1 ? dat.plant[i].picSmall : "/assets/images/pic_broken.png") +
+				"></a></dt><dd><span class='qy_lbtittle " + (dat.plant[i].name.length > 14 ? "liMarquee" : "") +
+				"' title ='" + dat.plant[i].name + "'>" +
+				dat.plant[i].name + "&nbsp;&nbsp;&nbsp;</span><div class='qy_lbbottom'><span>" + getMultiLangError(
+					"plant_status") +
+				"</span><button" + color + "</span></button><br><span><span >" + getMultiLangError(
+					"plant_current_power") + "</span><span class='right'>" + parseFloat(dat.plant[i].outputPower)
+				.toFixed(1) +
+				"kW</span></span><br><span>" + getMultiLangError("today_energy") + "</span><span class='right'>" +
+				parseFloat(dat.plant[i].energy).toFixed(1) + "kWh</span><br><span>" + getMultiLangError("full_hours") +
+				"</span><span class='right'>" + fullHours + "</span>" + params +
+				"</div> </dd></dl>	");
+			pids += dat.plant[i].pid + ","
+		}
+		scanning(0)
+		console.log("getCurrentUsername()",getCurrentUsername())
+		console.log("storage_get()()",storage_get())
+		//img图片地址,state 0-正常,1-离线,其他-故障,power代表功率,energy发电量,name电站名称
+	}
+	//点击增加电站
+	function go2AddPlant() {
+		$("#mainArea").load("/solarmonitor.github.io/plant/addPlant.html", null);
+	}
+
+	/*获取主电站和主时区和主名字*/
+	function getPlantId(id) {
+		var arr = id.split("_");
+		var selectId = arr[1];
+		MAIN_CHOOSE_PLANT_ID = selectId;
+		http_async_request_public("&action=queryPlantInfo&plantid=" + selectId, function (err, dat) {
+			if (err == WS_ERR_NONE) {
+				MAIN_CHOOSE_PLANT_TIMEZONE = (dat.address.timezone / 3600);
+
+				MAIN_CHOOSE_PLANT_NAME = dat.name;
+				$("#checkedPlant").text(MAIN_CHOOSE_PLANT_NAME);
+				$("#mainArea").load("/solarmonitor.github.io/plant/plant.html", null);
+
+
+			}
+		}, function () {
+			console.log("根据点击获取时区失败");
+		});
+	}
+
+	//判断电站列表显示几列
+	function plantListPagesize() {
+		var width = document.body.offsetWidth;
+		console.log(width)
+		if (width < 1244) {
+			maxPagesize = 20;
+		} else if (1484 > width > 1248) {
+			maxPagesize = 28;
+		} else if (1700 > width > 1484) {
+			maxPagesize = 30;
+		} else {
+			maxPagesize = 35;
+		}
+		return maxPagesize;
+	}
+</script>
+<style>
+	.Addingname {
+		width: 127px !important;
+		height: 220px !important;
+	}
+
+	.Addingname1 {
+		height: 130px !important;
+	}
+</style></body></html>
