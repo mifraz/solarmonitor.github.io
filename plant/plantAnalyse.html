@@ -1,0 +1,1165 @@
+
+<!-- saved from url=(0052)https://www.shinemonitor.com/plant/plantAnalyse.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"><style type="text/css">
+	.horCon:hover {
+		color: #108EE9;
+		text-decoration: underline;
+		cursor: pointer;
+	}
+	
+	#HorizontalBox2 {
+		width: 100%;
+	}
+	
+	#hrizontal_img {
+		width: 100%;
+	}
+	
+	.general_date_input2 {
+		text-align: center;
+		/*float: left;*/
+		width: 80px;
+		height: 32px;
+		margin: 10px;
+		border-radius: 5px;
+		border: 1px solid #949494;
+	}
+	
+	#dateInpBox {
+		text-align: center;
+	}
+	
+	#dateInpBox1 {
+		line-height: 54px;
+	}
+	/*多参数对比*/
+	
+	.plant_alarm_select2 {
+		display: none;
+		float: left;
+		width: 150px;
+		height: 50px;
+		padding-top: 10px;
+		margin-right: 15px;
+	}
+	
+	.plant_alarm_select3 {
+		position: relative;
+		float: left;
+		width: 100px;
+		height: 50px;
+		padding-top: 10px;
+		margin-right: 15px;
+		text-align: center;
+	}
+	
+	.plant_alarm_select3 .btn {
+		display: inline-block;
+		width: 26px;
+		height: 26px;
+		line-height: 26px;
+		padding: 0px;
+		border: 1px solid;
+		font-size: 20px;
+	}
+</style>
+</head><body><div class="row plant_ana_all">
+	<div id="anaDevCue" class="faultInfo">
+		<i class="fa fa-exclamation-circle" style="color: red">
+	     </i>
+	</div>
+	<div class="col-md-12 col-sm-12 ">
+		<div style="background: #fff;text-align:center;position: relative;">
+			<span class="btn" id="go2IV" style="position: absolute;top: 10px;right: 100px;border: 1px solid #189BF5;z-index: 1;" lang="I_V"></span>
+			<div style="color:#189bf5;padding:10px 0 5px;font-size:18px;" class="chartTitle"></div>
+			<div style="color:#ccc" class="chartSubTitle"></div>
+		</div>
+		<div class="col-md-12 ana-charts-bg">
+			<div id="anaDevContainer" class="ana-charts-container"></div>
+		</div>
+		<div class="plant_alarm_left">
+			<div class="plant_alarm_select">
+				<label class="col-md-6 plant_ana_label"> <span lang="device_type"><!--设备类型--></span>:</label>
+				<select class="col-md-6 plant_ana_select" id="devTypeSelect">
+					<option lang="dev_inv" value="dev_inv">
+						<!--逆变器-->
+					</option>
+					<!--<option lang="dev_env" value="dev_env">环境监测仪</option>
+					<option lang="dev_meter" value="dev_meter">智能电表</option>
+					<option lang="dev_box" value="dev_box">汇流箱</option>
+					<option lang="dev_battery" value="dev_battery">电池组</option>
+					<option lang="dev_charger" value="dev_charger">充电器</option>
+					<option lang="dev_controller" value="dev_controller" id="dynamic">控制器</option>
+					<option lang="dev_islanding" value="dev_islanding">防孤岛装置</option>-->
+				</select>
+				<!--<script type="text/javascript">
+					if(DEVICE_DEVC_CONTROLLER == "设备") {
+						var lang = storage_i18n_get_id();
+						if(lang == 0)
+							$('#dynamic').text("设备");
+						else if(lang == 1)
+							$('#dynamic').text("Device");
+						else
+							$('#dynamic').text("Device");
+						$('#dynamic').attr("lang", "dev_device")
+						$('#dynamic').val("dev_device")
+					}
+				</script>-->
+			</div>
+			<div class="plant_alarm_select" id="param0Box">
+				<label class="col-md-6 plant_ana_label"><span lang="ala_choose_para"><!--对比参数--></span>:</label>
+				<select class="col-md-6 plant_ana_select plantAnaList"></select>
+			</div>
+			<div class="plant_alarm_select2" id="param1Box">
+
+				<select class="col-md-6 plant_ana_select plantAnaList"></select>
+			</div>
+			<div class="plant_alarm_select2" id="param2Box">
+
+				<select class="col-md-6 plant_ana_select plantAnaList"></select>
+			</div>
+
+			<div class="plant_alarm_select2" id="param3Box">
+
+				<select class="col-md-6 plant_ana_select plantAnaList"></select>
+			</div>
+			<div class="plant_alarm_select2" id="param4Box">
+
+				<select class="col-md-6 plant_ana_select plantAnaList"></select>
+			</div>
+			<div class="plant_alarm_select3">
+				<span class="btn" id="remParms">
+				 	-
+				 </span>
+				<span class="btn" id="addParms">
+				 	+
+				 </span>
+			</div>
+			<div class="plant_alarm_date ">
+				<div class="general_date_all charts_cal_right">
+					<div class=" general_date_before" id="anaDateBefore">
+						<a href="https://www.shinemonitor.com/plant/plantAnalyse.html#"><i class="fa fa-chevron-left  general_icon_before"></i></a>
+					</div>
+					<input id="anaDate" type="text" data-plugin-datepicker="" class="general_date_input general_date_day" readonly="readonly">
+					<div class="general_date_after" id="anaDateAfter">
+						<a href="https://www.shinemonitor.com/plant/plantAnalyse.html#"><i class="fa fa-chevron-right general_icon_after"></i></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-12 plant_ana_table">
+		<table class="table table-bordered mb-none tableStyle" id="anaInverterTable">
+			<tbody><tr>
+				<th>
+					<!--数采器-->
+				</th>
+				<th>
+					<!--设备编码-->
+				</th>
+				<th>
+					<!--序列号-->
+				</th>
+				<th>
+					<!--额定功率-->
+				</th>
+				<th>
+					<!--机型-->
+				</th>
+				<th>
+					<!--当日发电量(kWh)-->
+				</th>
+				<th>
+					<!--总发电量(kWh)-->
+				</th>
+				<th>
+					<!--最后更新时间-->
+				</th>
+				<th>
+					<!--连接状态-->
+				</th>
+				<th>
+					<!--操作-->
+				</th>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td><input type="checkbox"></td>
+			</tr>
+		</tbody></table>
+	</div>
+</div>
+<!--横向对比盒子-->
+<div class="modal fade" id="HorizontalBox">
+	<div class="modal-dialog modal-lg" style="width: 1000px;">
+
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		        		<span aria-hidden="true">�
+		        		</span>
+		        </button>
+				<h4 class="modal-title" lang="horizont_alanalyse">横向分析</h4>
+			</div>
+			<div class="modal-body" id="HorizontalBox2">
+				<div id="hrizontal_img">
+
+				</div>
+				<div id="dateInpBox" class="clear">
+
+					<div id="">
+						<span id="" lang="gprs_time"></span>1<input type="text" name="anaDate2" id="anaDate2" value=" " class="general_date_input2" readonly="readonly">
+						<span id="" lang="gprs_time"></span>2<input type="text" name="anaDate2" id="anaDate3" value=" " readonly="readonly" class="common_general_date_input2 general_date_input2">
+						<span id="" lang="gprs_time"></span>3<input type="text" name="anaDate2" id="anaDate4" value=" " readonly="readonly" class="common_general_date_input2 general_date_input2">
+						<span id="" lang="gprs_time"></span>4<input type="text" name="anaDate2" id="anaDate5" value=" " readonly="readonly" class="common_general_date_input2 general_date_input2">
+						<span id="" lang="gprs_time"></span>5<input type="text" name="anaDate2" id="anaDate6" value=" " readonly="readonly" class="common_general_date_input2 general_date_input2">
+						<span id="" lang="gprs_time"></span>6<input type="text" name="anaDate2" id="anaDate7" value=" " readonly="readonly" class="common_general_date_input2 general_date_input2">
+						<span id="" lang="gprs_time"></span>7<input type="text" name="anaDate2" id="anaDate8" value=" " readonly="readonly" class="common_general_date_input2 general_date_input2">
+						<span id="" lang="gprs_time"></span>8<input type="text" name="anaDate2" id="anaDate9" value=" " readonly="readonly" class="common_general_date_input2 general_date_input2">
+						<span id="" lang="gprs_time"></span>9<input type="text" name="anaDate2" id="anaDate10" value=" " readonly="readonly" class="common_general_date_input2 general_date_input2">
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	ANA_CHOOSE_DEVICE_TYPE_NAME = null; /** 被选择的设备类型名称. */
+	ANA_CHOOSE_DEVICE_TYPE = "dev_inv"; /** 被选择的设备类型(默认选中逆变器). */
+	ANA_CHOOSE_FIELD_NAME = null; /** 对比参数名称. */
+
+	ANA_CHOOSE_FIELD_NAMES = []
+	ANA_CHOOSE_FIELD_UNITS = []
+	ANA_CHOOSE_FIELDS = []
+	CHECK_BOX = []
+	SHOW_BOX = []
+	ANA_CHOOSE_FIELD_UNIT = "kW" /** 对比参数单位. */
+	ANA_CHOOSE_FIELD = "output_power"; /** 对比参数(默认选中逆变器的输出有功功率). */
+	ANA_CHOOSE_DATE = null; /** 日期. */
+
+	var paramNum = 0;
+	var fieleList = []
+	var initLegend = []; //初始化Legend
+	var chart
+	require.config({
+		paths: {
+			g2: '/js/g2.min'
+		}
+	});
+	require(['g2'],
+		function (g2) {
+			chart = new G2.Chart({
+				container: 'anaDevContainer',
+				forceFit: true,
+				height: 450
+			});
+			chart.tooltip({
+				crosshairs: {
+					type: 'line'
+				}
+			});
+		}
+	)
+	//
+	$(document).ready(function() {
+		var hpn;
+		var hsn;
+		var hdevCode;
+		$("#HorizontalBox .modal-dialog").width(document.body.offsetWidth - 100)
+		$("#HorizontalBox2").height(document.body.offsetHeight - 200)
+		$("#hrizontal_img").height(document.body.offsetHeight - 280)
+		//判断是否是巴西renovigi定制域名
+		function renovigiUpdate(){
+			var renovigi = "www.renovigi.solar";
+			var hostname = window.document.location.hostname
+			if(renovigi == hostname){
+				return true;
+			}else{
+				false
+			}
+		}
+		if(renovigiUpdate()){
+			$('#go2IV').show();
+		}else{
+			$('#go2IV').hide();
+		}
+		//去IV曲线页面
+		$('#go2IV').click(function(){
+			var rowData = $("#anaInverterTable").DataTable().rows(".selRow").data();
+			var deviceArr = new Array();
+			for(var j = 0; j < rowData.length; j++) /** 获取当前选中的设备信息. */ {
+				var device = [rowData[j][0], rowData[j][1], rowData[j][2], rowData[j][3], rowData[j][4]]; //pn, devcode, alias, sn, devaddr
+				deviceArr.push(device);
+			}
+			if(deviceArr.length>1){
+				layer.ready(function() {
+					layer.msg(getMultiLangError("no_IV"));
+				});
+			}else if(deviceArr.length<1){
+				layer.ready(function() {
+					layer.msg(getMultiLangError("select_a_device"));
+				});
+			}else{
+				MAIN_SELECTED_DEVICE_SN_IV = deviceArr[0]
+				loadHtml("plantAnalyse", "/plant/plantAnalyseIV.html");
+			}
+		})
+		$("#addParms").click(function() {
+			var rowData = $("#anaInverterTable").DataTable().rows(".selRow").data();
+			if(rowData.length == 1) {
+				initparms()
+					++paramNum;
+
+				SHOW_BOX = FilterData(CHECK_BOX, ANA_CHOOSE_FIELDS)
+				var soption="";
+
+				for(var i = 0; i < SHOW_BOX.length; i++) {
+					soption += "<option class='soptionLis'  value='" +
+						SHOW_BOX[i].optional + "' unit='" +
+						SHOW_BOX[i].uint + "'>" +
+						SHOW_BOX[i].name + "</option>";
+				}
+ 
+				$("#param" + paramNum + "Box").show();
+				$("#param" + paramNum + "Box .plantAnaList").html("")
+				$("#param" + paramNum + "Box .plantAnaList").append(soption)
+				deviceAnalyseChange()
+				if(SHOW_BOX.length==1){
+					$("#addParms").hide()
+				}
+
+			} else {
+				$("#anaDevCue").show();
+				$("#anaDevCue > i").text(getMultiLangError("paramNum_one_para"));
+
+			}
+		})
+
+		$("#remParms").click(function() {
+			$("#addParms").show()
+			if(paramNum != 0) {
+				$("#param" + paramNum + "Box").hide();
+				--paramNum
+
+				deviceAnalyseChange()
+			}
+
+		})
+		checkUserCurLang();
+		//
+		makeDevCompareList();
+		queryPlantInvertersInfo(); /** 设置为逆变器 */
+		laydate.render({
+			elem: '#anaDate',
+			btns: ['now', 'confirm'],
+			lang: storage_i18n_get_id() == 0 ? "cn" : "en",
+			trigger: 'click',
+			max: parseDate2yyyymmdd(new Date()),
+			done: function(value, date, endDate) {
+				anaDateChange(value);
+			}
+
+		});
+
+		lay('.common_general_date_input2').each(function() {
+			laydate.render({
+				elem: this,
+				trigger: 'click'
+					//		     ,btns: ['now', 'confirm']
+					,
+				max: parseDate2yyyymmdd(new Date()),
+				done: function(value, date, endDate) {
+					getHdata([hpn, hdevCode, hsn])
+				}
+			});
+		});
+		laydate.render({
+			elem: '#anaDate2',
+			btns: ['now', 'confirm'],
+			max: parseDate2yyyymmdd(new Date()),
+			done: function(value, date, endDate) {
+				getHdata([hpn, hdevCode, hsn])
+			}
+		});
+
+		/** 日历控件初始化设置为今日. */
+		$("#anaDate,#anaDate2").val(parseDate2yyyymmdd(new Date()));
+		$("#anaDate3").val(getYestoday($("#anaDate").val()));
+		$("#anaDate4").val(getYestoday(getYestoday($("#anaDate").val())));
+		$("#anaDate5").val(getYestoday(getYestoday(getYestoday($("#anaDate").val()))));
+		$("#anaDate6").val(getYestoday(getYestoday(getYestoday(getYestoday($("#anaDate").val())))));
+		$("#anaDateBefore").click(function() {
+			var tempDay = $("#anaDate").val();
+			var yesterday = getYestoday(tempDay);
+			$("#anaDate").val(yesterday);
+			anaDateChange(yesterday);
+			//			getScanDetails(yesterday, 0, 16)
+
+		});
+
+		$("#anaDateAfter").click(function() {
+			var tempDay = $("#anaDate").val();
+			var nextDay = getNextday(tempDay);
+			if(tempDay != parseDate2yyyymmdd(new Date())) {
+				$("#anaDate").val(nextDay);
+				anaDateChange(nextDay);
+
+			}
+			//			getLineData(nextDay)
+			//			getScanDetails(nextDay, 0, 16)
+
+		});
+		//
+		$("#devTypeSelect").change(function() {
+			devTypeSelectChange($(this));
+		}); /** 设备选择事件. */
+		$(".plantAnaList").change(function() {
+
+			plantAnaListChange($(this));
+
+		}); /** 对比参数选择事件. */
+		$('#anaDate').on('changeDate', function() {
+			anaDateChange($(this));
+		}); /** 日期被重新选择. */
+		$("#anaInverterTable tbody").on('click', 'input.compare-row', function() {
+			checkBoxChange($(this));
+		}); /** 复选框选择事件. */
+		//
+
+		$(document).off("click", ".horCon").on("click", ".horCon", function() {
+			$("#HorizontalBox").modal()
+			$("#hrizontal_img").html("loading")
+			hpn = $(this).parents("tr").children()[0].innerHTML
+			hsn = $(this).parents("tr").children()[3].innerHTML
+			hdevCode = $(this).parents("tr").children()[1].innerHTML
+
+			getHdata([hpn, hdevCode, hsn])
+		})
+
+	});
+
+	/** 日期被重新选择. */
+	function anaDateChange(anaDate) {
+		ANA_CHOOSE_DATE = parseDate2yyyymmdd(nd);
+		deviceAnalyseChange();
+	}
+
+	/** 设备类型选择事件. */
+	function devTypeSelectChange(devTypeSelect) {
+		ANA_CHOOSE_DEVICE_TYPE_NAME = devTypeSelect.find("option:selected").text();
+		ANA_CHOOSE_DEVICE_TYPE = devTypeSelect.val();
+		deviceAnalyseChange();
+	}
+
+	/** 对比参数选择事件. */
+	function plantAnaListChange(plantAnaList) {
+		var value = plantAnaList.val();
+		ANA_CHOOSE_FIELD_NAME = plantAnaList.find("option:selected").text();
+		ANA_CHOOSE_FIELD = value;
+		ANA_CHOOSE_FIELD_UNIT = plantAnaList.find("option:selected").attr("unit")
+
+		deviceAnalyseChange(); /** 逆变器. */
+	}
+	//   /** 多对比参数选择事件. */
+	//	function plantAnaListChange(num) {
+	//		
+	//		
+	//		deviceAnalyseChange(); /** 逆变器. */
+	//	}
+	/** 复选框选择事件. */
+	function checkBoxChange(anaInverterTableTbody) {
+		anaInverterTableTbody.parents('tr').toggleClass("selRow");
+		var rowData = $("#anaInverterTable").DataTable().rows(".selRow").data();
+		if(rowData.length == 0) {
+			$("#anaDevCue").show();
+			$("#anaDevCue > i").text(getMultiLangError("ala_check_1"));
+			return;
+		}
+		if(rowData.length > 12) /** 最多支持12个. */ {
+			$("#anaDevCue").show();
+			$("#anaDevCue > i").text(getMultiLangError("ala_check_5"));
+			return;
+		}
+		$("#anaDevCue").hide();
+		deviceAnalyseChange();
+	}
+
+	/** 表格初始化后,勾选checkbox触发事件. */
+	function deviceAnalyseChange() {
+		var rowData = $("#anaInverterTable").DataTable().rows(".selRow").data();
+		var fieldsDict = new Array();
+		var deviceArr = new Array();
+		var devcodeArr = new Array();
+		for(var j = 0; j < rowData.length; j++) /** 获取当前选中的设备信息. */ {
+			var device = [rowData[j][0], rowData[j][1], rowData[j][2], rowData[j][3], rowData[j][4]]; //pn, devcode, alias, sn, devaddr
+
+			deviceArr.push(device);
+		}
+
+		if(ANA_CHOOSE_FIELD == null || ANA_CHOOSE_FIELD == undefined) {
+			$("#anaDevCue").show();
+			$("#anaDevCue > i").text(getMultiLangError("ala_one_para"));
+			return false;
+		}
+
+		if(rowData.length != 1 && paramNum != 0) {
+			$("#anaDevCue").show();
+			$("#anaDevCue > i").text(getMultiLangError("paramNum_one_para"));
+			return false;
+		}
+		if(rowData.length == 1) {
+			//如果只有一个设备一个参数
+
+			if(paramNum == 0) {
+				deviceChartsRender([rowData[0][0], rowData[0][1], rowData[0][2], rowData[0][3], rowData[0][4]], 1);
+			} else {
+				var nd = new Date();
+				ANA_CHOOSE_DATE = parseDate2yyyymmdd(nd);
+				var checkDay = $("#anaDate").val();
+				var sTime = checkDay + " " + "00:00:00";
+				var eTime = ((checkDay == ANA_CHOOSE_DATE) ? parseDate2yyyymmddhhmiss(nd) : (checkDay + " " + "23:59:59"));
+				qyCustomsFields([rowData[0][0], rowData[0][1], rowData[0][2], rowData[0][3], rowData[0][4]], sTime, eTime)
+			}
+		} else {
+
+			deviceChartsRender(deviceArr, rowData.length);
+		}
+	}
+
+	/** 查询电站下所有逆变器的配置信息, 生成表格. */
+	function queryPlantInvertersInfo() {
+		http_async_request_public("&action=queryPlantDeviceDesignatedInformation&plantid=" + MAIN_CHOOSE_PLANT_ID + "&devtype=512&i18n=" + getInterLang() + "&parameter=energy_today,energy_total", function(err, dat) {
+			if(err == WS_ERR_NONE){
+				if(!MAIN_SELECTED_DEVICE_SN_IV_GO2ANALYSE){
+					renderInverterTable(dat.device)
+				}else{
+					for (let i = 0; i < dat.device.length; i++) {
+						if(dat.device[i].sn == MAIN_SELECTED_DEVICE_SN_IV_GO2ANALYSE){
+							renderInverterTable2(dat.device,null,i)
+							MAIN_SELECTED_DEVICE_SN_IV_GO2ANALYSE = null;
+						}
+					}
+				}
+			}
+			else
+				show4AnaDevCue(err);
+		}, function() {
+			show4AnaDevCue(WS_ERR_FAIL);
+		});
+	}
+
+	/** 将逆变器的配置信息包含状态和厂家名, 生成表格. */
+	function renderInverterTable(dat, status) {
+		var table = $('#anaInverterTable').DataTable({
+			data: loadInvConfArr(dat, status),
+			scrollX: false,
+			scrollY: "25vh",
+			scrollCollapse: true,
+			paging: false,
+			ordering: false,
+			processing: true,
+			info: false,
+			columns: [{
+					title: getMultiLangError("father_datalog_pn")
+				}, {
+					title: getMultiLangError("device_code")
+				}, {
+					title: getMultiLangError("edit_device_alias")
+				}, {
+					title: getMultiLangError("device_sn")
+				},
+				{
+					title: getMultiLangError("dev_mail_address")
+				},
+				{
+					title: getMultiLangError("nominal_power_kw")
+				}, {
+					title: getMultiLangError("inv_model")
+				}, {
+					title: getMultiLangError("today_elec_kwh")
+				},
+				{
+					title: getMultiLangError("total_elec_kwh")
+				}, {
+					title: getMultiLangError("last_update_time")
+				}, {
+					title: getMultiLangError("connect_status")
+				},
+				{
+					title: getMultiLangError("compare"),
+					"defaultContent": "<input type='checkbox' class='compare-row'>",
+					"bSortable": false
+				}, {
+					title: getMultiLangError("operation"),
+					"defaultContent": "<span class='horCon'>" + getMultiLangError("Horizontal_contrast") + "</span>",
+					"bSortable": false
+				}
+			],
+			"language": {
+				"url": "/assets/vendor/jquery-datatables/media/js/language" + storage_i18n_get_id() + ".json"
+			},
+			initComplete: function() {
+				ANA_CHOOSE_FIELD = "output_power";
+				$(".compare-row").eq(0).click();
+				if(window.document.location.hostname != "www.renovigi.solar"){
+					setTimeout(function() {
+					$(".compare-row").eq(1).click();
+					}, 300)
+				}
+				
+			}
+		});
+	}
+	/** 将逆变器的配置信息包含状态和厂家名, 生成表格. */
+	function renderInverterTable2(dat,status,index) {
+		var table = $('#anaInverterTable').DataTable({
+			data: loadInvConfArr(dat, status),
+			scrollX: false,
+			scrollY: "25vh",
+			scrollCollapse: true,
+			paging: false,
+			ordering: false,
+			processing: true,
+			info: false,
+			columns: [{
+					title: getMultiLangError("father_datalog_pn")
+				}, {
+					title: getMultiLangError("device_code")
+				}, {
+					title: getMultiLangError("edit_device_alias")
+				}, {
+					title: getMultiLangError("device_sn")
+				},
+				{
+					title: getMultiLangError("dev_mail_address")
+				},
+				{
+					title: getMultiLangError("nominal_power_kw")
+				}, {
+					title: getMultiLangError("inv_model")
+				}, {
+					title: getMultiLangError("today_elec_kwh")
+				},
+				{
+					title: getMultiLangError("total_elec_kwh")
+				}, {
+					title: getMultiLangError("last_update_time")
+				}, {
+					title: getMultiLangError("connect_status")
+				},
+				{
+					title: getMultiLangError("compare"),
+					"defaultContent": "<input type='checkbox' class='compare-row'>",
+					"bSortable": false
+				}, {
+					title: getMultiLangError("operation"),
+					"defaultContent": "<span class='horCon'>" + getMultiLangError("Horizontal_contrast") + "</span>",
+					"bSortable": false
+				}
+			],
+			"language": {
+				"url": "/assets/vendor/jquery-datatables/media/js/language" + storage_i18n_get_id() + ".json"
+			},
+			initComplete: function() {
+				ANA_CHOOSE_FIELD = "output_power";
+				$(".compare-row").eq(index).click();
+				
+			}
+		});
+	}
+
+	/** 设备数据报表展示. */
+	function deviceChartsRender(devInfo, devLen) {
+		var nd = new Date();
+		ANA_CHOOSE_DATE = parseDate2yyyymmdd(nd);
+		var checkDay = $("#anaDate").val();
+		var sTime = checkDay + " " + "00:00:00";
+		var eTime = ((checkDay == ANA_CHOOSE_DATE) ? parseDate2yyyymmddhhmiss(nd) : (checkDay + " " + "23:59:59"));
+		if(devLen == 1) /** 只有一个设备. */
+			qyCustomFields(devInfo, checkDay, sTime, eTime);
+		else
+			devChartsRenderMulti(devInfo, checkDay, sTime, eTime);
+	}
+	/* 单个设备多个报表字段数据比较(天)*/
+	function qyCustomsFields(devArr, sdate, edate) {
+		ANA_CHOOSE_FIELD_NAMES = [];
+		ANA_CHOOSE_FIELDS = [];
+		ANA_CHOOSE_FIELD_UNITS = []
+		for(var i = 0; i < paramNum + 1; i++) {
+
+			ANA_CHOOSE_FIELD_NAMES.push($("#param" + i + "Box .plantAnaList").find("option:selected").text());
+			ANA_CHOOSE_FIELDS.push($("#param" + i + "Box .plantAnaList").find("option:selected").val());
+			ANA_CHOOSE_FIELD_UNITS.push($("#param" + i + "Box .plantAnaList").find("option:selected").attr("unit"));
+
+		}
+
+		http_async_request_public("&action=queryDeviceChartFieldsDat&devaddr=" + devArr[4] +
+			"&pn=" + devArr[0] + "&devcode=" + devArr[1] + "&sn=" + devArr[3] + "&field=" + ANA_CHOOSE_FIELDS.join(",") + "&precision=5&sdate=" +
+			encodeURI(sdate) + "&edate=" + encodeURI(edate),
+			function(err, dat) {
+				if(err == WS_ERR_NONE) {
+
+					$("#anaDevCue").hide();
+					var allTime = new Array();
+					var allparms = new Array();
+					for(var i = 0; i < dat.date.length; i++) {
+						var oneparms = new Array();
+						var oneTime = new Array();
+						for(var k = 0; k < dat.date[i].paramter.length; k++) {
+							oneTime.push(dat.date[i].paramter[k].key.substring(11, 16));
+							if(dat.date[i].paramter[k].val == null)
+								oneparms.push("0");
+							else
+								oneparms.push(dat.date[i].paramter[k].val);
+						}
+						allparms.push(oneparms);
+						allTime.push(oneTime);
+					}
+					//					drawAnaDevCharts(allTime, allDevice, snArr, date, json.unit);
+
+					drawAnaSdevCharts(allTime, allparms, ANA_CHOOSE_FIELD_NAMES, $("#anaDate").val(), ANA_CHOOSE_FIELD_UNITS, devArr)
+
+					//				$("#anaDevCue").hide();
+					//				var allTime = new Array();
+					//				var allDevice = new Array();
+					//				var oneDevice = new Array();
+					//				var oneTime = new Array();
+					//				var selectedDay = dat[0].key.substring(0, 10);
+					//				var key = devArr[0] + '-' + devArr[1] + '-' + devArr[2];
+					//				var snArr = [key];
+					//				for(var j = 0; j < dat.length; j++) {
+					//					oneTime.push(dat[j].key.substring(11, 16));
+					//					oneDevice.push(dat[j].val);
+					//				}
+					//				allTime.push(oneTime);
+					//				allDevice.push(oneDevice);
+					//				drawAnaDevCharts(allTime, allDevice, snArr, selectedDay, ANA_CHOOSE_FIELD_UNIT);
+				}
+			},
+			function() {
+				$("#anaDevCue").show();
+				$("#anaDevCue > i").text(getMultiLangError("ana_sen_1") + devArr[3] + getMultiLangError("ana_sen_2") + sdate.substring(0, 10) + getMultiLangError("ana_sen_3") + ANA_CHOOSE_FIELD_NAME + getMultiLangError("ana_sen_4"));
+			});
+	}
+
+	/* 单个设备报表字段数据比较(天)*/
+	function qyCustomFields(devArr, selectedDay, sdate, edate) {
+		if(window.document.location.hostname == "www.renovigi.solar"){
+			makeDevCompareList(devArr,2)
+		}
+		
+		http_async_request_public("&action=queryDeviceChartFieldDetailData&devaddr=" + devArr[4] +
+			"&pn=" + devArr[0] + "&devcode=" + devArr[1] + "&sn=" + devArr[3] + "&field=" + ANA_CHOOSE_FIELD + "&precision=5&sdate=" +
+			encodeURI(sdate) + "&edate=" + encodeURI(edate),
+			function(err, dat) {
+				if(err == WS_ERR_NONE) {
+					$("#anaDevCue").hide();
+					var allTime = new Array();
+					var allDevice = new Array();
+					var oneDevice = new Array();
+					var oneTime = new Array();
+					var selectedDay = dat[0].key.substring(0, 10);
+					var key = devArr[2];
+					var snArr = [key];
+					for(var j = 0; j < dat.length; j++) {
+						oneTime.push(new Date(dat[j].key).getTime());
+						oneDevice.push(dat[j].val);
+					}
+					allTime.push(oneTime);
+					allDevice.push(oneDevice);
+					chart && drawAnaDevCharts(allTime, allDevice, snArr, selectedDay, ANA_CHOOSE_FIELD_UNIT);
+				} else {
+					$("#anaDevCue").show();
+					$("#anaDevCue > i").text(getMultiLangError("ana_sen_1") + devArr[3] + getMultiLangError("ana_sen_2") + sdate.substring(0, 10) + getMultiLangError("ana_sen_3") + ANA_CHOOSE_FIELD_NAME + getMultiLangError("ana_sen_4"));
+				}
+			},
+			function() {
+				$("#anaDevCue").show();
+				$("#anaDevCue > i").text(getMultiLangError("ana_sen_1") + devArr[3] + getMultiLangError("ana_sen_2") + sdate.substring(0, 10) + getMultiLangError("ana_sen_3") + ANA_CHOOSE_FIELD_NAME + getMultiLangError("ana_sen_4"));
+			});
+	}
+
+	/** 多个设备报表字段数据比较. */
+	function devChartsRenderMulti(deviceArr, date, sTime, eTime) {
+		if(window.document.location.hostname == "www.renovigi.solar"){
+			makeDevCompareList(deviceArr,1)
+		}
+		
+		var device = "";
+		var snArr = new Array();
+		for(var j = 0; j < deviceArr.length; j++) {
+			device += deviceArr[j][0] + "," + deviceArr[j][1] + "," + deviceArr[j][3] + ";";
+			snArr.push(deviceArr[j][2]);
+		}
+		http_async_request_public("&action=queryDeviceDataChartsCompDay&chart_field=" + ANA_CHOOSE_FIELD + "&device=" + device + "&sdate=" + encodeURI(sTime) + "&edate=" + encodeURI(eTime), function(err, json) {
+			if(err == WS_ERR_NONE) {
+				$("#anaDevCue").hide();
+				var allTime = new Array();
+				var allDevice = new Array();
+				for(var i = 0; i < json.dat.length; i++) {
+					var oneDevice = new Array();
+					var oneTime = new Array();
+					for(var k = 0; k < json.dat[i].length; k++) {
+						oneTime.push(new Date(json.dat[i][k][0]).getTime());
+						if(json.dat[i][k][1] == null)
+							oneDevice.push("0");
+						else
+							oneDevice.push(json.dat[i][k][1]);
+					}
+					allDevice.push(oneDevice);
+					allTime.push(oneTime);
+				}
+				chart && drawAnaDevCharts(allTime, allDevice, snArr, date, json.unit);
+			}
+		}, function() {
+			show4AnaDevCue(WS_ERR_FAIL);
+		});
+	}
+
+	/** 请求,并生成对比参数下拉表. */
+	function makeDevCompareList(deviceArr,number) {
+		var pns = []
+		var devcodes = []
+		if(deviceArr != undefined){
+			if(number == 2){
+				 pns.push(deviceArr[0])
+				 devcodes.push(deviceArr[1])
+			}else{
+				for(var a= 0;a<deviceArr.length;a++){
+					pns.push(deviceArr[a][0])
+					devcodes.push(deviceArr[a][1])
+				}
+			}
+			
+		}
+		
+		if(window.document.location.hostname == "www.renovigi.solar"){
+			http_async_request_public("&action=queryPlantDeviceChartsFields&plantid=" + MAIN_CHOOSE_PLANT_ID + "&devtype=512"+"&pns="+pns+"&devcodes="+devcodes, function(err, dat, desc) {
+			if(err == 0) {
+				$(".plantAnaList").empty();
+				var soption = "";
+				CHECK_BOX = dat;
+				if(ANA_CHOOSE_FIELD == null) //对比对比参数默认勾选output_power项目
+					ANA_CHOOSE_FIELD = "output_power";
+				for(var i = 0; i < dat.length; i++) {
+
+					if(dat[i].optional == ANA_CHOOSE_FIELD) {
+						ANA_CHOOSE_FIELD_NAME = dat[i].name
+						ANA_CHOOSE_FIELD_UNIT = dat[i].uint
+						soption += "<option class='soptionLis' selected='selected' value='" + dat[i].optional + "' unit='" + dat[i].uint + "'>" + dat[i].name + "</option>";
+					} else
+						soption += "<option class='soptionLis'  value='" + dat[i].optional + "' unit='" + dat[i].uint + "'>" + dat[i].name + "</option>";
+				}
+				$(".plantAnaList").append(soption);
+			}
+		})
+		}else{
+			http_async_request_public("&action=queryPlantDeviceChartsFields&plantid=" + MAIN_CHOOSE_PLANT_ID + "&devtype=512", function(err, dat, desc) {
+			if(err == 0) {
+				$(".plantAnaList").empty();
+				var soption = "";
+				CHECK_BOX = dat;
+				if(ANA_CHOOSE_FIELD == null) //对比对比参数默认勾选output_power项目
+					ANA_CHOOSE_FIELD = "output_power";
+				for(var i = 0; i < dat.length; i++) {
+
+					if(dat[i].optional == ANA_CHOOSE_FIELD) {
+						ANA_CHOOSE_FIELD_NAME = dat[i].name
+						ANA_CHOOSE_FIELD_UNIT = dat[i].uint
+						soption += "<option class='soptionLis' selected='selected' value='" + dat[i].optional + "' unit='" + dat[i].uint + "'>" + dat[i].name + "</option>";
+					} else
+						soption += "<option class='soptionLis'  value='" + dat[i].optional + "' unit='" + dat[i].uint + "'>" + dat[i].name + "</option>";
+				}
+				$(".plantAnaList").append(soption);
+			}
+		})
+		}
+
+	}
+	//画多参数图
+	/** 
+	 * 
+	 * 
+	 * parmsArr 参数数组；
+	 * selectedDay 选中时间数组
+	 * unitArr 单位数组
+	 * 
+	 * */
+	function drawAnaSdevCharts(xdata, ydata, parmsArr, selectedDay, unitArr, devArr) {
+		var colorArr = ["#50a5fa", "#4cd893", "#ff7c7c", "#ffa87c", '#7c7cff', "#ffd37c"]
+		$('.chartTitle').text(devArr[2])
+		$('.chartSubTitle').text(selectedDay)
+		var chartData = []
+		xdata.length && xdata[0].forEach((time, timeIndex) => {
+			var oneTime = { time: time }
+			parmsArr.forEach((legend, legendIndex) => {
+				oneTime[legend + ' / ' + unitArr[legendIndex]] = ydata[legendIndex][timeIndex] - 0
+			})
+			chartData.push(oneTime)
+		})
+
+		chart.destroy()
+		chart = new G2.Chart({
+			container: 'anaDevContainer',
+			forceFit: true,
+			height: 450,
+			padding: ['auto', 50 * parmsArr.length, 'auto', 60]
+		});
+
+		chart.source(chartData, {
+			time: {
+				range: [0, 1]
+			}
+		});
+		chart.scale('time', {
+			tickCount: 6
+		})
+		parmsArr.forEach((param, index) => {
+			var paramName = param + ' / ' + unitArr[index]
+			if(index == 0) {
+				chart.axis(paramName, {
+					title: {
+						offset: 50,
+						textStyle: {
+							fill: '#333'
+						}
+					}
+				});
+			} else {
+				chart.axis(paramName, {
+					title: {
+						offset: 50 * (index - 1) + 5,
+						textStyle: {
+							fill: '#333'
+						}
+					},
+					label: {
+						rotate: 30,
+						autoRotate: false,
+						offset: 50 * (index - 1) + 15
+					}
+				});
+			}
+			chart.line().position('time*' + paramName).color(colorArr[index]).shape('smooth');
+		})
+		chart.render();
+	}
+
+	/** 报表绘制. */
+	function drawAnaDevCharts(xdata, ydata, snArr, selectedDay, unit) {
+		var fieldName = ANA_CHOOSE_FIELD_NAME || getMultiLangError("output_power")
+		$('.chartTitle').text(fieldName)
+		$('.chartSubTitle').text(selectedDay)
+		let chartData = []
+		xdata.forEach((legend, lengendIndex) => {
+			legend.forEach((time, timeIndex) => {
+				chartData.push({
+					time: time,
+					device: snArr[lengendIndex],
+					value: ydata[lengendIndex][timeIndex] - 0
+				})
+			})
+		})
+
+		chart.clear()
+
+		chart.source(chartData, {
+			time: {
+				range: [0, 1]
+			}
+		});
+
+		chart.scale('time', {
+			type: 'time',
+			tickCount: 8,
+			mask: 'HH:mm'
+		})
+		chart.scale('value', {
+			alias: fieldName+ ' / ' + unit,
+			tickCount: 6
+		});
+		chart.axis('value', {
+			title: {
+				offset: 50,
+				textStyle: {
+					fill: '#333'
+				}
+			}
+		}); 
+		chart.line().position('time*value').color('device').shape('smooth');
+		chart.render();
+	};
+
+	/** 显示错误信息. */
+	function show4AnaDevCue(err) {
+		$("#anaDevCue").show();
+		$("#anaDevCue > i").text(getErrorCodeDesc2(GET_ERR_DESC, "err" + err));
+		renderInverterTable("", "");
+	}
+	//获取横向对比数据
+	function getHdata(devInfo, dates) {
+		var dates = []
+		$(".general_date_input2").each(function() {
+			if($(this).val() !== "")
+				dates.push($(this).val())
+		})
+		http_async_request_public(encodeURI("&action=queryPlantSameDeviceParManyDay&stime=03:00:00&etime=20:00:00&chart_field=" + ANA_CHOOSE_FIELD +
+			"&pn=" + devInfo[0] +
+			"&devcode=" + devInfo[1] +
+			"&sn=" + devInfo[2] +
+			"&dates=" + dates), function(err, dat, desc) {
+			if(err == 0) {
+				var HdataObj = new Object()
+				var xdata = new Array()
+				var ydata = new Array()
+				var onex = new Array()
+				var oney = new Array()
+				HdataObj.time = []
+				for(var i = 0; i < dat.length; i++) {
+					for(var j = 0, len = dat[i].dat.length; j < len; j++) {
+						onex.push(dat[i].dat[j].key.substring(11, 16))
+						oney.push(parseFloat(dat[i].dat[j].val))
+					}
+					HdataObj.time.push(dat[i].date)
+					HdataObj.unit = dat[i].unit
+					xdata.push(onex)
+					ydata.push(oney)
+					onex = []
+					oney = []
+				}
+					setTimeout(function () {
+						drawAnaDevCharts2(HdataObj, xdata, ydata, devInfo)
+					}, 300)
+				} else {
+					$("#hrizontal_img").html(getErrorCodeDesc2(GET_ERR_DESC, "err" + err, desc))
+				}
+			}, function () {
+				$("#hrizontal_img").html(getMultiLangError('fail_col_unknown'))
+			})
+		}
+		//画横向对比图
+		function drawAnaDevCharts2(dat, xdata, ydata, devInfo) {
+			$("#hrizontal_img").html("")
+			var seriesData = [];
+			var devdateLen = [];
+			var timeArr = [];
+			for (var i = 0; i < ydata.length; i++) {
+				devdateLen.push(xdata[i].length)
+			}
+			var maxIndex = findMaxIndexArr(devdateLen)
+			var oneTime = xdata[maxIndex]
+			for (var i = 0; i < ydata.length; i++) {
+				seriesData.push({
+					name: ($("#dateInpBox span:first").text() + (i + 1)) + " " + dat.time[i],
+					type: "line",
+					symbol: "none",
+					data: ydata[i],
+					itemStyle: {
+						normal: {
+							lineStyle: {
+								width: 2
+							}
+						}
+					}
+				});
+				timeArr.push(($("#dateInpBox span:first").text() + (i + 1)) + " " + dat.time[i])
+			}
+			var title = (ANA_CHOOSE_FIELD_NAME == null ? getMultiLangError("output_power") : ANA_CHOOSE_FIELD_NAME);
+			require.config({
+				path: {
+					echarts: '/js/echarts/dist'
+				}
+			});
+			require(['echarts', 'echarts/theme/macarons', 'echarts/chart/line'],
+				function (ec) {
+					var myChart = ec.init(document.getElementById('hrizontal_img'), 'macarons');
+					var option = {
+						title: {
+							x: 'center',
+							text: title,
+							subtext: devInfo.join("-"),
+							top: "50"
+						},
+						tooltip: {
+							trigger: 'axis',
+							axisPointer: {
+								show: true,
+								type: 'cross',
+								lineStyle: {
+									type: 'dashed',
+									width: 2
+								}
+							}
+						},
+						legend: {
+							y: 'bottom',
+							x: 'center',
+							data: timeArr,
+							padding: [0, 10, 10, 10]
+						},
+						toolbox: {
+							show: true,
+							feature: {
+								saveAsImage: {
+									show: true,
+									title: getMultiLangError("save_as_image"),
+								lang:[getMultiLangError("save_as_image")]
+								}
+							}
+						},
+						calculable: false,
+						xAxis: [{
+							type: 'category',
+							boundaryGap: false,
+							data: oneTime
+						}],
+						yAxis: [{
+							type: 'value',
+							axisLabel: {
+								formatter: '{value}' + (dat.unit == undefined ? "" : dat.unit),
+							}
+						}],
+						series: [],
+
+					};
+					myChart.setOption(option);
+					myChart.setSeries(seriesData);
+					window.onresize = myChart.resize;
+				})
+		}
+	//初始化多参数数组
+	function initparms() {
+		ANA_CHOOSE_FIELD_NAMES = [];
+		ANA_CHOOSE_FIELDS = [];
+		ANA_CHOOSE_FIELD_UNITS = []
+		for(var i = 0; i < paramNum + 1; i++) {
+
+			ANA_CHOOSE_FIELD_NAMES.push($("#param" + i + "Box .plantAnaList").find("option:selected").text());
+			ANA_CHOOSE_FIELDS.push($("#param" + i + "Box .plantAnaList").find("option:selected").val());
+			ANA_CHOOSE_FIELD_UNITS.push($("#param" + i + "Box .plantAnaList").find("option:selected").attr("unit"));
+
+		}
+	}
+
+	//过滤数组
+	function  FilterData(a, b)     {  //循环判断数组a里的元素在b里面有没有，有的话就放入新建立的数组中
+		      
+		var result = new Array();      
+		var c = b.toString();      
+		for(var i = 0; i < a.length; i++)       {       
+			if(c.indexOf(a[i].optional.toString()) == -1)        {       
+				result.push(a[i]);       
+			}         
+		}      
+		return result;    
+	}
+</script></body></html>

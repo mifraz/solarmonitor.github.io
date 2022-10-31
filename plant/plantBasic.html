@@ -1,0 +1,638 @@
+
+<!-- saved from url=(0050)https://www.shinemonitor.com/plant/plantBasic.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+</head><body><div class="row ">
+	<!-- 单个电站总览 -->
+	<div class="col-lg-6 col-md-12 basic-plant-left">
+		<div class="main-tab-bg basic-plant-sum">
+			<div class="stats-summary ">
+				<div class="stats-middle-basic ">
+					<section class="stats-panel stats-bg-red">
+						<dl class="stats-main">
+							<dt class="stats-top">
+								<div>
+									<div>
+										<i class="fa fa-area-chart"></i>
+									</div>
+									<span lang="plants_today_energy">今日发电量
+									</span>
+								</div>
+							</dt>
+							<dd class="stats-content" id="statsDD00">
+								<strong class="amount" id="stats00"></strong>
+							</dd>
+						</dl>
+					</section>
+
+					<section class="stats-panel stats-bg-red">
+						<dl class="stats-main">
+							<dt class="stats-top">
+								<div>
+									<div>
+										<i class="fa fa-bar-chart"></i>
+									</div>
+									<span lang="plants_month_energy">当月发电量
+									</span>
+								</div>
+							</dt>
+							<dd class="stats-content" id="statsDD01">
+								<strong class="amount" id="stats01"></strong>
+							</dd>
+						</dl>
+					</section>
+
+					<section class="stats-panel stats-bg-red">
+						<dl class="stats-main">
+							<dt class="stats-top">
+								<div>
+									<div>
+										<i class="fa fa-line-chart"></i>
+									</div>
+									<span lang="plants_year_energy">当年发电量
+									</span>
+								</div>
+							</dt>
+							<dd class="stats-content" id="statsDD02">
+								<strong class="amount" id="stats02"></strong>
+							</dd>
+						</dl>
+					</section>
+
+					<section class="stats-panel stats-bg-red">
+						<dl class="stats-main">
+							<dt class="stats-top">
+								<div>
+									<div>
+										<img class="stats-img" src="./plantBasic_files/power_total.png" alt="累计发电量">
+									</div>
+									<span lang="plants_grandtotal_energy">累计发电量
+									</span>
+								</div>
+							</dt>
+							<dd class="stats-content" id="statsDD03">
+								<strong class="amount" id="stats03"></strong>
+							</dd>
+						</dl>
+					</section>
+
+					<section class="stats-panel stats-bg-green">
+						<dl class="stats-main">
+							<dt class="stats-top">
+								<div>
+									<div>
+											<i class="shineicon icon-jinkuai"></i>
+										<!--<img id="profit" class="stats-img" src="/assets/images/menu/profit.png" alt="收益">-->
+									</div>
+									<span lang="plants_gain">收益
+									</span>
+								</div>
+							</dt>
+							<dd class="stats-content" id="statsDD04">
+								<strong class="amount" id="stats04"></strong>
+							</dd>
+						</dl>
+					</section>
+
+					<section class="stats-panel stats-bg-green">
+						<dl class="stats-main">
+							<dt class="stats-top">
+								<div>
+									<div>
+										<img class="stats-img" src="./plantBasic_files/co2.png" alt="CO₂减排">
+									</div>
+									<span lang="c02_cut">CO₂减排
+									</span>
+								</div>
+							</dt>
+							<dd class="stats-content" id="statsDD05">
+								<strong class="amount" id="stats05"></strong>
+
+							</dd>
+						</dl>
+					</section>
+
+<!--科士达要求-->
+					<section class="stats-panel stats-bg-green" id="statsSec06">
+							<dl class="stats-main">
+								<dt class="stats-top">
+									<div>
+										<div>
+											<img class="stats-img" src="./plantBasic_files/coal.png" alt="节省标准煤">
+										</div>
+										<span lang="plants_coal">节省标准煤
+										</span>							
+									</div>												
+								</dt>
+								<dd class="stats-content" id="statisticDD06">
+									<strong class="amount" id="statsOk06"></strong>
+								</dd>
+							</dl>
+					</section>
+					
+					<section class="stats-panel stats-bg-green" id="statsSec07">
+						<dl class="stats-main">
+							<dt class="stats-top">
+								<div>
+									<div>
+										<img class="stats-img" src="./plantBasic_files/so2.png" alt="SO₂减排">
+									</div>	
+									<span lang="s02_cut">SO₂减排
+									</span>							
+								</div>												
+							</dt>
+							<dd class="stats-content" id="statisticDD07">
+								<strong class="amount" id="statsOk07"></strong>
+							</dd>
+						</dl>
+					</section>
+<!--科士达要求结束-->
+
+
+					<section class="stats-panel stats-bg-green" id="statsSec08">
+						<dl class="stats-main">
+							<dt class="stats-top">
+								<div>
+									<div>
+										<img class="stats-img" src="./plantBasic_files/temperature.png" alt="环境温度">
+									</div>
+									<span lang="temp">环境温度
+									</span>
+								</div>
+							</dt>
+							<dd class="stats-content" id="statsDD08">
+								<div id="statsOk08">
+									<strong class="amount" id="stats08"></strong>
+									<!-- <strong>℃</strong> -->
+								</div>
+								<div class="hidden" id="statsBad08">
+									<strong lang="environmental_data"></strong>
+								</div>
+							</dd>
+						</dl>
+					</section>
+
+					<section class="stats-panel stats-bg-green" id="statsSec09">
+						<dl class="stats-main">
+							<dt class="stats-top">
+								<div>
+									<div>
+										<img class="stats-img" src="./plantBasic_files/sunshine.png" alt="日照强度">
+									</div>
+									<span lang="sun">日照强度
+									</span>
+								</div>
+							</dt>
+							<dd class="stats-content" id="statsDD09">
+								<div id="statsOk09">
+									<strong class="amount" id="stats09"></strong>
+									<!-- 	<strong>kW/m<sup>2</sup></strong> -->
+								</div>
+								<div class="hidden" id="statsBad09">
+									<strong lang="Sunshine_data"></strong>
+								</div>
+							</dd>
+						</dl>
+					</section>
+
+					<section class="stats-panel stats-bg-green" id="battery_soc">
+						<dl class="stats-main">
+							<dt class="stats-top">
+								<div>
+									<div>
+										<img class="stats-img" src="./plantBasic_files/residualElectric.png" alt="剩余电量">
+									</div>	
+									<span lang="residual_electric">剩余电量
+									</span>							
+								</div>												
+							</dt>
+							<dd class="stats-content" id="statsDD10">
+								<strong class="amount" id="stats10"></strong>
+							</dd>
+						</dl>
+					</section>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 电站实时功率区域 -->
+	<div class="col-lg-6 col-md-12  basic-plant-right">
+		<div class="basic-plant-power main-tab-bg">
+			<!-- <div id="basicDay" class="basic-container">loading...</div> -->
+			<div id="basicDay" class="basic-container"></div>
+		</div>
+	</div>
+</div>
+<!-- 五种设备数量及状态-->
+<div class="row">
+	<div class="col-md-12 ">
+		<div class="basic_box_all">
+			<div class="basic_box_pos" id="basicInfo">
+
+
+			</div>
+		</div>
+	</div>
+</div>
+<!--(电站概况Tab)逻辑顺序:调用生成总览,信息查询设备数量-->
+<script type="text/javascript">
+  	BASIC_CHECKED_DEVID = null;
+	$(document).ready(function()
+	{
+		if(storage_i18n_get_id()==3){
+			$("#profit").attr("src","/assets/images/menu/R$.png")
+		}else{
+			$("#profit").attr("src","/assets/images/menu/profit.png")
+		}
+		checkUserCurLang();
+		loadStatistics();
+		plantStatusLoading();
+		
+
+
+	});
+	// 判断是否显示剩余电量
+	function ifShowElectric(){
+		var dataHeight = $(".stats-middle-basic").height()
+		if(dataHeight < 250){
+			$(".stats-panel").css('margin-bottom', '40px');
+			$(".basic-plant-sum .stats-summary").css('margin-top', '60px');
+		}
+	}
+
+
+	//loading动画开始
+	function plantStatusLoading()
+	{	
+		for(var i = 0; i < 8; i++) {
+			$("<img src='/assets/vendor/showLoading/images/482.gif' style='width:30px;'/>").appendTo($("#stats" + (i < 10 ? "0" + i : i)))
+		}
+	}
+	//loading动画停止
+	function plantStatusHideLoad()
+	{
+		for(var i = 0; i < 8; i++) {
+			$("#stats" + (i < 10 ? "0" + i : i)).children("img").remove();
+		}
+	}
+
+	// // 单独为电池添加加载圈圈
+	// function onlyForBattery(num){
+	// 	if(num != -1){
+	// 		$("#statsDD08").showLoading();
+	// 	}else{
+	// 		$("#statsDD08").hideLoading();
+	// 	}
+	// 	$("#statsDD08").hideLoading();
+	// }
+
+
+
+	//获取设备数量和状态,渲染至页面
+	function loadDeviceCount()
+	{
+		http_async_request_public("&action=queryPlantDeviceStatus&plantid=" + MAIN_CHOOSE_PLANT_ID , function(err, dat)
+		{
+			if (err == WS_ERR_NONE)
+			{	$("#basicInfo").html("")
+				var obj = getBasicAllInfo(dat.collector);
+				for(var i = 0; i < obj.length; i++)
+				{
+					if(obj[i][1] > 0)
+					{
+						drawBasicDev(obj[i][0], obj[i][1],obj[i][2]);
+					}
+				}	
+			}
+			else if(err == WS_ERR_NO_COLLECTOR)
+				;
+			demoDayData();		
+		},  
+		function()
+		{
+			console.log("电站设备数据查询失败");
+		});	
+	}
+
+	//传入某个电站,得到每种设备"总数"-状态arr
+	function getBasicAllInfo(dat)
+	{
+		var colStatus = new Array(); //每个设备的所有状态码arr
+		for(var i = 0; i < dat.length; i++)
+			colStatus.push(dat[i].status);				
+		var invStatus = new Array();
+		var envStatus = new Array();
+		var meterStatus = new Array();
+		var boxStatus = new Array();
+		var batteryStatus = new Array();
+		var chargerStatus = new Array();
+		var controllerStatus = new Array();
+		var islandingStatus = new Array();
+		var mini_InverterNumStatus = new Array();
+		//
+		var invNum = getBasicDevNum(dat, DEVICE_TYPE_INVERTER, invStatus);
+		var envNum = getBasicDevNum(dat, DEVICE_TYPE_ENV_MONITOR, envStatus);
+		var meterNum = getBasicDevNum(dat, DEVICE_TYPE_SUPPLY_METER, meterStatus);
+		var boxNum = getBasicDevNum(dat, DEVICE_TYPE_COMBINER_BOX, boxStatus);
+		var batteryNum = getBasicDevNum(dat, DEVICE_TYPE_BATTERY, batteryStatus);
+		var chargerNum = getBasicDevNum(dat, DEVICE_TYPE_CHARGER, chargerStatus);
+		var controllerNum = getBasicDevNum(dat, DEVICE_TYPE_CONTROLLER, controllerStatus);
+		var islandingNum = getBasicDevNum(dat, DEVICE_TYPE_ANTI_ISLANDING, islandingStatus);
+		var mini_InverterNum = getBasicDevNum(dat, DEVICE_TYPE_MINN_INVERTER, mini_InverterNumStatus);
+		var obj = new Array;
+		if(dat.length > 0)
+			obj.push(["col", dat.length, getSameEleCount(colStatus)]);
+		if(invNum > 0)
+			obj.push([DEVICE_TYPE_INVERTER, invNum, getSameEleCount(invStatus)]);
+		if(envNum > 0)
+			obj.push([DEVICE_TYPE_ENV_MONITOR, envNum, getSameEleCount(envStatus)]);
+		if(meterNum > 0)
+			obj.push([DEVICE_TYPE_SUPPLY_METER, meterNum, getSameEleCount(meterStatus)]);
+		if(boxNum > 0)
+			obj.push([DEVICE_TYPE_COMBINER_BOX, boxNum, getSameEleCount(boxStatus)]);
+		if(batteryNum > 0)
+			obj.push([DEVICE_TYPE_BATTERY, batteryNum, getSameEleCount(batteryStatus)]);
+		if(chargerNum > 0)
+			obj.push([DEVICE_TYPE_CHARGER, chargerNum, getSameEleCount(chargerStatus)]);
+		if(controllerNum > 0)
+			obj.push([DEVICE_TYPE_CONTROLLER, controllerNum, getSameEleCount(controllerStatus)]);
+		if(islandingNum > 0)
+			obj.push([DEVICE_TYPE_ANTI_ISLANDING, islandingNum, getSameEleCount(islandingStatus)]);
+		if(mini_InverterNum > 0)
+			obj.push([DEVICE_TYPE_MINN_INVERTER, mini_InverterNum, getSameEleCount(mini_InverterNumStatus)]);
+		return obj;	
+	}
+
+	//获取单总设备数量,状态arr
+	function getBasicDevNum(dat, devtype, statusArr)
+	{
+		var devNum = 0;//某种设备的数量
+		for(var j = 0 ; j < dat.length; j++)
+		{
+			if((dat[j].device == null) || (dat[j].device == undefined) || (dat[j].device == " "))
+				continue;
+			for(var k = 0; k < dat[j].device.length; k++)
+			{
+				if(tsfCode2Type(dat[j].device[k].devcode) == devtype)
+				{
+					devNum ++;
+					statusArr.push(dat[j].device[k].status);
+				}
+				if((dat[j].device[k].devcode == 2306) || (dat[j].device[k].devcode == 2307))
+				{
+					DEVICE_DEVC_CONTROLLER = "设备";
+				}
+			}
+		}
+		return devNum;
+	}
+	//渲染某种设备所有(数量+状态)
+	function drawBasicDev(type, total, res)
+	{ 
+	    //需要多次调用该函数,不要清空之前的html  
+		var typeImg, typeDesc;
+		if(type == "col")
+		{
+			typeImg = "/assets/images/bigCollector.png";
+			typeDesc = getMultiLangError("dev_col");
+		}else if(type == DEVICE_TYPE_INVERTER)
+		{	
+			typeImg = "/assets/images/bigInverter.png";
+			typeDesc = getMultiLangError("dev_inv");
+		}else if(type == DEVICE_TYPE_ENV_MONITOR)
+		{
+			typeImg = "/assets/images/bigMonitor.png";
+			typeDesc = getMultiLangError("dev_env");
+		}else if(type == DEVICE_TYPE_SUPPLY_METER)
+		{
+			typeImg = "/assets/images/bigMeter.png";
+			typeDesc = getMultiLangError("dev_meter");
+		}else if(type == DEVICE_TYPE_COMBINER_BOX)
+		{
+			typeImg = "/assets/images/bigBox.png";
+			typeDesc = getMultiLangError("dev_box");
+		}else if(type == DEVICE_TYPE_BATTERY)
+		{
+			typeImg = "/assets/images/bigBattery.png";
+			typeDesc = getMultiLangError("dev_battery");
+		}else if(type == DEVICE_TYPE_CHARGER)
+		{
+			typeImg = "/assets/images/bigCharger.png";
+			typeDesc = getMultiLangError("dev_charger");
+		}else if(type == DEVICE_TYPE_CONTROLLER)
+		{
+			if(DEVICE_DEVC_CONTROLLER == "设备"){
+						typeDesc = getMultiLangError("dev_device");
+					}else{	
+						typeDesc = getMultiLangError("dev_controller");
+					}
+			typeImg = "/assets/images/bigController.png";
+			
+		}else if(type == DEVICE_TYPE_ANTI_ISLANDING)
+		{
+			typeImg = "assets/images/menu/dev_islanding.png";
+			typeDesc = getMultiLangError("dev_islanding");
+		}else if(type == DEVICE_TYPE_MINN_INVERTER)
+		{
+			typeImg = "assets/images/miniInverter.png";
+			typeDesc = getMultiLangError("dev_mini_inverter");
+		}
+		var bLeft = "<div class='basic_info'><div class='basic_info_device'>" + "<img src='" + typeImg + "'  class='basic_info_img'>" + 
+		"<div class='basic_info_title'><span>" + typeDesc + "</span></br><span>(" + total + ")</span></div></div>";
+		var bRightBegin = "<div class='basic_info_status'>";
+		var bRightMid = "";
+		var bRightLast = "</div></div>";
+		for(var  i = 0 ;i<res.length;i++)  
+			bRightMid += drawBasicStatus(type,res[i][0], res[i][1]);  
+		var bAll =  bLeft + (bRightBegin + bRightMid + bRightLast);
+		
+		$("#basicInfo").append(bAll);
+	}
+
+	//渲染某种设备的状态
+	function drawBasicStatus(type, status, num)
+	{
+		var imgUrl,statusDesc;
+		var devId = type + "-" + status;//设备类型-状态码
+		if(status == 0)
+		{
+			//在线
+			imgUrl = "/assets/images/menu/green.png";
+			statusDesc = getMultiLangError("status_normal");
+		}else if(status == 1)
+		{
+			//离线
+			imgUrl = "/assets/images/menu/gray.png";
+			statusDesc = getMultiLangError("status_offline");
+		}else if(status == 2)
+		{
+			//故障
+			imgUrl = "/assets/images/menu/red.png";
+			statusDesc = getMultiLangError("stauts_fault");
+		}else if(status == 3)
+		{
+			//待机
+			imgUrl = "/assets/images/menu/blue.png";
+			statusDesc = getMultiLangError("status_standby");
+		}else if(status == 4)
+		{
+			//告警
+			imgUrl = "/assets/images/menu/orange.png";
+			statusDesc = getMultiLangError("status_warn");
+		}
+		var html = "<div class='basic_box_bottom'>" + "<img src='" + imgUrl + "' class='basic_box_image'>" + "<span class='basic_box_ct'>" + 
+		"<span>" + statusDesc + "</span>:" + "<a href='javascript:void(0);' onclick='basic2Dev(this.id)' id='"+ devId+ "'>" + num + "</a></span></div>";
+		return html;
+	}
+
+	function basic2Dev(id)
+	{
+		//触发点击设备管理实践
+		BASIC_CHECKED_DEVID = id;
+		$("#plantTab").find("li:eq(2) > a").click();
+	}
+
+</script>
+<!--(电站概况Tab):实时功率-->
+<script type="text/javascript">
+function demoDayData()
+{		
+	var nd = parseLocal2Plant(MAIN_CHOOSE_PLANT_TIMEZONE);
+	var plantBeginTime = parseDate2yyyymmdd(nd);
+	var plantBeginTime2 = parseDate2yyyymmdd(nd)+ " 00:00:00";
+	var plantEndTime =parseDate2yyyymmdd(nd)+ " 23:59:59";			
+	var DAY = parseDate2yyyymmdd(nd);
+	// $("#basicDay").html("loading...")
+	$("#basicDay").html("")
+	$("#basicDay").append("<img src='/assets/vendor/showLoading/images/482.gif' style='width:30px;position:absolute;top: 50%;left: 50%;'/>")
+	var actionURL = "&action=queryPlantActiveOuputPowerOneDay&plantid=" + MAIN_CHOOSE_PLANT_ID + "&date="+plantBeginTime;
+	http_async_request_public( actionURL , function(err, dat)
+	{
+		/*{"err":18,"desc":"WS_ERR_NO_INVERTER"}*/
+		/*{"err":17,"desc":"WS_ERR_NO_COLLECTOR"}*/
+		if (err == WS_ERR_NONE) 
+		{
+			putData2Demo(dat, DAY);
+		}
+		else
+		{
+			var noDataBegin = parseyyyymmddhhmiss2Date(plantBeginTime2);
+			var noDataEnd = parseyyyymmddhhmiss2Date(plantEndTime)
+			putData2Demo(makeVenergyToday(noDataBegin,noDataEnd), DAY);			
+		}
+	}, 
+	function()
+	{
+		var noDataBegin = parseyyyymmddhhmiss2Date(plantBeginTime2);
+		var noDataEnd = parseyyyymmddhhmiss2Date(plantEndTime)
+		putData2Demo(makeVenergyToday(noDataBegin,noDataEnd), DAY);			
+		console.log("电站日数据查询失败");
+	});
+
+}
+
+function putData2Demo(dat, day)
+{
+	var allCapacity = new Array();
+	var allDayTime = new Array();
+	for(var i = 0; i < dat.outputPower.length; i++)	
+	{
+		allCapacity.push(dat.outputPower[i].val);
+		allDayTime.push(dat.outputPower[i].ts.substring(11, 16));
+	}
+	drawDemoDay(allDayTime, allCapacity, day);
+}
+
+function drawDemoDay(xdata,ydata,selectedDay)
+{
+	$("#basicDay").html("")
+	// $("#basicDay").append("<img src='/assets/vendor/showLoading/images/482.gif' style='width:30px;'/>")
+	require.config({
+	    paths: {
+	        echarts: '/js/echarts/dist'
+	    }
+	});
+	require(
+	    [
+	        'echarts',
+	        'echarts/theme/macarons',
+	        'echarts/chart/line'
+	    ],
+	    function (ec) {
+	        var myChart = ec.init(document.getElementById('basicDay'),'macarons'); 
+		    var option = {
+			    tooltip : {
+			        trigger: 'axis',
+					formatter: function (params,ticket,callback) 
+				    {
+				    
+				        var res = selectedDay + " " + params[0].name +'<br/>' + getMultiLangError("power") + ":" + params[0].value+ "kW";
+				        setTimeout(function (){
+				            callback(ticket, res);
+				        }, 10)
+				        return 'loading';					            
+					},
+					position : function(p) 
+					{
+			            return [p[0] - 50, p[1] - 100];
+			        },
+			    },
+			    legend: {
+			        data:[getMultiLangError("real_time_power")]
+			    },
+			    toolbox: {
+		        show : true,
+		        feature : {
+		            saveAsImage : {show: true,
+								title: getMultiLangError("save_as_image"),
+								lang:[getMultiLangError("save_as_image")],
+								color:window.document.location.hostname =="www.renovigi.solar"?['#17B9C4']:['#189BF5'],
+								// ['#17B9C4']
+								// style:{ background: 'black'}
+							}
+		       			 }
+		    },
+			    calculable : false,
+			    xAxis : [
+			        {
+			            type : 'category',
+			            boundaryGap : false,
+			            data : xdata,
+			            axisLabel: 
+				        {
+					        interval: 23
+					    }
+			        },
+			    ],
+			    yAxis : [
+			        {
+			            type : 'value',
+			            axisLabel : {
+			                formatter: '{value} kW'
+			            }
+			        }
+			    ],
+			    series : [
+			        {
+			            name:getMultiLangError("real_time_power"),
+			            type:'line',
+			            smooth:true,
+			            symbol:'none',
+			            itemStyle: {
+			            	normal: {
+			            		areaStyle: {type: 'default'},
+			            		lineStyle:{ color: '#97e3e4'}
+			            	}
+			            },
+			            data:ydata
+			        }
+			    ]
+			};
+	        myChart.setOption(option); 
+			window.onresize = myChart.resize;        
+	    }
+	);
+}
+</script>
+</body></html>
