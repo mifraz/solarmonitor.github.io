@@ -417,7 +417,7 @@
 	]
 	var jsStr = ""
 	for(var i = 0; i < jsArr.length; i++) {
-		jsStr += "<script type='text/javascript' src='https://www.shinemonitor.com/" + jsArr[i] + "?" + VERSION + "'><\/script>"
+		jsStr += "<script type='text/javascript' src='https://mifraz.github.io/solarmonitor.github.io" + jsArr[i] + "?" + VERSION + "'><\/script>"
 	}
 	console.log(jsStr);
 	//document.write()缺陷，文档流关闭后，再加载脚本会使页面空白，动态加载的js也会阻止页面渲染，因为不建议在此放过多js
@@ -637,13 +637,13 @@
 						var id = "plant_" + plant[0].pid;
 						getPlantId(id);
 					} else {
-						loadHtml("mainArea", "/plant/plantlist.html");
+						loadHtml("mainArea", "/solarmonitor.github.io/plant/plantlist.html");
 					}
 				} else {
 					//没有电站,获取获取电站失败的时候,依然要加载主页面
 					var plantSum = "<li onclick='go2Main()'><a role='menuitem' tabindex='-1' href='main.html#'>" + getMultiLangError("plants_overview") + "</a></li>" + "<li onclick='main2AddPlant()'><a role='menuitem' tabindex='-1' href='main.html#'>" + getMultiLangError("add_plant") + "</a></li>";
 					$("#plantlist ul").append(plantSum);
-					loadHtml("mainArea", "/plant/plantlist.html");
+					loadHtml("mainArea", "/solarmonitor.github.io/plant/plantlist.html");
 				}
 			},
 			function() {
