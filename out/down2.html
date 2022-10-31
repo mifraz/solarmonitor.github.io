@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link href="down2.html" rel="shortcut icon" class="cusIcoSecond">
+	<link type="text/css" href="css/style.css" rel="stylesheet" />
+	<style type="text/css">div.flicking_con .flicking_inner{ top:475px;}</style>
+	<style type="text/css">
+			a{text-decoration: none !important;color:#000;}
+			a:hover{color: #1a9eff;}
+			*{padding: 0;margin: 0;}
+			body{height: 2080px;min-width: 1000px;}
+			.w1000{min-width: 1000px;}
+			.clear{clear: both;content:" ";overflow: hidden;}
+			#top{width: 100%;height: 80px;background: #FFFFFF;font-size: 16px;margin-bottom: 4px}
+			#topbox{height: 84px;width: 1200px;margin: 0 auto;}
+			.login{padding: 6px 22px;border: 2px solid #00b7ee; border-radius: 20px; color: #00b7ee;}
+			.cusIndexCh{height: 80px;}
+			.f_left{float: left;}
+			.f_right{float: right;}
+			#nav{height: 80px;list-style: none;}
+			#nav li{ float: left;line-height: 80px;width: 112px;height: 80px;text-align: center;}
+			#nav li:last-child{margin-left: 40px;}
+			#nav li:last-child:hover{cursor: pointer;opacity: .8;}
+			#nav li:not(:last-child):hover{cursor: pointer;border-bottom:4px solid #136cbf;color: #1a9eff;}
+			.active{border-bottom:4px solid #136cbf;}
+	</style>
+</head>
+
+<body>
+		<div id="top" class="w1000">
+			<div id="topbox" class="clear">
+				<div class="f_left">
+					<img src="down2.html" class="cusIndexCh"/>
+				</div>
+				<ul id="nav" class="f_right">
+						<li class="active"><a href="down.html" class="toplang">产品中心</a></li>
+						<li><a href="../appDownload.html" class="toplang">APP下载</a></li>
+						<li id="login"><span class="login">
+							系统登录
+						</span></li>
+				
+				</ul>
+			</div>
+		</div>
+	<!--i_top end-->
+	<!--banner star-->
+	<div class="o_big">
+		<img src="img/banner_01.jpg" />
+	</div>
+	<!--banner end-->
+	<div class="wrap">
+		<div class="i_menu_t">
+			<a href="down.html">设备适配器</a>
+			<a href="down2.html" class="about_sel">数据采集器</a>
+			<a href="down3.html">工业路由器</a>
+			<a href="down4.html">服务器</a>
+			<a href="down5.html">客户端</a>
+		</div>
+	</div>
+	<div class="down_div3">
+		<div class="down_one">
+			<div class="down_one_txt">
+				采集端产品由SmartBox,MagicBox两个产品组成,
+				<br>它们能对监控设备进行稳定可靠的数据采集和数据传输</div>
+			<ul class="down3_ul">
+				<li>
+					<h2>SmartBox</h2>
+				</li>
+				<li style="width:230px;">
+					<img src="img/down11.jpg" />
+				</li>
+				<li>
+					<h2>Magic Box</h2>
+				</li>
+				<li style="width:183px;">
+					<img src="img/down10.jpg"  />
+				</li>
+			</ul>
+		</div>
+
+		<div class="down_three">
+			<table width="100%" border="0" cellspacing="10" cellpadding="0">
+				<tr>
+					<td width="212">产品中心</td>
+					<td width="212" class="tbg">产品定位</td>
+					<td width="212" class="tbg">公网接入</td>
+					<td width="212" class="tbg">本地组网</td>
+					<td class="tbg">应用场景</td>
+				</tr>
+				<tr>
+					<td class="tbg">SmartBox</td>
+					<td>智能采集</td>
+					<td>RS-485/RF</td>
+					<td>&nbsp;</td>
+					<td>工业数据采集</td>
+				</tr>
+				<tr>
+					<td class="tbg">Magic Box</td>
+					<td>大屏显示</td>
+					<td>RS-485</td>
+					<td>
+						Ethernet/Wi-
+						<br />
+						Fi/GPRS/3G
+					</td>
+					<td>局域网数据采集大屏展示</td>
+				</tr>
+
+			</table>
+		</div>
+		<div class="down_four">
+			<img src="img/smart_box.jpg" />
+			<img src="img/magic_box.jpg" />
+		</div>
+
+	</div>
+
+	<div class="f_bg">
+		<p class="text-center mt-md mb-md footer-bd ">
+			<a href="https://beian.miit.gov.cn" class="cusIcp"></a>
+		</p>
+	</div>
+	<!--bottom end-->
+	<script language="javascript" src="../assets/vendor/jquery/jquery-2.1.4.min.js"></script>
+	<script type="text/javascript" src="../js/libhttp.js"></script>
+	<script type="text/javascript" src="../js/customer.js"></script>
+	<script src="../assets/vendor/jquery-cookie/jquery-cookie.js"></script>
+	<script language="javascript">
+$(function(){
+	
+	$("#lvshione").hover(function(){//中英文版切换
+		$(this).find("ul").show();
+	},function(){
+		$(this).find("ul").hide();
+	});
+		
+
+});
+</script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		checkCusInfo();
+		$("#login").click(function(){
+			window.location.href = "../index.html"
+		})
+	});
+</script>
+
+</body>
+</html>

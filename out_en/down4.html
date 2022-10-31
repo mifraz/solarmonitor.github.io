@@ -1,0 +1,166 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link href="down4.html" rel="shortcut icon" class="cusIcoSecond">
+	<link type="text/css" href="css/style.css" rel="stylesheet" />
+	<style type="text/css">div.flicking_con .flicking_inner{ top:475px;}</style>
+	<style type="text/css">
+			a{text-decoration: none !important;color:#000;}
+			a:hover{color: #1a9eff;}
+			*{padding: 0;margin: 0;}
+			body{height: 2080px;min-width: 1000px;}
+			.w1000{min-width: 1000px;}
+			.clear{clear: both;content:" ";overflow: hidden;}
+			#top{width: 100%;height: 80px;background: #FFFFFF;font-size: 16px;margin-bottom: 4px}
+			#topbox{height: 84px;width: 1200px;margin: 0 auto;}
+			.login{padding: 6px 22px;border: 2px solid #00b7ee; border-radius: 20px; color: #00b7ee;}
+			.cusIndexCh{height: 80px;}
+			.f_left{float: left;}
+			.f_right{float: right;}
+			#nav{height: 80px;list-style: none;}
+			#nav li{ float: left;line-height: 80px;width: 150px;height: 80px;text-align: center;}
+			#nav li:last-child{margin-left: 40px;}
+			#nav li:last-child:hover{cursor: pointer;opacity: .8;}
+			#nav li:not(:last-child):hover{cursor: pointer;border-bottom:4px solid #136cbf;color: #1a9eff;}
+			.active{border-bottom:4px solid #136cbf;}
+	</style>
+</head>
+
+<body>
+		<div id="top" class="w1000">
+			<div id="topbox" class="clear">
+				<div class="f_left">
+					<img src="down4.html" class="cusIndexCh"/>
+				</div>
+				<ul id="nav" class="f_right">
+						<li class="active"><a href="../out/down.html" class="toplang">Product Center</a></li>
+						<li><a href="../appDownloadEn.html" class="toplang">App Download</a></li>
+						<li id="login"><span class="login">
+							System login
+						</span></li>
+				
+				</ul>
+			</div>
+		</div>
+	<!--i_top end-->
+	<!--banner star-->
+	<div class="o_big">
+		<img src="img/banner_01.jpg" />
+	</div>
+	<!--banner end-->
+	<div class="wrap">
+		<div class="i_menu_t">
+			<a href="down.html">Device Adapter</a>
+			<a href="down2.html">Datalogger</a>
+			<a href="down3.html">Router</a>
+			<a href="down4.html" class="about_sel">Server</a>
+			<a href="down5.html">Client</a>
+		</div>
+	</div>
+	<div class="down_div5">
+		<div class="wrap3">
+			<img src="img/cloud_server.jpg" />
+		</div>
+		<div class="down_four">
+			<div class="down_two">
+				<img src="img/down18.png" />
+				<br />
+				CloudServer for Solar is based on photovoltaic remote monitoring and operation needs of the development of industry applications
+			</div>
+			<div class="down_five">
+				<ul>
+					<li class="five_pic1">
+						<span>&nbsp;</span>
+						<h2>Daily office</h2>
+					</li>
+					<li class="five_pic2">
+						<span>&nbsp;</span>
+						<h2>Online analysis</h2>
+					</li>
+					<li class="five_pic3">
+						<span>&nbsp;</span>
+						<h2>Online maintenance</h2>
+					</li>
+					<li class="five_pic4">
+						<span>&nbsp;</span>
+						<h2>Operation monitoring</h2>
+					</li>
+					<li class="five_pic5">
+						<span>&nbsp;</span>
+						<h2>Financial analysis</h2>
+					</li>
+				</ul>
+
+			</div>
+			<div class="down_six">
+				<img src="img/cloud_server_img.png" />
+				<div class="six_ul">
+					<ul>
+						<li class="five_pic1">
+							<h2>Beautiful</h2>
+							UI interface is beautiful,alse easy to operate
+							<br />
+							UI is layered according by equipment, the structure is simple and clear
+						</li>
+						<li class="five_pic2">
+							<h2>Account</h2>
+							Support multi-level user/sub user account management
+							<br />
+							Users could use an account to log in pc,mobile, large screen monitoring at the same time
+						</li>
+						<li class="five_pic3">
+							<h2>Customizing</h2>
+							Support customers to deploy their own servers, custom Logo, style, etc
+							<br />
+							Support customer defined management responsibilities, inspection requirements and other management system
+						</li>
+						<li class="five_pic4">
+							<h2>Cloud computing</h2>
+							Vertical comparison of power generation data, Provide management support
+							<br />
+							The in-depth analysis on the environment, line loss, equipment data, provide maintenance support
+						</li>
+					</ul>
+				</div>
+
+			</div>
+		</div>
+
+	</div>
+
+	<div class="f_bg">
+		<p class="text-center mt-md mb-md footer-bd ">
+			<a href="https://beian.miit.gov.cn" class="cusIcp"></a>
+		</p>
+	</div>
+	<!--bottom end-->
+	<script language="javascript" src="../assets/vendor/jquery/jquery-2.1.4.min.js"></script>
+	<script type="text/javascript" src="../js/libhttp.js"></script>
+	<script type="text/javascript" src="../js/customer.js"></script>
+	<script src="../assets/vendor/jquery-cookie/jquery-cookie.js"></script>
+	<script type="text/javascript" src="../js/outEn.js"></script>
+	<script language="javascript">
+$(function(){
+	
+	$("#lvshione").hover(function(){//中英文版切换
+		$(this).find("ul").show();
+	},function(){
+		$(this).find("ul").hide();
+	});
+		
+
+});
+</script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		detectLangIndexEn();
+		checkCusInfo();
+		$("#login").click(function(){
+			window.location.href = "../index_en.html"
+		})
+	});
+</script>
+
+</body>
+</html>

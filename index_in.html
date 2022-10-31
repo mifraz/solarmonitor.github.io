@@ -1,0 +1,2010 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="x-ua-compatible" content="IE=9;IE=10" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<meta name="author" content="益邦阳光，eybond，jiangzhilin " />
+	<!--<meta name="robots"content="all"/>-->
+	<meta name="keywords" content="最好光伏监控，护光者，shinemonitor，益邦阳光，eybond，光伏监控，光伏运维，监控，运维，光伏，数采器,数据采集器，物联网" />
+	<meta name="description"
+		content="益邦阳光光伏监控提供各种类型数据采集器，逆变器、储能系统、电池、汇流箱、气象站、电表、分布式光伏、等各种设备的数据都可进行采集与显示，可进行设备大数据统计，为您提供系统、高效、高质量的智慧能源管理服务。" />
+	<title>ShineMonitor</title>
+	<script type="text/javascript">
+		// 清除节点地址
+		if(!sessionStorage.getItem("selectNodeValue")){
+		window.localStorage.removeItem("selectNodeValue");
+	    }else{
+		  sessionStorage.removeItem("selectNodeValue");
+		}
+		//初始化路径
+		sessionStorage.setItem("loginType", "false")
+	</script>
+	<link href="index_in.html" rel="shortcut icon" class="cusIcoFirst">
+	<link rel="stylesheet" type="text/css" href="css/reg.css">
+	<link rel="stylesheet" type="text/css" href="css/index.css" />
+	<link rel="stylesheet" href="css/indexModal.css" />
+	<style type="text/css">
+		.fuwuqigonggao,
+		.hengtongyuan {
+			display: none;
+		}
+
+		.hengtongyuan {
+			font-size: 20px;
+			color: red;
+		}
+
+		#raoqingCode,#raoqingCodes {
+			background-position-x: 8px;
+			text-indent: 52px;
+			font-size: 16px;
+			width: 305PX;
+			height: 42px;
+			border: 2px solid #bfbfbf;
+			border-radius: 6px;
+			margin:10px auto;
+			display: inherit;
+			/* margin: 40px auto 20px auto; */
+		}
+
+		.blueHoverClass{
+			color:#136cbf;
+		}
+		.blueHoverClass:hover {
+			cursor: pointer;
+			text-decoration:underline;
+		}
+		.applayInput{
+			width:220px;
+		}
+
+		.ui-step {
+			color: #b7b7b7;
+			padding: 0 60px;
+			margin-bottom: 35px;
+			position: relative;
+		}
+
+		#idcode {
+			display: inline-block;
+		}
+
+		.daojishi {
+			display: inline-block;
+			border: 2px solid #E8F5FE;
+			text-align: center;
+			font-size: 18px;
+			color: #fff;
+			background: #136cbf;
+			cursor: pointer;
+			width: 110px;
+			height: 30px;
+			line-height: 30px;
+			vertical-align: top;
+		}
+
+		/* .Email_code {
+		display: inline;
+		font-size: 18px;
+		color: #136cbf;
+		cursor: pointer;
+	}
+	.Phone_code {
+		display: inline;
+		font-size: 18px;
+		color: #136cbf;
+		cursor: pointer;
+	} */
+
+		.ui-step:after {
+			display: block;
+			content: "";
+			height: 0;
+			font-size: 0;
+			clear: both;
+			overflow: hidden;
+			visibility: hidden;
+		}
+
+		.ui-step li {
+			float: left;
+			position: relative;
+		}
+
+		.ui-step .step-end {
+			width: 120px;
+			position: absolute;
+			top: 0;
+			right: -60px;
+		}
+
+		.ui-step-line {
+			height: 5px;
+			background-color: #e0e0e0;
+			box-shadow: inset 0 1px 1px rgba(0, 0, 0, .2);
+			margin-top: 15px;
+		}
+
+		ul,
+		li {
+			list-style: none;
+		}
+
+		.step-end .ui-step-line {
+			display: none;
+		}
+
+		.ui-step-cont {
+			width: 120px;
+			position: absolute;
+			top: 0;
+			left: -15px;
+			text-align: center;
+		}
+
+		.ui-step-cont-number {
+			display: inline-block;
+			*zoom: 1;
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 30px;
+			height: 30px;
+			line-height: 30px;
+			color: #fff;
+			background: url(https://www.shinemonitor.com/ui-step_cover_30x30.png) center no-repeat\9;
+			border-radius: 50%;
+			border-left: 2px solid #fff;
+			border-right: 2px solid #fff;
+			border: 2px solid rgba(224, 224, 224, 1);
+			font-family: tahoma;
+			font-weight: bold;
+			font-size: 16px;
+			background-color: #b9b9b9;
+			box-shadow: inset 1px 1px 2px rgba(0, 0, 0, .2);
+		}
+
+		.ui-step-cont-text {
+			position: relative;
+			top: 34px;
+			left: -42px;
+			font-size: 12px;
+		}
+
+		/** 步骤数定义 **/
+
+		.ui-step-3 li {
+			width: 50%;
+		}
+
+		.ui-step-4 li {
+			width: 33.3%;
+		}
+
+		.ui-step-5 li {
+			width: 25%;
+		}
+
+		.ui-step-6 li {
+			width: 20%;
+		}
+
+		/** The default style (默认风格) **/
+		/* Done */
+
+		.step-done .ui-step-cont-number {
+			background-color: #f78d1d;
+		}
+
+		.step-done .ui-step-cont-text {
+			color: #f78d1d;
+		}
+
+		.step-done .ui-step-line {
+			background-color: #f78d1d;
+		}
+
+		/* Active */
+
+		.step-active .ui-step-cont-number {
+			background-color: #f78d1d;
+		}
+
+		.step-active .ui-step-cont-text {
+			color: #f78d1d;
+			font-weight: bold;
+		}
+
+		.step-active .ui-step-line {
+			background-color: #f78d1d;
+		}
+
+		/*接入国网模态框*/
+
+		#forgetbox .left {
+			text-align: right;
+			width: 200px;
+			line-height: 30px;
+		}
+
+		#forgetbox .stepBox {
+			padding-left: 100px;
+			padding-top: 10px;
+		}
+
+		#forgetbox input {
+			text-indent: 6px;
+		}
+
+		#forgetbox .right {
+			text-align: left;
+			width: 450px;
+		}
+
+		.wancheng {
+			width: 200px;
+			height: 200px;
+			margin-left: 200px;
+			margin-top: -50px;
+			background: url(assets/img/u2172.png) center center no-repeat;
+
+		}
+
+		#forgetbox .formItem {
+			margin: 20px auto;
+			display: flex;
+			justify-content: center;
+		}
+
+		#forgetbox .WCformItem {
+
+			margin: 20px auto;
+			display: flex;
+		}
+
+		#loginfleft {
+			margin-top: 10px;
+		}
+
+		/* 忘记用户名 */
+		#RetrieveUsername {
+			display: none;
+			position: relative;
+			width: 800px;
+			height: 532px;
+			background: #fff;
+			border: 2px solid #016cd0;
+			position: absolute;
+			top: 50%;
+			left: 46%;
+			margin-top: -266px;
+			margin-left: -326px;
+			border-radius: 12px;
+		}
+
+		#RetrieveUsername .left {
+			text-align: right;
+			width: 200px;
+			line-height: 30px;
+		}
+
+		#RetrieveUsername .stepBox {
+			padding-left: 100px;
+			padding-top: 10px;
+		}
+
+		#RetrieveUsername input {
+			text-indent: 6px;
+		}
+
+		#RetrieveUsername .right {
+			text-align: left;
+			width: 450px;
+		}
+
+		.wancheng {
+			width: 200px;
+			height: 200px;
+			margin-left: 200px;
+			margin-top: -50px;
+			background: url(assets/img/u2172.png) center center no-repeat;
+
+		}
+
+		#RetrieveUsername .formItem {
+			margin: 20px auto;
+			display: flex;
+			justify-content: center;
+		}
+
+		#RetrieveUsername .WCformItem {
+
+			margin: 20px auto;
+			display: flex;
+		}
+
+		.classbutton {
+			width: 210px;
+			height: 40px;
+			text-align: center;
+			line-height: 40px;
+			font-size: 18px;
+			color: #fff;
+			background: #136cbf;
+			border-radius: 6px;
+			cursor: pointer;
+			margin-left: 217px;
+		}
+		.show_glyphicon {
+			cursor: pointer;
+			position: absolute;
+			right: 48px;
+			top: 30px;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="box" class="clear">
+		<div id="top" class="clear">
+			<ul class="f_right nav">
+				<li lang=""><a href="out_en/down.html" class="toplang productCenter">Product Center</a></li>
+				<li lang=""><a href="appDownloadEn.html" class="toplang" id="downApp">APP Download</a></li>
+				<li lang="" id="language">
+					<img src="assets/img/banner_in.png" />
+					<a href="index_in.html#" class="toplang">India</a>
+					<div id="languageNav">
+						<div id="">
+							<a href="index_cn.html" onclick="setUserCurLang('中文')">
+								<img src="assets/img/banner_cn.png" class="banner-nation-flag">&nbsp; 中文
+							</a>
+						</div>
+						<div>
+							<a href="index_hk.html" onclick="setUserCurLang('中文繁体')">
+								<img src="assets/img/banner_cn.png" class="banner-nation-flag">&nbsp; 中文繁体
+							</a>
+						</div>
+						<div id="">
+							<a href="index_en.html" onclick="setUserCurLang('English')">
+								<img src="assets/img/banner_us.png" class="banner-nation-flag">&nbsp; English
+							</a>
+						</div>
+						<div id="">
+							<a href="index_sv.html" onclick="setUserCurLang('Svenska')">
+								<img src="assets/img/banner_sw.png" class="banner-nation-flag">&nbsp; Svenska
+							</a>
+						</div>
+						<div>
+							<a href="index_es.html" onclick="setUserCurLang('Español')">
+								<img src="assets/img/banner_es.png" class="banner-nation-flag">&nbsp; Español
+							</a>
+						</div>
+						<div id="">
+							<a href="index_po.html" onclick="setUserCurLang('Português')">
+								<img src="assets/images/banner/banner_po.png" class="banner-nation-flag">&nbsp;
+								Português
+							</a>
+						</div>
+						<div>
+							<a href="index_pl.html" onclick="setUserCurLang('Polski')">
+								<img src="assets/images/banner/banner_pl.jpg" class="banner-nation-flag">&nbsp; Polski
+							</a>
+						</div>
+						<div>
+							<a href="index_in.html" onclick="setUserCurLang('India')">
+								<img src="assets/images/banner/banner_in.png" class="banner-nation-flag">&nbsp; India
+							</a>
+						</div>
+						<div>
+							<a href="index_vi.html" onclick="setUserCurLang('TiếngViệt')">
+								<img src="assets/images/banner/banner_yn.png" class="banner-nation-flag">&nbsp; Tiếng
+								Việt
+							</a>
+						</div>
+						<div>
+							<a href="index_idn.html" onclick="setUserCurLang('Indonesian')">
+								<img src="assets/images/banner/banner_idn.jpg" class="banner-nation-flag">&nbsp;
+								Indonesian
+							</a>
+						</div>
+					</div>
+				</li>
+				<li id="Nodebox" style="line-height: 10px;height: 20px;">
+					<a class="toplang" >. . .</a>
+					<select id="selectNode"  style="margin-top: -11px;background: #1d2088;color: #fff;border: none;">
+					</select>
+				</li>
+			</ul>
+		</div>
+
+
+		<div class="f_left" id="cusLogo">
+			<img src="index_in.html" class="cusIndexCh" />
+		</div>
+		<img src="index_in.html" id="bigbackgound" style="display: none;" />
+		<!--登录-->
+		<div id="loginbox">
+			<div id="qrSwitchBox" class="SwitchBox">
+
+			</div>
+			<div id="loginSwitchBox" class="SwitchBox">
+
+			</div>
+			<div class="loginleft">
+				<div id="title">Login</div>
+				<div id="loginusr"><input type="text" value="" class="textcl use inputCss" placeholder="enter one user name" /></div>
+				<div id="loginpow"  style="position: relative;"><input type="password" value="" class=" textcl pow inputCss" placeholder=" Please input a password" />
+					<img src="assets/images/passwordOn.png"  id="passwordShowHide"  class="show_glyphicon">
+				</div>
+				<div id="remember" style="height: 35px;"><input type="checkbox" id="rememberbox" />&nbsp;Remember
+					password<span id="forgetPwd" style="float: right;cursor: pointer;">Forgot password?</span>
+					<span id="ForgetUsername" style="float: right;cursor: pointer;">Forgot username?</span>
+				</div>
+				<div id="loginbtn" class="hover">Login</div>
+				<div id="loginfoot" class="clear" style="margin-left: -40px;">
+					<div id="loginfleft" class="f_left">
+						<span class="orange">No account yet？</span>&nbsp;<span class="blue hover"
+							id="loginregbtn">Register immediately</span>
+					</div>
+					<div id="Sample" class="f_right hover">
+						<span>Demo</span>
+					</div>
+				</div>
+				<div id="loginfault" class="checkred">
+					错误提示
+				</div>
+			</div>
+			<div class="loginright" id="qr_login">
+				<!--<div class="logrbox hover">-->
+
+				<div class="orange">Mobile phone scanning code, easy login</div>
+				<div id="qrcodeCn" class="qrcodeCn"></div>
+				<div id="qr_Prompt" class="qrcodeCn"><img src="assets/img/qrlogin.png"
+						style="width: 100%;height: 100%;" /></div>
+				<div id="sweepbox"><img src="assets/img/shinemonitorLogin12.png" /> <span class="sweeptext1 sweeptext"
+						style="display: none;">Scan<span class="orange"> Success</span>
+
+						<br />
+						<span>Please confirm login</span></span> <span class="sweeptext2 sweeptext">open<span
+							class="orange pv123">SmartClient</span><br /><span>Sweep login</span></span></div>
+				<!--</div>-->
+			</div>
+			<!--<div class="loginright" id="qr_Prompt">
+					
+						<div class="orange">请在手机上确认登录</div>
+						<div></div>
+						<div id="sweepbox"><img src="img/shinemonitor登录界面12.png"/> <span class="sweeptext">打开<span class="orange">SmartClient</span></br><span>扫一扫登录</span></span></div>
+						
+					
+				</div>-->
+			<!--<div class="loginright hover" id="qrcodeSuc">
+					<div class="logrbox" style="margin-top: 34px;">
+						<div class="orange">手机扫码，轻松登录</div>
+						<div><img src="img/shinemonitor登录界面9.png" id="code"/></div>
+						<div><span class="sweeptext orange">请在手机上确认登录</span></span></div>
+					</div>
+				</div>-->
+		</div>
+		<!--注册-->
+		<div id="regbox" style="height: 562px;">
+			<div id="regTitle">
+				Register
+			</div>
+			<div id="inputreg">
+				<div><input type="text" id="use" autocomplete="off" class="textcl use" value=""
+						placeholder="enter one user name" /></div>
+				<div><input type="text" id="email" autocomplete="off" value="" class="textcl"
+						placeholder="Please enter your mailbox name" /></div>
+				<div><input type="text" id="mobile" autocomplete="off" value="" class="textcl"
+						placeholder="Please enter your phone number" /></div>
+				<div><input type="password" id="pow" class=" textcl pow" value=""
+						placeholder="Please input a password" /></div>
+				<div><input type="password" id="conpow" value="" class="textcl"
+						placeholder="Please confirm the password" /></div>
+				<div><input type="text" id="pn" value="" class="textcl" autocomplete="off" placeholder="Please enter PN number" /></div>
+				<div id="regbtn" class="hover">Register</div>
+				<div id="regfoot"><span class="orange" lang="">Existing account？</span>&nbsp;<span id="regloginbtn"
+						class="blue hover" lang="">Login immediately</span></span></div>
+			</div>
+			<div id="regsuc" class="checkred regPromptPosition">
+				Register was successful
+			</div>
+			<div id="regfault" class="checkred regPromptPosition">
+				错误提示
+			</div>
+		</div>
+
+		<!-- 密码找回 -->
+		<div id="forgetbox">
+			<div id="regTitles">
+				Retrieve password
+			</div>
+			<div class="loginReg">
+				<span id="zhuce">Registered</span><span>/</span><span id="denglu">Login</span>
+			</div>
+			<div class="modal-body">
+				<div style="width:70%; margin:100px auto">
+
+					<ol class="ui-step ui-step-4">
+						<li class="step-start step-done">
+							<div class="ui-step-line"></div>
+							<div class="ui-step-cont">
+								<span class="ui-step-cont-number">1</span>
+								<span class="ui-step-cont-text">Account</span>
+							</div>
+						</li>
+						<li class="start step-done" id="step2">
+							<div class="ui-step-line"></div>
+							<div class="ui-step-cont">
+								<span class="ui-step-cont-number">2</span>
+								<span class="ui-step-cont-text">Identity</span>
+							</div>
+						</li>
+						<li class="start step-done" id="step3">
+							<div class="ui-step-line"></div>
+							<div class="ui-step-cont">
+								<span class="ui-step-cont-number">3</span>
+								<span class="ui-step-cont-text">Reset</span>
+							</div>
+						</li>
+						<li class="start step-end" id="step4">
+							<div class="ui-step-line"></div>
+							<div class="ui-step-cont">
+								<span class="ui-step-cont-number">4</span>
+
+								<span class="ui-step-cont-text">Finish</span>
+							</div>
+						</li>
+
+					</ol>
+				</div>
+				<!-- <div style="margin-top: -30px;margin-bottom: 20px;text-align: center;" id="tishi"></div> -->
+				<ul class="stepBox">
+					<li class="step1Box">
+						<form id="usr1Set">
+							<div class="formItem">
+								<div class="left">
+									<span class="warning">*</span>
+									<label class="control-label my-modal-label">User name:</label>
+								</div>
+								<div class="right">
+									<input type="text" id="key66" class="input-specials"
+										placeholder="Please enter user name">
+								</div>
+
+							</div>
+							<div class="formItem">
+								<div class="left">
+									<span class="warning">*</span>
+									<label class="control-label my-modal-label">Verification Code:</label>
+								</div>
+								<div class="right">
+									<input type="text" id="Txtidcode" class="input-specials"
+										placeholder="Please enter verification code">
+
+									<!-- <input type="text" id="Txtidcode" class="txtVerification" /> -->
+									<span id="idcode"></span>
+									<!-- <div>
+												<button type="button" id="btns">验证</button>
+											</div> -->
+									<!-- <div @click="refreshCode" class="huanyizhang">
+												<s-identify :identifyCode="identifyCode"></s-identify>
+											  </div> -->
+								</div>
+
+							</div>
+							<div id="regbtnConf" class="hover">Confirm</div>
+							<div id="codefault" class="forcheckred">
+								<!-- 错误提示 -->
+						</form>
+					</li>
+					<li class="step2Box">
+						<!-- 手机号验证 -->
+						<!-- <form id="phone2Set">
+									<div class="formItem">
+										<div class="left">
+											<span class="warning">*</span>
+											<label class="control-label my-modal-label">Phone number:</label>
+										</div>
+										<div class="right">
+											<input type="text" id="phoneID" class="input-specials" placeholder="Please enter phone number">
+											<div id="SwitchEmail" class="Email_code">E-mail</div>
+										</div>
+		
+									</div>
+									<div class="formItem">
+										<div class="left">
+											<span class="warning">*</span>
+											<label class="control-label my-modal-label">Verification Code:</label>
+										</div>
+										<div class="right">
+											<input type="text" id="codePh" class="input-specials" placeholder="Please enter verification code">
+											<div id="getcodePh" class="daojishi">Obtain Code</div>
+										</div>
+									</div>
+									<div id="regbtn1ConfPh" class="hover">Confirm</div>
+								   <div id="code1faultPh" class="forcheckred"></div>
+								</form> -->
+						<!-- 邮箱验证 -->
+						<form id="email2Set">
+							<div class="formItem">
+								<div class="left">
+									<span class="warning">*</span>
+									<label class="control-label my-modal-label">E-mail:</label>
+								</div>
+								<div class="right">
+									<input type="text" id="emailID" class="input-specials"
+										placeholder="Please input your email">
+									<!-- <div id="SwitchPhone" class="Phone_code">Phone</div> -->
+								</div>
+
+							</div>
+							<div class="formItem">
+								<div class="left">
+									<span class="warning">*</span>
+									<label class="control-label my-modal-label">Verification code:</label>
+								</div>
+								<div class="right">
+									<input type="text" id="codeEm" class="input-specials"
+										placeholder="Please enter verification code">
+									<div id="getcodeEm" class="daojishi">Obtain Code</div>
+								</div>
+							</div>
+							<div id="regbtn1ConfEm" class="hover">Confirm</div>
+							<div id="code1faultEm" class="forcheckred"></div>
+						</form>
+					</li>
+
+					<li class="step3Box">
+						<!-- <form id="phone3Set">
+											<div class="formItem">
+												<div class="left">
+													<span class="warning">*</span>
+													<label class="control-label my-modal-label">New login password:</label>
+												</div>
+												<div class="right">
+													<input type="password" id="pwdPh" class="input-specials" placeholder="Please enter a new password">
+												</div>
+		
+											</div>
+											<div class="formItem">
+												<div class="left">
+													<span class="warning">*</span>
+													<label class="control-label my-modal-label">Confirm the password:</label>
+												</div>
+												<div class="right">
+													<input type="password" id="ConpwdPh" class="input-specials" placeholder="Please confirm your password">
+												</div>
+											</div>
+											<div id="regbtn2ConfPh" class="hover">Confirm</div>
+										   <div id="code2faultPh" class="forcheckred"></div>
+									</form> -->
+						<form id="email3Set">
+							<div class="formItem">
+								<div class="left">
+									<span class="warning">*</span>
+									<label class="control-label my-modal-label">New login password:</label>
+								</div>
+								<div class="right">
+									<input type="password" id="pwdEm" class="input-specials"
+										placeholder="Please enter a new password">
+								</div>
+
+							</div>
+							<div class="formItem">
+								<div class="left">
+									<span class="warning">*</span>
+									<label class="control-label my-modal-label">Confirm the password:</label>
+								</div>
+								<div class="right">
+									<input type="password" id="ConpwdEm" class="input-specials"
+										placeholder="Please confirm your password">
+								</div>
+							</div>
+							<div id="regbtn2ConfEm" class="hover">Confirm</div>
+							<div id="code2faultEm" class="forcheckred"></div>
+						</form>
+					</li>
+					<li class="step4Box">
+						<div class="WCformItem">
+							<div class="wancheng"></div>
+						</div>
+						<div class="WCformItem">
+							<div style="margin-left: 180px;">Reset password is successful, please remember your new
+								password</div>
+						</div>
+						<div class="WCformItem">
+							<div id="relogin"
+								style="margin-left: 181px;margin-top: -16px;cursor: pointer;text-decoration: underline;color:#f2941a;">
+								re-register</div>
+						</div>
+					</li>
+				</ul>
+
+			</div>
+			<div style="position: absolute;text-align: center;width: 100%;height: 70px;line-height: 70px;display: block;bottom: 0;"
+				id="tishi"></div>
+		</div>
+		<!-- 忘记用户名 -->
+		<div id="RetrieveUsername">
+			<div id="regTitles">
+				Retrieve username
+			</div>
+			<div class="loginReg">
+				<span id="zhuce1" style="cursor:pointer;">Registered</span><span>/</span><span id="denglu1"
+					style="cursor:pointer;">Login</span>
+			</div>
+			<div class="modal-body">
+				<div style="width:110%; margin:100px auto">
+
+					<ol class="ui-step ui-step-4" style="margin-left:130px;">
+						<li class="step-start step-done">
+							<div class="ui-step-line"></div>
+							<div class="ui-step-cont">
+								<span class="ui-step-cont-number">1</span>
+								<span class="ui-step-cont-text">Enter PN number</span>
+							</div>
+						</li>
+						<li class="start step-done" id="step5">
+							<div class="ui-step-line"></div>
+							<div class="ui-step-cont">
+								<span class="ui-step-cont-number">2</span>
+								<span class="ui-step-cont-text">Verify identidy</span>
+							</div>
+						</li>
+						<li class="start step-done" id="step6">
+							<div class="ui-step-cont">
+								<span class="ui-step-cont-number">3</span>
+								<span class="ui-step-cont-text">View username</span>
+							</div>
+						</li>
+
+					</ol>
+				</div>
+				<ul class="stepBox">
+					<li class="step5Box">
+						<form id="pn1Set">
+							<div class="formItem">
+								<div class="left">
+									<span class="warning">*</span>
+									<label class="control-label my-modal-label">PN number:</label>
+								</div>
+								<div class="right">
+									<input type="text" id="PN66" class="input-specials"
+										placeholder="Please enter the PN number">
+										<input type="text" id="" name="" style="display: none;"/>
+
+								</div>
+
+							</div>
+							<div id="PNdetermination" class="hover classbutton">Confirm</div>
+							<div id="Usernameprompt" class="forcheckred">
+								<!-- 错误提示 -->
+						</form>
+					</li>
+					<li class="step6Box" style="display: none;">
+						<form id="pn2Set">
+							<div class="formItem">
+								<div class="left">
+									<span class="warning">*</span>
+									<label class="control-label my-modal-label">E-mail:</label>
+								</div>
+								<div class="right">
+									<input type="text" id="phonePN" class="input-specials"
+										placeholder="Please input your email">
+								</div>
+							</div>
+							<div class="formItem">
+								<div class="left">
+									<span class="warning">*</span>
+									<label class="control-label my-modal-label">Verification code:</label>
+								</div>
+								<div class="right">
+									<input type="text" id="codePN" class="input-specials"
+										placeholder="Please enter verification code">
+									<div id="getcodePN" class="daojishi">Obtain Code</div>
+								</div>
+							</div>
+							<div id="regbtn1ConfPN" class="hover classbutton">Confirm</div>
+							<div id="code1faultPN" class="forcheckred "></div>
+						</form>
+					</li>
+
+					<li class="step7Box" style="display: none;">
+						<span style="margin-left: 200px;">Your username is:</span>
+						<span style="font-weight: bold;" id="usernamepn"></span>
+
+					</li>
+
+				</ul>
+
+			</div>
+			<div style="position: absolute;text-align: center;width: 100%;height: 70px;line-height: 70px;display: block;bottom: 0;"
+				id="tishi1"></div>
+		</div>
+
+		<!--<div id="icp" class="orange cusIcp">
+				粤ICP备14070077号V1.0
+			</div>-->
+	</div>
+	<!-- shinemonitor域名演示账号申请-->
+	<div id="shineUrlApplay" class="modal fade"  tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="false">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title">Experience code login</h4>
+				</div>
+				<div class="modal-bodys">
+					<div class='contact' ><p style='margin: 10px auto;'>If you have purchased equipment, you can log in and use it after registering</p>
+						<div class="blueHoverClass" id="goRegisterPage">Go to register</div>
+					</div>
+					<div class='contact' ><p style='margin: 10px auto;'>Go to register, just want to see the system function demonstration, please enter the invitation code directly</p>
+						<div class="blueHoverClass" id="goApplyBox">Go to apply</div>
+					</div>
+				   <div><input type='text' id='raoqingCodes' placeholder="Please enter the invitation code" style='text-indent:6px;margin-bottom:10px;'/></div>
+				   <div class='errTip' style='height:20px;'></div>
+				</div>
+				<div class="modal-footer">
+					<div class="maskErrryTips">
+						<button  type="button" class="btn btn-success" id="enterSampleAccount">Login</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- shinemonitor域名演示账号申请信息详情-->
+	<div id="applayInformationBox" class="modal fade"  tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="false">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title">Experience code application</h4>
+			</div>
+			<div class="modal-bodys applyBox">
+					<div><input type="text" class="textcl use inputCss" value="" id="applyUseName" placeholder="Please enter your name"/>
+					</div>
+					<div><input type="text" autocomplete="off" value="" class="textcl appleCompany inputCss" id="appleCompany"  placeholder="Please enter company name" />
+					</div>
+					<div><input type="text"  autocomplete="off" value="" class="textcl addresss inputCss" id="appleUseAdrress"   placeholder="Please enter company address" />
+					</div>
+					<div><input type="text" id="mobiles" class="textcl mobile inputCss" value="" placeholder="Please enter your phone number" />
+					</div>
+					<div><input type="text" id="emails" value="" class="textcl email inputCss"  placeholder="Please enter your email" />
+					</div>
+					<div><input type="text"  value="" class="textcl reasons inputCss"  id="appleReason" placeholder="Describe the reasons for application" />
+					</div>
+					<div id="regsucApply" class="checkred" style="text-align:left;">
+							注册成功
+						</div>
+						<div id="regfaultApply" class="checkred" style="text-align:left;">
+							错误提示
+						</div>
+				</div>
+			<div class="modal-footer">
+				<div class="maskErrryTips" id="frindlyTips">
+					<button  type="button" class="btn btn-success" id="confirmApplyButton">Submit</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+	<!-- shinemonitor其他域名演示账号申请-->
+	<div id="otherUrlApplay" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="false">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title">Please enter experience code</h4>
+			</div>
+			<div class="modal-bodys">
+			   <div><input type='text' id='raoqingCode' style='text-indent:6px;'/></div>
+			   <div class='contact' ><p style='margin: 10px auto;'>No experience code yet? Please contact us</p>
+				<p style="margin-bottom:5px;">Email：<span  class='blue' id='emailas'></span></p>
+				<p>Tel：<span class='blue' id='phones'></span></p></div>
+				<div class='errTip' style='height:20px;'></div>
+			</div>
+			<div class="modal-footer">
+				<div class="maskErrryTips" id="frindlyTips">
+					<button type="button" class="btn btn-success" id="enterSampleAccounts">Login</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+</body>
+<script src="assets/vendor/jquery/jquery-2.1.4.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="assets/javascripts/rc4.js"></script>
+<script src="assets/javascripts/sha1-min.js"></script>
+<script src="assets/vendor/layui/layui.js" type="text/javascript" charset="utf-8"></script>
+<script src="managesystemnew/js/dictionaries.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	document.open()
+	document.write("<script type='text/javascript' src='js/loginIndex.js%3F&quot;&#32;+&#32;(new&#32;Date().getTime())&#32;+&#32;&quot;'><\/script>");
+	document.close()
+</script>
+<script type="text/javascript" src="js/qrcode/jquery.qrcode.js"></script>
+<script type="text/javascript" src="js/qrcode/qrcode.js"></script>
+<script src="assets/vendor/bootstrap/js/bootstrap.js"></script>
+
+<link rel="stylesheet" href="js/jquery.idcode.css" />
+<!-- <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script> -->
+<script src="js/jquery.idcode.js"></script>
+
+</html>
+<script type="text/javascript">
+	window.onload = userBrowser();
+	$(document).ready(function () {
+		checkCusInfo()
+		loginRemember()
+		// $.get(document.location.protocol + "//img.shinemonitor.com/file/",
+		// 	{
+		// 		action: 'queryAllCustInfosByDomainName',
+		// 		domainName: window.document.location.hostname,
+		// 		sign: 'shinemonitor',
+		// 		salt: new Date().getTime(),
+		// 	},
+		// 	function (err, dat, desc) {
+		// 		if (err.err == 0) {
+		// 			$(".cusIndexCh").attr('src', err.dat.logoStr);
+		// 			$("body").css("background", "url(" + err.dat.backgroundStr + ") center center no-repeat")
+		// 		} else {
+
+		// 		}
+		// 	});
+			var DomainNameStr = window.document.location.hostname;
+		    var DomainNameIMG = new Image()
+		    DomainNameIMG.src = document.location.protocol + '//img.shinemonitor.com/img/custom/cus/'+DomainNameStr.replace(/\./g, '')+'/background.png'
+		    DomainNameIMG.onload =  function () {
+		    	$(".cusIndexCh").attr('src', document.location.protocol + "//img.shinemonitor.com/img/custom/cus/"+DomainNameStr.replace(/\./g, '')+"/logo.png");
+		    	$("body").css("background", "url(" + document.location.protocol + '//img.shinemonitor.com/img/custom/cus/'+DomainNameStr.replace(/\./g, '')+'/background.png' + ") center center no-repeat")
+		    }
+		    // DomainNameIMG.onerror =  function () {
+		    // 	$(".cusIndexCh").attr('src', "/assets/images/cus/shinemonitor/logo.png");
+		    // 	$("body").css("background", "url(" + "/assets/images/cus/shinemonitor/background.png" + ") center center no-repeat")
+		    // }
+		var salt = new Date().getTime();
+		var action = "&action=queryDomainListNotLogin&source=1&_app_client_=web&_app_id_="+window.document.location.hostname+"&_app_version_=1.0.6.3&i18n=in_IN";
+		var sign = hex_sha1(salt + action);
+		var url = HTTP_INTERFACE_ADDRESS_NEW + "?sign=" + sign + "&salt=" + salt +action;
+		http_async_request(url, function (err, dat, desc) {
+			if(err == 0) {
+			    for (var i = 0; i < dat.length; i++) {
+			        $('<option value = "' + dat[i].url + '" title="' + dat[i].name + '">' + dat[i].name + '</option>').appendTo($("#selectNode"))
+			    }
+			  if(JSON.parse(window.localStorage.getItem("selectNodeValue")) == null||JSON.parse(window.localStorage.getItem("selectNodeValue")) == ''||JSON.parse(window.localStorage.getItem("selectNodeValue")) == undefined){
+				if(dat.length==0){
+					$('<option value = "'+ HTTP_INTERFACE_ADDRESS_NEW +'">'+dictionaries(NODE_LANG, "nodeLang",desc,1)+'</option>').appendTo($("#selectNode "))
+				}
+			   }else{
+			    	$("#selectNode").val(JSON.parse(window.localStorage.getItem("selectNodeValue")))
+			   }
+		     } else {
+		     	$('<option value = "'+ HTTP_INTERFACE_ADDRESS_NEW +'">'+dictionaries(NODE_LANG, "nodeLang",desc,1)+'</option>').appendTo($("#selectNode "))
+		     }
+	         }, function()
+	         {
+	         	$('<option value = "' + HTTP_INTERFACE_ADDRESS_NEW + '">'+dictionaries(NODE_LANG, "nodeLang",desc,1)+'</option>').appendTo($("#selectNode "))
+			 })
+			 	//节点切换
+	        $("#selectNode").bind("change", function() {
+	        	var status = $("#selectNode option:selected").val()
+				window.localStorage.setItem("selectNodeValue", JSON.stringify(status));
+				window.sessionStorage.setItem("selectNodeValue", JSON.stringify(status));
+	        	window.location.reload();
+	        })
+		if (window.document.location.hostname == "monitoring.icasolar.com") {
+			document.title = 'PV123';
+			$("meta[name='description']").attr('content', "Real-Time PV Monitoring");
+		}
+		if (window.document.location.hostname == "kirloskar.shinemonitor.com") {
+			$("#Sample").hide()
+		}
+		if (window.document.location.hostname == "monitoring.icasolar.com") {
+			$("#Sample").hide()
+			$(".productCenter").hide()
+			$(".pv123").text('PV123')
+		}
+        // 金源
+		if (window.document.location.hostname == "jinyuanleasing.shinemonitor.com") {
+			$("#Sample").hide()
+			$("#downApp").hide()
+			$(".productCenter").hide()
+			$(".cusIcp").hide()
+			$(".cusIcp1").hide()
+		}
+
+		bigbackgound.onload = function () {
+			var backgound = $('#bigbackgound').attr("src")
+			// $("body").css("background", "url(" + backgound + ") center center no-repeat")
+		}
+		$("#qrSwitchBox").click(function () {
+			$("#qrcodeCn canvas").remove()
+			$(".loginleft,#loginSwitchBox").show()
+			$(".loginright,#qrSwitchBox,#qr_Prompt,.sweeptext1").hide()
+			window.clearInterval(qrcodeLoopCn);
+		})
+		$("#loginSwitchBox").click(function () {
+			qrGenerate()
+			$(".loginleft,#loginSwitchBox").hide()
+			$(".loginright,#qrSwitchBox,.sweeptext2,#qrcodeCn").show()
+			qrcodeLoopCn = setInterval("loopQrcodeCn()", 3000);
+		})
+		$('#loginbtn').click(function () {
+			loginByUser();
+		})
+		//	$("#loginusr").keyup(function(e) { //输入回车可登录
+		//		if(e.keyCode == 13)
+		//			loginByUser();
+		//	});
+		//	$("#loginpow").keyup(function(e) {
+		//		if(e.keyCode == 13)
+		//			loginByUser();
+		//	});
+		$("#loginbox").keyup(function (e) { //输入回车可登录
+			if (e.keyCode == 13)
+				loginByUser();
+			//			console.log()
+		})
+		//密码找回跳到注册
+		$("#zhuce").click(function () {
+			$("#regbox").show()
+			$("#forgetbox").hide()
+		})
+		//密码找回跳到登录
+		$("#denglu").click(function () {
+			$("#loginbox").show()
+			$("#forgetbox").hide()
+		})
+
+		$("#loginregbtn,#regloginbtn").click(function () {
+			$("#loginbox,#regbox").toggle(400)
+			$('.textcl').val("")
+			$(".checkred").hide()
+		})
+		//	$("#qr_Prompt").click(function(){
+		//		$("#qr_Prompt").hide(400);
+		//		$("#qr_login").show(400);
+		//		qrcodeLoopCn = setInterval("loopQrcodeCn()", 5000);	
+		//	})
+		$("#regbtn").click(function () {
+			regFunction();
+		})
+		//示例电站登录
+	    $("#Sample").click(function () {
+			$(".errTip").hide()
+			$("#raoqingCode").val("")
+			$("#raoqingCodes").val("")
+			if (window.document.location.hostname == "ksolare.shinemonitor.com"){
+			    $('#otherUrlApplay').modal();
+			    $('#emailas').text("sunil@ksolare.com11");
+	       	    $('#phones').text("+91 9527555000");
+	        }else if (window.document.location.hostname == "www.shinemonitor.com"){
+			    $('#shineUrlApplay').modal();
+	        }else{
+			    $('#otherUrlApplay').modal();
+			    $('#emailas').text("market@eybond.com");
+	       	    $('#phones').text("+86-13622344534");
+	       }
+	    })
+		//体验吗登录跳转到登录页面
+		$("#goLoginPage").click(function () {
+	    	$('#shineUrlApplay').modal('hide');
+	    })
+		//体验吗登录转到注册页面
+		$("#goRegisterPage").click(function () {
+	    	$('#shineUrlApplay').modal('hide');
+			$("#loginbox,#regbox").toggle(400)
+	    })
+		//体验吗登录跳转到体验码申请页面
+		$("#goApplyBox").click(function () {
+			$('.textcl').val("")
+			$("#regfaultApply,#regsucApply").hide();
+	    	$('#shineUrlApplay').modal('hide');
+	    	$('#applayInformationBox').modal();
+	    })
+		//体验吗登录登录事件
+		$("#enterSampleAccount,#enterSampleAccounts").click(function () {
+			enterSampleAccounts()
+	    })
+		//体验吗申请请求按钮
+		$("#confirmApplyButton").click(function () {
+			requestApplys()
+	    })
+		$('.show_glyphicon').click(function () {
+        let pass_type = $('#loginpow input.pow').attr('type');
+        if (pass_type === 'password' ){
+            $('#loginpow input.pow').attr('type', 'text');
+			$('#passwordShowHide').attr('src', 'assets/images/passwordOff.png');
+            // $('.show_glyphicon').removeClass('glyphicon-eye-open').addClass('glyphicon-eye-close');
+        } else {
+            $('#loginpow input.pow').attr('type', 'password');
+			$('#passwordShowHide').attr('src', 'assets/images/passwordOn.png');
+            // $('.show_glyphicon').removeClass('glyphicon-eye-close').addClass('glyphicon-eye-open');
+        }
+      })
+
+	})
+	// 忘记用户名=======================================↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+	var timers
+	$("#ForgetUsername").click(function () {
+		$("#Usernameprompt").hide()
+		$("#PN66").val("")
+		$("#phonePN").val("")
+		$("#codePN").val("")
+		$(".step5Box").show()
+		$(".step6Box").hide()
+		$(".step7Box").hide()
+		$("#loginbox").hide()
+		$("#RetrieveUsername .start").removeClass("step-done")
+		$("#RetrieveUsername").show()
+	});
+	var pnname = ""
+	$("#PNdetermination").click(function () {
+		console.log(HTTP_INTERFACE_ADDRESS_NEW)
+		if ($("#PN66").val() == '') {
+			$("#Usernameprompt").show().text("*PN number cannot be empty");
+		} else {
+			var salt = new Date().getTime();
+			var action = "&action=retrieveUsrByPn&pn=" + $("#PN66").val();
+			var sign = hex_sha1(salt + action);
+			var url = HTTP_INTERFACE_ADDRESS_NEW + "?sign=" + sign + "&salt=" + salt +
+				action;
+			http_async_request(url, function (err, dat, desc) {
+				console.log(err, "打印")
+				if (err == 0) {
+					pnname = dat
+					$("#code1faultPN").hide()
+					$(".step5Box").hide()
+					$(".step6Box").show()
+					$("#step5").addClass("step-done")
+				} else {
+					$("#Usernameprompt").show().text("*PN number error");
+				}
+			})
+
+		}
+
+		console.log("99999")
+	});
+	$("#getcodePN").click(function () {
+		console.log(pnname, "day ")
+		if ($("#phonePN").val() == "") {
+			$("#code1faultPN").show().text("*E-mail can not be empty");
+
+		} else {
+			// $("#tishi1").show().text("*正在获取验证码,请稍等!");
+			var salt = new Date().getTime();
+			var action = "&action=sendSmsCode&usr=" + pnname + "&email=" + $("#phonePN").val() + "&msgType=02&channel=01&i18n=in_IN&webName=shinemonitor&passOrUsr=1";
+			var sign = hex_sha1(salt + action);
+			var url = HTTP_INTERFACE_ADDRESS_NEW + "?sign=" + sign + "&salt=" + salt +
+				action;
+			http_async_request(url, function (err, dat, desc) {
+				if (err == 0) {
+					$("#code1faultPN").hide()
+					$("#tishi1").show().text("*The verification code has been sent to your email address and is valid within 5 minutes.");
+					window.clearInterval(timers);
+					const TIME_COUNT = 300;
+					this.count = TIME_COUNT;
+					timers = setInterval(() => {
+						if (this.count > 0 && this.count <= TIME_COUNT) {
+							this.count--;
+							console.log(11111)
+							$('#getcodePN').text(this.count + 's')
+							// event.siblings(".daojishi").text(this.count +'s')
+						} else {
+							$("#tishi1").hide();
+							$('#getcodePN').text('Obtain Code')
+							// event.siblings(".daojishi").text('')
+							window.clearInterval(timers);
+							timers = null;
+						}
+
+					}, 1000)
+				} else {
+					$("#code1faultPN").text(dictionaries(GET_ERR_DESC, "err" + err, desc, 1)).show();
+					$("#tishi1").hide();
+				}
+			}, function () {
+				$("#code1faultPN").text("Network anomaly").show();
+				$("#tishi1").hide();
+			});
+		}
+
+	})
+	//密码找回跳到注册
+	$("#zhuce1").click(function () {
+		$("#regbox").show()
+		$("#RetrieveUsername").hide()
+	})
+	//密码找回跳到登录
+	$("#denglu1").click(function () {
+		$("#loginbox").show()
+		$("#RetrieveUsername").hide()
+	})
+	$("#regbtn1ConfPN").click(function () {
+		if ($("#codePN").val() == "" || $("#phonePN").val() == "") {
+			$("#code1faultPN").show().text("*Email or verification code cannot be empty");
+		} else {
+			var salt = new Date().getTime();
+			var action = "&action=confirmSmsCode&usr=" + pnname + "&smsCode=" + $("#codePN").val() + "&msgType=02&channel=01&i18n=in_IN&webName=shinemonitor&passOrUsr=1";
+			var sign = hex_sha1(salt + action);
+			var url = HTTP_INTERFACE_ADDRESS_NEW + "?sign=" + sign + "&salt=" + salt +
+				action;
+			http_async_request(url, function (err, dat, desc) {
+				if (err == 0) {
+					$("#code1faultPN").hide()
+					$("#tishi1").hide();
+					$("#usernamepn").text(dat)
+					$(".step6Box").hide()
+					$(".step7Box").show()
+				} else {
+					$("#code1faultPN").text(dictionaries(GET_ERR_DESC, "err" + err, desc, 1)).show();
+					$("#tishi1").hide();
+				}
+			}, function () {
+				$("#code1faultPN").text("Network anomaly").show();
+				$("#tishi1").hide();
+			});
+		}
+
+	})
+
+	// ========================================================↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
+	function qrGenerate() {
+		qrcode_key_cn = getDynamicQrKey();
+		var url = HTTP_INTERFACE_ADDRESS_NEW + "?action=qrLogin&plat=smartlan&key=" + qrcode_key_cn;
+		jQuery("#qrcodeCn").qrcode({
+			text: url,
+			width: 128,
+			height: 128,
+			correctLevel: 0
+		});
+	}
+	//z注册函数
+	function regFunction() {
+		var usr = $("#use").val().trimStr();
+		var email = $("#email").val().trimStr();
+		var mobile = $("#mobile").val().trimStr();
+		var pow = $("#pow").val().trimStr();
+		var conpow = $("#conpow").val();
+		var pwdSha1 = hex_sha1(pow);
+		var pn = $("#pn").val().trimStr();
+		$("#regfault,#regsuc").hide()
+		if (usr.length < 1 || email.length < 1 || mobile.length < 1 || pow.length < 1 || conpow.length < 1 || pn.length < 1) {
+			$("#regfault").text("*Incomplete information");
+			$("#regfault").show(100)
+		} else if (pow != conpow) {
+			$("#regfault").text("*The two password is not the same")
+			$("#regfault").show(100)
+
+		} else if (pow.length < 6 || pow.length > 32) {
+			$("#regfault").text("* password format error, password length can not be greater than 32 characters or less than 6 characters.")
+			$("#regfault").show(100)
+
+		} else if (/[&]/.test(usr)) {
+			$("#regfault").text("* User name format error, may not have '&' symbol, and can not be greater than 32 characters or less than 2 characters")
+			$("#regfault").show(100)
+
+		} else if (pn.length != 14 && pn.length != 18) {
+			$("#regfault").text("* Number length error of digit collector, PN must be equal to 14 or 18 bits")
+			$("#regfault").show(100)
+		} else if (mobile.length < 6 || mobile.length > 32) {
+			$("#regfault").text("* cell phone format error can not be greater than 32 characters or less than 6 characters.")
+			$("#regfault").show(100)
+
+		}
+		else if (email.indexOf("@") == -1) {
+			$("#regfault").text(dictionaries(GET_ERR_DESC, 'err20', '', 1))
+			$("#regfault").show()
+		} else {
+			$("#regfault").hide(100)
+
+			var checksumSha1 = hex_sha1(pn);
+			var key = CryptoJS.enc.Utf8.parse(checksumSha1);
+			var crypt = CryptoJS.RC4.encrypt(pwdSha1, key);
+			var cryptPwd = CryptoJS.enc.Base64.parse(crypt.toString());
+			var salt = new Date().getTime();
+			var action = "&action=reg&usr=" + encodeURI(usr) + "&pwd=" + cryptPwd +
+				"&email=" + encodeURI(email) + "&mobile=" + encodeURI(mobile) + "&sn=" + pn + "&company-key=bnrl_frRFjEz8Mkn";
+			var sign = hex_sha1(salt + pwdSha1 + action);
+			var url = HTTP_INTERFACE_ADDRESS_NEW + "?sign=" + sign + "&salt=" + salt +
+				action;
+
+			$("#regfault").text("Being registered...").show();
+			$("#regsuc").hide();
+
+			http_async_request(url, function (err, dat, desc) {
+				if (err == 0) {
+					$("#regsuc").show();
+					$("#regfault").hide();
+				} else if (err == 16) {
+					$("#regfault").text(dictionaries(GET_ERR_DESC, "err" + 259, desc, 1)).show();
+					$("#regsuc").hide();
+				} else if (err == 520) {
+					var a = desc.slice(desc.indexOf(" usr:") + 5, desc.indexOf(" )"))
+					$("#regfault").text(dictionaries(GET_ERR_DESC, "err" + err, desc, 1) + "-(" + a + ")").show();
+					$("#regsuc").hide();
+				} else {
+					$("#regfault").text(dictionaries(GET_ERR_DESC, "err" + err, desc, 1)).show();
+					$("#regsuc").hide();
+				}
+			}, function () {
+				$("#regfault").text("Network anomaly").show();
+				$("#regsuc").hide();
+			});
+		}
+
+	}
+	//记住密码的时候获取本地储存
+	//function loginRemember() {
+	//	if(storage_get() == null || storage_get()==undefined){
+	//		return false;
+	//	}else{
+	//		
+	//		roleFwrd(storage_get().accounts[0].dat);
+	//	}
+	//}
+	function loginRemember() {
+		var arr = storage_get_remember_usr();
+		if (arr == null)
+			return;
+		$("#loginusr input").val(arr[0]);
+		$("#loginpow input").val(arr[1].substring(0, 16)); // cut.
+		$("#rememberbox").attr("checked", true);
+	}
+	//手输登录函数
+	function loginByUser() {
+		var use = $("#loginusr input").val().trimStr()
+		var pow = $("#loginpow input").val().trimStr()
+		if ((checkUsr()) && (checkPwd())) {
+			login(use, pow)
+		}
+
+	}
+	//登录函数
+	function login(usr, pwd) {
+		var powSha1 = hex_sha1(pwd);
+
+		var arr = storage_get_remember_usr();
+		if (arr != null) {
+			if (pwd == arr[1].substring(0, 16) && usr == arr[0]) //使用记住的密码登录
+			{
+				usr = arr[0];
+				powSha1 = arr[1];
+			}
+		};
+		http_login(usr, powSha1, function (err, dat, desc) {
+			if (err == 0) {
+				storage_login(usr, powSha1, $("#rememberbox").is(':checked'), dat)
+				loginFwrd(usr, dat, "India")
+			} else {
+				$("#loginfault").show();
+				$("#loginfault").text(dictionaries(GET_ERR_DESC, "err" + err, desc, 1))
+			}
+		}, function () {
+			$("#loginfault").show();
+			$("#loginfault").text("*Please later again system abnormalities");
+		});
+	}
+	//输入邀请码后请求登录
+	function enterSampleAccounts() {
+        $(".errTip").hide()
+		var invCode = $("#raoqingCode").val() || $("#raoqingCodes").val()
+		$.ajax({
+		async: false,
+		type: "get",
+		url: document.location.protocol +"//vss.eybond.com/vss/api/?action=validateInvCode&invCode="+invCode.replace(/(\^|\$)/g, "%5E")+"&sysType=0",
+		dataType: "json",
+		success: function (data, status) {
+			var json = eval(data);
+			if (json.err == 0) {
+				json.dat.role = 5;
+				console.log(json)
+				storage_login("vplant", "powSha1", false, json.dat)
+				loginFwrd("vplant", json.dat, "中文")
+				sessionStorage.setItem("loginType", "true")
+			} else {
+				$(".errTip").text("Login failure: experience code error")
+				$(".errTip").show(100)
+			}
+		}
+		})
+	}
+	//邀请码信息提交
+	function requestApplys() {
+		var usr = $("#applyUseName").val().trimStr();
+		var email = $("#emails").val().trimStr();
+		var mobile = $("#mobiles").val().trimStr();
+		var address = $("#appleUseAdrress").val();
+		var appleCompany = $("#appleCompany").val().trimStr();
+		var appleReason = $("#appleReason").val();
+		$("#regfaultApply,#regsucApply").hide();
+		if (usr.length < 1 || email.length < 1 || mobile.length < 1 || address.length < 1 || appleCompany.length < 1 || appleReason.length < 1) {
+			$("#regfaultApply").text("*Incomplete information");
+			$("#regfaultApply").show(100)
+		} else if (/[&]/.test(usr) || usr.length < 2 || usr.length > 32) {
+			$("#regfaultApply").text("* User name format error, may not have '&' symbol, and can not be greater than 32 characters or less than 2 characters")
+			$("#regfaultApply").show(100)
+
+		}  else if (mobile.length < 6 || mobile.length > 32) {
+			$("#regfaultApply").text("* cell phone format error can not be greater than 32 characters or less than 6 characters.")
+			$("#regfaultApply").show(100)
+		} else if (email.indexOf("@") == -1) {
+			$("#regfaultApply").text(dictionaries(GET_ERR_DESC, 'err20', '', 1))
+			$("#regfaultApply").show()
+		}
+		else {
+			$("#regfaultApply").text("Submitting...").show();
+			$("#regsucApply").hide();
+		var formaDatas={
+			applyName:usr,
+			email:email,
+			phoneNumber:mobile,
+			companyAddress:address,
+			companyName:appleCompany,
+			reason:appleReason,
+			status: "0",
+			sysType: "0",
+		}
+		$.ajax({
+		async: true,
+		type: "post",
+		dataType: "json",
+		headers: {
+		    	'Content-Type': 'application/json'
+			},
+		data:JSON.stringify(formaDatas),
+		url: document.location.protocol +"//vss.eybond.com/vss/apply/add",
+		success: function (data, status) {
+			console.log("datadatadatadatadatadata",data)
+			var json = eval(data);
+			console.log("json",json)
+			if (json.err == 0) {
+				$("#regfaultApply").hide();
+				$("#regsucApply").text("The application is submitted successfully. After the approval is successful, the system will send the invitation code to your mobile phone or email").show();
+				setTimeout(() => {
+					$("#applayInformationBox").modal('hide');
+				}, 1000);
+			} else {
+				$("regfaultApply").text("Network exception").show()
+				// $("#regfaultApply").text("网络异常").show();
+				$("#regsucApply").hide();
+			}
+		}
+		})
+	   }
+	}
+	//检查用户名格式
+	function checkUsr() {
+		var usr = $('#loginusr input').val().trimStr()
+		if ((usr == "") || (usr == null)) {
+			$("#loginfault").text("*User name cannot be empty").show();
+			return false;
+		} else if (/[&]/.test(usr)) {
+			$("#loginfault").text("*User name cannot have & sign, please re-enter").show()
+			return false;
+		} else {
+			$("#loginfault").hide();
+			return true;
+		}
+	}
+	//检查密码格式
+	function checkPwd() {
+		var pwd = $("#loginpow input").val().trimStr()
+		if ((pwd == '') || (pwd == null)) {
+			$("#loginfault").text("*Password cannot be empty").show();
+			return false;
+		} else {
+			$("#loginfault").hide();
+			return true;
+		}
+	}
+
+
+	function http_qrcode_token(dat) {
+		var salt = new Date().getTime();
+		var sign = hex_sha1(salt + dat.secret + dat.token + "&action=queryAccountInfo");
+		var url = HTTP_INTERFACE_ADDRESS_NEW + "?sign=" + sign + "&salt="
+			+ salt + "&token=" + dat.token + "&action=queryAccountInfo";
+		http_async_request(url, function (err, dat1) {//获取用户名
+			if (err == 0) {
+				storage_login(dat1.usr, '', false, dat); // 这里需要传入一个用户名.
+				loginFwrd(dat1.usr, dat, "India");
+			} else {
+				alert("错误码：" + err)
+			}
+
+		})
+	}
+
+
+
+</script>
+<script type="text/javascript">
+	var timer
+	$(document).ready(function () {
+		//显示找回密码弹窗
+		$("#forgetPwd").click(function () {
+			$('.textcl').val("")
+			$.idcode.setCode();
+			// if(timers){
+			// window.clearInterval(timers);
+			// $('#getcodePh').text('Obtain Code');
+			// }
+			if (timer) {
+				window.clearInterval(timer);
+				$('#getcodeEm').text('Obtain Code');
+			}
+			$(".formItem input").val("")
+			$(".forcheckred").text("")
+			$("#loginbox").hide()
+			$("#forgetbox").show()
+			$("#tishi").hide();
+			$("#forgetbox .start").removeClass("step-done")
+			$(".step2Box,.step3Box,.step4Box").hide();
+			$(".step1Box").show()
+			$("#regTitles").attr({
+				"step": 1
+			}).show()
+		})
+		//模态框消失
+		$("#noAddCol").click(function () {
+			$("#forgetbox").modal('hide');
+
+		})
+	});
+	$("#relogin").click(function () {
+		$("#loginbox").show()
+		$("#forgetbox").hide()
+	});
+
+
+	$.idcode.setCode();
+	$("#regbtnConf").click(function () {
+		var step = $('#regTitles').attr("step")
+		var IsBy = $.idcode.validateCode();
+		var key66 = $("#key66").val().trimStr();
+		var Txtidcode = $("#Txtidcode").val().trimStr();
+		// var pwd = $("#loginpow input").val().trimStr()
+		if ((key66 == "") || (key66 == null)) {
+			$("#codefault").show().text("*Username can not be empty");
+		}
+		else if ((Txtidcode == "") || (Txtidcode == null)) {
+			$("#codefault").show().text("*Please enter verification code");
+		} else if (/[&]/.test(key66) || key66.length < 2 || key66.length > 32) {
+			$("#codefault").show().text("*Username format is incorrect, not have & symbol and 2 <= User name length < 32");
+		} else if (!IsBy) {
+			$("#codefault").show().text("*Incorrect verification code");
+		} else {
+			var salt = new Date().getTime();
+			var action = "&action=sendSmsCode&usr=" + encodeURI(key66) + "&mobile=" + '' + "&msgType=02&channel=00&i18n=in_IN&webName=shinemonitor";
+			var sign = hex_sha1(salt + action);
+			var url = HTTP_INTERFACE_ADDRESS_NEW + "?sign=" + sign + "&salt=" + salt +
+				action;
+			http_async_request(url, function (err, dat, desc) {
+				if (err == 261) {
+					$("#codefault").text(dictionaries(GET_ERR_DESC, "err" + err, desc, 1)).show();
+					$("#tishi").hide();
+				} else if (err == 514) {
+					$("#codefault").text(dictionaries(GET_ERR_DESC, "err" + err, desc, 1)).show();
+					$("#tishi").hide();
+				} else if (err == 515) {
+					$(".step1Box").hide();
+					$("#codefault").hide()
+					// $("#forgetbox .start").removeClass("step-done")
+					// $(".step1Box.step3Box,.step4Box").hide();
+					$(".step2Box").show();
+					// $("#phone2Set").show();
+					$("#email2Set").show();
+					// $("#phone2Set").hide();
+					// $("#email2Set").show();
+					$("#step2").addClass("step-done")
+					// $("#regbtnConf").attr("step", 2)
+				}
+			});
+
+		}
+	});
+	// 		$(".step1Box").hide();
+	// 		$("#codefault").hide()
+	// 		// $("#forgetbox .start").removeClass("step-done")
+	// 		// $(".step1Box.step3Box,.step4Box").hide();
+	// 		$(".step2Box").show();
+	// 		$("#phone2Set").show();
+	// 		$("#email2Set").hide();
+	// 		// $("#phone2Set").hide();
+	// 		// $("#email2Set").show();
+	// 		$("#step2").addClass("step-done")
+	// 		// $("#regbtnConf").attr("step", 2)
+
+	// 	}
+	// });
+	// var timers
+	// var timer
+	// //手机获取验证
+	// function getPhonecode() {
+	// 	var phoneID = $("#phoneID").val().trimStr();
+	// 	var key66 = $("#key66").val().trimStr();
+	// 	if ((phoneID == "") || (phoneID == null)){
+	// 		// $("#tishi").show().text("*验证码已发送到您的手机，1分钟内输入有效。");
+	// 		$("#code1faultPh").show().text("*Please enter your mobile number first");
+	// 	}else if(phoneID.length < 6 || phoneID.length > 32){
+	// 		$("#code1faultPh").show().text("*The phone number is in the wrong format and 6 <= Phone length < 32 ");
+	// 	} else {
+	// 		$("#code1faultPh").hide()
+	// 		$("#tishi").show().text("*Getting verification code, please wait");
+	// 		    var salt = new Date().getTime();
+	// 			var action = "&action=sendSmsCode&usr=" + encodeURI(key66) + "&mobile=" + encodeURI(phoneID)+ "&msgType=02&channel=00&i18n=in_IN&webName=shinemonitor";
+	// 			var sign = hex_sha1(salt + action);
+	// 			var url = HTTP_INTERFACE_ADDRESS_NEW + "?sign=" + sign + "&salt=" + salt +
+	// 				action;
+	// 				http_async_request(url, function(err, dat, desc) {
+	// 				if(err == 0) {
+	// 					$("#tishi").show().text("*The verification code has been sent to your mobile phone and the input is valid within 1 minute.");
+	// 					window.clearInterval(timers);
+	// 					const TIME_COUNT = 60;
+	// 						this.count = TIME_COUNT;
+	// 						timers = setInterval(() => {
+	// 							if (this.count > 0 && this.count <= TIME_COUNT) {
+	// 								this.count--;
+	// 								$('#getcodePh').text(this.count +'s')
+	// 								// event.siblings(".daojishi").text(this.count +'s')
+	// 							} else {
+	// 								$("#tishi").hide();	
+	// 								$('#getcodePh').text('Obtain Code')				
+	// 								// event.siblings(".daojishi").text('')
+	// 								window.clearInterval(timers);
+	// 								timers = null;
+	// 							}
+
+	// 						}, 1000)
+	// 				}  else {
+	// 					console.log("手机验证码失败")
+	// 					$("#code1faultPh").text(dictionaries(GET_ERR_DESC,"err"+err,desc,1)).show();
+	// 					$("#tishi").hide();		
+	// 				}
+	// 			}, function() {
+	// 				$("#code1faultPh").text("network anomaly").show();
+	// 				$("#tishi").hide();	
+	// 			});
+	// 			}
+
+	// 	}
+
+	// 获取手机号的验证码
+	// 	$("#getcodePh").click(function() {
+	// 		getPhonecode();
+
+
+	// });
+	// 手机号获取验证码确认
+	// $("#regbtn1ConfPh").click(function() {
+	// 	var key66 = $("#key66").val().trimStr();
+	// 	var step = $('#regTitles').attr("step")
+	// 	var phoneID = $("#phoneID").val().trimStr();
+	// 	var codePh = $("#codePh").val().trimStr();
+	// 	console.log(phoneID.length)
+	// 	if((phoneID == "") || (phoneID == null)){
+	// 		$("#code1faultPh").show().text("*Phone number cannot be empty");
+	// 	}else if((codePh == "") || (codePh == null)) {
+	// 		$("#code1faultPh").show().text("*Please enter verification code");
+	// 	}else if(phoneID.length < 6 || phoneID.length > 32){
+	// 		$("#code1faultPh").show().text("*The phone number is in the wrong format and 6 <= Phone length < 32 ");
+	// 	}else {
+	// 		var salt = new Date().getTime();
+	// 			var action = "&action=confirmSmsCode&usr=" + encodeURI(key66) +"&smsCode=" + encodeURI(codePh)+ "&msgType=02";
+	// 			var sign = hex_sha1(salt + action);
+	// 			var url = HTTP_INTERFACE_ADDRESS_NEW + "?sign=" + sign + "&salt=" + salt +
+	// 				action;
+	// 				http_async_request(url, function(err, dat, desc) {
+	// 				if(err == 0) {
+	// 					$("#tishi").hide()
+	// 					$(".step2Box").hide();
+	// 					$("#code1faultPh").hide()
+	// 					// $("#forgetbox .start").removeClass("step-done")
+	// 					// $(".step1Box.step3Box,.step4Box").hide();
+	// 					$(".step3Box").show();
+	// 					$("#phone3Set").show();
+	// 					$("#email3Set").hide();
+	// 					$("#step3").addClass("step-done")
+	// 					// $("#regbtnConf").attr("step", 3)
+	// 				}  else {
+	// 					$("#code1faultPh").text(dictionaries(GET_ERR_DESC, "err" + err, desc, 1)).show();
+	// 					$("#tishi").hide();		
+	// 				}
+	// 			}, function() {
+	// 				$("#code1faultPh").text("Network anomaly").show();
+	// 				$("#tishi").hide();	
+	// 			});
+
+	// 	}
+
+	// })
+
+	//邮箱获取验证
+	function getEmailcode() {
+		var emailID = $("#emailID").val().trimStr();
+		var key66 = $("#key66").val().trimStr();
+		var emailFOR = /\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/;
+		if ((emailID == "") || (emailID == null)) {
+			$("#code1faultEm").show().text("*Please enter your email first");
+		} else if (!emailFOR.test(emailID)) {
+			$("#code1faultEm").show().text("*Please input the correct email address");
+		} else {
+			$("#code1faultEm").hide()
+			$("#tishi").show().text("*Getting verification code, please wait");
+			var salt = new Date().getTime();
+			var action = "&action=sendSmsCode&usr=" + encodeURI(key66) + "&email=" + encodeURI(emailID) + "&msgType=02&channel=01&i18n=in_IN&webName=shinemonitor";
+			var sign = hex_sha1(salt + action);
+			var url = HTTP_INTERFACE_ADDRESS_NEW + "?sign=" + sign + "&salt=" + salt +
+				action;
+			http_async_request(url, function (err, dat, desc) {
+				if (err == 0) {
+					$("#tishi").show().text("*The verification code has been sent to your email and the entry is valid within 5 minutes.");
+					window.clearInterval(timer);
+					const TIME_COUNT = 300;
+					this.count = TIME_COUNT;
+					timer = setInterval(() => {
+						if (this.count > 0 && this.count <= TIME_COUNT) {
+							this.count--;
+							$('#getcodeEm').text(this.count + 's')
+						} else {
+							$('#getcodeEm').text('Obtain Code');
+							$("#tishi").hide();
+							window.clearInterval(timer);
+							timer = null;
+						}
+
+					}, 1000)
+				} else {
+					$("#code1faultEm").text(dictionaries(GET_ERR_DESC, "err" + err, desc, 1)).show();
+					$("#tishi").hide();
+				}
+			}, function () {
+				$("#code1faultEm").text("Network anomaly").show();
+				$("#tishi").hide();
+			});
+		}
+	}
+
+	// 获取邮箱的验证码
+	$("#getcodeEm").click(function () {
+		getEmailcode();
+
+
+	});
+	// 邮箱获取验证码确认
+	$("#regbtn1ConfEm").click(function () {
+		var key66 = $("#key66").val().trimStr();
+		var step = $('#regTitles').attr("step")
+		var emailID = $("#emailID").val().trimStr();
+		var codeEm = $("#codeEm").val().trimStr();
+		var emailFOR = /\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/;
+		console.log(emailID.length)
+		if ((emailID == "") || (emailID == null)) {
+			$("#code1faultEm").show().text("*E-mail can not be empty");
+		} else if ((codeEm == "") || (codeEm == null)) {
+			$("#code1faultEm").show().text("*Please enter verification code");
+		} else if (!emailFOR.test(emailID)) {
+			$("#code1faultEm").show().text("*Please input the correct email address");
+		} else {
+			var salt = new Date().getTime();
+			var action = "&action=confirmSmsCode&usr=" + encodeURI(key66) + "&smsCode=" + encodeURI(codeEm) + "&msgType=02";
+			var sign = hex_sha1(salt + action);
+			var url = HTTP_INTERFACE_ADDRESS_NEW + "?sign=" + sign + "&salt=" + salt +
+				action;
+			http_async_request(url, function (err, dat, desc) {
+				if (err == 0) {
+					$("#tishi").hide()
+					$(".step2Box").hide();
+					$("#code1faultEm").hide()
+					$(".step3Box").show();
+					// $("#phone3Set").hide();
+					$("#email3Set").show();
+					$("#step3").addClass("step-done")
+					// $("#regbtnConf").attr("step", 3)
+				} else {
+					$("#code1faultEm").text(dictionaries(GET_ERR_DESC, "err" + err, desc, 1)).show();
+					$("#tishi").hide();
+				}
+			}, function () {
+				$("#code1faultEm").text("Network anomaly").show();
+				$("#tishi").hide();
+			});
+		}
+
+	})
+
+	// $("#SwitchEmail").click(function() {
+	// 	$("#phone2Set").hide();
+	// 	$("#email2Set").show();
+	// 	$("#code1faultPh").hide()
+	// 	$("#tishi").val("");	
+	// 	// window.clearInterval(timers);
+	// 	// timers = null;
+	// 	$('#getcodeEm').text('Obtain Code')
+
+	// });
+	// $("#SwitchPhone").click(function() {
+	// 	$("#phone2Set").show();
+	// 	$("#email2Set").hide();
+	// 	$("#code1faultEm").hide()
+	// 	$("#tishi").val("");	
+	// 	// window.clearInterval(timer);
+	// 	// timer = null;
+	// 	$('#getcodePh').text('Obtain Code')
+
+	// });
+	//手机号重置密码的确认
+	// $("#regbtn2ConfPh").click(function() {
+	// 	var pwdPh = $("#pwdPh").val().trimStr();//新的密码
+	// 	var ConpwdPh = $("#ConpwdPh").val().trimStr();//确认新的密码
+	// 	if((pwdPh == "") || (pwdPh == null)) {
+	// 		$("#code2faultPh").text("*Please enter new password").show();
+	// 	}
+	// 	else if((ConpwdPh == "") || (ConpwdPh == null)) {
+	// 		$("#code2faultPh").text("*Please confirm the new password again").show();
+	// 	}else if(pwdPh.length < 6 || pwdPh.length > 32){
+	// 		$("#code2faultPh").text("*Wrong password format，6<= password length <=32").show();
+	// 	}else if(ConpwdPh !=pwdPh) {
+	// 		$("#code2faultPh").text("*Two input password inconsistencies").show();
+	// 	}
+	// 	else {
+	// 		ConfPhone()
+	// 	}
+
+	// });
+
+	// function ConfPhone() {
+	// 	var key66 = $("#key66").val().trimStr(); //用户
+	// 	var phoneID = $("#phoneID").val().trimStr();//手机号
+	// 	var phoneIDkey = CryptoJS.enc.Utf8.parse(phoneID);
+	// 	var codePh = $("#codePh").val().trimStr(); //验证码
+	// 	// var email = $("#email").val().trimStr();
+	// 	// var mobile = $("#mobile").val().trimStr();
+	// 	var pwdPh = $("#pwdPh").val().trimStr();//新的密码
+	// 	var ConpwdPh = $("#ConpwdPh").val().trimStr();//确认新的密码
+	// 	var pwdPhSha1 = hex_sha1(pwdPh);
+	// 	var crypt = CryptoJS.RC4.encrypt(pwdPhSha1, phoneIDkey);
+	// 	var cryptPwd = CryptoJS.enc.Base64.parse(crypt.toString());
+	// 	var salt = new Date().getTime();
+	// 	var action = "&action=smsCodeUpdatePassword&usr=" + encodeURI(key66) + "&pwd=" + cryptPwd +"&mobile=" + encodeURI(phoneID) + "&msgType=02&channel=00"+"&smsCode=" + encodeURI(codePh);
+	// 	var sign = hex_sha1(salt + pwdPhSha1 + action);
+	// 	var url = HTTP_INTERFACE_ADDRESS_NEW + "?sign=" + sign + "&salt=" + salt +action;
+	// 			http_async_request(url, function(err, dat, desc) {
+	// 				if(err == 0) {
+	// 					console.log("手机号重置密码成功")
+	// 					var step = $('#regTitles').attr("step")
+	// 					$(".step3Box").hide();
+	// 					$("#code2faultPh").hide()
+	// 					// $("#forgetbox .start").removeClass("step-done")
+	// 					// $(".step1Box.step3Box,.step4Box").hide();
+	// 					$(".step4Box").show();
+	// 					$("#step4").addClass("step-done")
+	// 					// $("#regbtnConf").attr("step", 4)
+	// 				}else {
+	// 					console.log("手机号重置密码失败")
+	// 					$("#code2faultPh").text(dictionaries(GET_ERR_DESC,"err"+err,desc,1)).show();
+	// 				}
+	// 			}, function() {
+	// 				$("#code2faultPh").text("network anomaly").show();
+	// 			});
+	// 	}
+
+	//邮箱重置密码的确认
+	$("#regbtn2ConfEm").click(function () {
+		var pwdEm = $("#pwdEm").val().trimStr();//新的密码
+		var ConpwdEm = $("#ConpwdEm").val().trimStr();//确认新的密码
+		if ((pwdEm == "") || (pwdEm == null)) {
+			$("#code2faultEm").text("*Please enter new password").show();
+		}
+		else if ((ConpwdEm == "") || (ConpwdEm == null)) {
+			$("#code2faultEm").text("*Please confirm the new password again").show();
+		} else if (pwdEm.length < 6 || pwdEm.length > 32) {
+			$("#code2faultEm").text("*Wrong password format，6<= password length <=32").show();
+		} else if (ConpwdEm != pwdEm) {
+			$("#code2faultEm").text("*Two input password inconsistencies").show();
+		}
+		else {
+			ConfEmail()
+		}
+
+	});
+
+	function ConfEmail() {
+		var key66 = $("#key66").val().trimStr(); //用户
+		var emailID = $("#emailID").val().trimStr();//邮箱
+		var emailIDkey = CryptoJS.enc.Utf8.parse(emailID);
+		var codeEm = $("#codeEm").val().trimStr(); //验证码
+		// var email = $("#email").val().trimStr();
+		// var mobile = $("#mobile").val().trimStr();
+		var pwdEm = $("#pwdEm").val().trimStr();//新的密码
+		var ConpwdEm = $("#ConpwdEm").val().trimStr();//确认新的密码
+		var pwdEmSha1 = hex_sha1(pwdEm);
+		var crypt = CryptoJS.RC4.encrypt(pwdEmSha1, emailIDkey);
+		var cryptPwd = CryptoJS.enc.Base64.parse(crypt.toString());
+		var salt = new Date().getTime();
+		var action = "&action=smsCodeUpdatePassword&usr=" + encodeURI(key66) + "&pwd=" + cryptPwd + "&email=" + encodeURI(emailID) + "&msgType=02&channel=01" + "&smsCode=" + encodeURI(codeEm);
+		var sign = hex_sha1(salt + pwdEmSha1 + action);
+		var url = HTTP_INTERFACE_ADDRESS_NEW + "?sign=" + sign + "&salt=" + salt + action;
+		http_async_request(url, function (err, dat, desc) {
+			if (err == 0) {
+				var step = $('#regTitles').attr("step")
+				$(".step3Box").hide();
+				$("#code2faultEm").hide()
+				// $("#forgetbox .start").removeClass("step-done")
+				// $(".step1Box.step3Box,.step4Box").hide();
+				$(".step4Box").show();
+				$("#step4").addClass("step-done")
+				// $("#regbtnConf").attr("step", 4)
+				console.log("邮箱重置密码成功")
+			} else {
+				console.log("邮箱重置密码失败")
+				$("#code2faultEm").text(dictionaries(GET_ERR_DESC, "err" + err, desc, 1)).show();
+			}
+		}, function () {
+			$("#code2faultEm").text("network anomaly").show();
+		});
+
+	}
+
+</script>
+<script type="text/javascript">
+	$.ajax({
+		url: document.location.protocol + "//cps.eybond.com/cps/?action=getTask&client=1&client_account=0&client_content=1&client_language=2",
+		type: "get",
+		jsonp: "callback",
+		success: function (data, status) {
+			var data = JSON.parse(data)
+
+			if (data.err == 0) {
+				var title = ""
+				var content = ""
+				if (data.dat.msgType == 1) {
+
+					title = "System information"
+					content = "<div style='margin:20px 20px 50px 20px;'><pre style='white-space:pre-line'>" + data.dat.newsContent + "</pre></div>"
+				} else if (data.dat.msgType == 2) {
+					title = "System notification"
+					content = "<div style='margin:20px 20px 50px 20px;'><pre style='white-space:pre-line'>" + data.dat.content + "</pre><br/>"
+						//				+"<div><span>开始时间:" + data.dat.startTime + "<span/></div><br/><div><span>结束时间:" + data.dat.endTime + "<span/></div>"
+						+
+						"<br/><br/><br/></div>"
+				} else if (data.dat.msgType == 3) {
+					title = "活动"
+					var alt = "主题:" + data.dat.theme + ";活动时间:" + data.dat.time +
+						";活动地址:" + data.dat.location + ";概要:" + data.dat.outline
+					content = "<div><a  title='" + alt + "' href='http://" +
+						data.dat.btnUrl + "'><img src='https://www.shinemonitor.com/&quot;&#32;+&#32;data.dat.picture&#32;+&#32;&quot;' alt=" + alt + " style='max-width:400px;'/></a></div>"
+				} else if (data.dat.msgType == 4) {
+					title = "系统资讯"
+				} else if (data.dat.msgType == 5) {
+					title = "广告"
+				}
+
+				layui.use('layer', function () {
+
+					layer.open({
+						//					offset: ['200px', '20px'],
+						offset: "rb",
+						type: 1,
+						maxmin: true,
+						shade: false,
+						area: ['500px', '400px'],
+						title: [title, 'background:#108ee9;color:#fff'],
+
+						content: content,
+					})
+				})
+
+			}
+
+		}
+	})
+
+</script>

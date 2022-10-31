@@ -1,0 +1,2402 @@
+/*---响应式布局开始----*/
+
+@media only screen and (max-width: 1500px){
+	/*电站分析部分button重叠问题*/
+	.ana_para_left
+	{
+		width: 100%;	
+		margin-left: 5%;
+	}
+
+	.ana_para_right
+	{
+		text-align: center;
+		width: 100%;
+		padding-bottom: 10px;	
+	}	
+}
+@media only screen and (max-width: 1200px)
+{
+
+	/*电站概况滑落下一行*/
+	.basic-plant-left
+	{
+		width:100%;
+		min-height: 400px;
+	}
+
+	.basic-plant-right
+	{
+		width:100%;
+		min-height: 400px;
+		margin-left: 12px;
+		padding-right: 30px;
+		margin-top: 20px;
+	}
+}
+
+
+/*------响应式结束------*/
+
+
+/*浏览器检测样式*/
+ #browserLow
+ {
+  	position: fixed;
+  	top: 0px;
+  	width:100%;
+  	height: 30px;
+  	color:red;
+  	background-color: #fdffe0;
+  	border:1px solid black;
+  	text-align: center;
+  	display: none;
+ }
+#browserClose
+{
+	position: fixed;
+	top:0px;
+	right: 0px;
+	display: block;
+	padding-top: 2px;
+	padding-right: 2px;
+}
+
+/*其他*/
+.left
+{
+	float: left;
+}
+.right
+{
+	float: right;
+}
+.gray
+{
+	background-color: #ccc;
+}
+.red
+{
+	background-color: red;
+}
+.green
+{
+	background-color: #5bcc52;
+}
+.yellow
+{
+	background-color:#eed200;
+}
+#rightArea{
+	margin-top: -25px;
+	margin-left: -40px;
+}
+* {
+　　box-sizing: content-box;
+　　-moz-box-sizing: inherit;
+　　-webkit-box-sizing: inherit;
+　　　　　}
+/*电站增删查改布局*/
+
+.closeButton{
+	float: right;
+}
+.editInput{
+	width: 60%;
+}
+#SmallImgEdit{
+	width:150px;
+	height: 150px;
+}
+
+
+#SmallImg{
+	width:100px;
+	height: 100px;
+}
+.panel-heading{
+	background-color: #f3f3f3;
+}
+.panel-heading h2{
+	color: #328528;
+}
+.panel-heading a{
+	color: #328528;
+}
+
+
+.panelButton
+{
+	margin-left: 45%;
+}
+
+.addSpace{
+	margin-top: 30px;
+}
+
+#detailText{
+	text-align: center;
+}
+
+#addPlant{
+	font-size: 110%;
+}
+
+/*常用样式*/
+.addPlantTitle{
+	border-bottom: 1px solid #ccc;
+	margin-bottom: 10px;
+}
+.addPlantTitle p{
+	font-weight: bold;
+	font-size:110%;
+}
+.detailTitle{
+	font-weight: bold;
+	font-size: 110%;
+	background-color: #e7f3e9;
+	text-align: left;
+}
+/* //密码框 */
+.passwordHide {
+	text-security: disc;
+	-webkit-text-security: disc;
+}
+.warning{
+	color: red;
+}
+.faultInfo
+{
+	color: red;
+	background-color: #FFCCCC;
+	border: 1px solid red;
+	display: none;	
+}
+
+.faultInfo > i
+{
+	color: red;
+}
+.successInfo
+{
+	color:green;
+	background-color:#E7F3E9;
+	border: 1px solid green;
+	display: none;
+}
+.successInfo > i
+{
+	color: green;
+}
+
+/*datatable动态表格的tr样式*/
+.tableStyle{
+	text-align:center;
+}
+.tableStyle tr:nth-child(odd){
+	background-color:white;
+}
+.tableStyle tr:nth-child(even){
+	background-color:#eee;
+}
+
+.tableStyle th.sorting_disabled {
+    text-align: center;
+    background-color:#e7f3e9;
+    font-size:110%;
+    font-weight:bold;
+}
+
+.tableStyleIcon{
+	color:#328528;
+}
+/*自定义动态表格样式*/
+.myTableStyle1{
+	border-collapse: collapse;
+	text-align: center;
+	width:100%;
+}
+
+.myTableStyle1 th{
+	text-align: center;
+    background-color:#e7f3e9;
+    font-size:110%;
+    font-weight:bold;
+    border:1px solid #ccc;
+    height: 50px;
+}
+
+.myTableStyle1 td{
+	border:1px solid #ccc;
+	padding: 3px;
+	height: 30px;
+	width: 333px;
+}
+
+.myTableStyle1 tr:nth-child(odd){
+	background-color:white;
+}
+.myTableStyle1 tr:nth-child(even){
+	background-color:#eee;
+}
+
+/*所有时区控件选择控制*/
+.select-timezone
+{
+	padding-left: 0px;
+	padding-right: 0px;
+}
+/*所有动态图的样式*/
+.charts-input{
+	float:right;
+	display: block;
+	width:132px;
+	height: 32px;
+	padding-left: 25px;
+}
+.charts-container{
+	height: 75vh;
+	width:100%;
+	margin: 0 auto;
+	padding-top: 50px;
+}
+.charts-total-container
+{
+	position: relative;
+	top: 0px;
+	height: 80vh;
+	margin: 0 auto;
+	margin-top: 50px;
+}
+.charts_cal_right
+{
+	float: right;
+	display: block;
+}
+
+.charts_cal_desc{
+	float: right;
+	margin-right:10px;
+	margin-top:5px;
+	font-size: 16px;
+	font-weight: bold;
+	height: 40px;
+	line-height: 40px;
+}
+
+#plantsBeginDate{
+	color:#189BF5;
+	margin-right: 10px;
+}
+.plant_charts_height
+{
+	height: 85vh;
+}
+
+/*日历上下翻样式*/
+.general_date_all
+{
+	width: 160px;
+	height: 40px;
+	position: relative;
+	margin-top: 8px;
+	margin-bottom: 0px;
+}
+
+.general_date_input
+{
+	float: left;
+	width:80px;
+	height: 32px;
+	padding:0px;
+	border-radius: 5px;
+	border:1px solid #949494;
+}
+
+.general_date_day
+{
+	padding:5px;
+}
+
+.general_date_month
+{
+	padding:0px 13px;
+}
+
+.general_date_year
+{
+	padding:0px 22px;
+}
+
+.general_date_before
+{
+	width:30px;
+	height: 30px;
+	border:1px solid #949494 ;
+	border-radius: 5px;
+	float: left;	
+	background-color: white;
+	margin-right: 5px;
+}
+
+.general_date_after
+{
+	width:30px;
+	height: 30px;
+	border:1px solid #949494 ;
+	border-radius: 5px;
+	float: left;	
+	background-color: white;
+	margin-left: 5px;
+}
+
+.general_icon_before
+{
+	font-size: 1.5rem;
+	font-size: 15px;
+	line-height: 2rem;
+	line-height: 20px;	
+	color:#42add7;
+	padding-left: 6px;
+	padding-top: 5px;
+}
+
+.general_icon_after
+{
+	font-size: 1.5rem;
+	font-size: 15px;
+	line-height: 2rem;
+	line-height: 20px;	
+	color:#42add7;
+	padding-left: 8px;
+	padding-top: 4px;
+}
+
+/*自制输入框样式*/
+.input-mini
+{
+	height: 25px;
+	font-size: 12px;
+	line-height: 1.5;
+	border-radius: 4px;
+	padding: 0px;
+	border:1px solid #D4D4D4;
+	background-color: white;
+	margin-left: 10px;
+}
+
+
+.input-mini:focus
+{
+	border:1px solid #189bf5;
+}
+
+.input-special  
+{
+	height: 30px;
+	font-size: 12px;
+	line-height: 1.5;
+	border-radius: 4px;
+	padding: 0px;
+	border:1px solid #D4D4D4;
+	background-color: white;
+}
+
+.input-special:focus
+{
+	border:1px solid #189bf5;
+}
+
+.input-specials
+{
+	height: 30px;
+	width: 200px;
+	font-size: 12px;
+	line-height: 1.5;
+	border-radius: 4px;
+	padding: 0px;
+	border:1px solid #D4D4D4;
+	background-color: white;
+}
+
+.input-specials:focus
+{
+	border:1px solid #189bf5;
+}
+/*自制select样式*/
+.select-special{
+	height: 30px;
+	width:150px;
+	font-size: 15px;
+	line-height: 15px;
+	border-radius: 4px;
+	padding: 0px;
+	border:1px solid #D4D4D4;
+	background-color: white;
+}
+
+/*自制modal弹框样式*/
+.my-modal-label
+{
+	font-size: 1.5rem;
+	font-size: 15px;
+}
+.basic-stats{
+	margin-top: 70px;
+}
+#myAccTitle{
+	background-color: #e7f3e9;
+}
+
+#errorNoLogin{
+	position: fixed;
+	top: 50px;
+	left: 35%;
+}
+
+#time{
+	background: #ccc;
+	font-size:18px;
+	border: 1px solid black;
+	padding:2px;
+}
+
+.plantlist
+{
+	height: 45px;
+	display: inline-block;
+	float: left;
+	margin-left: 25px !important;
+	margin-top: 15px !important;
+	padding-bottom: 0px;
+}
+.plantlist img
+{
+	width: 35px;
+}
+
+.plantlist .profile-info
+{
+	display: inline-block;
+}
+.lang
+{
+	width: 18px;
+	height: 14px;
+}
+
+/*首页电站缩略展示*/
+.main-page-left{
+	padding-left: 15px;
+}
+
+.qy_liebaobox
+{
+	width:240px;
+	/* height: 270px; */
+	min-height: 270px;
+	border:1px solid #d2d2d2;
+	margin:14px 0px 4px 30px;
+}
+.qy_liebaobox:hover
+{
+	box-shadow: 3px 5px 2px rgba(0, 0, 0, 0.6);
+	-moz-box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.6); /* 老的 Firefox */
+	border:1px solid #d2d2d2;
+}
+.qy_liebaobox dt img
+{
+	width:220px;
+	height: 127px;
+	padding: 7px;
+	margin-left: 6px;
+	margin-top: 3px;
+}
+.qy_lbtittle
+{
+	padding: 0px 10px;
+	white-space: nowrap;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+	color:black;
+	font-weight: bold;
+	border-bottom: 1px solid #d2d2d2;
+	display: block;
+	text-align: center;
+	line-height: 32px;
+}
+.qy_lbbottom
+{
+	background-color: #fafafa;
+	padding: 5px;
+	line-height: 32px;
+	/* height: 120px; */
+	min-height: 120px;
+	font-size: 13px;
+	border-bottom: 1px solid #d2d2d2;
+}
+
+.qy_state
+{
+	font-weight: bold;
+	color:white;
+	font-size: 11px;
+}
+
+
+
+.col_plus_green
+{
+	width:20px;
+	height: 20px;
+	border-radius: 55px;
+	-webkit-border-radius:55px;
+	text-align: center;
+	color:white;
+	background-color: #11CD6E;
+	font-size: 15px;
+	line-height: 1.5;
+}
+.col_plus_red
+{
+	width:20px;
+	height: 20px;
+	border-radius: 55px;
+	-webkit-border-radius:55px;
+	text-align: center;
+	color:white;
+	background-color: #EB4F38;
+	font-size: 15px;
+	line-height: 1.5;
+
+}
+
+.col_plus_dist
+{
+	margin-top: 15px;
+}
+
+.add_col_fail
+{
+	color:red;
+	font-weight: bold;
+	margin-right: 5px;
+}
+.add_col_suc
+{
+	color: #47a447;
+	font-weight: bold;
+}
+
+.plantContainer
+{
+	padding-top: 20px;
+}
+.plantBg
+{
+	background-color: #F3F3F3;
+}
+
+/*设备管理部分*/
+#plantDevice
+{
+	position: relative;
+	width:100%;
+	min-height: 800px;
+	background-color:#F3F3F3;
+}
+.leftsidebar_box
+{
+	width: 245px;
+	border-right: 2px solid #aaa;
+	height: 800px;
+	background-color: white;
+	bottom: 0px;
+	left: 0px;
+	float: left;
+	overflow: auto;
+}
+
+.drag-tree-label{
+	width:3px;
+	height: 800px;
+	background-color: #189bf5;
+	float: left;
+	cursor: e-resize;
+}
+
+#deviceArea
+{
+	position: relative;
+	margin-top: 0px;
+	margin-left: 248px;
+}
+
+.leftsidebar_nav
+{
+	text-decoration: none;
+	margin-top: 0px;
+	padding-left: 0px;
+}
+
+.leftsidebar_list
+{
+	list-style: none;
+	display: block;
+	line-height: 25px;
+	color: black;
+	padding-left: 17px;
+	cursor: pointer;
+}
+
+
+.leftsidebar_list_focus{
+	width: 100%;
+	background-color: #baddf5;
+	border-radius: 2px;
+	box-shadow: inset 0 0 1px #999999;
+	cursor: pointer;
+}
+
+#plantMgr
+{
+	padding-left: 27px;
+	display: block;
+}
+#plantMgr:after
+{
+	font-family: 'FontAwesome';
+	content: '\f107';
+	font-size: 16px;
+	font-size: 1.6rem;
+	color: #abb4be;
+	position: relative;
+	left: 80px;
+	top: 0;
+	padding: 14px 25px;
+}
+
+.leftsidebar_nav> li a:hover
+{
+	background-color: #eee;
+	font-weight: bold;	
+}
+.leftsidebar_nav> li a:focus
+{
+	background-color: #eee;
+	font-weight: bold;	
+}
+
+.leftsidebar_hidden
+{
+	display: none;
+}
+
+.leftsidebar_box ul li a 
+{
+	text-decoration: none;
+	cursor: pointer;
+}
+
+
+.device_charts
+{
+	padding-top: 3px;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.demoPlant
+{
+	font-size: 18px;
+	font-size: 1.8rem;
+}
+
+.plant_info
+{
+	margin-top: 15px;
+}
+
+.info_button
+{
+	text-align: center;
+	margin-top: 30px;
+}
+
+#delPlantAction
+{
+	margin-left: 10px;
+}
+#delPlantAction.btn,
+#editPlantAction.btn
+{
+	width:25%;
+	padding: 6px 0px;
+}
+
+.warn_block
+{
+	margin-right: 30px;
+	display: inline-block;
+}
+
+.font_red
+{
+	color: red;
+}
+
+div#plantMgrTree
+{
+	margin-left: 15px;
+}
+
+
+.mapContainer
+{
+	min-height: 300px;
+	border: 1px solid black;
+	background-color: red;
+}
+
+#map
+{
+	margin-left: 200px;
+	width:100%;
+	min-height: 300px;
+	background:url(https://www.shinemonitor.com/assets/images/map.png) no-repeat;
+	background-size: 100% 100%;
+}
+
+.regSpace
+{
+	letter-spacing: 5px;
+	font-weight: bold;
+}
+#indexAll
+{
+	width:100%;
+	height:100%;
+	background-image: url(../assets/images/home_bg.png);
+	background-size: 100% 100%;
+}
+#regAll
+{
+	width:100%;
+	height:100%;
+	background-image: url(../assets/images/home_bg.png);
+	background-size: 100% 100%;
+}
+
+.index-border{
+    border-top: 1px solid #86b3e0;
+}
+
+.text-white
+{
+	color:white;
+}
+
+.stats-panel
+{
+	position: relative;
+	width: 130px;
+	height: 100px;	
+	border-radius: 10px;
+	float: left;
+	margin-right: 17px;
+	margin-bottom: 20px;
+}
+
+.stats-bg-red
+{
+	background-color: #E36159;
+}
+
+.stats-bg-green
+{
+	background-color: #2BAAB1;
+}
+
+.stats-bg-gray
+{
+	background-color: #ddd;
+}
+
+.stats-bg-purple
+{
+	background-color:#734BA9;
+}
+
+.stats-top
+{
+	width: 130px;
+	height: 60px;
+	border-bottom: 1px solid #ccc;
+	color: white;
+	font-size: 1.2rem;
+	font-size: 12px;
+	text-align: center;
+	padding-top: 10px;
+}
+
+.stats-top  i
+{
+	font-size: 2.8rem;
+	font-size: 28px;
+}
+
+
+.stats-content
+{
+	width: 130px;
+	height: 44px;
+	color: white;
+	font-size: 2rem;
+	font-size: 20px;
+	text-align: center;
+	padding-top: 10px;
+}
+
+.stats-img
+{
+	width: 30px;
+	height: 30px;
+}
+
+.plant-item
+{
+	font-weight: bold;
+	font-size: 1.5rem;
+	font-size: 15px;
+}
+
+h3.col-title-inline
+{
+	display: inline;
+	margin-left: 38%;
+}
+
+span.col-title-span
+{
+	font-size: 1.3rem;
+	font-size: 13px; 
+}
+
+#addCollector
+{
+	float: left;
+}
+
+.colCmdAll{
+	min-height: 450px;
+	border:1px solid #1F262E;
+	border-radius: 5px;
+}
+
+.colCmdText{
+	height: 200px;
+}
+
+.colCmdOper{
+	height: 50px;
+}
+
+.goBack2last{
+	height:25px;
+}
+
+table.col-pars-th  th{
+	text-align: left;
+	padding-left: 30px;
+}
+
+.col-charge-prompt{
+	font-size: 15px;
+	font-weight: bold;
+	color: #0f8adf;
+}
+
+/*main页面*/
+.logo img{
+
+height: 58px;
+margin:0px;
+}
+
+/*登陆页面*/
+.nav-logo
+{
+	position: relative;
+	top: 40px;
+	height: 57px;
+	width: 1000px;
+	margin:0 auto;	
+}
+
+#nav-logo-img
+{
+	line-height: 300px;
+	display: inline-block;
+	padding-left: 5px;
+	width: 280px;
+	height: 60px;
+	background-image: url(https://www.shinemonitor.com/assets/images/login.png);
+	background-repeat: no-repeat;
+	background-size: 100%;
+	overflow: hidden;
+}
+
+#reg-logo-img
+{
+	line-height: 300px;
+	display: inline-block;
+	padding-left: 5px;
+	width: 280px;
+	height: 60px;
+	background-image: url(https://www.shinemonitor.com/assets/images/login.png);
+	background-repeat: no-repeat;
+	background-size: 100%;
+	overflow: hidden;
+}
+
+.footer-bd
+{
+	white-space: nowrap;
+	color:black;
+}
+
+.footer-bd a
+{
+	text-decoration: none;
+	color:black;
+}
+
+.footer-bd a:hover
+{
+	color: #F40;
+	text-decoration: none;
+	cursor:pointer;
+}
+
+.footer-main
+{
+	white-space: nowrap;
+	color:white;
+}
+
+.footer-main a
+{
+	text-decoration: none;
+	color:white;
+}
+
+.footer-main a:hover
+{
+	color: #F40;
+	text-decoration: none;
+	cursor:pointer;
+}
+
+.nav-lang-box
+{
+	position: absolute;
+	display: inline-block;
+	right:0px;
+	width: 100px;
+	height: 30px;
+	margin-right: 0px;
+	background-color: #7A8187;
+	border-radius: 5px;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.nav-lang-box a{
+	display: inline-block;
+	padding-top: 5px;
+	color:white;
+	cursor: pointer;
+}
+.nav-logo-list{
+	display: block;
+	width:100px;
+	position: absolute;
+	top:32px;
+	left: 900px;
+	border:1px solid #7A8187;
+	border-radius: 5px;
+	display: none;
+}
+
+
+.nav-logo-list ul{
+	list-style: none;
+	padding:0px;
+	background-color:#7A8187; 
+}
+.nav-logo-list ul li{
+	list-style: none;
+	padding:0px;
+	text-align: center;
+	color:white;
+	border-bottom: 1px solid #999;
+}
+.nav-logo-list ul li a{
+	color:white;
+}
+
+
+
+#nav-logo-a
+{
+	width:110px;
+}
+
+
+.index-panel-border
+{
+	border: 1px solid #ccc;
+}
+
+.body-sign .panel-sign .reg-panel-style
+{
+	background: #FFF;
+	border-top: 5px solid #3878D8;
+	border-radius: 0 0px 5px 5px;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+	padding:33px 40px 33px 70px;
+	border: 1px solid #ccc;
+
+}
+.code
+{      
+	background-image:url(https://www.shinemonitor.com/assets/images/iden_bg.png);      
+	font-family:Arial;      
+	font-style:italic;      
+	color:black; 
+	font-weight: bold;     
+	border:0;      
+	padding:2px 8px;      
+	letter-spacing:3px;      
+	font-weight:bolder;  
+	width: 80px;    
+} 
+
+/*外包中文验证码*/
+#checkCode
+{
+	float: left;
+	margin-left: 5px;
+	margin-right: 15px;
+	height: 50px;
+	font-size: 18px;
+	padding-bottom: 15px;
+}
+
+/*外包英文验证码*/
+#checkCodeEn
+{
+	float: left;
+	margin-left: 5px;
+	margin-right: 15px;
+	height: 50px;
+	font-size: 18px;
+	padding-bottom: 15px;
+}
+
+.iden_action
+{
+	display: block;
+	padding-top: 12px;
+}
+
+/*外包中文登陆错误信息*/
+#fault{
+	background-color: #FFCCCC;
+	border: 1px solid red;
+	display: none;
+	margin-bottom: 5px;
+	height: 25px;
+	font-size: 15px;	
+}
+
+/*外包英语登陆错误信息*/
+#faultEn
+{
+	background-color: #FFCCCC;
+	border: 1px solid red;
+	display: none;
+	margin-bottom: 5px;
+	height: 25px;
+	font-size: 15px;	
+}
+
+
+/*注册页面*/
+.reg-input-pad
+{
+	padding-left: 32px;
+}
+
+/*英文注册错误*/
+#errorEn{
+	color: red;
+	background-color: #FFCCCC;
+	border: 1px solid red;
+	display: none;
+	font-size: 15px;
+	height: 25px;
+	margin-top: 10px;
+}
+.reg-sign
+{
+	max-width: 650px;
+}
+
+.regForm-item
+{
+	position: relative;
+}
+
+.regForm-item-tit
+{
+	position: absolute;
+	left:0px;
+	top: 12px;
+	text-align: right;
+	font-size: 15px;
+	width: 85px;
+}
+
+.regForm-item-ct
+{
+	padding-left: 100px;
+}
+
+.regForm-item-input
+{
+	width: 280px;
+	display: inline-block;
+}
+
+.regForm-item-info
+{
+	position: relative;
+	bottom: 10px;
+	display: inline-block;
+}
+
+/*plantlist页面*/
+.main-page-top
+{
+	width: 100%;
+	height: 330px;
+}
+
+.main-tab-dist
+{
+	padding-top: 50px;
+	margin-left: 15px;
+	padding-right: 43px;
+}
+
+.main-tab
+{
+	background-color: #189bf5;
+	width: 100px;
+	height: 30px;
+	color: white;
+	border-radius: 5px 5px 0px 0px;
+	text-align: center;
+	vertical-align: middle;
+	font-size: 15px;
+	font-size: 1.5rem;
+	margin-left: 10px;
+	padding-top: 5px;
+}
+
+#add_plant_img
+{
+	width: 204px;
+	height: 256px;
+	display: table-cell;
+	text-align: center;
+}
+
+.main-tab-bg
+{
+	background:white;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	box-shadow: 0 2px 3px rgba(0, 0, 0, 0.05);
+}
+
+.stats-summary
+{
+	margin:0 auto;
+	width: 590px;
+	vertical-align: middle;
+	height: 353px;
+}
+
+.stats-middle-main
+{	
+	display: inline-block;
+	width:590px;
+	/*height: 345px;*/
+}
+
+.stats-middle-basic
+{
+	display: inline-block;
+	width:600px;
+	/*height: 335px;*/
+}
+
+
+.main-stats-padding
+{
+	padding-top: 7px;
+}
+
+.stats-middle-three
+{
+	margin-top: 20px;
+	display: inline-block;
+	width:560px;
+	height: 360px;
+}
+
+.main-sum-chart
+{
+	margin:0 auto;
+	min-height: 355px;
+}
+
+.total-plant-con
+{
+	margin:0 auto;
+	min-height: 305px;
+}
+
+#qyList
+{
+	padding:20px;
+    min-height: 260px;
+}
+.add-plant-title
+{
+	float: right;
+	text-align: right;
+	font-size: 1.4rem;
+	font-size: 14px;
+	margin-top: 3px;	
+}
+
+.add-plant-map > div{
+	cursor: pointer;
+}
+
+.add-plant-map > div:hover{
+	cursor: pointer;
+	color:#189BF5;
+	font-weight: bold;
+}
+
+#addPlantForm
+{
+	margin:0px 10px 0px 10px;
+}
+
+.add-plant-bottom
+{
+	border:1px solid #ddd;
+	margin-top: -20px;
+	padding-top: 20px;
+	margin-bottom: 10px;
+}
+
+.add-plant-button
+{
+	margin-left: 60px;
+}
+
+.add-plant-img
+{
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+/*addPlant页面(增加电站)*/
+.plant-add-select
+{
+	float: left;
+	width:130px;
+	height: 30px;
+	padding:0px;
+	font-size: 1.2rem;
+	font-size: 12px;
+	line-height: 1.5;
+	border-radius: 3px;
+	margin-right: 5px;	
+}
+
+/*电站概况页面*/
+.basic-plant-sum
+{
+	min-height: 400px;
+	margin-right: 10px;
+	margin-left: 10px;
+}
+
+.basic-plant-power
+{
+	margin-right: 10px;
+}
+
+.basic-container
+{
+	min-height: 400px;
+	margin: 0 auto;
+}
+
+.basic-plant-sum .stats-summary
+{
+	/*display: table-cell;
+	vertical-align: middle;*/
+	margin:0 auto;
+	margin-top: 30px;
+}
+
+
+
+.basic_box
+{
+	width:200px;
+	height: 270px;
+	margin-right: 50px;
+	border:1px solid #d2d2d2;
+	float: left;
+}
+
+.basic_box dt
+{
+	border-bottom: 1px solid #ccc;
+}
+
+.basic_box dd
+{
+	background-color: #dcdcdc;
+	height: 120px;
+	padding-top:8px;
+}
+
+.basic_box_top
+{
+	margin:0 auto;
+	background-color: white;
+}
+
+.basic_box_title
+{
+	margin-top: 5px;
+	text-align: center;
+	color: #189bf5;
+	display: block;
+	font-size: 16px;
+	font-size: 1.6rem;
+	font-weight: bold;
+}
+
+.deviceSize
+{
+	margin-top: 30px;
+	margin-bottom: 10px;
+	width:80px;
+	height: 80px;
+}
+
+
+
+.basic_box_col
+{
+	margin-top: 5px;
+	display: block;
+	font-weight: bold;
+	text-align: center;
+	font-size: 20px;
+	font-size: 2rem;
+	padding:0px 10px 0px 10px;
+}
+.basic_summary
+{
+	margin-top: 5px;
+	float: left;
+	margin-left: 12px;
+	margin-right: 20px;
+	font-size: 23px;
+	font-size: 2.2rem;
+	width: 30px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	color: #fff;
+	-webkit-border-radius: 55px;
+	border-radius: 55px;
+}
+
+/*发电情况页面*/
+ul.nav.nav-tabs.col-md-2.plant-power-tabs {
+    padding-left: 30px;
+}
+
+/*设备管理页面*/
+.device_nav_tabs > li > a
+{
+	padding:5px 15px;
+}
+
+.col_info_all
+{
+	position: relative;
+	width:750px;
+	height: 330px;
+	margin: 0 auto;
+	padding-top: 10%;
+}
+
+.col_upgrade_all
+{
+	position: relative;
+	width:1000px;
+	margin: 0 auto;
+	padding-top: 10px;
+}
+
+.col_upgrade_section{
+	width:100%;
+	border-bottom: 3px solid #69AFC8;
+	height: 33px;
+	margin-top: 10px;
+	color:#69AFC8;
+	font-size: 110%;
+	font-weight: bold;
+	line-height: 30px;
+}
+
+.col_upgrade_label{
+	font-size: 110%;
+	font-weight: bold;
+}
+
+
+.col_upgrade_file{
+	width:1000px;
+	position: relative;
+	margin:0 auto;
+	margin-top: 10px;
+}
+
+
+.fwUpProgress{
+	font-size: 18px;
+	font-weight: bolder;
+	color:#0f8adf;
+
+}
+
+#clColUpGrade{
+	margin-left: 40%;
+}
+
+.col_info_body
+{
+	background-color: #fdfdfd;
+	border-radius: 5px;
+	padding: 15px;
+}
+
+.inv-detail-title
+{
+	color:black;
+	width:100%;
+	height: 50px;
+}
+
+.export-device-detail
+{
+	float: right;
+	margin-top: 6px;
+	margin-right: 15px;
+}
+
+.inv-detail-calendar
+{
+	float: right;
+	margin-right: 5px;
+}
+
+.inv-subpower-left
+{
+	text-align: left;
+	padding-left: 20px;
+}
+#exportEnvDetail
+{
+	float: right;
+	margin-top: 6px;
+	margin-right: 15px;
+}
+
+.device_meter_info{
+	float: right;
+	display: inline-block;
+	width:220px;
+	height: 50px;
+}
+
+.device_meter_label{
+	float: left;
+	width: 30px;
+	height: 40px;
+	line-height: 50px;
+}
+
+.device_meter_time{
+	float: left;
+	margin-left: 5px;
+}
+
+.device_meter_para{
+	float: right;
+	height: 40px;
+	margin-top:8px;
+	margin-right: 20px;
+}
+
+.device_meter_select{
+	width:150px;
+	height: 35px;
+	padding:0px;
+	margin-top: 8px;
+}
+
+/*告警信息*/
+.plant_alarm_all
+{
+	width:100%;
+	height: 52px;
+	border-top: 1px solid #ccc;
+	/*border-bottom:1px solid #ccc; */
+}
+.plant_alarm_right
+{
+	float: left;
+	width: 1200px;
+}
+/*注意这个会同时影响电站告警和分析*/
+.plant_alarm_select
+{
+	float: left;
+	width: 285px;
+	height: 50px;
+	padding-top: 10px;
+	margin-right: 10px;
+}
+
+#alarmDateAll
+{
+	margin-left: 20px;
+}
+
+
+.plant_alarm_date
+{
+	float: left;
+	margin-right: 10px;
+}
+
+ /*告警首次发生时间特殊样式*/
+.plant_alarm_datetime
+{
+	width: 220px;
+	font-size: 110%;
+	font-weight: bold;
+	text-align: right;
+	line-height: 50px;
+
+}
+
+.plant_alarm_button
+{
+	margin-top: 10px;
+}
+
+.plant_alarm_info
+{
+	float: left;
+	margin-right: 10px;
+	font-size: 110%;
+	font-weight: bold;
+	line-height: 50px;
+}
+
+.plant_alarm_num
+{
+	color: red;
+}
+
+div#pltWarnsTable_length
+{
+	float: left;
+}
+
+div#pltWarnsTable_paginate
+{
+	float: right;
+}
+
+
+/*电站信息页面*/
+.plant_info_all
+{
+	position: relative;
+	width:1000px;
+	margin: 0 auto;
+}
+
+.plant_info_tab
+{
+	float: left;
+	width:470px;
+}
+
+.plant_info_pic
+{
+	float: left;
+	width: 470px;
+	padding-left: 30px;
+}
+
+.plant_info_bg
+{
+	box-shadow: 0 2px 3px rgba(0, 0, 0, 0.05);
+}
+
+#plantImg{
+	width:470px;
+	height:400px;
+}
+
+/*电站分析页面*/
+.plant_ana_all
+{
+	margin-left: 12px;
+	margin-right: 12px;
+}
+
+.plant_ana_choice
+{
+	float: left;
+	width: 1000px;
+	height: 45px;
+	margin-left: -13px;
+}
+
+.plant_ana_part
+{
+	float: left;
+	width:300px;
+	height: 44px;
+	padding-top: 6px;
+}
+
+.plant_ana_label
+{
+	width:130px;
+	font-size:110%;
+	white-space: nowrap;
+	font-weight: bold;
+	text-align: right;
+	line-height: 30px;
+}
+
+.plant_ana_select
+{
+	width:150px;
+	height: 30px;
+	padding:0px;
+}
+
+.plant_ana_table
+{
+	margin-top: 20px;
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
+#anaDevice
+{
+	margin-top: 8px;
+	margin-left: 8px;
+}
+
+.plant_ana_radio
+{
+	float: left;
+	margin-right: 10px;
+	width:220px;
+	height: 25px;
+}
+
+
+.ana-charts-bg
+{
+	width:100%;
+	height: 50vh;
+	background-color: #FFF;
+	border-radius: 5px;
+	box-shadow: 0 2px 3px rgba(0, 0, 0, 0.05);
+}
+
+.ana-charts-container
+{
+	height: 100%;
+	width:100%;
+	margin: 0 auto;	
+}
+
+.dataTables_filter
+{
+	display: none;
+}
+
+/*系统设置*/
+.system-main-area
+{
+	margin-top: -10px;
+	margin-left: 250px;
+	height: 100%;
+}
+
+.sys-account-dist
+{
+	margin-top: 20px;
+}
+
+.add-sub-label
+{
+	float: left;
+	margin-right: 15px;
+}
+
+.sub-add-mail
+{
+	margin-bottom: 10px;
+	width: 300px;
+}
+
+.sub-mail-table tr:nth-child(odd){
+	background-color:white;
+}
+.sub-mail-table tr:nth-child(even){
+	background-color:#eee;
+}
+
+.sys-nav-active
+{	
+	background: #ccc;
+	font-weight: bold;		
+}
+
+.sys-user-height
+{
+	padding-left: 0px;
+	height: 25px;
+}
+.sys-role-right
+{
+	text-align: right;
+}
+
+.sys-role-detail
+{
+	padding-left: 20px;
+	clear: both;
+	border-bottom: 1px dotted #ccc;
+}
+.clear:after{
+	clear: both;
+	content: ' ';
+	display: block;
+	overflow: visible;
+}
+.sys-role-name
+{
+	float: left;
+	padding-top: 3px;
+}
+
+.plant_log_all
+{
+	width:100%;
+	height: 52px;
+	border-top: 1px solid #ccc;
+	border-bottom:1px solid #ccc; 
+}
+
+.plant_log_left
+{
+	float: left;
+	width:800px;
+	height: 52px;
+	margin-top: 10px;
+}
+
+.plant_log_info
+{
+	float: left;
+	width: 200px;
+	height: 50px;
+	padding-top: 10px;
+	margin-right: 15px;
+}
+
+.plant_log_select
+{
+	width:224px;
+	height: 34px;
+	padding:0px 0px 0px 15px;
+}
+
+/*地图开始*/
+.nav-tab-left
+{
+	text-align: left !important;
+}
+
+.nav-tab-left > li > a
+{
+	position: relative;
+	display: block;
+	padding:8px 6px 8px 24px;
+}
+
+#baidumap label{
+	max-width:none;
+}
+
+.googlelabels{   
+  max-width:none;
+  background-color: white;      
+  border: 1px solid #108ee9;
+  padding-left:5px;
+  padding-right:5px;
+  padding-bottom:1px;
+  padding-top:1px;
+  }
+
+.main-tab-dist
+{
+	padding-top: 60px;
+	margin-left: 15px;
+	padding-right: 43px;
+}
+
+.map-container
+{
+	width:100%;
+	height: 355px;
+}
+
+#plantSum
+{
+	background-repeat: no-repeat;
+	background-position: 5% 43%;
+	background-size: 15px;
+	background-image: url(../assets/images/menu/plant_sum01.png);
+}
+
+#PowerSum
+{
+	background-repeat: no-repeat;
+	background-position: 5% 40%;
+	background-size: 15px;
+	background-image: url(../assets/images/menu/power_sum01.png);
+}
+#gaodemapTab{
+	background-repeat: no-repeat;
+	background-position: 0% 40%;
+	background-size: 22px;
+	background-image: url(../assets/images/menu/download.png);
+}
+#baiduMapTab
+{
+	background-repeat: no-repeat;
+	background-position: 3% 40%;
+	background-size: 15px;
+	background-image: url(../assets/images/menu/baidu01.png);
+}
+
+#googleMapTab
+{
+	background-repeat: no-repeat;
+	background-position: 3% 43%;
+	background-size: 14px;
+	/* background-image: url(../assets/images/menu/google01.png); */
+}
+
+#plantList
+{
+	background-repeat: no-repeat;
+	background-position: 5% 45%;
+	background-size: 15px;
+	background-image: url(../assets/images/menu/plant_list02.png);
+}
+
+.nav-tab-left li.active #baiduMapTab
+{
+	background-image: url(../assets/images/menu/baidu02.png);
+}
+
+.nav-tab-left li.active #googleMapTab
+{
+	/* background-image: url(../assets/images/menu/google02.png); */
+}
+
+.nav-tab-left li.active #plantSum
+{
+	background-image: url(../assets/images/menu/plant_sum02.png);
+}
+
+.nav-tab-left li.active #PowerSum
+{
+	background-image: url(../assets/images/menu/power_sum02.png);
+}
+/*地图结束*/
+
+/*视频监控开始*/
+#plantVideo{
+	position: relative;
+	margin:0 auto;
+	border:1px solid #ccc;
+	width:1450px;
+	background-color: white;
+	border-radius: 20px;
+	padding:5px 10px 10px 25px;
+	box-shadow: 0 2px 3px rgba(0, 0, 0, 0.05);
+	margin-top: 15px;
+	z-index: 999;
+}
+
+/*外包登陆和注册*/
+.banner-nation-flag{
+	height: 15px;
+	margin-top: -3px;
+}
+span.banner-current-lang{
+	font-size: 16px;
+}
+
+#qrCode{
+	width: 70px;
+	height: 70px;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+#desktopCode{
+	width: 52px;
+	height: 52px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 1000;
+}
+
+#qrCodeEn{
+	width: 70px;
+	height: 70px;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+#desktopCodeEn{
+	width: 52px;
+	height: 52px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 1000;
+}
+
+.qr-login{
+	position: absolute;
+	top: 0px;
+	width: 356px;
+	height: 415px;
+	color:black;
+	z-index: 999;
+}
+
+.qrcode-mod {
+	width: 100%;
+	height: 250px;
+}
+
+.qrcode-img{
+	position: relative;
+	width:125px;
+	height: 125px;
+	margin:0 auto;
+}
+
+#qrcodeCn{
+	vertical-align: middle;
+	width:120px;
+	height: 120px;
+}
+
+.qrcode-desc{
+	overflow: hidden;
+	margin:50px auto 0;
+	width:168px;
+	color:white;
+}
+
+.qrcode-desc-en{
+	width: 180px;
+}
+.qrcode-desc .qrcode-info-en{
+	width: 120px;
+	line-height: 18px;
+	display: inline-block;
+	margin-left: 15px;
+}
+
+
+
+.qrcode-desc img{
+	position: relative;
+	top: -10px;
+	left: 0px;
+	width: 35px;
+	height: 35px;
+}
+.qrcode-desc .qrcode-info{
+	width: 110px;
+	line-height: 18px;
+	display: inline-block;
+	margin-left: 15px;
+}
+
+.qrcode-color{
+	color:#82CC8C;
+	font-weight: bold;
+}
+
+.qrcode-color:hover{
+	color:#FF4400;
+}
+
+
+.qrcode-suc-top{
+	height: 120px;
+	width: 100%;
+	vertical-align: middle;
+}
+
+.qrcode-suc-img{
+	font-size: 40px;
+	color:#82CC8C;
+	line-height: 120px;
+}
+
+.qrcode-suc-info1{
+	font-size: 14px;
+	color:white;
+	font-weight: bold;
+}
+
+.qrcode-suc-info2{
+	margin-top: 10px;
+	font-size: 18px;
+	color:white;
+}
+
+/*外包登陆和注册结束*/
+
+#mapFullScreen{
+	position: absolute;
+	top:45px;
+	left: 20px;
+	z-index: 999;
+	width:25px;
+	height: 25px
+}
+
+/*电站概况*/
+.basic_box_all
+{
+	position: relative;
+	top: 20px;
+	width:1250px;
+	height: 300px;
+	margin: 0 auto;
+}
+
+.basic_box_pos
+{
+	position: relative;
+	width:100%;
+	height:310px;
+	margin: 0 auto;
+}
+
+.basic_info{
+	height: 150px;
+	float:left;
+	border:1px solid #d2d2d2;
+	margin-right: 10px;
+}
+
+.basic_info_device{
+	float: left;
+	min-width: 119px;
+	text-align: center;
+	height: 148px; 
+	background-color: white;
+	border-right: 1px solid #DCDCDC;
+}
+
+.basic_info_img{
+	width: 60px;
+	height: 60px;
+	margin-top: 20px;
+}
+
+.basic_info_title{
+	text-align: center;
+	display: block;
+	font-size: 16px;
+	color:#189bf5;
+	font-weight: bold;
+	margin-top: 20px;
+	padding: 0 10px;
+}
+
+.basic_info_status{
+	float: left;
+	width: 119px;
+	height: 148px;
+	padding-top: 20px;
+}
+
+.basic_box_bottom
+{
+	display: block;
+	padding-left: 5px;
+	font-size: 15px;
+	font-size: 1.5rem;
+}
+
+.basic_box_image
+{
+	position: relative;
+	top:-2px;
+}
+
+.basic_box_ct
+{
+	display: inline-block;
+	width:80px;
+}
+/*电站概况结束*/
+
+div.back2Top > a{
+	text-decoration: none;
+	cursor: pointer;
+}
+
+div.back2Top > a:hover{
+	text-decoration: none;
+	cursor: pointer;
+}
+
+div.back2Top{
+	font-size: 15px;
+	height: 35px;
+	line-height: 35px;
+	font-weight: bold;
+}
+
+span.backTopInfo{
+	color:#189BF5;
+}
+
+#setUpInvAll
+{
+	height: 780px;
+	overflow: auto;
+}
+
+img.setInvIcon{
+	width: 20px;
+	height: 20px;
+	cursor: pointer;
+}
+
+
+#invDetailCon{
+	width: 100%;
+	max-height: 630px;
+	overflow: auto;
+}
+
+th.inv-table-title{
+	min-height: 57px;
+	min-width: 173px;
+	text-align: center;
+    background-color:#e7f3e9;
+    font-size:110%;
+    font-weight:bold;
+    border:1px solid #ccc;
+    height: 50px;
+}
+
+td.inv-table-tbody{
+	height: 30px;
+	min-width: 173px;
+}
+
+.auth-info-all{
+	position: relative;
+	width: 450px;
+	height: 280px;
+	margin:0 auto;
+	background-color:#fff;
+	box-shadow: 0 2px 3px rgba(0, 0, 0, 0.05);
+	padding:0;
+	border:1px solid #aaa;;
+}
+.auth-info-tit{
+	position: relative;
+	width: 100%;
+	height: 30px;
+	background-color: #E7F3E9;
+	text-align: left;
+}
+
+.auth-info-tit > span{
+	margin-left: 10px;
+	font-weight: bold;
+	height: 30px;
+	line-height: 30px;
+}
+
+.auth-info-content{
+	position: relative;
+	width: 100%;
+	height: 240px;
+	padding:30px;
+}
+
+.auth-info-type{
+	width: 100%;
+	margin-top: 10px;
+	height: 35px;
+}
+
+.auth-info-iden{
+	width: 100%;
+	margin-top: 20px;
+	height: 35px;
+}
+
+.auth-info-iden input{
+	width: 240px;
+}
+
+
+.auth-info-btn{
+	width: 140px;
+	height: 32px;
+}
+.auth-btn-before{
+	background-color:#f7f7f7;
+	border:1px solid #aaa;
+}
+
+.auth-info-send{
+	color:rgb(197, 197, 197);
+	background-color: rgb(233, 233, 233);
+	border:1px solid #c5c5c5;
+	cursor: default;
+}
+
+.auth-info-submit{
+	margin-top: 20px;
+}
+
+.logo1_1{
+  	width: 546px;
+    height: 160px;
+    float: right;
+}
+	/*分页*/
+	.page1{
+	text-align: center;
+    font-size: 14px;
+    margin-bottom: 10px;
+    margin-top: 20px;
+
+	}
+ 	.page1 a{
+ 		text-decoration: none;
+ 		margin: 0 6px;
+    	border-radius: 8px;
+        width: 36px;
+        height: 36px;
+        border: 1px solid #dce0e0;
+        text-align: center;
+        line-height: 36px;
+        cursor: pointer;
+        display: inline-block;
+    }
+    .page1 input{
+    	font-size: 14px;
+    	width: 66px;
+    	height: 36px;
+    	outline: medium;
+    	border: 1px solid #dce0e0;
+    	text-align: center;
+    	border-radius: 8px;
+    }
+    .current{
+        background-color: #2aacf7;
+    }
+    /*分页end*/
+   /*首页消息盒子*/
+  .header-left{
+  	margin: 10px 20px;
+  	float: left;
+  }
+  .header-left .btn-primary1{
+  	
+  	color: #000000;
+  	background: #189bf5;
+  	box-shadow: none;
+  	 }
+  	.header-left .btn-primary1 .badge {
+  		left: 4px;
+  		color: #ffffff;
+  	}
+ .header-left .btn-primary1:hover{
+ 	border: 1px solid #108DE9;
+ 	/*color:;*/
+ 	background: #108DE9;
+ }
+ #msgtable table th{
+ 	text-align: center;
+ }

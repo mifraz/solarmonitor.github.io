@@ -1,0 +1,592 @@
+html,body{height: 100%;}
+body{
+	/*background: url(../assets/img/background.png) center center no-repeat;*/
+	min-width: 1000px;
+	
+	width: 100%;
+	font-size:14px; font-family:"微软雅黑",Helvetica,Tahoma;
+	background-attachment: fixed;
+	background-size: 100% 100% !important;
+}
+@media (max-width: 1000px) {
+	#languageNav {right: 0px;}
+}
+#box{
+	position: relative;
+	min-height: 740px;
+	width: 100%;
+	height: 100%;
+}
+*{
+	margin: 0;padding: 0;
+}
+a{
+	color: #000000;
+	text-decoration: none;
+}
+ul{
+	list-style: none;
+}
+input{
+	outline: medium;border: none;
+}
+.f_left{
+	float: left;
+}
+.f_right{float: right;}
+.clear:after{
+	content: " ";
+    display: block;
+    height: 0;
+    clear: both;
+}
+.orange{
+	color: #f2941a;
+}
+.blue{
+	color: #136cbf;
+}
+.checkred{
+	display: none;
+	color: red;
+}
+.forcheckred{
+	display: none;
+	color: red;
+	margin-top: 20px;
+	margin-left: 165px;
+	width: 400px;
+    height: 50px;
+}
+.regPromptPosition{
+	width: 100%;
+    position: absolute;
+    bottom: 4px;
+ 
+    text-align: center;
+}
+#top {
+	height: 16px;
+	background: #1d2088;
+}
+
+#top ul {
+	margin-right: 20%;
+}
+
+#top ul li {
+	color: #fff;
+	padding-right: 20px;
+	float: left;
+	line-height: 16px;
+	cursor: pointer;
+}
+#top ul li .toplang{
+	color: #fff;
+}
+#top ul li a:hover {
+	color: #f2941a;
+}
+#language{
+	position: relative;
+}
+#language img{
+	width: 14px;
+}
+#language:hover #languageNav{
+	display: block;
+}
+#languageNav{
+	display: none;
+	position: absolute;
+	left: 0px;
+}
+#languageNav div{
+	width: 100px;
+	height: 24px;
+	line-height: 24px;
+}
+#languageNav div:hover{
+	background: #fff;
+}
+#Nodebox{
+	position: relative;
+}
+#selectNode{
+	display: none;
+	/* display: block; */
+	position: absolute;
+	left: 0px;
+}
+#Nodebox:hover #selectNode{
+	display: block;
+}
+#stsyLogo {
+	width: 660px;
+	height: 180px;
+	position: absolute;
+	left: 50%;
+	margin-left: -330px;
+	background: url(../assets/img/shinemonitorlogintext.png)center center no-repeat;
+	background-size: 100%;
+}
+/*注册*/
+#regbox {
+	display: none;
+	position: relative;
+	width: 632px;
+	height: 532px;
+	background: #fff;
+	border: 2px solid #016cd0;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -266px;
+	margin-left: -326px;
+	border-radius: 12px;
+
+}
+/*密码找回*/
+#forgetbox {
+	display: none;
+	position: relative;
+	width: 800px;
+	height: 532px;
+	background: #fff;
+	border: 2px solid #016cd0;
+	position: absolute;
+	top: 50%;
+	left: 46%;
+	margin-top: -266px;
+	margin-left: -326px;
+	border-radius: 12px;
+
+}
+
+#inputreg {
+	width: 300px;
+	position: absolute;
+	top:248px;
+	left: 50%;
+	height: 300px;
+	margin-left: -150px;
+	margin-top: -150px;
+}
+#inputregs {
+	width: 300px;
+	position: absolute;
+	top:248px;
+	left: 50%;
+	height: 300px;
+	margin-left: -150px;
+	margin-top: -150px;
+}
+
+#inputregs div input {
+	background-position-x: 8px;
+	text-indent: 52px;
+	font-size: 16px;
+	width: 100%;
+	height: 40px;
+	margin-bottom: 10px;
+	border: 2px solid #bfbfbf;
+	border-radius: 4px;
+}
+
+#inputreg div input {
+	background-position-x: 8px;
+	text-indent: 52px;
+	font-size: 16px;
+	width: 100%;
+	height: 40px;
+	margin-bottom: 10px;
+	border: 2px solid #bfbfbf;
+	border-radius: 4px;
+}
+#inputreg div input:hover{
+	border:2px solid  #7ecef4
+}
+#regTitle {
+	position: absolute;
+	top: 20px;
+	left: 48px;
+	color: #000;
+	font-size: 32px;
+	letter-spacing: 4px;
+}
+#regTitles {
+	position: absolute;
+	top: 20px;
+	left: 48px;
+	color: #000;
+	font-size: 32px;
+	/* letter-spacing: 4px; */
+}
+.loginReg {
+	position: absolute;
+	top: 25px;
+	right: 25px;
+	color: #000;
+	font-size: 18px;
+	/* letter-spacing: 4px; */
+
+}
+
+.use {
+	background: url(../assets/img/use.png) left center no-repeat;
+}
+
+#email {
+	background: url(../assets/img/email.png) left center no-repeat;
+}
+
+.email {
+	background: url(../assets/img/email.png) left center no-repeat;
+}
+
+#mobile {
+	background: url(../assets/img/mobile.png) left center no-repeat;
+}
+
+.mobile {
+	background: url(../assets/img/mobile.png) left center no-repeat;
+}
+
+.pow {
+	background: url(../assets/img/pow.png) left center no-repeat;
+}
+
+#conpow {
+	background: url(../assets/img/conpow.png) left center no-repeat;
+}
+#pn{
+	background:url(../assets/img/6.2.png) left center no-repeat;
+}
+.reasons{
+	background:url(../assets/img/reasons.png) left center no-repeat;
+}
+.appleCompany{
+	background:url(../assets/img/gongsi.png) left center no-repeat;
+}
+.addresss{
+	background:url(../assets/img/addresss.png) left center no-repeat;
+}
+#regbtn {
+	cursor: pointer;
+	letter-spacing: 4px;
+	border-radius: 6px;
+	font-size: 20px;
+	line-height: 44px;
+	text-align: center;
+	background: #136cbf;
+	color: #fff;
+	height: 44px;
+}
+#regbtnConf,#regbtn1ConfPh,#regbtn1ConfEm,#regbtn2ConfEm,#regbtn2ConfPh{
+    /* width: 210px; */
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    font-size: 18px;
+    color: #fff;
+    background: #136cbf;
+    border-radius: 6px;
+	cursor: pointer;
+	/* margin-left: 105px; */
+}
+#regbtnConf,#regbtn1ConfPh,#regbtn1ConfEm {
+	width: 210px;
+	margin-left: 218px;
+}
+#regbtn2ConfEm,#regbtn2ConfPh {
+	width: 210px;
+	margin-left: 217px;
+}
+
+#regloginbtn {
+	cursor: pointer;
+}
+#regloginbtns {
+	cursor: pointer;
+}
+#zhuce {
+	cursor: pointer;
+}
+#denglu {
+	cursor: pointer;
+}
+
+.hover:hover {
+	opacity: .8;
+}
+
+#regfoot {
+	margin-top: 16px;
+	font-size: 18px;
+	text-align: center;
+}
+/*登录*/
+#loginbox{
+	border: 2px solid #016cd0;
+	width: 480px;
+	height: 390px;
+	position: relative;
+	position:absolute;
+	top:50%;
+	left: 50%;
+	margin-top: -196px;
+	margin-left: -240px;
+	border-radius: 12px;
+	background: #fff ;
+	/*opacity: .4;*/
+}
+#qrSwitchBox{
+	display: none;
+	background: url(../assets/img/1.png) center center no-repeat;
+	
+}
+.SwitchBox{
+	background-size: 80px 80px !important;
+	width: 80px;
+	height: 80px;
+	position: absolute;
+    top: 0px;
+    right: 0px;
+    cursor:pointer;
+}
+#loginSwitchBox{
+
+	background: url(../assets/img/2.png) center center no-repeat;
+}
+.loginleft{
+
+	width: 382px;
+    height: 286px;
+    position: absolute;
+    top: 58px;
+    left: 74px;
+}
+#qr_login,#qrcodeSuc{display: none;}
+.loginright{
+	display:none;
+	position: relative;
+	position: absolute;
+    right: 10px;
+    left: 50%;
+    top: 50%;
+    margin-left: -190px;
+    margin-top: -140px;
+    height: 280px;
+    width: 380px;
+    /*border: 1px solid;*/
+}
+.loginright div:first-child{
+	font-size: 20px;
+}
+.qrcodeCn{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -60px;
+    margin-top: -60px;
+}
+#qr_Prompt{
+	width: 128px;height: 128px;display: none;position: absolute;z-index: 100;
+}
+#sweepbox{
+	position: absolute;
+    bottom: 0px;
+    left: 118px;
+}
+
+#title{
+	font-size: 30px;
+}
+#loginbox .inputCss{
+	background-position-x: 8px;
+	/* text-indent: 52px; */
+	padding: 0 30px 0 52px;
+    box-sizing: border-box;
+    width: 344PX;
+    height: 46px;
+	font-size: 16px;
+	/* width: 340PX;
+	height: 42px; */
+	margin-top: 16px;
+	border: 2px solid #bfbfbf;
+	border-radius: 6px;
+}
+#loginbox .inputCss:hover{
+	border:2px solid  #7ecef4
+}
+#loginbtn{
+	width: 340px;
+	height: 52px;
+	text-align: center;
+	line-height: 52px;
+	font-size: 18px;
+	color: #fff;
+	background:#136cbf;
+	border-radius: 6px;
+	cursor: pointer;
+	margin: 10px 0px;
+}
+#remember{
+	margin-top: 8px;
+	width: 344px;
+}
+#loginregbtn{
+	cursor: pointer;
+}
+#Sample{
+	margin-right:44px;
+	line-height: 32px;
+	color: #fff;
+	width: 106px;
+	height: 32px;
+	border-radius: 28px;
+	cursor: pointer;
+	border: 2px solid;
+	background:#f2941a url(../assets/img/guangicon.png) left center no-repeat;
+	background-size: 20px 20px;
+	background-position-x:10px ;
+}
+#Sample span{
+	padding-left: 38px;
+}
+#code{
+	width: 126px;
+	height: 126px;
+}
+
+.sweeptext{
+	padding-left: 10px;
+	display: inline-block;
+}
+.loginright .logrbox{
+	margin-left: 44px;
+	width: 144px;
+	height: 210px;
+	margin-top: 20px;
+	cursor: pointer;
+}
+#qr_promet{
+		margin-top: 14px;
+}
+#icp {
+	position: absolute;
+	bottom: 20px;
+	left: 44%;
+}
+#browserLow {
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    height: 30px;
+    color: red;
+    background-color: #fdffe0;
+    border: 1px solid black;
+    text-align: center;
+     display: none; 
+}
+#browserLow img{
+	vertical-align: middle;
+	}
+#browserLow a{
+	color: #108EE9;
+}
+#browserLow a:hover{
+	text-decoration: underline;
+}
+#browserClose {
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    display: block;
+    padding-top: 2px;
+    padding-right: 2px;
+}
+
+/*邀请码*/
+
+.errTip{
+	margin-left: 28px;
+	color: red;
+}
+.contact{
+	margin-left: 28px;
+	
+}
+.contact a{
+	color: #108EE9;
+ 
+}
+.contact a:hover{
+ 
+	text-decoration: underline;
+}
+
+@font-face {
+  font-family: 'Glyphicons';
+  src: url('../assets/vendor/bootstrap/fonts/glyphicons-halflings-regular.eot');
+  src: url('../assets/vendor/bootstrap/fonts/glyphicons-halflings-regular.eot%3F') format('embedded-opentype'), url('../assets/vendor/bootstrap/fonts/glyphicons-halflings-regular.woff') format('woff'), url('../assets/vendor/bootstrap/fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../assets/vendor/bootstrap/fonts/glyphicons-halflings-regular.svg') format('svg');
+}
+
+.checkbox-custom {
+		position: relative;
+		padding-right: 25px;
+		margin-top: 8px;
+    margin-bottom: 7px;
+    display: inline-block;
+}
+/*
+将初始的checkbox的样式改变
+*/
+.checkbox-custom input[type="checkbox"] {
+    opacity: 0;/*将初始的checkbox隐藏起来*/
+    position: absolute;
+    cursor: pointer;
+    z-index: 2;
+    margin: -6px 0 0 0;
+    top: 50%;
+    right: 0px;
+}
+/*
+设计新的checkbox，位置
+*/
+.checkbox-custom label:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 0;
+    margin-top: -9px;
+    width: 19px;
+    height: 18px;
+    display: inline-block;
+    border-radius: 2px;
+    background: #fff;
+}
+/*
+点击初始的checkbox，将新的checkbox关联起来
+*/
+.checkbox-custom input[type="checkbox"]:checked +label:after {
+    position: absolute;
+    display: inline-block;
+    font-family: 'Glyphicons';
+    content: "\e013";
+    top: 42%;
+    right: 0px;
+    margin-top: -5px;
+    font-size: 11px;
+    line-height: 1;
+    width: 16px;
+    height: 16px;
+    color: #333;
+}
+.checkbox-custom label {
+    cursor: pointer;
+    line-height: 1.2;
+    font-weight: normal;/*改变了rememberme的字体*/
+    margin-bottom: 0;
+    text-align: left;
+}

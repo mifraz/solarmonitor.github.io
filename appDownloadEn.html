@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link href="appDownloadEn.html" rel="shortcut icon" class="cusIcoFirst">
+		<title></title>
+		<style type="text/css">
+			a{text-decoration: none;color:#000;}
+			a:hover{color: #1a9eff;}
+			*{padding: 0;margin: 0;}
+			body{min-width: 1200px;}
+			.w1000{min-width: 1200px;}
+			.clear{clear: both;content:" ";overflow: hidden;}
+			#top{width: 100%;height: 80px;background: #FFFFFF;}
+			#topbox{height: 84px;width: 1200px;margin: 0 auto;}
+			.login{padding: 6px 22px;border: 2px solid #00b7ee; border-radius: 20px; color: #00b7ee;}
+			.cusIndexCh{height: 80px;}
+			.f_left{float: left;}
+			.f_right{float: right;}
+			#nav{height: 80px;list-style: none;}
+			#nav li{ float: left;line-height: 80px;width: 150px;height: 80px;text-align: center;}
+			.banner{background: url(assets/img/bannerEn.png) center center no-repeat;width: 100%;height: 478px;margin-top:4px}
+			#clientBox{width: 100%;height: 640px;}
+			.box{height: 640px;width: 1200px;margin: 0 auto;}
+			.mg28{margin-left: 26px;}
+			#linkBox{width: 100%;height: 640px;background: #eee;display: none;}
+			.clientImg{ background: url(assets/img/appimg2.png) center center no-repeat;width: 50%;height: 100%;}
+			.clientImg2{ background: url(assets/img/Smartlink.png) center center no-repeat;width: 50%;height: 100%;background-size: 44%;}
+			.title{font-size: 40px;}
+			.describe{color: #1a9eff;font-size: 20px;}
+			.qrcode{width: 350px;margin-top: 30px;cursor: pointer;}
+			#clientBox .clientList{margin-left: 100px;}
+			.clientList{width: 480px;height: 300px;margin-top: 150px;}
+			.IOS{width: 166px;height: 40px;border-radius: 40px; background:#136cbf url(assets/img/IOSdowload.png) center center no-repeat;margin-top:10px;}
+			.Andrond{width: 166px;height: 40px;border-radius: 40px; background:#136cbf url(assets/img/adrdowload.png) center center no-repeat;margin-top:10px;}
+			#nav li:not(:last-child):hover{cursor: pointer;border-bottom:4px solid #136cbf;color: #1a9eff;}
+			.action{border-bottom:4px solid #136cbf;}
+			#nav li:last-child{margin-left: 40px;}
+			#nav li:last-child:hover{cursor: pointer;opacity: .8;}
+			.box img{width: 120px;height: 120px;}
+		</style>
+	</head>
+	<body>
+		<div id="top" class="w1000">
+			<div id="topbox" class="clear">
+				<div class="f_left">
+					<img src="appDownloadEn.html" class="cusIndexCh"/>
+				</div>
+				<ul id="nav" class="f_right">
+					<li class="productCenter"><a href="out_en/down.html" class="toplang">Product Center</a></li>
+						<li class="action">App Download</li>
+						<li id="login"><span class="login">
+							System login
+						</span></li>
+				
+				</ul>
+			</div>
+		</div>
+		<div class="banner w1000">
+			
+		</div>
+			<div id="clientBox" class="clear">
+				<div class="box">
+					
+					<div class="clientImg f_left" >
+						
+					</div>
+					<div class="clientList f_left" >
+						<div class="pbox mg28">
+							
+							<div class="title pv123">
+								SmartClient
+							</div>
+							<div class="describe pv123">
+								Mobile photovoltaic monitoring experts to help you easily manage power plants
+							</div>
+						</div>
+						<div class="qrcode clear">
+							<div class="QRleft f_left">
+								<img src="https://www.shinemonitor.com/assets/img/smartclient%E5%AE%89%E5%8D%93%E4%BA%8C%E7%BB%B4%E7%A0%811.png" id="iossmartclient" class="mg28"/>
+								<div class="IOS qriosname">
+									
+								</div>
+							</div>
+							<div class="QRright f_right">
+								<img src="https://www.shinemonitor.com/assets/img/smartclient%E5%AE%89%E5%8D%93%E4%BA%8C%E7%BB%B4%E7%A0%811.png" id="smartClientAndr" class="mg28"/>
+								<div class="Andrond qradname">
+									
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="linkBox" class="clear">
+				<div class="box">
+					
+					<div class="clientImg2 f_right" >
+						
+					</div>
+					<div class="clientList f_right" >
+						<div class="pbox mg28">
+							
+							<div class="title">
+								SmartLink
+							</div>
+							<div class="describe">
+								Mobile photovoltaic monitoring experts to help you easily manage power plants
+							</div>
+						</div>
+						<div class="qrcode clear">
+							<div class="QRleft f_left">
+								<img src="out/images/smartlink-ios.png" id="iossmartlink" class="mg28"/>
+								<div class="IOS qriosname">
+									
+								</div>
+							</div>
+							<div class="QRright f_right">
+								<img src="https://www.shinemonitor.com/assets/img/smartclient%E5%AE%89%E5%8D%93%E4%BA%8C%E7%BB%B4%E7%A0%811.png" id="smartLinkAndr" class="mg28"/>
+								<div class="Andrond qradname">
+									
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		
+	</body>
+</html>
+<script src="assets/vendor/jquery/jquery-2.1.4.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/appDownload.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		if (window.document.location.hostname == "monitoring.icasolar.com") {
+			$(".productCenter").hide()
+			$(".title.pv123").text('PV123')
+			$(".describe.pv123").text('Real-time PV monitoring App to analyze your solar system')
+		}
+		$("#login").click(function(){
+			window.location.href = "index_en.html"
+		})
+		checkCusInfo();
+})
+
+</script>
