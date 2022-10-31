@@ -881,6 +881,7 @@
 					} else
 						soption += "<option class='soptionLis'  value='" + dat[i].optional + "' unit='" + dat[i].uint + "'>" + dat[i].name + "</option>";
 				}
+				soption += "<option class='soptionLis'  value='battery_voltage' unit='V'>Battry Voltage</option>";
 				$(".plantAnaList").append(soption);
 			}
 		})
