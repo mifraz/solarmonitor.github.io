@@ -178,7 +178,7 @@
 	function querydeviceCtrlView() {
 		http_async_request_public("&action=queryDeviceCtrlField&pn=" +
 			INV_SUB_COL_PN + "&sn=" + INV_SUB_SN + "&devcode=" +
-			2384 + "&devaddr=" + INV_SUB_ADDR,
+			INV_SUB_DEVCODE + "&devaddr=" + INV_SUB_ADDR,
 			function(err, dat) {
 				if(err == WS_ERR_NONE) {
 					loadDeviceCtrlTable2(dat);
