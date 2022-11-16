@@ -288,6 +288,8 @@
 			//升级固件
 			e.preventDefault();
 			var rowData = $("#invSubTable").DataTable().row($(this).closest('tr')).data();
+			console.log(JSON.stringify(rowData));
+			
 			INV_SUB_COL_PN = rowData[0];//附着的数采器编码
 			INV_SUB_SN = rowData[1];//设备序列号
 			INV_SUB_ALIAS = rowData[2];//设备别名
