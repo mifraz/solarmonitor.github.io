@@ -176,7 +176,7 @@
 	// }
 	//查询设备控制模板
 	function querydeviceCtrlView() {
-		http_async_request_public("&action=queryDeviceCtrlField&pn=" +
+		http_async_request_public("&action=queryDeviceSpecialCtrlField&pn=" +
 			INV_SUB_COL_PN + "&sn=" + INV_SUB_SN + "&devcode=" +
 			INV_SUB_DEVCODE + "&devaddr=" + INV_SUB_ADDR,
 			function(err, dat) {
