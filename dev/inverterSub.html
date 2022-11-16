@@ -298,7 +298,7 @@
 				$("#pwdPrompt").text('')
 				$('#renovigiConfirmPwd').modal('show')
 			} else {
-				loadHtml("deviceArea", "/dev/setupInverter.html");
+				loadHtml("deviceArea", "./dev/setupInverter.html");
 			}
 		});
 		// 防逆流设置从逆变器列表迁移到了数采器列表
@@ -376,7 +376,7 @@
 						if (err == 0) {
 							$('#renovigiConfirmPwd').modal('hide')
 							setTimeout(() => {
-								loadHtml("deviceArea", "/dev/setupInverter.html");
+								loadHtml("deviceArea", "./dev/setupInverter.html");
 							}, 500);
 						}
 						else {
@@ -392,7 +392,7 @@
 						//密码正确  稍微带点延迟 避免页面跳转后遮罩层没消失的BUG
 						$('#renovigiConfirmPwd').modal('hide')
 						setTimeout(() => {
-							loadHtml("deviceArea", "/dev/setupInverter.html");
+							loadHtml("deviceArea", "./dev/setupInverter.html");
 						}, 500);
 					} else {
 						$("#pwdPrompt").removeClass("hidden").text(getMultiLangError("pwd_wrong"));
@@ -408,7 +408,7 @@
 				// 		$('#renovigiConfirmPwd').modal('hide');
 				// 		//密码正确  稍微带点延迟 避免页面跳转后遮罩层没消失的BUG
 				// 		setTimeout(() => {
-				// 			loadHtml("deviceArea", "/dev/setupInverter.html");
+				// 			loadHtml("deviceArea", "./dev/setupInverter.html");
 				// 		}, 200);
 				// 	}else if(err == 16){
 				// 		$("#pwdPrompt").removeClass("hidden").text(getMultiLangError("pwd_wrong"));
