@@ -1,0 +1,449 @@
+
+<!-- saved from url=(0047)https://shinemonitor.com/plant/plantDevice.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style type="text/css">
+.treesearchbox{
+	display: inline;
+}
+.searchname{
+	font-size: 10px;
+	margin-left: 10px;
+}
+.searchpn{
+	margin:5px  0px;
+	/* margin-right: 5px; */
+}
+.searchbotton{
+	font-size: 10px;
+	padding: 3px 6px;
+	margin-top: 7px;
+	margin-right: 19px;
+	float: right;
+	border-color: #47a447;
+	background-color: #47a447;
+	border-color: #47a447 #47a447 #388038;
+	color: #FFF;
+}
+.searchbotton:hover{
+	border-color: #51b451;
+	background-color: #51b451;
+	color: #FFF;
+}
+.searchbotton:active,.searchbotton:focus{
+	border-color: #3f923f;
+	background-color: #3f923f;
+	color: #FFF;
+}
+#renovigiHistoryBtn{
+	padding: 0 10px;
+}
+</style>
+</head><body><div class="row ">
+	<div class="col-lg-12 col-md-12 col-sm-12">
+		<div class="leftsidebar_box" id="treeLeftBox">
+			<div class="treesearchbox" style="position: relative;">
+				<span lang="collector_no" class="searchname"></span>
+                <div style="display: inline-block;position: relative;margin-left: 4px;">
+               		<button type="button" class="close input_clear" onclick="searchclear()" style="position:absolute;right:6px;top:10px;cursor:pointer;display:none;"> × </button>
+					<input type="text" value="" class="input-text searchpn" autocomplete="off" id="inputPn" style="height:30px;width: 120px;">   
+					<input type="password" autocomplete="new-password" style="display: none">
+                </div>
+				<button class="btn searchbotton" onclick="searchbotton()" lang="video_search">搜索</button>
+			</div>
+			<ul class="leftsidebar_nav">
+				<li class="leftsidebar_list leftsidebar_list_focus" id="treeLeftbar">
+					<img src="./plantDevice_files/plantLeft.png" alt="">
+					<span lang="col_list"><!--数采器列表--></span>			
+				</li>
+				<li class="leftsidebar_parent nav-tree">
+					<div id="plantMgrTree">
+						
+					</div>					
+				</li>
+			</ul>
+		</div>	
+		<label class="drag-tree-label" id="dragTree"></label>	
+		<div id="deviceArea">
+			
+		</div>		
+	</div>
+</div>
+	<script type="text/javascript">
+	var inputpnbox= '';
+		//实现左边拖拽功能
+		$(function(){
+			var clickX;
+			var dragging  = false;
+			var doc 	  = document;
+			var labBtn 	  = $("#dragTree");
+			var leftTree  = $("#treeLeftBox");
+			var rightArea = $("#deviceArea");
+
+			labBtn.bind('mousedown',function(){
+				dragging   = true;
+			});
+			doc.onmousemove = function(e){
+				if (dragging) {
+					clickX = e.pageX;
+					leftTree.width( clickX + 'px');
+					rightArea.css("margin-left",clickX + 5 + 'px');
+				};
+			};
+			$(doc).mouseup(function(e) {
+			    dragging = false;
+			    e.cancelBubble = true;
+			});
+		});
+	</script>
+
+	<script type="text/javascript">
+	COL_PAGE_STATE = false;
+	BASIC_CHECKED_TREE = null;//basic页面跳转本页面唯一设备treeid
+	$(document).ready(function()
+	{
+		checkUserCurLang();
+		regPlantMgrTree();				
+		loadHtml("deviceArea", "collectorlist.html");
+
+		var times=null;//为了避免双击事件触发单击事件
+		
+		$("#treeLeftbar").click(function(){
+			clearTimeout(times);
+			times=setTimeout(function(){
+				go2ColList();
+			},300);
+		});
+		$("#treeLeftbar").dblclick(function(){
+			clearTimeout(times);
+			togglePlantTree();
+		});	
+
+		var layIndex;//layer调用id
+		$("#treeLeftbar").hover(function(){
+			layIndex = layer.tips(getMultiLangError("tree_node_action"), '#treeLeftbar', {
+			  tips: [1, '#0FA6D8'] //还可配置颜色
+			});
+		},function(){
+			layer.close(layIndex);
+		});
+
+	});
+
+	function regPlantMgrTree()
+	{
+		// console.log("tree");
+		$('.leftsidebar_parent').html('<div id="plantMgrTree" ></div>')
+		inputpnbox = inputpnbox?inputpnbox:"";
+		$('#plantMgrTree').jstree({
+			'core' : {
+				'themes' : {
+					'responsive' : false
+				},
+				'data' : function(node, cb)
+				{
+					if (node.id == "#")
+					{
+						/*先调用查询电站下属设备,然后在里面嵌入查询得到设备状态字典,生成树*/
+						// http_async_request_public("&action=queryPlantDeviceStatus&plantid=" + MAIN_CHOOSE_PLANT_ID + "&pn=" + inputpnbox , function(err, dat)
+						http_async_request_public(encodeURI("&action=queryPlantDeviceStatus&plantid=" + MAIN_CHOOSE_PLANT_ID + "&pn=" + inputpnbox) , function(err, dat)
+						{
+							console.log("tree-fun1");
+							if(err == WS_ERR_NONE)
+							{
+								
+										if(BASIC_CHECKED_DEVID === null)
+										{				
+											genTree4Plant(node, cb, dat.collector, "dict");	
+										}else
+										{
+											//如果用户是从电站概况点过来的
+											var obj = findBasicUniqueDev(BASIC_CHECKED_DEVID, dat.collector);
+											genTree4PlantSpcl(node, cb, dat.collector, "dict", obj);	
+										}				
+										
+																																
+							}
+							else /* {"err":17,"desc":"WS_ERR_NO_COLLECTOR"} */
+							{	
+								var ret = [];
+								cb(ret);
+							}															
+						}, 
+						function()
+						{
+							console.log("查询电站下属设备明细失败"); 
+						});	
+					}		
+
+				}
+			},
+			'types' : {
+				'default' : {
+					'icon' : 'assets/images/menu/collectorLeft.png'
+				}
+			},
+			'plugins' : [ 'types', "sort" ]
+		}).bind("select_node.jstree", function(e, data)
+		{
+			//下面是点击树的分支的事件
+			var prefix = data.node.id.substring(0, 3);
+			
+			if ("COL" == prefix)
+			{
+				selectedCollector(e, data);
+			}
+			else if("SUB" == prefix)
+			{	
+				console.log('清除')
+				
+				console.log($(".input_clear"))
+				
+				selectedSub(e, data);
+			}
+			else if ("DEV" == prefix)
+			{
+				selectedDevice(e, data);
+			}
+			else
+			{
+				console.log("it`s a bug: " + data.node.id);
+			}
+
+			if($("#treeLeftbar").hasClass("leftsidebar_list_focus"))
+			{
+				$("#treeLeftbar").removeClass("leftsidebar_list_focus");
+			}
+		});	
+
+		//如果是从basic页面跳转过来,默认点击相关设备
+		$('#plantMgrTree').on('ready.jstree', function() {
+			if(BASIC_CHECKED_TREE != null)
+			{
+				$("#plantMgrTree a.jstree-clicked").click();
+			}	            
+		});
+	}
+	
+	//搜索输入框的样式修改
+	$("input").focus(function(){  
+    	$(this).parent().children(".input_clear").show();  
+    });  
+    $("input").blur(function(){  
+        if($(this).val()=='')  
+        {  
+            $(this).parent().children(".input_clear").hide();  
+        }  
+    });  
+    $(".input_clear").click(function(){  
+		console.log('我点击')
+        $(this).parent().find('input').val('');  
+        $(this).hide();  
+    }); 
+
+
+	//搜索按钮
+    function searchbotton() {
+		inputpnbox = $('#inputPn').val();
+		// $('#plantMgrTree').jstree(true).refresh();
+		// $('#plantMgrTree').jstree(true).destroy()
+		regPlantMgrTree();
+		loadCollectorData(inputpnbox,0,true)
+		inputpnbox = "";
+	}
+	
+	//清空按钮
+	function searchclear() {
+		inputpnbox = '';
+		// $('#plantMgrTree').jstree(true).refresh()
+		// $('#plantMgrTree').jstree(true).destroy()
+		regPlantMgrTree();
+		loadCollectorData('',0)
+	}
+
+	/* 被选中的数采器ID. */
+	MAIN_SELECTED_COLLECTOR_ID = "";
+	MAIN_SELECTED_COLLECTOR_FREQ = "";
+	PLANT_SELECTED_COLLECTOR_PN = "";
+	/* 被选中的类型. */
+	MAIN_SELECTED_SUB_TYPE = "";
+	MAIN_SELECTED_SUB_PN = "";
+	/** 被选中的设备参数. */
+	MAIN_SELECTED_DEVICE_ID = "";
+	MAIN_SELECTED_DEVICE_TYPE = "";
+	MAIN_SELECTED_DEVICE_CODE = "";
+	MAIN_SELECTED_DEVICE_SN = "";
+	MAIN_SELECTED_DEVICE_ALIAS = "";
+	/** 树上点击了某种子设备. */
+	MAIN_SELECTED_INV_PN = "";
+	MAIN_SELECTED_INV_SN = "";
+	MAIN_SELECTED_INV_DEVCODE = "";
+	MAIN_SELECTED_INV_DEVADDR = "";
+	MAIN_SELECTED_INV_STATUS = "";
+
+	//是否从历史变更记录跳转
+	IS_HISTORY_RENOVIGI = false
+
+
+	/** 被选中的子用户及邮箱和电话等. */
+	MAIN_SELECTED_SUBUSER_ID = "";
+	MAIN_SELECTED_SUBUSER_NAME = "";
+	MAIN_SELECTED_SUBMAIL_ID = "";
+	MAIN_SELECTED_SUBMAIL_NAME = "";
+	MAIN_SELECTED_SUBMOBILE_ID = "";
+	MAIN_SELECTED_SUBMOBILE_NAME = "";
+	MAIN_SELECTED_SYSROLE_NAME = "";
+	MAIN_SELECTED_SYSROLE_ID = "";
+	MAIN_SELECTED_CAMERA_ID = "";
+	
+	/* 在树上点击了某个数采器. */
+	function selectedCollector(e, data)
+	{
+		var colinfo = data.node.id.substring(5, data.node.id.length);
+		var arr = colinfo.split("$#");
+		MAIN_SELECTED_COLLECTOR_ID = arr[0];
+		MAIN_SELECTED_COLLECTOR_FREQ = arr[1];
+		loadHtml("deviceArea", "collector.html");	
+	}
+
+	/*在树上点击了某种子设备*/
+	function selectedSub(e,data)
+	{
+		var subInfo = data.node.id.substring(5,data.node.id.length);
+		var arr = subInfo.split("$#");
+		MAIN_SELECTED_SUB_TYPE = arr[0];
+		MAIN_SELECTED_SUB_PN = arr[1];
+		if(MAIN_SELECTED_SUB_TYPE == DEVICE_TYPE_MINN_INVERTER){
+			DEILIST =0
+			loadHtml("deviceArea", "/dev/miniInverterSub.html");
+		}else{
+			
+			loadHtml("deviceArea", "/dev/inverterSub.html");
+		}
+		
+	}
+
+	/* 在树上点击了具体某个设备. */
+	function selectedDevice(e, data)
+	{		
+		var devinfo = data.node.id.substring(5, data.node.id.length);
+		var arr = devinfo.split("$#");
+		MAIN_SELECTED_COLLECTOR_ID = arr[0];/*父数采器PN*/
+		MAIN_SELECTED_COLLECTOR_FREQ = arr[1];/*父数采器数据获取频率*/
+		MAIN_SELECTED_DEVICE_TYPE =  parseInt(arr[2]);/* 设备类型. */
+		MAIN_SELECTED_DEVICE_CODE = arr[3]; /* 设备编号. */
+		MAIN_SELECTED_DEVICE_SN = encodeURI(arr[4]); /* 设备序列号. */
+		MAIN_SELECTED_INV_DEVADDR= arr[5]
+		MAIN_SELECTED_DEVICE_ALIAS = data.node.text;
+
+		//
+		if (MAIN_SELECTED_DEVICE_TYPE == DEVICE_TYPE_INVERTER || MAIN_SELECTED_DEVICE_TYPE == DEVICE_TYPE_INVERTER_ETX ) /* 逆变器. */
+			{
+				IS_HISTORY_RENOVIGI = false
+				loadHtml("deviceArea", "/dev/inverterCharts.html");
+			}
+			
+		else if (MAIN_SELECTED_DEVICE_TYPE == DEVICE_TYPE_ENV_MONITOR) /* 环境监测仪. */
+			{
+				IS_HISTORY_RENOVIGI = false
+				loadHtml("deviceArea", "/dev/envMonitorCharts.html");
+			}
+			
+		else if (MAIN_SELECTED_DEVICE_TYPE == DEVICE_TYPE_SUPPLY_METER) /* 智能电表. */
+			{
+				IS_HISTORY_RENOVIGI = false
+				loadHtml("deviceArea", "/dev/suplyMeterCharts.html");
+			}
+			
+		else if (MAIN_SELECTED_DEVICE_TYPE == DEVICE_TYPE_COMBINER_BOX) /* 汇流箱. */
+			{
+				IS_HISTORY_RENOVIGI = false
+				loadHtml("deviceArea", "/dev/combinerBoxCharts.html");
+			}
+			
+		else if (MAIN_SELECTED_DEVICE_TYPE == DEVICE_TYPE_BATTERY) /* 电池组. */
+			{
+				IS_HISTORY_RENOVIGI = false
+				loadHtml("deviceArea", "/dev/batteryCharts.html");
+			}
+			
+		else if (MAIN_SELECTED_DEVICE_TYPE == DEVICE_TYPE_CHARGER) /* 充电器. */
+			{
+				IS_HISTORY_RENOVIGI = false
+				loadHtml("deviceArea", "/dev/chargerCharts.html");
+			}
+			
+		else if (MAIN_SELECTED_DEVICE_TYPE == DEVICE_TYPE_CONTROLLER) /* 控制器. */
+			{
+				IS_HISTORY_RENOVIGI = false
+				loadHtml("deviceArea", "/dev/controllerCharts.html");
+			}
+			
+		else if (MAIN_SELECTED_DEVICE_TYPE == DEVICE_TYPE_ANTI_ISLANDING) /* 防孤岛装置. */
+			{
+				IS_HISTORY_RENOVIGI = false
+				loadHtml("deviceArea", "/dev/islandingCharts.html");
+			}
+			
+		else if (MAIN_SELECTED_DEVICE_TYPE == DEVICE_TYPE_MINN_INVERTER) /* 微型逆变器. */
+			{
+				IS_HISTORY_RENOVIGI = false
+				loadHtml("deviceArea", "/dev/inverterCharts.html");
+			}
+			
+		else if (MAIN_SELECTED_DEVICE_TYPE == DEVICE_TYPE_NEW_METER) /* 新型智能电表---暂使用旧有的电表页面. */
+			{
+				IS_HISTORY_RENOVIGI = false
+				loadHtml("deviceArea", "/dev/suplyMeterCharts.html");
+			}
+			
+		else if (MAIN_SELECTED_DEVICE_TYPE == DEVICE_TYPE_LAMPMONITOR) /* 灯控*/
+			{
+				IS_HISTORY_RENOVIGI = false
+				loadHtml("deviceArea", "/dev/suplyMeterCharts.html");
+			}
+			
+		else if (MAIN_SELECTED_DEVICE_TYPE == DEVICE_TYPE_NEW_CONTROLLER) /* UPS*/
+			{
+				IS_HISTORY_RENOVIGI = false
+				loadHtml("deviceArea", "/dev/suplyMeterCharts.html");
+			}
+
+		else if (MAIN_SELECTED_DEVICE_TYPE == DEVICE_TYPE_WATERPUMP) /* 水泵*/
+			{
+				IS_HISTORY_RENOVIGI = false
+				loadHtml("deviceArea", "/dev/suplyMeterCharts.html");
+			}
+			
+		else
+		{
+			IS_HISTORY_RENOVIGI = false
+			console.log("exception, unsupported device: ", MAIN_SELECTED_DEVICE_TYPE);
+		}
+	}
+	
+	//点击数采器列表,添加选中效果
+	function go2ColList()
+	{
+		//当选中数采器列表时,所有树中选中取消
+		$(".jstree-default .jstree-clicked").removeClass("jstree-clicked");
+		if(!$("#treeLeftbar").hasClass("leftsidebar_list_focus"))
+		{
+			$("#treeLeftbar").addClass("leftsidebar_list_focus");
+		}
+		loadHtml("deviceArea", "collectorlist.html");	
+	}
+
+	//双击,展开或者关闭所有树节点
+	function togglePlantTree()
+	{
+		if( $("#plantMgrTree").hasClass("plant-tree-open"))
+		{
+		 	$("#plantMgrTree").removeClass("plant-tree-open");
+		 	$("#plantMgrTree").jstree("close_all"); 
+		}else
+		{
+		 	$("#plantMgrTree").addClass("plant-tree-open");
+		 	$("#plantMgrTree").jstree("open_all"); 
+		}
+	}
+</script></body></html>

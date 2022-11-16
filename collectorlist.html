@@ -1,0 +1,1337 @@
+
+<!-- saved from url=(0043)https://shinemonitor.com/collectorlist.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style type="text/css">
+    .RefreshFail {
+        color: red;
+        display: none;
+        text-align: center;
+        margin-left: 20px;
+    }
+
+    .imagespicuter {
+        margin-left: 200px;
+    }
+
+    .bodyhang {
+        font-size: 15px;
+        display: flex;
+        padding-left: 30px;
+        margin: 10px auto;
+    }
+
+    .bodyhangpictur {
+        padding-left: 30px;
+    }
+
+    .badyhangName {
+        margin-right: 20px;
+    }
+
+    .boxsbox {
+        margin-right: 20px;
+        margin-top: -5px;
+    }
+
+    .bodyhangtip {
+        font-size: 13px;
+        font-weight: 600;
+        color: #f00;
+    }
+
+    #invFileResult {
+        color: #67C23A;
+        font-size: 15px;
+    }
+
+</style>
+<!-- <script src="../shinemonitor/managesystemnew/img/icon/update.png"></script> -->
+
+<style type="text/css">
+    .RefreshFail {
+        color: red;
+        display: none;
+        text-align: center;
+        margin-left: 20px;
+    }
+    #Modifier{
+        margin-left: 14px;
+        height: 46px;
+        color: #0095F2
+    }
+    .reminder{
+        color: #ff0000;
+        display: none;
+        text-align: center;
+    }
+</style>
+<!-- <link rel="stylesheet" type="text/css" href="/css/reg.css"> -->
+<link type="text/css" rel="stylesheet" charset="UTF-8" href="./collectorlist_files/translateelement.css"></head><body><div class="col-md-12 col-lg-12 col-xl-12 device_charts">
+    <section>
+        <div id="attachColCue" class="faultInfo">
+            <i class="fa fa-exclamation-circle" style="color: red">
+            </i>
+        </div>
+        <div class="col-md-12">
+            <button type="button" class="btn btn-success" id="addCollector" style="margin-right: 30px;margin-left: 0px;">
+                <span lang="add_collector">
+                    <!--增加数采器--></span>
+            </button>
+            <button type="button" class="btn btn-success" id="addCollectors" style="margin-left: 0px;">
+                <span lang="batchadd">批量添加采集器
+                    <!--增加数采器--></span>
+            </button>
+            <span class="RefreshFail"></span>
+        </div>
+        <div class="text-center">
+            <h3 lang="plant_own_col">
+                <!--所属电站数采器-->
+            </h3>
+        </div>
+        <table class="table table-bordered mb-none tableStyle" id="collectorTable">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody style="display: none;" id="estimate">
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                        <a href="https://shinemonitor.com/collectorlist.html#" class="on-default edit-row">
+                            <i class="fa fa-pencil"></i>
+                        </a>
+                        <a href="https://shinemonitor.com/collectorlist.html#" class="on-default restart-row">
+                            <i class="fa fa-trash-o"></i>
+                        </a>
+                        <a href="https://shinemonitor.com/collectorlist.html#" class="on-default remove-row">
+                            <i class="fa fa-trash-o"></i>
+                        </a>
+                        <a href="https://shinemonitor.com/collectorlist.html#" class="on-default upgrade-col-row">
+                            <img src="./collectorlist_files/col_upgrade.png">
+                        </a>
+                        <a href="https://shinemonitor.com/collectorlist.html#" class="on-default refresh-col-row">
+                            <i class="fa fa-refresh"></i>
+                        </a>
+                        <!-- <span id ="daojishi">1</span> -->
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-bordered mb-none tableStyle" style="display: none;" id="estimate1">
+            <tbody><tr>
+                <td id="estimate2"></td>
+            </tr>
+        </tbody></table>
+
+        <div id="colListPage" class="page1">
+
+        </div>
+    </section>
+
+    <!-- 	增加数采器模态框 -->
+    <div class="modal fade" id="addColModal">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×
+                        </span>
+                    </button>
+                    <h4 class="modal-title" lang="add_collector">
+                        <!--增加数采器-->
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <span class="warning">*</span>
+                            <label class="control-label my-modal-label" style="display: inline" lang="collector_no">数采器编号</label>
+                        </div>
+                        <div class="col-md-4">
+                            <input type="text" id="addColPn" class="input-special">
+                        </div>
+
+                        <div class="col-md-2">
+                            <label class="control-label my-modal-label" lang="collector_name">数采器名称</label>
+                        </div>
+
+                        <div class="col-md-4">
+                            <input type="text" id="addColName" class="input-special">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div id="addColListFailSec" class="addColDisplay hidden text-center">
+                            <span class="add_col_fail">
+                                <span lang="fail_addcol_pn">添加失败数采器编号</span>
+                                :</span>
+                            <span id="addColListFail" class="add_col_fail "></span>
+                        </div>
+                        <div id="addColListSucSec" class="addColDisplay hidden text-center">
+                            <span class="add_col_suc" lang="suc_addcol_pn">添加成功数采器编号:</span>
+                            <span id="addColListSuc" class="add_col_suc "></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" id="noAddCol">
+                        <span lang="cancel">取消</span>
+                    </button>
+                    <button type="button" class="btn btn-info" id="yesAddCol">
+                        <span lang="confirm">确定</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 	批量增加数采器模态框 -->
+    <div class="modal fade" id="batchAddCol">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×
+                        </span>
+                    </button>
+                    <h4 class="modal-title" lang="batchadd">批量添加采集器
+                        <!--增加数采器-->
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="bodyhang">
+                        <div class="badyhangName">
+                            <span class="warning">*</span>
+                            <label class="control-label my-modal-label" style="display: inline" lang="uploadfiles">请上传批量文件：</label>
+                        </div>
+                        <div class="boxsbox">
+                            <div class="fileUpload btn btn-warning">
+                                <span lang="upload_file">上传文件</span>
+                                <input id="invUpFile" class="upload" type="file" name="file">
+                            </div>
+                        </div>
+                        <span id="invFileResult"></span>
+                    </div>
+                    <div class="bodyhangpictur">
+                        <p class="bodyhangtip" lang="friendlyreminder">友情提示:上传文件格式需要是xlsx,xls格式,上传文件内容,可以参考如下图</p>
+                        <img alt="" class="imagespicuter" id="imagespicuters">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 点击删除的模态框 -->
+<div class="modal fade" id="delColModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
+                </button>
+                <h4 class="modal-title" lang="del_message">提示消息
+                </h4>
+            </div>
+            <div class="modal-body">
+                <span lang="check_delete_col">是否删除此数采器</span>
+                <span id="delColName"></span>?
+            </div>
+            <div class="row">
+                <div id="delColList" class="addColDisplay hidden text-center">
+                    <span class="add_col_fail" lang="fail_delete_colPn">删除失败数采器编号</span>:
+                    <span id="delColListFail" class="add_col_fail "></span>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" id="suDelCol">
+                    <span lang="confirm">确定</span>
+                </button>
+                <button type="button" class="btn btn-info" id="clDelCol">
+                    <span lang="cancel">取消</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 查找失败弹出模态框 -->
+<div class="modal fade" id="alertModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
+                </button>
+                <h4 class="modal-title" lang="del_message">提示消息
+                </h4>
+            </div>
+            <div class="modal-body">
+                <span lang="Search_Fails">查找失败</span>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info" id="alertModalCol">
+                    <span lang="confirm">确定</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 固件升级密码校验 -->
+<div class="mask lunchtime">
+    <div class="mask2">
+
+    </div>
+    <div class="maskBox">
+        <div class="m_b_top">
+            <div class="f_left">
+                <div class="f_left oneUpdate update_icon icon_op" id="Modifier">
+
+                </div>
+                <div class="f_left">
+                    <strong lang="cryptographiccheck">请输入密码进行固件升级操作</strong>
+                </div>
+            </div>
+            <div class="f_right _m_b_topClose closeUpdate">
+
+            </div>
+        </div>
+        <div class="m_b_conten">
+            <div class="searchSonBox m_b_conten_lineBox">
+                <div lang="Updatethepassword">
+                    升级密码&nbsp;&nbsp;:
+                </div>
+                <div class="searchSeltBox ">
+                    <input type="text" id="codedlock">
+                </div>
+            </div>
+            <div class="reminder" id="reminder1" lang="pwd_wrong">
+                密码错误
+            </div>
+            <div class="reminder" id="reminder2" lang="noPwd_enter">
+                密码为空,请重新输入
+            </div>
+        </div>
+        <div class="m_b_foot">
+            <div class="p_i_box3">
+                <div class="maskErrryTips" id="oneUpdateErrtip">
+                    <!--取消-->
+                </div>
+                <span class="_btn_clear closeUpdate" lang="Shut_down" id="Turnoffthe">
+								关闭
+							</span>
+                <span id="sample" class="btn_confirm" lang="confirm">
+								确认
+				</span>
+                <!--</div>-->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 防逆流设置 -->
+<div class="modal fade" id="Antireflux">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+				<h4 class="modal-title" lang="video_setup">设置
+				</h4>
+			</div>
+			<div class="modal-body">
+				<span lang="configuration">参数配置</span>(<span lang="magnification">倍率</span>)
+				<select id="typest" style="width: 140px;height: 30px;border: 1px solid #999;padding: 0px;">
+
+					<option value="" lang="no_info"></option>
+					<option value="10">10</option>
+					<option value="20">20</option>
+					<option value="40">40</option>
+					<option value="60">60</option>
+					<option value="80">80</option>
+					<option value="100">100</option>
+					<option value="160">160</option>
+					<option value="200">200</option>
+				</select>
+				<span id="Tips" style="margin-left: 20px;color: red;"></span>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" id="Determinethesettings">
+					<span lang="confirm">确定</span>
+				</button>
+				<button type="button" class="btn btn-info" id="Cancelsettings">
+					<span lang="cancel">取消</span>
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+    //addColState变量用来避免用户连接两次添加同一pn号
+    var addColState = 0;
+    var timer = null;
+    var count;
+    //collectorTableDataTable用来判断表格是否渲染
+    var collectorTableDataTable = false
+    $("#Turnoffthe").click(function(){
+        $(".lunchtime").hide()
+    })
+     // 升级密码验证
+     $("#sample").click(function(){
+        $("#reminder2").hide()
+        $("#reminder1").hide()
+        var matter = $("#codedlock").val()
+        if(matter == ""){
+            $("#reminder2").show()
+        }else if(matter != "renosuptec123"){
+            $("#reminder1").show()
+        }else{
+            $(".lunchtime").hide()
+            $("#deviceArea").load("upgradeCollector.html", null);
+           
+        }
+        
+    })
+    $(document).ready(function () {
+        if (storage_i18n_get_id() == 0) {
+            //中文
+            // $('#imagespicuters').attr('src','/assets/images/colpiture.png')
+            document.getElementById("imagespicuters").src = "/assets/images/colpiture.png";
+        } else {
+            //其他语言默认用英文
+            document.getElementById("imagespicuters").src = "/assets/images/englishtips.jpg";
+        }
+        $(".RefreshFail").html("")
+        checkUserCurLang();
+        tableStyle("collectorTable");
+        loadCollectorData('', 0);
+        //增加数采器
+        $("#addCollector").click(function () {
+            $("#addColPn").val("");
+            $("#addColName").val("");
+            $(".addColDisplay").addClass("hidden");
+            $("#addColModal").modal();
+
+            $("#yesAddCol").click(function () {
+                var pn = trim($("#addColPn").val());
+                var alias = $("#addColName").val().trim();
+                if (pn.length != 14 && pn.length != 18) {
+                    $("#addColListFailSec").removeClass("hidden");
+                    $("#addColListFail").text(pn + getMultiLangError("fail_col_format"))
+                } else {
+
+                    if (addColState == 0) {
+                        addCollector(pn, alias);
+                    }
+                    addColState = 1;
+                }
+            });
+
+            $("#noAddCol").click(function () {
+                $("#addColModal").modal('hide');
+            });
+        });
+
+        //批量添加
+        $('#addCollectors').click(function () {
+            $("invUpFile").val('');
+            $("#invFileResult").empty();
+            $('#batchAddCol').modal();
+            $("#invUpFile").change(function () {
+                var $me = $(this); //获取当前上传按钮
+                var file = this.files[0];
+                var formData = new FormData();
+                formData.append('file', file);
+                var url = http_upload_colfile_url(true)
+                if (this.files[0].name.slice(-3) != "xls" && this.files[0].name.slice(-4) !=
+                    "xlsx") {
+                    $("#invFileResult").text(getMultiLangError("update_frm"));
+                } else {
+                    $.ajax({
+                        type: "POST", //必须用post
+                        url: url,
+                        crossDomain: true,
+                        jsonp: "jsoncallback",
+                        data: formData,
+                        datatype: 'binary',
+                        contentType: false, //必须
+                        responseType: 'blob',
+                        processData: false,
+                        complete: function (data) {
+                            var action = "&action=downLoadFile&id=" + data
+                                .responseJSON.dat;
+                            action = action + "&i18n=" + getInterLang() + "&lang=" +
+                                getInterLang()
+                            var currUsr = storage_get_current_usr().dat;
+                            var salt = new Date().getTime();
+                            var sign = hex_sha1(salt + currUsr.secret + currUsr
+                                .token + action);
+                            var url = HTTP_INTERFACE_ADDRESS_NEW + "?sign=" + sign +
+                                "&salt=" +
+                                salt + "&token=" + currUsr.token + action;
+                            window.location.href = url;
+                            $("#invFileResult").text(getMultiLangError(
+                                "upload_suc"));
+                            setTimeout(function () {
+                                $("#batchAddCol").modal("hide")
+                                $('#batchAddCol').on('hidden.bs.modal',
+                                    function (e) {
+                                        $("#plantDevice").load(
+                                            "/plant/plantDevice.html",
+                                            null);
+                                    });
+                            }, 1500)
+                        }
+                    });
+                }
+            });
+        })
+
+        //所属电站数采器修改,删除和去附着,升级功能
+        $('#collectorTable tbody').on('click', 'a.edit-row', function (e) {
+            //修改
+            e.preventDefault();
+            var rowData = $("#collectorTable").DataTable().row($(this).closest('tr')).data();
+            PLANT_SELECTED_COLLECTOR_PN = rowData[2];
+            $("#deviceArea").load("editCollector.html", null);
+        }).on('click', 'a.restart-row', function (e) {
+            //重启.
+            e.preventDefault();
+            var rowData = $("#collectorTable").DataTable().row($(this).closest('tr')).data();
+            PLANT_SELECTED_COLLECTOR_PN = rowData[2];
+            $("#deviceArea").load("restartCollector.html", null);
+        }).on('click', 'a.remove-row', function (e) {
+            //删除
+            e.preventDefault();
+            var rowData = $("#collectorTable").DataTable().row($(this).closest('tr')).data();
+            var pn = rowData[2];
+            $("#delColName").text(pn);
+            $("#delColList").addClass("hidden");
+            $("#delColModal").modal();
+        }).on('click', 'a.upgrade-col-row', function (e) {
+            //升级
+            e.preventDefault();
+            var rowData = $("#collectorTable").DataTable().row($(this).closest('tr')).data();
+            UPGRADE_COL_PN = rowData[2];
+            UPGRADE_COL_NAME = rowData[3];
+            var domain = document.domain;
+            if(domain == "www.renovigi.solar"){
+				$("#codedlock").val("");
+				$("#reminder2").hide()
+				$("#reminder1").hide()
+				$(".lunchtime").show()
+			}else{
+                $("#deviceArea").load("upgradeCollector.html", null);
+			}
+				
+            
+        }).on('click', 'a.forward-cmd-row', function (e) {
+            //指令透传
+            e.preventDefault();
+            var rowData = $("#collectorTable").DataTable().row($(this).closest('tr')).data();
+            UPGRADE_COL_PN = rowData[2];
+            //			INV_SUB_COL_PN = rowData[0];//附着的数采器编码
+            //			INV_SUB_SN = rowData[1];//设备序列号
+            //			INV_SUB_ALIAS = rowData[2];//设备别名
+            //			INV_SUB_DEVCODE = rowData[3];//设备编码
+            //			INV_SUB_ADDR = rowData[4];//通讯地址
+
+            loadHtml("deviceArea", "collectorForwardCmd2.html");
+        }).on('click', 'a.refresh-col-row', function (e) {
+            //刷新在线设备数
+            e.preventDefault();
+            var rowData = $("#collectorTable").DataTable().row($(this).closest('tr')).data();
+            UPGRADE_COL_PN = rowData[2];
+            $(".RefreshFail").html('');
+            RefreshCamera1(UPGRADE_COL_PN, $(this));
+        }).on('click', 'a.Recharge', function (e) {
+            //带载数充值
+            e.preventDefault();
+            var rowData = $("#collectorTable").DataTable().row($(this).closest('tr')).data();
+            UPGRADE_COL_PN = rowData[2];
+            sessionStorage.setItem("Recharge", UPGRADE_COL_PN);
+            loadHtml("mainArea", "/sys/systemSettings.html");
+        }).on('click', 'a.GPRS', function (e) {
+            //带载数充值
+            e.preventDefault();
+            var rowData = $("#collectorTable").DataTable().row($(this).closest('tr')).data();
+            UPGRADE_COL_PN = rowData[2];
+            sessionStorage.setItem("GPRS", UPGRADE_COL_PN);
+            loadHtml("mainArea", "/sys/systemSettings.html");
+        }).on('click', 'a.backflow-col-row', function (e) {
+			//防逆流设置
+			e.preventDefault();
+            var rowData = $("#collectorTable").DataTable().row($(this).closest('tr')).data();
+            UPGRADE_COL_PN = rowData[2];
+			$("#Tips").text("")
+			$("#Antireflux").modal();
+			var action = encodeURI("&action=queryDeviceBackFlowByPn&pn=" + UPGRADE_COL_PN)
+			http_async_request_public(action, function (err, dat, desc) {
+				if (err == 0) {
+					if (dat.backFlow == undefined) {
+						$("#typest").val("");
+					} else {
+						$("#typest").val(dat.backFlow);
+					}
+				}
+
+			},function () {
+
+				});
+        });
+        // 防逆流确定
+		$("#Determinethesettings").on("click", function () {
+			var a = ""
+			if($("#typest option:selected").val() != ""){
+				a = Number($("#typest option:selected").val())
+			}
+			var action = encodeURI("&action=ctrlBackFlowByPn&pn=" + UPGRADE_COL_PN + "&backFlow=" + a)
+			http_async_request_public(action, function (err, dat, desc) {
+				if (err == 0) {
+					$("#Antireflux").modal('hide')
+				} else {
+					$("#Tips").text(getErrorCodeDesc2(GET_ERR_DESC, "err" + err))
+				}
+			},
+				function () {
+
+				});
+		});
+
+		$("#Cancelsettings").on("click", function () {
+			$("#Antireflux").modal('hide')
+		});
+
+        //删除模态框事件绑定必须在ready函数,不能放到table函数里面
+        $("#suDelCol").click(function () {
+            var pn = $("#delColName").text();
+            delCollector(pn);
+        });
+        $("#clDelCol").click(function () {
+            $('#delColModal').modal('hide');
+        });
+        $("#alertModalCol").click(function () {
+            console.log("点击确认")
+            $('#alertModal').modal('hide');
+        });
+
+    });
+
+    /*增加采集器, 并附着到电站(*/
+    function addCollector(pn, alias) {
+        http_async_request_public("&action=addCollectorToPlant&plantid=" + MAIN_CHOOSE_PLANT_ID + "&pn=" + pn +
+            "&alias=" + encodeURI(alias).replace(/#/g, "%23"),
+            function (err, dat,desc) {
+                if (err == WS_ERR_NONE) {
+                    $("#addColListSucSec").removeClass("hidden");
+                    $("#addColListSuc").text(pn);
+                    $("#addColModal").modal("hide");
+                    //只有添加成功了才自动关闭modal
+                    //				setTimeout(function(){$("#addColModal").modal("hide")}, 30000);
+                    $('#addColModal').on('hidden.bs.modal', function (e) {
+                        $("#plantDevice").load("/plant/plantDevice.html", null);
+                    });
+                } else {
+                    $("#addColListFailSec").removeClass("hidden");
+                    var errDesc = ''
+                    if (err === 6) {
+                        errDesc = getMultiLangError('invalid_pn')
+                    } else if(err == 522){
+                        var a = desc.slice(desc.indexOf("in") + 3, desc.indexOf(" )"))
+                        errDesc = getErrorCodeDesc2(GET_ERR_DESC, "err" + err)+"-("+a+")"
+                    }else{
+                        errDesc = getErrorCodeDesc2(GET_ERR_DESC, "err" + err)
+                    }
+                    $("#addColListFail").text(pn + "," + errDesc);
+                }
+                addColState = 0;
+            },
+            function () {
+                $("#addColListFailSec").removeClass("hidden");
+                $("#addColListFail").text(pn + "," + getMultiLangError('fail_col_unknown'));
+            })
+    }
+
+    //加载某个电站下面的数采器
+
+    function loadCollectorData(pnbox, page, isClick) {
+        // http_async_request_public("&action=queryCollectors&plantid=" + MAIN_CHOOSE_PLANT_ID + "&page=" + page + "&pagesize=20", function (err, dat) {
+        // http_async_request_public("&action=queryCollectors&plantid=" + MAIN_CHOOSE_PLANT_ID + "&pn=" + pnbox + "&page=" + page + "&pagesize=20",
+				http_async_request_public(encodeURI("&action=queryCollectors&plantid=" + MAIN_CHOOSE_PLANT_ID + "&pn=" + pnbox + "&page=" + page + "&pagesize=20"),
+            function (err, dat) {
+                console.log(err,dat == undefined,"打印")
+                if(dat == undefined){
+                    $("#estimate1").show()
+                    $("#estimate").hide();
+                    $("#estimate2").text(getErrorCodeDesc2(GET_ERR_DESC, "err"+err) )
+                }else{
+                    $("#estimate1").hide()
+                    $("#estimate").show(); 
+                    $("#estimate2").text('')                  
+                }
+                if (err == WS_ERR_NONE) {
+                    for(var a = 0 ;a < dat.collector.length;a++){
+                        if(dat.collector[a].status == 1){
+                            dat.collector[a].signalVal = '0'
+                            dat.collector[a].signalValname = 'yes'
+                        }else{
+                            if(dat.collector[a].gprs == undefined){
+                                dat.collector[a].signalVal = '70'
+                                dat.collector[a].signalValname = 'no'
+                            }else{
+                                if(dat.collector[a].gprs.signalVal == undefined){
+                                    dat.collector[a].signalVal = '0'
+                                    dat.collector[a].signalValname = 'yes'
+                                }else{
+                                    dat.collector[a].signalVal = dat.collector[a].gprs.signalVal
+                                    dat.collector[a].signalValname = 'yes'
+                                }
+                            }
+                        }
+                    }
+                    if (collectorTableDataTable)
+                        redrawMeterDetail(loadColArr(dat.collector))
+                    else
+                        loadPlantColTable(loadColArr(dat.collector));
+                    var totalPage = (dat.total % 20 == 0 ? dat.total / 20 : Math.ceil(dat.total / 20));
+                    $('#colListPage').paging({
+                        pageNo: page + 1,
+                        totalPage: totalPage,
+                        callback: function (cur) {
+                            loadCollectorData('', cur - 1)
+                        }
+                    });
+                } else {
+                    // alert("请输入正确的PN号(注意大小写),支持模糊搜索!")
+                    if (isClick) {
+                        // alert(getMultiLangError("Search_Fails"))
+                        $("#alertModal").modal()
+                    }
+                    // loadPlantColTable([]);
+                }
+            },
+            function () {
+                console.log("数采器列表读取失败");
+            });
+    }
+
+    //	点击页面后去掉数据重新加载数据因为直接重写datatable会报错
+    function redrawMeterDetail(data) {
+
+        var table = $('#collectorTable').DataTable();
+        table.clear().draw();
+        table.rows.add(data).draw();
+    }
+
+    //生成某个电站数采器表格
+    function loadPlantColTable(data) {
+        collectorTableDataTable = true
+     if( globalStorage.accounts[0].dat.role ==5){
+        //  电站浏览着
+        var table = $('#collectorTable').DataTable({
+            data: data,
+            scrollX: true,
+            //			scrollY:"70vh",
+            paging: false,
+            searching: false,
+            ordering: false,
+            processing: true,
+            info: false,
+            columns: [{
+                    title: "uid"
+                }, {
+                    title: "pid"
+                }, {
+                    title: getMultiLangError("collector_no")
+                }, {
+                    title: getMultiLangError("collector_name")
+                }, {
+                    title: getMultiLangError("col_status")
+                }, {
+                    title: getMultiLangError("col_freq")
+                }, {
+                    title: getMultiLangError("col_heart")
+                }, {
+                    title: getMultiLangError("col_timezone")
+                }, {
+                    title: getMultiLangError("col_firmware")
+                }, {
+                    title: getMultiLangError("col_loadcount")
+                },{
+                    title: getMultiLangError("col_signalstrength"),
+                    render: function ( data, type, full, meta ) {
+                        // if(full[11] == "no"){
+                        //     return ''
+                        // }else{
+                            if(data > 0 && data <= 10){
+                                return '  <div class="signal"><div style="height:6px;background:#47a447"></div><div style="height:8px;"></div><div style="height:10px;"></div><div style="height:12px;"></div><div style="height:14px;"></div></div>';
+                            }else if(data > 10 &&data <= 40 ){
+                                return '  <div class="signal"><div style="height:6px;background:#47a447"></div><div style="height:8px;background:#47a447"></div><div style="height:10px;"></div><div style="height:12px;"></div><div style="height:14px;"></div></div>';
+                            }else if(data > 40 && data <= 60 ){
+                                return '  <div class="signal"><div style="height:6px;background:#47a447"></div><div style="height:8px;background:#47a447"></div><div style="height:10px;background:#47a447"></div><div style="height:12px;"></div><div style="height:14px;"></div></div>';
+                            }else if(data > 60 &&data <= 80 ){
+                                return '  <div class="signal"><div style="height:6px;background:#47a447"></div><div style="height:8px;background:#47a447"></div><div style="height:10px;background:#47a447"></div><div style="height:12px;background:#47a447"></div><div style="height:14px;"></div></div>';
+                            }else if(data > 80 &&data <= 95 ){
+                                return '  <div class="signal"><div style="height:6px;background:#47a447"></div><div style="height:8px;background:#47a447"></div><div style="height:10px;background:#47a447"></div><div style="height:12px;background:#47a447"></div><div style="height:14px;background:#47a447"></div></div>';
+                            }else if(data > 95){
+                                return '  <div class="signal"><div style="height:6px;background:#47a447"></div><div style="height:8px;background:#47a447"></div><div style="height:10px;background:#47a447"></div><div style="height:12px;background:#47a447"></div><div style="height:14px;background:#47a447"></div></div>';
+                            }else{
+                                return '  <div class="signal"><div style="height:6px;"></div><div style="height:8px;"></div><div style="height:10px;"></div><div style="height:12px;"></div><div style="height:14px;"></div></div>';
+                            }
+                        // }
+                        
+                       
+                    }
+                },{
+                    title: '是否为GPRS'
+                },
+                {
+                    title: getMultiLangError("plant_col_opers"),
+                    "defaultContent": "<a href='#' class='noreplace on-default edit-row'  title=" +
+                        getMultiLangError("modify") + "><i class='fa fa-pencil'></i></a>" // 编辑按钮
+                        +
+                        "&nbsp;&nbsp;&nbsp;" +
+                        "<a href='#' class='noreplace on-default forward-cmd-row' title=" +
+                        getMultiLangError("col_debug") +
+                        "><i class='fa fa-bug tableStyleIcon'></i></a>" //调试按钮
+                        +
+                        "&nbsp;&nbsp;&nbsp;" +
+                        "<a href='#' class='noreplace on-default remove-row'  title=" + getMultiLangError(
+                            "delete") + "><i class='fa fa-trash-o'></i></a>" // 删除按钮
+                        +
+                        "&nbsp;&nbsp;&nbsp;" +
+                        "<a href='#' class='noreplace on-default upgrade-col-row' title=" +
+                        getMultiLangError("col_upgrade") +
+                        "><img src='assets/images/menu/col_upgrade.png' '></a>" // 升级
+                        +
+                        "&nbsp;&nbsp;&nbsp;" +
+                        "<a href='#' class='noreplace on-default refresh-col-row' title=" +
+                        getMultiLangError("refresh") + "><i class='fa fa-refresh'></i></a>" // 刷新
+                        +
+                        "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" +
+                        "<span class='daojishi'></span>",
+                    "bSortable": false
+                }
+            ],
+
+            "columnDefs": [{
+                "targets": [0, 1, 5, 6,11],
+                "visible": false,
+                "searchable": false
+            }, {
+                "targets": [12],
+                "width": "500px"
+            }],
+            "language": {
+                "url": "/assets/vendor/jquery-datatables/media/js/language" + storage_i18n_get_id() + ".json"
+            }
+        });
+     }else{
+        var table = $('#collectorTable').DataTable({
+            data: data,
+            scrollX: true,
+            //			scrollY:"70vh",
+            paging: false,
+            searching: false,
+            ordering: false,
+            processing: true,
+            info: false,
+            columns: [{
+                    title: "uid"
+                }, {
+                    title: "pid"
+                }, {
+                    title: getMultiLangError("collector_no")
+                }, {
+                    title: getMultiLangError("collector_name")
+                }, {
+                    title: getMultiLangError("col_status")
+                }, {
+                    title: getMultiLangError("col_freq")
+                }, {
+                    title: getMultiLangError("col_heart")
+                }, {
+                    title: getMultiLangError("col_timezone")
+                }, {
+                    title: getMultiLangError("col_firmware")
+                }, {
+                    title: getMultiLangError("col_loadcount")
+                },
+                {
+                    title: getMultiLangError("col_signalstrength"),
+                    render: function ( data, type, full, meta ) {
+
+                        // if(full[11] == "no"){
+                        //     return ''
+                        // }else{
+                            if(data > 0 && data <= 10){
+                                return '  <div class="signal"><div style="height:6px;background:#47a447"></div><div style="height:8px;"></div><div style="height:10px;"></div><div style="height:12px;"></div><div style="height:14px;"></div></div>';
+                            }else if(data > 10 &&data <= 40 ){
+                                return '  <div class="signal"><div style="height:6px;background:#47a447"></div><div style="height:8px;background:#47a447"></div><div style="height:10px;"></div><div style="height:12px;"></div><div style="height:14px;"></div></div>';
+                            }else if(data > 40 && data <= 60 ){
+                                return '  <div class="signal"><div style="height:6px;background:#47a447"></div><div style="height:8px;background:#47a447"></div><div style="height:10px;background:#47a447"></div><div style="height:12px;"></div><div style="height:14px;"></div></div>';
+                            }else if(data > 60 &&data <= 80 ){
+                                return '  <div class="signal"><div style="height:6px;background:#47a447"></div><div style="height:8px;background:#47a447"></div><div style="height:10px;background:#47a447"></div><div style="height:12px;background:#47a447"></div><div style="height:14px;"></div></div>';
+                            }else if(data > 80 &&data <= 95 ){
+                                return '  <div class="signal"><div style="height:6px;background:#47a447"></div><div style="height:8px;background:#47a447"></div><div style="height:10px;background:#47a447"></div><div style="height:12px;background:#47a447"></div><div style="height:14px;background:#47a447"></div></div>';
+                            }else if(data > 95){
+                                return '  <div class="signal"><div style="height:6px;background:#47a447"></div><div style="height:8px;background:#47a447"></div><div style="height:10px;background:#47a447"></div><div style="height:12px;background:#47a447"></div><div style="height:14px;background:#47a447"></div></div>';
+                            }else{
+                                return '  <div class="signal"><div style="height:6px;"></div><div style="height:8px;"></div><div style="height:10px;"></div><div style="height:12px;"></div><div style="height:14px;"></div></div>';
+                            }
+                        // }
+                        
+                       
+                    }
+                },
+                {
+                    title: '是否为GPRS'
+                },
+                {
+                    title: getMultiLangError("plant_col_oper"),
+                    "defaultContent": "<a href='#' class='noreplace on-default edit-row'  title='" +
+                        getMultiLangError("modify") + "'><i class='fa fa-pencil'></i></a>" // 编辑按钮
+                        +
+                        "&nbsp;&nbsp;&nbsp;" +
+                        "<a href='#' class='noreplace on-default restart-row'  title='" + getMultiLangError(
+                            "restart") + "'><i class='fa fa-power-off'></i></a>" // 重启按钮
+                        +
+                        "&nbsp;&nbsp;&nbsp;" +
+                        "<a href='#' class='noreplace on-default forward-cmd-row' title='" +
+                        getMultiLangError("col_debug") +
+                        "'><i class='fa fa-bug tableStyleIcon'></i></a>" //调试按钮
+                        +
+                        "&nbsp;&nbsp;&nbsp;" +
+                        "<a href='#' class='noreplace on-default remove-row'  title='" + getMultiLangError(
+                            "delete") + "'><i class='fa fa-trash-o'></i></a>" // 删除按钮
+                        +
+                        "&nbsp;&nbsp;&nbsp;" +
+                        "<a href='#' class='noreplace on-default upgrade-col-row' title='" +
+                        getMultiLangError("col_upgrade") +
+                        "'><img src='assets/images/menu/col_upgrade.png' '></a>" // 升级
+                        +
+                        "&nbsp;&nbsp;&nbsp;" +
+                        "<a href='#' class='noreplace on-default refresh-col-row' title='" +
+                        getMultiLangError("refresh") + "'><i class='fa fa-refresh'></i></a>" // 刷新
+                        +
+                        "&nbsp;&nbsp;&nbsp;" +
+                        "<a href='#' class='noreplace on-default Recharge' style="+(storage_i18n_get_id() == 0 ? 'display:inline':'display:none')+"><i class='fa ' title=" + getMultiLangError(
+                            "col_load") + "><img src='assets/images/menu/daizaishu.png' style='width:13px;height:13px'></i></a>" // 带载数充值
+                        +
+                        "&nbsp;&nbsp;&nbsp;" +
+                        "<a href='#' class='noreplace on-default GPRS' style="+(storage_i18n_get_id() == 0 ? 'display:inline':'display:none')+"><i class='fa fa-credit-card' title=" + getMultiLangError(
+                            "col_GPRS") + "></i></a>" // GPRS流量充值
+                        +
+                        "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" +
+                        "<a href='#' class='noreplace on-default backflow-col-row' title=" +
+                        '防逆流' + "><img src='assets/images/menu/col_green.png' style='width:13px;height:13px;margin-top: -2px;'></a>" //防逆流参数配置
+                        +
+                        "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" +
+                        "<span class='daojishi'></span>",
+                    "bSortable": false
+                }
+            ],
+
+            "columnDefs": [{
+                "targets": [0, 1, 5, 6,11],
+                "visible": false,
+                "searchable": false
+            }, {
+                "targets": [12],
+                "width": "500px"
+            }],
+            "language": {
+                "url": "/assets/vendor/jquery-datatables/media/js/language" + storage_i18n_get_id() + ".json"
+            }
+        });
+    }
+}
+
+
+    /*删除某个数采器*/
+    function delCollector(pn) {
+        http_async_request_public(encodeURI("&action=delCollectorFromPlant&pn=" + pn), function (err, dat) {
+                if (err == WS_ERR_NONE) {
+                    $("#delColList").addClass("hidden");
+                    $('#delColModal').modal('hide');
+                    $('#delColModal').on('hidden.bs.modal', function (e) {
+                        $("#plantDevice").load("/plant/plantDevice.html", null);
+                    });
+                } else {
+                    $("#delColList").removeClass("hidden");
+                    $("#delColListFail").text(getErrorCodeDesc(err, 0));
+                }
+            },
+            function () {
+                $("#delColList").removeClass("hidden");
+                $("#delColListFail").text(pn);
+            });
+    }
+
+    // 刷新按钮
+    function RefreshCamera1(UPGRADE_COL_PN, event) {
+        http_async_request_public(encodeURI("&action=updateCollectorStatus&pn=" + UPGRADE_COL_PN), function (err, dat) {
+            if (err == WS_ERR_NONE) {
+                $(".daojishi").text('')
+                clearInterval(this.timer);
+                const TIME_COUNT = 60;
+                this.count = TIME_COUNT;
+                this.timer = setInterval(() => {
+                    if (this.count > 0 && this.count <= TIME_COUNT) {
+                        this.count--;
+                        event.siblings(".daojishi").text(this.count + 's')
+                    } else {
+                        event.siblings(".daojishi").text('')
+                        clearInterval(this.timer);
+                        this.timer = null;
+                    }
+
+                }, 1000)
+            } else if (err == 13) {
+                // $("#addColListFail").text(pn +"," + getMultiLangError('fail_col_unknown'));
+                // alert("刷新失败：" + getErrorCodeDesc2(GET_ERR_DESC, "err" + err, desc))
+                $(".RefreshFail").html(getMultiLangError('RefreshFail_1')).show();
+                setTimeout(function () {
+                    $(".RefreshFail").hide();
+                }, 5000)
+                // alert("刷新失败：err ==13 当前还在接口约束的时间范围1min内，需提示用户稍后再试")
+            } else if (err == 263) {
+                $(".RefreshFail").html(getMultiLangError('RefreshFail_2')).show();
+                setTimeout(function () {
+                    $(".RefreshFail").hide();
+                }, 5000)
+                // alert("刷新失败：err ==263 采集器不在线")
+            } else if (err == 257) {
+                $(".RefreshFail").html(getMultiLangError('RefreshFail_3')).show();
+                setTimeout(function () {
+                    $(".RefreshFail").hide();
+                }, 5000)
+                // alert("刷新失败：err ==257 找不到数采器")
+            } else if (err == 1043) {
+                $(".RefreshFail").html(getMultiLangError('RefreshFail_4')).show();
+                setTimeout(function () {
+                    $(".RefreshFail").hide();
+                }, 5000)
+                // alert("刷新失败：err ==1043 正在执行升级流程禁止刷新，需等待1min再试")
+            } else if (err == 8) {
+                $(".RefreshFail").html(getMultiLangError('RefreshFail_5')).show();
+                setTimeout(function () {
+                    $(".RefreshFail").hide();
+                }, 5000)
+                // alert("刷新失败：err ==8 调用不成功，等待1min后再试")
+            } else if (err == 9) {
+                $(".RefreshFail").html(getMultiLangError('RefreshFail_6')).show();
+                setTimeout(function () {
+                    $(".RefreshFail").hide();
+                }, 5000)
+                // alert("刷新失败：err ==9 	采集器即将进入采集器流程，目前不支持手动刷新，等待1min后再试")
+            } else if (err == 2) {
+                $(".RefreshFail").html(getMultiLangError('RefreshFail_7')).show();
+                setTimeout(function () {
+                    $(".RefreshFail").hide();
+                }, 5000)
+                // alert("刷新失败：err ==2 	调用超时，等待1min后再试")
+            } else {
+                $(".RefreshFail").html(getMultiLangError('RefreshFail_8')).show();
+                setTimeout(function () {
+                    $(".RefreshFail").hide();
+                }, 5000)
+                // alert("刷新失败：")
+            }
+        }, function () {
+            console.log("错误码！" + err);
+        });
+    }
+
+    // 刷新按钮
+    function RefreshCamera1(UPGRADE_COL_PN, event) {
+        http_async_request_public(encodeURI("&action=updateCollectorStatus&pn=" + UPGRADE_COL_PN), function (err, dat) {
+            if (err == WS_ERR_NONE) {
+                $(".daojishi").text('')
+                clearInterval(this.timer);
+                const TIME_COUNT = 60;
+                this.count = TIME_COUNT;
+                this.timer = setInterval(() => {
+                    if (this.count > 0 && this.count <= TIME_COUNT) {
+                        this.count--;
+                        event.siblings(".daojishi").text(this.count + 's')
+                    } else {
+                        event.siblings(".daojishi").text('')
+                        clearInterval(this.timer);
+                        this.timer = null;
+                    }
+
+                }, 1000)
+            } else if (err == 13) {
+                // $("#addColListFail").text(pn +"," + getMultiLangError('fail_col_unknown'));
+                // alert("刷新失败：" + getErrorCodeDesc2(GET_ERR_DESC, "err" + err, desc))
+                $(".RefreshFail").html(getMultiLangError('RefreshFail_1')).show();
+                setTimeout(function () {
+                    $(".RefreshFail").hide();
+                }, 5000)
+                // alert("刷新失败：err ==13 当前还在接口约束的时间范围1min内，需提示用户稍后再试")
+            } else if (err == 263) {
+                $(".RefreshFail").html(getMultiLangError('RefreshFail_2')).show();
+                setTimeout(function () {
+                    $(".RefreshFail").hide();
+                }, 5000)
+                // alert("刷新失败：err ==263 采集器不在线")
+            } else if (err == 257) {
+                $(".RefreshFail").html(getMultiLangError('RefreshFail_3')).show();
+                setTimeout(function () {
+                    $(".RefreshFail").hide();
+                }, 5000)
+                // alert("刷新失败：err ==257 找不到数采器")
+            } else if (err == 1043) {
+                $(".RefreshFail").html(getMultiLangError('RefreshFail_4')).show();
+                setTimeout(function () {
+                    $(".RefreshFail").hide();
+                }, 5000)
+                // alert("刷新失败：err ==1043 正在执行升级流程禁止刷新，需等待1min再试")
+            } else if (err == 8) {
+                $(".RefreshFail").html(getMultiLangError('RefreshFail_5')).show();
+                setTimeout(function () {
+                    $(".RefreshFail").hide();
+                }, 5000)
+                // alert("刷新失败：err ==8 调用不成功，等待1min后再试")
+            } else if (err == 9) {
+                $(".RefreshFail").html(getMultiLangError('RefreshFail_6')).show();
+                setTimeout(function () {
+                    $(".RefreshFail").hide();
+                }, 5000)
+                // alert("刷新失败：err ==9 	采集器即将进入采集器流程，目前不支持手动刷新，等待1min后再试")
+            } else if (err == 2) {
+                $(".RefreshFail").html(getMultiLangError('RefreshFail_7')).show();
+                setTimeout(function () {
+                    $(".RefreshFail").hide();
+                }, 5000)
+                // alert("刷新失败：err ==2 	调用超时，等待1min后再试")
+            } else {
+                $(".RefreshFail").html(getMultiLangError('RefreshFail_8')).show();
+                setTimeout(function () {
+                    $(".RefreshFail").hide();
+                }, 5000)
+                // alert("刷新失败：")
+            }
+        }, function () {
+            console.log("错误码！" + err);
+        });
+    }
+</script>
+<style>
+        /* 弹框样式 */
+        .mask {
+        display: none;
+    }
+
+    .mask1 {
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        bottom: 0px;
+        right: 0px;
+        background: rgba(50, 50, 50, .2);
+        z-index: 11;
+    }
+
+    .mask2 {
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        bottom: 0px;
+        right: 0px;
+        background: rgba(50, 50, 50, .2);
+        z-index: 11;
+    }
+
+    .maskBox {
+        position: absolute;
+        left: 50%;
+        top: 0;
+        margin-top: 100PX;
+        margin-left: -433px;
+        z-index: 100;
+        width: 868px;
+        min-height: 200px;
+        border-radius: 10px;
+        background: #fff;
+    }
+
+    .mask .m_b_top {
+        font-size: 16px;
+        line-height: 48px;
+        height: 48px;
+        border-bottom: 1px solid #F2F2F2;
+    }
+
+    .mask .m_b_topicon {
+        margin-left: 14px;
+        height: 46px;
+        width: 32px;
+        background: url(../img/m_b_topicon.png) center center no-repeat;
+        background-size: 20px 20px;
+    }
+
+    .mask .m_b_topClose,
+    .mask ._m_b_topClose {
+        cursor: pointer;
+        margin-right: 14px;
+        height: 46px;
+        width: 46px;
+        background-size: 20px 20px;
+    }
+
+    .mask .m_b_conten {
+        min-width: 424px;
+        margin: 30px auto 60px auto;
+    }
+
+    .mask .m_b_c_conter {
+        position: relative;
+        min-width: 400px;
+    }
+
+    .mask .m_b_conten input {
+        width: 320px;
+        background-position-x: 296px;
+    }
+
+    .mask .m_b_conten ul {
+        width: 320px;
+    }
+
+    .mask .m_b_foot {
+        border-top: 1px solid #f2f2f2;
+        text-align: right;
+    }
+
+    .mask .m_b_foot span {
+        text-align: center;
+    }
+
+    .mask .m_b_foot .p_i_box3 {
+        margin-right: 60px;
+    }
+
+    .m_b_conten_lineBox {
+        margin: 20px auto;
+        width: 100%;
+        font-size: 12px;
+    }
+
+    .m_b_conten_lineBox:after {
+        clear: both;
+        display: block;
+        content: ' ';
+        height: 0px;
+        overflow: hidden;
+    }
+
+    .m_b_conten_lineBox>div:first-child {
+        min-width: 30%;
+        text-align: right;
+        float: left;
+    }
+
+    .debugBox .m_b_conten_lineBox>div:first-child {
+        text-align: left;
+    }
+
+    .m_b_conten_lineBox>div:last-child {
+        width: 68%;
+        text-align: left;
+        float: right;
+    }
+    .f_left {
+        float: left;
+    }
+    .searchSonBox {
+        padding: 0px 15px;
+        text-align: right;
+        margin: 0px 0px 16px 0px;
+        min-width: 300px;
+        min-height: 32px;
+        line-height: 32px;
+        font-size: 12px;
+    }
+
+    .searchSonBox span:first-child {
+        padding-right: 10px;
+    }
+
+    .searchSonBox input {
+        text-indent: 16px;
+        border: 1px solid #d9d9d9;
+        outline: medium;
+        height: 26px;
+        width: 190px;
+        border-radius: 6px;
+    }
+    ._btn_clear {
+        border: 1px solid #d9d9d9;
+        background: #f3f3f3;
+    }
+
+    .btn_confirm {
+        color: #fff;
+        background: #108EE9;
+    }
+    .p_i_box3 {
+        line-height: 66px;
+        height: 66px;
+    }
+
+    .p_i_box3 span {
+        margin-left: 16px;
+        border-radius: 4px;
+        cursor: pointer;
+        line-height: 30px;
+        display: inline-block;
+        padding: 0px 10px;
+        height: 30px;
+    }
+
+    .p_i_box3 span:hover {
+        opacity: .8;
+    }
+    .update_icon {
+	    background: url(/vendortest/img/update.png) center center no-repeat;
+    }
+    .icon_op {
+        cursor: pointer;
+        background-size: 25px 25px;
+        /*margin-right: 10px;*/
+        width: 30px;
+        height: 25px;
+        display: inline-block;
+    }
+    .signal{
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+    }
+    .signal>div{
+        background-color:#B0B3B0;
+        width: 4px;
+        margin: 0 1px;
+    }
+</style>
+<div id="goog-gt-tt" class="skiptranslate" dir="ltr"><div style="padding: 8px;"><div><div class="logo"><img src="./collectorlist_files/translate_24dp.png" width="20" height="20" alt="Google Translate"></div></div></div><div class="top" style="padding: 8px; float: left; width: 100%;"><h1 class="title gray">Original text</h1></div><div class="middle" style="padding: 8px;"><div class="original-text"></div></div><div class="bottom" style="padding: 8px;"><div class="activity-links"><span class="activity-link">Contribute a better translation</span></div><div class="started-activity-container"><hr style="color: #CCC; background-color: #CCC; height: 1px; border: none;"><div class="activity-root"></div></div></div><div class="status-message" style="display: none;"></div></div><!-- <script src="/vendortest/img/update.png"></script> --><div class="goog-te-spinner-pos"><div class="goog-te-spinner-animation"><svg xmlns="http://www.w3.org/2000/svg" class="goog-te-spinner" width="96px" height="96px" viewBox="0 0 66 66"><circle class="goog-te-spinner-path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle></svg></div></div></body></html>

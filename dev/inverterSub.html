@@ -1,0 +1,774 @@
+
+<!-- saved from url=(0045)https://shinemonitor.com/dev/inverterSub.html -->
+<html class="translated-ltr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- <link rel="stylesheet" type="text/css" href="/css/reg.css"> -->
+<link type="text/css" rel="stylesheet" charset="UTF-8" href="./inverterSub_files/translateelement.css"></head><body><div class="col-md-12 col-lg-12 col-xl-12 device_charts">
+	<section>
+		<table class="table table-bordered mb-none tableStyle" id="invSubTable">
+			<thead>
+				<tr>
+					<th><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Attached data collector number</font></font></th>
+					<th><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">devise serial number</font></font></th>
+					<th><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">device alias</font></font></th>
+					<th><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">equipment number</font></font></th>
+					<th><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">mailing address</font></font></th>
+					<th><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">inverter status</font></font></th>
+					<th><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">operate</font></font></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">All others</font></font></td>
+					<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">All others</font></font></td>
+					<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">All others</font></font></td>
+					<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">All others</font></font></td>
+					<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">All others</font></font></td>
+					<td>
+						<a href="https://shinemonitor.com/dev/inverterSub.html#" class="on-default"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+							alias
+						 </font></font></a>
+						<a href="https://shinemonitor.com/dev/inverterSub.html#" class="on-default"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+							control
+						 </font></font></a>
+						<a href="https://shinemonitor.com/dev/inverterSub.html#" class="on-default forward-cmd-row"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+							debug
+						 </font></font></a>
+						<a href="https://shinemonitor.com/dev/inverterSub.html#" class="on-default inv-upgrade-row"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+							upgrade
+						 </font></font></a>
+						<a href="https://shinemonitor.com/dev/inverterSub.html#" class="on-default edit-row"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+							delete
+						</font></font></a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</section>
+</div>
+
+<!-- 删除逆变器模态框 -->
+<div class="modal fade" id="delInvModal">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">x</font></font></span></button>
+				<h4 class="modal-title" lang="del_message"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Prompt message
+				</font></font></h4>
+			</div>
+			<div class="modal-body">
+				<span lang="check_delete_inv"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Do you want to delete this inverter</font></font></span>
+				<span id="delInvName"></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">?
+			</font></font></div>
+			<div class="row">
+				<div id="delInvList" class="addColDisplay hidden text-center">
+					<span class="add_col_fail" lang="fail_delete_invSn"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Delete failed inverter SN number:</font></font></span>
+					<span id="delInvListFail" class="add_col_fail "></span>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" id="suDelInv">
+					<span lang="confirm"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Sure</font></font></span>
+				</button>
+				<button type="button" class="btn btn-info" id="clDelInv">
+					<span lang="cancel"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Cancel</font></font></span>
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 防逆流设置从逆变器列表迁移到了数采器列表 -->
+<!-- <div class="modal fade" id="Antireflux">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+						aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" lang="video_setup">设置
+				</h4>
+			</div>
+			<div class="modal-body">
+				<span lang="configuration">参数配置</span>(<span lang="magnification">倍率</span>)
+				<select id="typest" style="width: 140px;height: 30px;border: 1px solid #999;padding: 0px;">
+					<option value="" lang="no_info"></option>
+					<option value="10">10</option>
+					<option value="20">20</option>
+					<option value="40">40</option>
+					<option value="60">60</option>
+					<option value="80">80</option>
+					<option value="100">100</option>
+					<option value="160">160</option>
+					<option value="200">200</option>
+				</select>
+				<span id="Tips" style="margin-left: 20px;color: red;"></span>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" id="Determinethesettings">
+					<span lang="confirm">确定</span>
+				</button>
+				<button type="button" class="btn btn-info" id="Cancelsettings">
+					<span lang="cancel">取消</span>
+				</button>
+			</div>
+		</div>
+	</div>
+</div> -->
+<!-- 固件升级密码校验 -->
+<div class="mask lunchtime">
+	<div class="mask2">
+
+	</div>
+	<div class="maskBox">
+		<div class="m_b_top">
+			<div class="f_left">
+				<div class="f_left oneUpdate update_icon icon_op" id="Modifier">
+
+				</div>
+				<div class="f_left">
+					<strong lang="cryptographiccheck"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Please enter the password for firmware upgrade operation</font></font></strong>
+				</div>
+			</div>
+			<div class="f_right _m_b_topClose closeUpdate">
+
+			</div>
+		</div>
+		<div class="m_b_conten">
+			<div class="searchSonBox m_b_conten_lineBox">
+				<div lang="Updatethepassword"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+					Upgrade password:
+				</font></font></div>
+				<div class="searchSeltBox ">
+					<input type="text" id="codedlock">
+				</div>
+			</div>
+			<div class="reminder" id="reminder1" lang="pwd_wrong"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+				wrong password
+			</font></font></div>
+			<div class="reminder" id="reminder2" lang="noPwd_enter"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+				Password is empty, please re-enter
+			</font></font></div>
+		</div>
+		<div class="m_b_foot">
+			<div class="p_i_box3">
+				<div class="maskErrryTips" id="oneUpdateErrtip">
+					<!--取消-->
+				</div>
+				<span class="_btn_clear closeUpdate" lang="Shut_down" id="Turnoffthe"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+					closure
+				</font></font></span>
+				<span id="sample" class="btn_confirm" lang="confirm"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+					confirm
+				</font></font></span>
+				<!--</div>-->
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Renovigi网页定制版控制按钮输入密码模态框 -->
+<div class="modal fade" id="renovigiConfirmPwd">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">x</font></font></span></button>
+				<h4 class="modal-title" lang="del_message"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Prompt message
+				</font></font></h4>
+			</div>
+			<div class="modal-body">
+				<span lang="password_confirm"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Confirm password</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> :
+				</font></font><input type="password" id="ConpwdPh" class="input-specials" placeholder="">
+			</div>
+			<div class="row">
+				<div id="pwdPrompt" class="addColDisplay hidden text-center">
+					<span class="add_col_fail"></span>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" id="suPwd">
+					<span lang="confirm"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Sure</font></font></span>
+				</button>
+				<button type="button" class="btn btn-info" id="clPwd">
+					<span lang="cancel"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Cancel</font></font></span>
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
+<script src="./inverterSub_files/sha1-min.js"></script>
+<!-- <script src="js/loginIndex.js" type="text/javascript" charset="utf-8"></script> -->
+<script type="text/javascript">
+	INV_SUB_COL_PN = null;//选中逆变器附属数采器PN
+	INV_SUB_DEVCODE = null;//选中逆变器devcode
+	INV_SUB_SN = null;//选中逆变器sn
+	INV_SUB_ADDR = null;//选中逆变器addr
+	INV_SUB_ALIAS = null; //选中设备别名.
+	IS_MIN = false;  // 不是微逆页面
+	$("#Turnoffthe").click(function () {
+		$(".lunchtime").hide()
+	})
+	// 升级密码验证
+	$("#sample").click(function () {
+		$("#reminder2").hide()
+		$("#reminder1").hide()
+		var matter = $("#codedlock").val()
+		if (matter == "") {
+			$("#reminder2").show()
+		} else if (matter != "renosuptec123") {
+			$("#reminder1").show()
+		} else {
+			$(".lunchtime").hide()
+			loadHtml("deviceArea", "/dev/upgradeInverter.html");
+
+		}
+
+	})
+	$(document).ready(function () {
+		//删除完了之后重新生成树的时候可能出现二次init
+		if ($('#invSubTable').hasClass("table-state") == true) {
+			var table = $('#invSubTable').dataTable();
+			table.fnDestroy();
+			$('#invSubTable').removeClass("table-state");
+		}
+		checkUserCurLang();
+		queryColDevMap();
+		//单个采集器下属设备表操作
+		var pn;
+		var sn;
+		var devcode;
+		var devaddr;
+		$('#invSubTable tbody').on('click', 'a.inv-remove-row', function (e) {
+			//删除逆变器
+			e.preventDefault();
+			var rowData = $("#invSubTable").DataTable().row($(this).closest('tr')).data();
+			pn = rowData[0];//附着的数采器变化
+			sn = rowData[1];//设备序列号
+			devcode = rowData[3];//设备编码
+			devaddr = rowData[4];//通讯地址
+			$("#delInvList").addClass("hidden");
+			$("#delInvName").text(sn);
+			$("#delInvModal").modal();
+		}).on('click', 'a.forward-cmd-row', function (e) {
+			//指令透传
+			e.preventDefault();
+			var rowData = $("#invSubTable").DataTable().row($(this).closest('tr')).data();
+			INV_SUB_COL_PN = rowData[0];//附着的数采器编码
+			INV_SUB_SN = rowData[1];//设备序列号
+			INV_SUB_ALIAS = rowData[2];//设备别名
+			INV_SUB_DEVCODE = rowData[3];//设备编码
+			INV_SUB_ADDR = rowData[4];//通讯地址
+			loadHtml("deviceArea", "collectorForwardCmd.html");
+		}).on('click', 'a.inv-rename-row', function (e) {
+			// 修改设备别名.
+			e.preventDefault();
+			var rowData = $("#invSubTable").DataTable().row($(this).closest('tr')).data();
+			INV_SUB_COL_PN = rowData[0];//附着的数采器编码
+			INV_SUB_SN = rowData[1];//设备序列号
+			INV_SUB_ALIAS = rowData[2];//设备别名
+			INV_SUB_DEVCODE = rowData[3];//设备编码
+			INV_SUB_ADDR = rowData[4];//通讯地址
+			loadHtml("deviceArea", "/dev/deviceRename.html");
+		}).on('click', 'a.inv-upgrade-row', function (e) {
+			//升级固件
+			e.preventDefault();
+			var rowData = $("#invSubTable").DataTable().row($(this).closest('tr')).data();
+			INV_SUB_COL_PN = rowData[0];//附着的数采器编码
+			INV_SUB_SN = rowData[1];//设备序列号
+			INV_SUB_ALIAS = rowData[2];//设备别名
+			INV_SUB_DEVCODE = rowData[3];//设备编码
+			INV_SUB_ADDR = rowData[4];//通讯地址
+			var domain = document.domain;
+			if (domain == "www.renovigi.solar") {
+				$("#codedlock").val("");
+				$("#reminder2").hide()
+				$("#reminder1").hide()
+				$(".lunchtime").show()
+			} else {
+				loadHtml("deviceArea", "/dev/upgradeInverter.html");
+			}
+
+		}).on('click', 'a.inv-setup-row', function (e) {
+			//升级固件
+			e.preventDefault();
+			var rowData = $("#invSubTable").DataTable().row($(this).closest('tr')).data();
+			INV_SUB_COL_PN = rowData[0];//附着的数采器编码
+			INV_SUB_SN = rowData[1];//设备序列号
+			INV_SUB_ALIAS = rowData[2];//设备别名
+			INV_SUB_DEVCODE = rowData[3];//设备编码
+			INV_SUB_ADDR = rowData[4];//通讯地址
+			if (renovigiUpdate() || pwdUpdate()) {
+				$('#ConpwdPh').val("")
+				$("#pwdPrompt").text('')
+				$('#renovigiConfirmPwd').modal('show')
+			} else {
+				loadHtml("deviceArea", "/dev/setupInverter.html");
+			}
+		});
+		// 防逆流设置从逆变器列表迁移到了数采器列表
+		// .on('click', 'a.inv-Counter-current', function (e) {
+		// 	//防逆流设置
+		// 	e.preventDefault();
+		// 	var rowData = $("#invSubTable").DataTable().row($(this).closest('tr')).data();
+		// 	pn = rowData[0];//附着的数采器变化
+		// 	sn = rowData[1];//设备序列号
+		// 	devcode = rowData[3];//设备编码
+		// 	devaddr = rowData[4];//通讯地址
+		// 	$("#Tips").text("")
+		// 	$("#Antireflux").modal();
+		// 	var action = encodeURI("&action=queryDeviceBackFlow&pn=" + pn + "&sn=" + sn + "&devcode=" + devcode + "&devaddr=" + devaddr)
+		// 	var action1 = action.replace("+", "%2B").replace("#", "%23")
+		// 	http_async_request_public(action1, function (err, dat, desc) {
+		// 		if (err == 0) {
+		// 			if (dat.backFlow == undefined) {
+		// 				$("#typest").val("");
+		// 			} else {
+		// 				$("#typest").val(dat.backFlow);
+		// 			}
+		// 		}
+
+		// 	},
+		// 		function () {
+
+		// 		});
+		// 	console.log()
+		// });
+		
+		// // 防逆流确定
+		// $("#Determinethesettings").on("click", function () {
+		// 	var a = ""
+		// 	if($("#typest option:selected").val() != ""){
+		// 		a = Number($("#typest option:selected").val())
+		// 	}
+		// 	var action = encodeURI("&action=ctrlBackFlow&pn=" + pn + "&sn=" + sn + "&devcode=" + devcode + "&devaddr=" + devaddr + "&backFlow=" + a)
+		// 	var action1 = action.replace("+", "%2B").replace("#", "%23")
+		// 	http_async_request_public(action1, function (err, dat, desc) {
+		// 		if (err == 0) {
+		// 			$("#Antireflux").modal('hide')
+		// 		} else {
+		// 			$("#Tips").text(getErrorCodeDesc2(GET_ERR_DESC, "err" + err))
+		// 		}
+		// 	},
+		// 		function () {
+
+		// 		});
+		// });
+		// // 防逆流取消
+		// $("#Cancelsettings").on("click", function () {
+		// 	$("#Antireflux").modal('hide')
+		// });
+
+		//renovigi定制确认密码模态框点击事件
+		$("#suPwd").click(function () {
+			// console.log($('#ConpwdPh').val())
+			// $('#renovigiConfirmPwd').modal('hide');
+			pwdValidation($('#ConpwdPh').val())
+		});
+
+		$("#clPwd").click(function () {
+			$('#renovigiConfirmPwd').modal('hide');
+		});
+
+		//renovigi定制确认密码
+		function pwdValidation(pwd) {
+			if (!pwd) {
+				$("#pwdPrompt").removeClass("hidden").text(getMultiLangError("noPwd_enter"));
+			} else {
+				if (pwdUpdate()) {
+					var hostname = window.document.location.hostname
+					http_async_request_public("&action=queryCtrlFieldAtuh&password=" + pwd + "&hostname=" + hostname, function (err, dat) {
+						if (err == 0) {
+							$('#renovigiConfirmPwd').modal('hide')
+							setTimeout(() => {
+								loadHtml("deviceArea", "/dev/setupInverter.html");
+							}, 500);
+						}
+						else {
+							$("#pwdPrompt").removeClass("hidden").text(getMultiLangError("pwd_wrong"));
+						}
+					},
+						function () {
+							console.log("异常")
+						});
+				} else {
+					$("#pwdPrompt").addClass("hidden")
+					if (pwd == 'renotec22') {
+						//密码正确  稍微带点延迟 避免页面跳转后遮罩层没消失的BUG
+						$('#renovigiConfirmPwd').modal('hide')
+						setTimeout(() => {
+							loadHtml("deviceArea", "/dev/setupInverter.html");
+						}, 500);
+					} else {
+						$("#pwdPrompt").removeClass("hidden").text(getMultiLangError("pwd_wrong"));
+					}
+				}
+
+				// var usr = $.parseJSON(window.localStorage.getItem("globalStorage")).accounts[0].usr
+				// var powSha1 = hex_sha1(pwd)
+				// 	http_login(usr, powSha1, function(err, dat) {
+				// 		console.log(dat)
+				// 		console.log(err)
+				// 	if(err == 0) {
+				// 		$('#renovigiConfirmPwd').modal('hide');
+				// 		//密码正确  稍微带点延迟 避免页面跳转后遮罩层没消失的BUG
+				// 		setTimeout(() => {
+				// 			loadHtml("deviceArea", "/dev/setupInverter.html");
+				// 		}, 200);
+				// 	}else if(err == 16){
+				// 		$("#pwdPrompt").removeClass("hidden").text(getMultiLangError("pwd_wrong"));
+				// 	}else{
+				// 		$("#pwdPrompt").removeClass("hidden").text(getMultiLangError("server_refuse_upgrade") + err);
+				// 	}
+				// },function()
+				// 		{
+				// 			$("#pwdPrompt").removeClass("hidden").text(getMultiLangError("server_refuse_upgrade") + err);
+				// 		});
+			}
+		}
+
+
+		//删除逆变器事件绑定必须放到Ready函数中
+		$("#suDelInv").click(function () {
+			delSubInv(pn, sn, devcode, devaddr);
+		});
+
+		$("#clDelInv").click(function () {
+			$('#delInvModal').modal('hide');
+		});
+
+
+	});
+
+	//判断是否是定制域名www.renovigi.solar
+	function renovigiUpdate() {
+		var renovigi = "www.renovigi.solar";
+		var hostname = window.document.location.hostname
+		if (renovigi == hostname) {
+			return true;
+		} else {
+			return false
+		}
+
+	}
+	//判断是否是控制项密码定制域名
+	function pwdUpdate() {
+		var ksolare = "ksolare.shinemonitor.com";
+		var kirloskar = "kirloskar.shinemonitor.com";
+		var hostname = window.document.location.hostname
+		if (ksolare == hostname || kirloskar == hostname) {
+			return true;
+		} else {
+			return false
+		}
+
+	}
+
+	//获取某个采集器下面下属设备映射表,结合点中设备生产相应表格
+	function queryColDevMap() {
+		http_async_request_public("&action=queryDevices&page=0&pagesize=50&pn=" + MAIN_SELECTED_SUB_PN, function (err, dat) {
+			if (err == WS_ERR_NONE) {
+				initColDevTable(getSubDevMap(dat, MAIN_SELECTED_SUB_TYPE));
+			}
+			else {
+				initColDevTable([]);
+			}
+		},
+			function () {
+				initColDevTable([]);
+			});
+	}
+
+	//生成相应表格
+	function initColDevTable(data) {
+		console.log(data, "?????????")
+		var table = $('#invSubTable').DataTable(
+			{
+				data: data,
+				scrollX: true,
+				scrollY: "75vh",
+				paging: false,
+				searching: false,
+				ordering: false,
+				processing: true,
+				info: false,
+				columns: [{
+					title: getMultiLangError("father_datalog_pn")
+				}, {
+					title: getMultiLangError("device_sn")
+				}, {
+					title: getMultiLangError("device_alias")
+				}, {
+					title: getMultiLangError("device_code")
+				}, {
+					title: getMultiLangError("dev_mail_address")
+				}, {
+					title: getMultiLangError("inv_status")
+				}, {
+					title: getMultiLangError("inv_sub_oper"),
+					"defaultContent":
+						// "<a href='#' class='noreplace on-default inv-Counter-current'>" + "<img src='assets/images/menu/col_green.png' style='width:13px;height:13px'>" + "</a>"
+						// + "&nbsp;&nbsp;&nbsp;" +
+						"<a href='#' class='noreplace on-default inv-rename-row'>" + "<img src='assets/images/menu/cancel_stick.png'>" + "</a>"
+						+ "&nbsp;&nbsp;&nbsp;" +
+						"<a href='#' class='noreplace on-default inv-setup-row' >" + "<i class='fa fa-wrench tableStyleIcon'></i>" + "</a>"
+						+ "&nbsp;&nbsp;&nbsp;" +
+						"<a href='#' class='noreplace on-default forward-cmd-row'>" + "<i class='fa fa-bug tableStyleIcon'></i>" + "</a>"
+						+ "&nbsp;&nbsp;&nbsp;" +
+						"<a href='#' class='noreplace on-default inv-upgrade-row'>" + "<img src='assets/images/menu/col_upgrade.png'>" + "</a>"
+						+ "&nbsp;&nbsp;&nbsp;" +
+						"<a href='#' class='noreplace on-default inv-remove-row'>" + "<i class='fa fa-trash-o'>" + "</a>"
+					,
+					"bSortable": false
+				}],
+				"language": {
+					"url": "/assets/vendor/jquery-datatables/media/js/language" + storage_i18n_get_id() + ".json"
+				}
+			});
+
+		$('#invSubTable').addClass("table-state");
+	}
+
+	//删除逆变器
+	function delSubInv(pn, sn, devcode, devaddr) {
+		var action = encodeURI("&action=delDeviceFromPlant&pn=" + pn + "&sn=" + sn + "&devcode=" + devcode + "&devaddr=" + devaddr)
+		var action1 = action.replace("+", "%2B").replace("#", "%23")
+		http_async_request_public(action1, function (err, dat, desc) {
+			if (err == WS_ERR_NONE) {
+				$('#delInvModal').modal('hide');
+				refreshSubInvTable();
+			}
+			else {
+				$("#delInvList").removeClass("hidden");
+				$("#delInvListFail").text(sn + "--" + getErrorCodeDesc2(GET_ERR_DESC, "err" + err, desc));
+				setTimeout(function () { $("#delInvModal").modal("hide") }, 4000);
+			}
+			refreshSubInvTable();
+		},
+			function () {
+				$("#delInvList").removeClass("hidden");
+				$("#delInvListFail").text(sn + "--" + getErrorCodeDesc2(GET_ERR_DESC, "err" + err, desc));
+			});
+	}
+
+	//只更新表格内容,不更新树
+	function refreshSubInvTable() {
+		var data = new Array();
+		http_async_request_public("&action=queryDevices&page=0&pagesize=50&pn=" + MAIN_SELECTED_SUB_PN, function (err, dat) {
+			if (err == WS_ERR_NONE) {
+				data = getSubDevMap(dat, MAIN_SELECTED_SUB_TYPE)
+			}
+			else {
+				data = [];
+			}
+			var table = $('#invSubTable').DataTable();
+			table.clear().draw();
+			table.rows.add(data).draw();
+		},
+			function () {
+				var table = $('#invSubTable').DataTable();
+				table.clear().draw();
+				table.rows.add([]).draw();
+			});
+	}
+</script>
+<div id="goog-gt-tt" class="skiptranslate" dir="ltr"><div style="padding: 8px;"><div><div class="logo"><img src="./inverterSub_files/translate_24dp.png" width="20" height="20" alt="Google Translate"></div></div></div><div class="top" style="padding: 8px; float: left; width: 100%;"><h1 class="title gray">Original text</h1></div><div class="middle" style="padding: 8px;"><div class="original-text"></div></div><div class="bottom" style="padding: 8px;"><div class="activity-links"><span class="activity-link">Contribute a better translation</span></div><div class="started-activity-container"><hr style="color: #CCC; background-color: #CCC; height: 1px; border: none;"><div class="activity-root"></div></div></div><div class="status-message" style="display: none;"></div></div><style>
+	.mask {
+		display: none;
+	}
+
+	.mask1 {
+		position: fixed;
+		top: 0px;
+		left: 0px;
+		bottom: 0px;
+		right: 0px;
+		background: rgba(50, 50, 50, .2);
+		z-index: 11;
+	}
+
+	.mask2 {
+		position: fixed;
+		top: 0px;
+		left: 0px;
+		bottom: 0px;
+		right: 0px;
+		background: rgba(50, 50, 50, .2);
+		z-index: 11;
+	}
+
+	.maskBox {
+		position: absolute;
+		left: 50%;
+		top: 0;
+		margin-top: 100PX;
+		margin-left: -433px;
+		z-index: 100;
+		width: 868px;
+		min-height: 200px;
+		border-radius: 10px;
+		background: #fff;
+	}
+
+	.mask .m_b_top {
+		font-size: 16px;
+		line-height: 48px;
+		height: 48px;
+		border-bottom: 1px solid #F2F2F2;
+	}
+
+	.mask .m_b_topicon {
+		margin-left: 14px;
+		height: 46px;
+		width: 32px;
+		background: url(../img/m_b_topicon.png) center center no-repeat;
+		background-size: 20px 20px;
+	}
+
+	.mask .m_b_topClose,
+	.mask ._m_b_topClose {
+		cursor: pointer;
+		margin-right: 14px;
+		height: 46px;
+		width: 46px;
+		background-size: 20px 20px;
+	}
+
+	.mask .m_b_conten {
+		min-width: 424px;
+		margin: 30px auto 60px auto;
+	}
+
+	.mask .m_b_c_conter {
+		position: relative;
+		min-width: 400px;
+	}
+
+	.mask .m_b_conten input {
+		width: 320px;
+		background-position-x: 296px;
+	}
+
+	.mask .m_b_conten ul {
+		width: 320px;
+	}
+
+	.mask .m_b_foot {
+		border-top: 1px solid #f2f2f2;
+		text-align: right;
+	}
+
+	.mask .m_b_foot span {
+		text-align: center;
+	}
+
+	.mask .m_b_foot .p_i_box3 {
+		margin-right: 60px;
+	}
+
+	.m_b_conten_lineBox {
+		margin: 20px auto;
+		width: 100%;
+		font-size: 12px;
+	}
+
+	.m_b_conten_lineBox:after {
+		clear: both;
+		display: block;
+		content: ' ';
+		height: 0px;
+		overflow: hidden;
+	}
+
+	.m_b_conten_lineBox>div:first-child {
+		min-width: 30%;
+		text-align: right;
+		float: left;
+	}
+
+	.debugBox .m_b_conten_lineBox>div:first-child {
+		text-align: left;
+	}
+
+	.m_b_conten_lineBox>div:last-child {
+		width: 68%;
+		text-align: left;
+		float: right;
+	}
+
+	.f_left {
+		float: left;
+	}
+
+	.searchSonBox {
+		padding: 0px 15px;
+		text-align: right;
+		margin: 0px 0px 16px 0px;
+		min-width: 300px;
+		min-height: 32px;
+		line-height: 32px;
+		font-size: 12px;
+	}
+
+	.searchSonBox span:first-child {
+		padding-right: 10px;
+	}
+
+	.searchSonBox input {
+		text-indent: 16px;
+		border: 1px solid #d9d9d9;
+		outline: medium;
+		height: 26px;
+		width: 190px;
+		border-radius: 6px;
+	}
+
+	._btn_clear {
+		border: 1px solid #d9d9d9;
+		background: #f3f3f3;
+	}
+
+	.btn_confirm {
+		color: #fff;
+		background: #108EE9;
+	}
+
+	.p_i_box3 {
+		line-height: 66px;
+		height: 66px;
+	}
+
+	.p_i_box3 span {
+		margin-left: 16px;
+		border-radius: 4px;
+		cursor: pointer;
+		line-height: 30px;
+		display: inline-block;
+		padding: 0px 10px;
+		height: 30px;
+	}
+
+	.p_i_box3 span:hover {
+		opacity: .8;
+	}
+
+	.update_icon {
+		background: url(/vendortest/img/update.png) center center no-repeat;
+	}
+
+	.icon_op {
+		cursor: pointer;
+		background-size: 25px 25px;
+		/*margin-right: 10px;*/
+		width: 30px;
+		height: 25px;
+		display: inline-block;
+	}
+
+	#Modifier {
+		margin-left: 14px;
+		height: 46px;
+		color: #0095F2
+	}
+
+	.reminder {
+		color: #ff0000;
+		display: none;
+		text-align: center;
+	}
+</style><div class="goog-te-spinner-pos"><div class="goog-te-spinner-animation"><svg xmlns="http://www.w3.org/2000/svg" class="goog-te-spinner" width="96px" height="96px" viewBox="0 0 66 66"><circle class="goog-te-spinner-path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle></svg></div></div></body></html>

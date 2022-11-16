@@ -1,0 +1,349 @@
+
+<!-- saved from url=(0047)https://shinemonitor.com/dev/setupInverter.html -->
+<html class="translated-ltr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- <link rel="stylesheet" type="text/css" href="/css/reg.css"> -->
+<style type="text/css">
+	.lookcurrent{
+		color: green;
+		text-decoration: underline;
+		cursor: pointer;
+	}
+	.special_ul{
+		z-index: 1;
+		display: none;
+		max-height: 200px;
+	    left: 34px;
+	    position: absolute;
+	    width: 148px;
+	    background: #fff;
+	    text-align: left;
+	    padding-left: 4px;
+	    overflow-y: auto;
+	}
+	.special_ul li:hover{
+		background: #108EE9;
+		color: #fff;
+	}
+	.input-special{
+		width: 200px;
+	}
+	.select-special{
+		width: 200px;
+	}
+</style>
+<link type="text/css" rel="stylesheet" charset="UTF-8" href="./setupInverter_files/translateelement.css"></head><body><div class="row plant_info">
+	<div class="plant_info_all">
+		<section class="plantInfo" id="setUpInvAll">
+			<div class="panel-body plant_info_bg">
+				<!-- 顶部选中数采器信息 -->
+				<div class="back2Top">
+					<a onclick="back2InvSub()">
+						<img src="./setupInverter_files/go_back.png" class="goBack2last">
+					</a>
+					<label lang="father_datalog_pn"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Attached data logger code</font></font></label><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> :
+					</font></font><span id="invSetPn" class="backTopInfo"></span>
+					<span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">, </font></font></span>
+					<label lang="device_sn"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">device serial number</font></font></label><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> :
+					</font></font><span id="invSetSn" class="backTopInfo"></span>
+				</div>
+				<!-- 错误提示信息 -->
+				<div id="setInvCue" class="faultInfo">
+					<i class="fa fa-exclamation-circle">
+				     </i>
+				</div>
+				<!-- 表格显示 -->
+				<table class="myTableStyle1" id="setUpInvTable">
+					<thead>
+						<tr><th lang="inv_field_name"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">field name</font></font></th>
+						<th lang="operation"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">operate</font></font></th>
+						<th lang="inv_unit"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">unit</font></font></th>
+						<th lang="current_val"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">The current value</font></font></th>
+						<th lang="inv_send_cmd"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Order issued</font></font></th>
+					</tr></thead>
+					<tbody>
+
+					</tbody>
+				</table>
+			</div>
+			<!-- <div class="panel-body plant_info_bg" id="huangjintaiV">
+				<div id="setInvCueHuangJinTai" class="faultInfo">
+					<i class='fa fa-exclamation-circle'>
+				     </i>
+				</div>
+				<table class="myTableStyle1" id="setUpInvTableHuangJinTai">
+					<thead>
+						<th lang="battery_voltage">电池电压</th>
+						<th lang="magnification">倍率</th>
+						<th lang="inv_send_cmd">指令下发</th>
+					</thead>
+					<tbody>
+
+					</tbody>
+				</table>
+			</div> -->
+		</section>
+	</div>
+</div>
+<div id="goog-gt-tt" class="skiptranslate" dir="ltr"><div style="padding: 8px;"><div><div class="logo"><img src="./setupInverter_files/translate_24dp.png" width="20" height="20" alt="Google Translate"></div></div></div><div class="top" style="padding: 8px; float: left; width: 100%;"><h1 class="title gray">Original text</h1></div><div class="middle" style="padding: 8px;"><div class="original-text"></div></div><div class="bottom" style="padding: 8px;"><div class="activity-links"><span class="activity-link">Contribute a better translation</span></div><div class="started-activity-container"><hr style="color: #CCC; background-color: #CCC; height: 1px; border: none;"><div class="activity-root"></div></div></div><div class="status-message" style="display: none;"></div></div><script type="text/javascript">
+	$(document).ready(function() {
+		checkUserCurLang();
+		//提示目前选中数采器和逆变器信息
+		$("#invSetPn").text(INV_SUB_COL_PN);
+		$("#invSetSn").text(INV_SUB_SN);
+		querydeviceCtrlView();
+		// if(INV_SUB_DEVCODE == 2384){
+		// 	$('#huangjintaiV').show();
+		// 	querydeviceCtrlView2();
+		// }else{
+		// 	$('#huangjintaiV').hide();
+		// }
+		$(document).off("click",".special_inp").on('click',".special_inp",function(){
+			$(".special_ul").hide()
+			$(this).next().toggle()
+		})
+		$(document).off("click",".special_ul li").on('click',".special_ul li",function(){
+			console.log($(this).attr("key"))
+			$(this).parent().prev().val($(this).attr("key"))
+		})
+		$(document).bind('click', function(e) {
+		var e = e || window.event; //浏览器兼容性 
+		var elem = e.target || e.srcElement;
+		if($(elem).attr("class") != "input-special special_inp") {
+			$(".special_ul").hide()
+		}
+ 
+	    });
+	});
+	// //查询设备控制模板(黄金台定制)
+	// function querydeviceCtrlView2() {
+	// 	http_async_request_public("&action=queryCtrlHuangJinTaiView&pn=" +
+	// 		INV_SUB_COL_PN + "&sn=" + INV_SUB_SN + "&devcode=" +
+	// 		INV_SUB_DEVCODE + "&devaddr=" + INV_SUB_ADDR,
+	// 		function(err, dat) {
+	// 			if(err == WS_ERR_NONE) {
+	// 				loadDeviceCtrlTable3(dat);
+	// 			}else if (err == 8){
+	// 				loadDeviceCtrlTable3();
+	// 			} else {
+	// 				$("#setInvCueHuangJinTai > i").text(getMultiLangError("inv_sub_query_fail") + getErrorCodeDesc2(GET_ERR_DESC, "err"+err));
+	// 				$("#setInvCueHuangJinTai").show().fadeOut(4000);
+	// 			}
+	// 		},
+	// 		function() {
+	// 			console.log("数采器列表读取失败");
+	// 		});
+	// }
+	// //生成表格内容,绑定表格事件(黄金台定制)
+	// function loadDeviceCtrlTable3(dat) {
+	// 	var volArr = [{key:'12V',val:12},{key:'24V',val:24},{key:'48V',val:48},{key:'96V',val:96}]
+	// 	var mulArr = [{key:'0.09',val:0.09},{key:'0.18',val:0.18},{key:'0.36',val:0.36},{key:'0.72',val:0.72}]
+	// 	var tbody = $("#setUpInvTableHuangJinTai tbody");
+	// 	tbody.empty();
+	// 	var firstHtml = "<tr><td>";
+	// 	var customHtml = "<select class='select-special'>";
+	// 	for(var j = 0; j < volArr.length; j++) {
+	// 		if(dat&&dat.voltage == volArr[j].val){
+	// 			customHtml += "<option selected value='" + volArr[j].val + "'>" + volArr[j].key + "</option>";
+	// 		}else{
+	// 			customHtml += "<option value='" + volArr[j].val + "'>" + volArr[j].key + "</option>";
+	// 		}
+	// 	}
+	// 	var middleHtml = customHtml + "</select></td><td>"
+	// 	if(dat){
+	// 		for (let k = 0; k < volArr.length; k++) {
+	// 			if(dat.voltage == volArr[k].val){
+	// 				middleHtml += "<input style='text-align: center;' value='"+ mulArr[k].val +"' disabled class='input-special'></td>";
+	// 			}
+	// 		}
+	// 	}else{
+	// 		middleHtml += "<input style='text-align: center;' value='"+ mulArr[0].val +"' disabled class='input-special'></td>";
+	// 	}
+		
+	// 	var lastHtml = "<td><a class='set-up-inv2'><img src='assets/images/menu/pointer.png' class='setInvIcon'></a></td></tr>";
+	// 	$(firstHtml + middleHtml + lastHtml).appendTo(tbody);
+	// 	$(".select-special").change(function() {
+	// 		var $trObj = $(this).closest("tr");
+	// 		for (var i = 0; i < volArr.length; i++) {
+	// 			if(volArr[i].val == $(this).val()){
+	// 				$trObj.find("input").val(mulArr[i].val);
+	// 			}
+	// 		}
+	// 	});
+	// 	$(".set-up-inv2").click(function() {
+	// 		invDeviceControl2($(this));
+	// 	});
+		
+	// }
+	//查询设备控制模板
+	function querydeviceCtrlView() {
+		http_async_request_public("&action=queryDeviceCtrlField&pn=" +
+			INV_SUB_COL_PN + "&sn=" + INV_SUB_SN + "&devcode=" +
+			INV_SUB_DEVCODE + "&devaddr=" + INV_SUB_ADDR,
+			function(err, dat) {
+				if(err == WS_ERR_NONE) {
+					loadDeviceCtrlTable2(dat);
+				} else {
+					$("#setInvCue > i").text(getMultiLangError("inv_sub_query_fail") + getErrorCodeDesc2(GET_ERR_DESC, "err"+err));
+					$("#setInvCue").show().fadeOut(4000);
+				}
+			},
+			function() {
+				console.log("数采器列表读取失败");
+			});
+//			http_async_request_public("&action=queryDeviceSpecialCtrlField&pn=" +
+//			INV_SUB_COL_PN + "&sn=" + INV_SUB_SN + "&devcode=" +
+//			INV_SUB_DEVCODE + "&devaddr=" + INV_SUB_ADDR,
+//			function(err, dat) {
+//				if(err == WS_ERR_NONE) {
+//					console.log(dat)
+//					loadDeviceCtrlTable2(dat);
+//				} else {
+//					$("#setInvCue > i").text(getMultiLangError("inv_sub_query_fail") + getErrorCodeDesc2(GET_ERR_DESC, "err"+err));
+//					$("#setInvCue").show().fadeOut(4000);
+//				}
+//			},
+//			function() {
+//				console.log("数采器列表读取失败");
+//			});
+	}
+
+	//生成表格内容,绑定表格事件
+	function loadDeviceCtrlTable2(dat) {
+		var tbody = $("#setUpInvTable tbody");
+		tbody.empty();
+//		for(var i=0;i<dat.special.length;i++){
+//				var area = dat.special[i].id;
+//				var name = dat.special[i].name;
+//				var unit = dat.special[i].unit;
+//	 			var firstHtml = "<tr area='" + area + "' ><td>" + name + "</td><td>";
+//				
+//				var customHtml = "<div style='position:relative;'><input type='number' class='input-special special_inp' value='" + dat.special[i].item[0].key + "'><ul class='special_ul'>"
+//				for(var j = 0; j < dat.special[i].item.length; j++) {
+//					customHtml += "<li key='" + dat.special[i].item[j].key + "'>" + dat.special[i].item[j].val + "</li>";
+//					var middleHtml = customHtml + "</ul></div></td>"
+//				}
+//			var lastHtml = "<td>" + fieldAutoDisp(unit) + "</td><td><input type='text' class='input-special' id='"+area+"' readonly/>&nbsp;<img src='/assets/images/lookcurrent.png' class='lookcurrent' /></td><td><a class='set-up-inv'><img src='assets/images/menu/pointer.png' class='setInvIcon'></a></td></tr>";
+//			$(firstHtml + middleHtml + lastHtml).appendTo(tbody);
+//				
+//				
+// 
+//		}
+		for(var i = 0; i < dat.field.length; i++) {
+			var area = dat.field[i].id;
+			var name = dat.field[i].name;
+			var unit = dat.field[i].unit;
+			var operObj = dat.field[i].item;
+			var hint = dat.field[i].hint
+			var firstHtml = "<tr area='" + area + "' ><td>" + name + "</td><td>";
+			//判断是显示select还是input
+			if((operObj == undefined) || (operObj == null)) {
+				var middleHtml = "<input class='input-special' placeholder='" + fieldAutoDisp(hint) + "'></td>";
+			}else{
+				var customHtml = "<select class='select-special'>";
+				for(var j = 0; j < operObj.length; j++) {
+					customHtml += "<option value='" + operObj[j].key + "'>" + operObj[j].val + "</option>";
+				}
+
+				var middleHtml = customHtml + "</select></td>"
+			}
+			//注意unit可能为null
+			var lastHtml = "<td>" + fieldAutoDisp(unit) + "</td><td><input type='text' class='input-special' id='"+area+"' readonly/>&nbsp;<img src='/assets/images/lookcurrent.png' class='lookcurrent' /></td><td><a class='set-up-inv'><img src='assets/images/menu/pointer.png' class='setInvIcon'></a></td></tr>";
+			$(firstHtml + middleHtml + lastHtml).appendTo(tbody);
+		}
+
+		$(".set-up-inv").click(function() {
+			invDeviceControl($(this));
+		});
+	}
+
+	$(document).off("click",".lookcurrent").on("click",".lookcurrent",function(){
+		var _this=$(this)
+		var $trObj = _this.closest("tr");
+		var id = _this.parents("tr").attr("area")
+		$trObj.showLoading();
+		var action = "&action=queryDeviceCtrlValue&pn=" + INV_SUB_COL_PN + "&sn=" + INV_SUB_SN + "&devaddr=" + INV_SUB_ADDR + "&devcode=" + INV_SUB_DEVCODE + "&id=" + id;
+		http_async_request_public(action, function(err, dat, desc) {
+				if(err == WS_ERR_NONE) {
+					$("#"+id).val(dat.val)
+				} else {
+					$("#"+id).val(getErrorCodeDesc(1) + ":" +getErrorCodeDesc2(GET_ERR_DESC, "err"+err,desc) )
+				
+				}
+				$trObj.hideLoading();
+			},
+			function() {
+				$trObj.hideLoading();
+			});
+	})
+	function invDeviceControl(ele) {
+		var $trObj = ele.closest("tr");
+		$trObj.showLoading();
+		var id = $trObj.attr("area");
+		//如果存在Input元素		 
+		if($trObj.find("input").size() ==2) {
+			var inputVal = $trObj.find("input").val();
+			var action = "&action=ctrlDevice&pn=" + INV_SUB_COL_PN + "&sn=" + INV_SUB_SN + "&devaddr=" + INV_SUB_ADDR + "&devcode=" + INV_SUB_DEVCODE + "&id=" + id + "&val=" + inputVal;
+		} else {
+			var optionIndex = $trObj.find("select").val();
+			
+			var action = "&action=ctrlDevice&pn=" + INV_SUB_COL_PN + "&sn=" + INV_SUB_SN + "&devaddr=" + INV_SUB_ADDR + "&devcode=" + INV_SUB_DEVCODE + "&id=" + id + "&val=" + optionIndex;
+		}
+
+		http_async_request_public(encodeURI(action), function(err, dat, desc) {
+				if(err == WS_ERR_NONE) {
+					console.log(dat.dat.split(" "))
+					
+					if(dat.dat.split(" ").length ==13 )
+					{
+						layer.ready(function() {
+						layer.msg(getMultiLangError("Invalid_instruction"));
+						});
+					}else{
+						if(dat.status ==2){
+							layer.ready(function() {
+						      layer.msg(getMultiLangError("reboot_instruction"));
+					       });		
+						}else{
+							layer.ready(function() {
+						      layer.msg(getMultiLangError("inv_sub_cmd_suc"));
+					       });							
+						}
+					}
+					
+				} else {
+					layer.ready(function() {
+						layer.msg(getMultiLangError("inv_sub_cmd_fail") + ":" + getErrorCodeDesc2(GET_ERR_DESC,"err"+err,getMultiLangError("inv_sub_cmd_faila")));
+						// layer.msg(getMultiLangError("inv_sub_cmd_fail") + ":" + getMultiLangError("inv_sub_cmd_faila"));
+					});
+				}
+				$trObj.hideLoading();
+			},
+			function() {
+				$trObj.hideLoading();
+			});
+	}
+	// function invDeviceControl2(ele) {
+	// 	var $trObj = ele.closest("tr");
+	// 	$trObj.showLoading();
+	// 	var voltage = $trObj.find("select").val();
+	// 	var multiply = $trObj.find("input").val();
+	// 	var action = "&action=ctrlHuangJinTaiView&pn=" + INV_SUB_COL_PN + "&sn=" + INV_SUB_SN + "&devaddr=" + INV_SUB_ADDR + "&devcode=" + INV_SUB_DEVCODE + "&voltage=" + voltage + "&multiply=" + multiply;
+
+	// 	http_async_request_public(encodeURI(action), function(err, dat, desc) {
+	// 			if(err == WS_ERR_NONE) {
+	// 					layer.ready(function() {
+	// 					layer.msg(getMultiLangError("inv_sub_cmd_suc"));
+	// 				});
+					
+	// 			} else {
+	// 				layer.ready(function() {
+	// 					layer.msg(getMultiLangError("inv_sub_cmd_fail") + ":" + getMultiLangError("inv_sub_cmd_faila"));
+	// 				});
+	// 			}
+	// 			$trObj.hideLoading();
+	// 		},
+	// 		function() {
+	// 			$trObj.hideLoading();
+	// 		});
+	// }
+</script><div class="goog-te-spinner-pos"><div class="goog-te-spinner-animation"><svg xmlns="http://www.w3.org/2000/svg" class="goog-te-spinner" width="96px" height="96px" viewBox="0 0 66 66"><circle class="goog-te-spinner-path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle></svg></div></div></body></html>
