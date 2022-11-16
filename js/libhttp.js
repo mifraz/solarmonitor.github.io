@@ -2737,9 +2737,9 @@ function splitColFwName(str) {
 /** ---------------------------------------------------------------- */
 function back2InvSub() {
 	if (IS_MIN)
-		$("#deviceArea").load("/dev/miniInverterSub.html", null);
+		$("#deviceArea").load("./dev/miniInverterSub.html", null);
 	else
-		$("#deviceArea").load("/dev/inverterSub.html", null);
+		$("#deviceArea").load("./dev/inverterSub.html", null);
 }
 //回到电站告警列表
 function backPlantAlarm() {
