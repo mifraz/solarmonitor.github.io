@@ -718,9 +718,7 @@
 						var oneTime = new Array();
 						for(var k = 0; k < dat.date[i].paramter.length; k++) {
 							oneTime.push(dat.date[i].paramter[k].key.substring(11, 16));
-							if(dat.date[i].paramter[k].val == null)
-								oneparms.push("0");
-							else
+							if(dat.date[i].paramter[k].val !== null)
 								oneparms.push(dat.date[i].paramter[k].val);
 						}
 						allparms.push(oneparms);
