@@ -716,9 +716,11 @@
 					for(var i = 0; i < dat.date.length; i++) {
 						var oneparms = new Array();
 						var oneTime = new Array();
-						for(var k = 0; k < dat.date[i].paramter.length; k++) {
+						for(var k = 0; k < (dat.date[i].paramter.length - 1); k++) {
 							oneTime.push(dat.date[i].paramter[k].key.substring(11, 16));
-							if(dat.date[i].paramter[k].val !== null)
+							if(dat.date[i].paramter[k].val == null)
+								oneparms.push("0");
+							else
 								oneparms.push(dat.date[i].paramter[k].val);
 						}
 						allparms.push(oneparms);
